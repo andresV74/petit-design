@@ -1,0 +1,118 @@
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 10% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 10% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 10% 25%;
+
+    --primary: 168 40% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 210 10% 30%;
+
+    --muted: 210 15% 95%;
+    --muted-foreground: 210 10% 45%;
+
+    --accent: 168 35% 70%;
+    --accent-foreground: 168 40% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 168 40% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors for Petit Design - Mint Green, Light Gray, White */
+    --mint: 168 40% 65%;
+    --mint-light: 168 35% 85%;
+    --mint-dark: 168 45% 45%;
+    --gray-light: 210 15% 95%;
+    --gray-medium: 210 10% 75%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 210 10% 30%;
+    --sidebar-primary: 168 40% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 168 35% 92%;
+    --sidebar-accent-foreground: 168 40% 25%;
+    --sidebar-border: 210 15% 90%;
+    --sidebar-ring: 168 40% 65%;
+  }
+
+  .dark {
+    --background: 210 10% 10%;
+    --foreground: 210 15% 95%;
+
+    --card: 210 10% 12%;
+    --card-foreground: 210 15% 95%;
+
+    --popover: 210 10% 12%;
+    --popover-foreground: 210 15% 95%;
+
+    --primary: 168 35% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 10% 18%;
+    --secondary-foreground: 210 15% 90%;
+
+    --muted: 210 10% 18%;
+    --muted-foreground: 210 10% 60%;
+
+    --accent: 168 30% 45%;
+    --accent-foreground: 168 10% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 10% 25%;
+    --input: 210 10% 25%;
+    --ring: 168 35% 55%;
+
+    --mint: 168 35% 55%;
+    --mint-light: 168 30% 35%;
+    --mint-dark: 168 40% 65%;
+    --gray-light: 210 10% 18%;
+    --gray-medium: 210 10% 40%;
+
+    --sidebar-background: 210 10% 10%;
+    --sidebar-foreground: 210 15% 95%;
+    --sidebar-primary: 168 35% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 168 30% 20%;
+    --sidebar-accent-foreground: 168 15% 95%;
+    --sidebar-border: 210 10% 25%;
+    --sidebar-ring: 168 35% 55%;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-sans {
+    font-family: 'Lato', sans-serif;
+  }
+
+  .font-script {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .font-heading {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
