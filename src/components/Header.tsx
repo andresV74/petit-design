@@ -69,15 +69,15 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-8">
+      <div className="container flex h-20 items-center justify-between px-4 md:px-8">
         {/* Logo + Brand Name */}
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/">
           <img
             src="/logo-header.png"
             alt="Petit Design"
             width="60"
             height="60"
-            className="h-12 w-12 object-contain"
+            className="h-20 w-20 object-contain"
           />
         </Link>
 
@@ -97,7 +97,7 @@ export function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                className="text-sm font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2"
+                className="font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2 py-2"
               >
                 {t('nav.categories')}
                 <ChevronDown className="h-4 w-4" />
@@ -144,7 +144,7 @@ export function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                className="text-sm font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2"
+                className="text-sm font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2 py-2"
               >
                 {language === 'es' ? 'Telas' : 'Fabrics'}
                 <ChevronDown className="h-4 w-4" />

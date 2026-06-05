@@ -35,13 +35,13 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-4">
+            <Link to="/" className="block mb-2">
               <img
                 src="/logo-header.png"
                 alt="Petit Design"
-                width="56"
-                height="56"
-                className="h-14 w-14 object-contain"
+                width="100"
+                height="100"
+                className="h-25 w-25 object-contain"
               />
             </Link>
             <p className="text-muted-foreground max-w-md">
@@ -155,12 +155,6 @@ export function Footer() {
             © {new Date().getFullYear()} Petit Design. {t('footer.rights')}.
           </p>
           <div className="flex items-center gap-4">
-            <Link
-              to="/gestion-petit/login"
-              className="text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors"
-            >
-              Admin
-            </Link>
             <p className="text-sm text-muted-foreground flex items-center gap-1">
               Hecho con <Heart className="h-4 w-4 text-mint fill-mint" /> desde Manizales, Colombia 🇨🇴
             </p>

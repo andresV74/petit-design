@@ -1,5 +1,6 @@
 @layer theme, base, components, utilities;
 
+@import "tailwindcss";
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
@@ -99,6 +100,29 @@
   }
 }
 
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Lato', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
 @layer utilities {
   .font-display {
     font-family: 'Playfair Display', serif;
@@ -114,5 +138,64 @@
 
   .font-heading {
     font-family: 'Montserrat', sans-serif;
+  }
+
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .text-mint-dark,
+  .hover\:text-mint-dark:hover {
+    color: hsl(var(--mint-dark));
+  }
+
+  .bg-gray-light\/50 {
+    background-color: hsl(var(--gray-light) / 0.5);
+  }
+
+  .bg-accent,
+  .hover\:bg-accent:hover,
+  .focus\:bg-accent:focus {
+    background-color: hsl(var(--accent));
+  }
+
+  .focus-visible\:ring-offset-2:focus-visible {
+    --tw-ring-color: hsl(var(--ring));
+  }
+
+  .text-popover-foreground {
+    color: hsl(var(--popover-foreground));
+  }
+
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  .bg-muted {
+    background-color: hsl(var(--muted));
+  }
+
+  .text-mint {
+    color: hsl(var(--mint));
+  }
+
+  .fill-mint {
+    fill: hsl(var(--mint));
+  }
+
+  .bg-mint\/10 {
+    background-color: hsl(var(--mint) / 0.1);
+  }
+
+  .bg-mint\/20 {
+    background-color: hsl(var(--mint) / 0.2);
+  }
+
+  .hover\:bg-mint\/20:hover {
+    background-color: hsl(var(--mint) / 0.2);
+  }
+
+  .hover\:bg-mint\/30:hover {
+    background-color: hsl(var(--mint) / 0.3);
   }
 }
