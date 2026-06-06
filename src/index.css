@@ -140,13 +140,25 @@
     font-family: 'Montserrat', sans-serif;
   }
 
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
   .text-muted-foreground {
     color: hsl(var(--muted-foreground));
+  }
+
+  .text-popover-foreground {
+    color: hsl(var(--popover-foreground));
   }
 
   .text-mint-dark,
   .hover\:text-mint-dark:hover {
     color: hsl(var(--mint-dark));
+  }
+
+  .hover\:text-accent-foreground:hover {
+    color: hsl(var(--accent-foreground));
   }
 
   .bg-gray-light\/50 {
@@ -163,12 +175,12 @@
     --tw-ring-color: hsl(var(--ring));
   }
 
-  .text-popover-foreground {
-    color: hsl(var(--popover-foreground));
-  }
-
   .bg-background {
     background-color: hsl(var(--background));
+  }
+
+  .bg-background\/95 {
+    background-color: hsl(var(--background) / 0.95);
   }
 
   .bg-muted {
@@ -183,6 +195,10 @@
     fill: hsl(var(--mint));
   }
 
+  .bg-mint {
+    background-color: hsl(var(--mint));
+  }
+
   .bg-mint\/10 {
     background-color: hsl(var(--mint) / 0.1);
   }
@@ -191,11 +207,50 @@
     background-color: hsl(var(--mint) / 0.2);
   }
 
+  .bg-mint-light\/50 {
+    background-color: hsl(var(--mint-light) / 0.5);
+  }
+
+  .hover\:bg-mint-light\/50:hover {
+    background-color: hsl(var(--mint-light) / 0.5);
+  }
+
   .hover\:bg-mint\/20:hover {
     background-color: hsl(var(--mint) / 0.2);
   }
 
   .hover\:bg-mint\/30:hover {
     background-color: hsl(var(--mint) / 0.3);
+  }
+
+  .hover\:bg-mint-dark:hover {
+    background-color: hsl(var(--mint-dark));
+  }
+
+  .border-border\/40 {
+    border-color: hsl(var(--border) / 0.4);
+  }
+
+  .border-mint {
+    border-color: hsl(var(--mint));
+  }
+
+  .border-mint\/30 {
+    border-color: hsl(var(--mint) / 0.3);
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
