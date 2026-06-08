@@ -9,7 +9,7 @@ export function HeroSection() {
   const { t, language } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden bg-background min-h-[70vh] flex items-center">
+    <section className="relative overflow-hidden bg-background min-h-[70vh]">
       {/* Background Image with gradient blur effect */}
       <div className="absolute inset-0">
         <img
@@ -74,7 +74,7 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <Button
                 asChild
-                className="bg-mint hover:bg-mint-dark text-white h-11 rounded-md px-8"
+                className="bg-mint hover:bg-mint-dark text-white  h-11 rounded-md px-8"
               >
                 <Link to="/catalogo" className="gap-2">
                   {t('hero.cta')}
