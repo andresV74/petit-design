@@ -221,6 +221,10 @@
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
   }
 
+  .hover\:bg-mint-light\/30:hover {
+    background-color: hsl(var(--mint-light) / 0.3);
+  }
+
   .hover\:bg-mint-light\/50:hover {
     background-color: hsl(var(--mint-light) / 0.5);
   }
