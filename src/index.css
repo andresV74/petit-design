@@ -195,6 +195,10 @@
     color: hsl(var(--mint));
   }
 
+  .text-background {
+    color: hsl(var(--background));
+  }
+
   .fill-mint {
     fill: hsl(var(--mint));
   }
@@ -213,6 +217,14 @@
 
   .bg-mint-light\/50 {
     background-color: hsl(var(--mint-light) / 0.5);
+  }
+
+  .bg-foreground {
+    background-color: hsl(var(--foreground));
+  }
+
+  .bg-primary {
+    background-color: hsl(var(--primary));
   }
 
   .from-mint-light\/30 {
@@ -261,6 +273,10 @@
 
   .border-mint\/30 {
     border-color: hsl(var(--mint) / 0.3);
+  }
+
+  .ring-primary {
+    --tw-ring-color: hsl(var(--primary));
   }
 
   .transition-colors {
