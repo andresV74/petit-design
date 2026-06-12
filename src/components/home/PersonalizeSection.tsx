@@ -62,7 +62,6 @@ export function PersonalizeSection() {
   const handleSelectFabric = () => {
     if (zoomFabric) {
       sessionStorage.setItem('selectedFabric', JSON.stringify(zoomFabric));
-      navigate('/catalogo');
     }
     setZoomFabric(null);
   };
@@ -97,7 +96,7 @@ export function PersonalizeSection() {
               onMouseEnter={() => setHoveredGender(option.id)}
               onMouseLeave={() => setHoveredGender(null)}
               className={
-                `group relative w-full sm:w-64 p-8 rounded-3xl border-2 transition-all duration-300 transform
+                `group relative w-full sm:w-64 p-8 rounded-3xl border-2 transition-all duration-300 transform cursor-pointer
 								${option.color}
 								${option.borderColor}
 								${selectedGender === option.id && "scale-105 shadow-xl ring-2 ring-primary"}
@@ -136,7 +135,7 @@ export function PersonalizeSection() {
 
         {/* Fabric swatches preview */}
         {selectedGender && currentFabrics.length > 0 && (
-          <div className="mt-12 animate-fade-in">
+          <div className="mt-12 animate-fade-in-from-bottom">
             <h3 className="text-center font-display text-xl font-semibold mb-6">
               {language === 'es'
                 ? `Telas para ${selectedGender === 'boy' ? 'Niño' : 'Niña'}`
@@ -180,7 +179,7 @@ export function PersonalizeSection() {
             <div className="text-center mt-8">
               <button
                 onClick={() => navigate(selectedGender === 'boy' ? '/telas/nino' : '/telas/nina')}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium cursor-pointer hover:bg-primary/90 transition-colors"
               >
                 {language === 'es' ? 'Ver todas las telas' : 'View all fabrics'}
               </button>

@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+// import { useNavigate } from 'react-router-dom';
+// import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-import { useLanguage } from '@/lib/i18n';
+// import { useLanguage } from '@/lib/i18n';
 
 interface FabricZoomModalProps {
   isOpen: boolean;
@@ -24,12 +24,12 @@ export function FabricZoomModal({
   fabric,
   onPrevious,
   onNext,
-  onSelect,
+  // onSelect,
   currentIndex = 0,
   totalCount = 0
 }: FabricZoomModalProps) {
-  const { language } = useLanguage();
-  const navigate = useNavigate();
+  // const { language } = useLanguage();
+  // const navigate = useNavigate();
 
   // Use fabric object if provided, otherwise use image/name props
   const displayImage = fabric?.image || image || '';
@@ -37,15 +37,15 @@ export function FabricZoomModal({
 
   if (!isOpen) return null;
 
-  const handleSelect = () => {
-    if (onSelect) {
-      onSelect();
-    } else if (fabric) {
-      sessionStorage.setItem('selectedFabric', JSON.stringify(fabric));
-      navigate('/catalogo');
-      onClose();
-    }
-  };
+  // const handleSelect = () => {
+  //   if (onSelect) {
+  //     onSelect();
+  //   } else if (fabric) {
+  //     sessionStorage.setItem('selectedFabric', JSON.stringify(fabric));
+  //     navigate('/catalogo');
+  //     onClose();
+  //   }
+  // };
 
   return (
     <div
@@ -104,13 +104,14 @@ export function FabricZoomModal({
         </div>
 
         {/* Action button */}
+        {/*
         {(onSelect || fabric) && (
           <>
             <Button
               className="w-full gap-2 h-11 rounded-md px-8"
               onClick={handleSelect}
             >
-              {language === 'es' ? 'Seleccionar esta tela' : 'Select this fabric'}
+              {language === 'es' ? 'Marca esta tela como favorita' : 'Mark this fabric as favorite'}
               <ChevronRight className="h-4 w-4" />
             </Button>
 
@@ -121,6 +122,7 @@ export function FabricZoomModal({
             </p>
           </>
         )}
+          */}
       </div>
     </div>
   );
