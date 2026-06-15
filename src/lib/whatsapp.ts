@@ -70,7 +70,11 @@ export function getWhatsAppUrl(options?: {
     fullMessage += `\n\n[ref: ${ref}]`;
   }
 
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(fullMessage)}`;
+  const url = new URL('https://api.whatsapp.com/send');
+  url.searchParams.set('phone', WHATSAPP_NUMBER);
+  url.searchParams.set('text', fullMessage);
+
+  return url.toString();
 }
 
 export function getWhatsAppNumber(): string {

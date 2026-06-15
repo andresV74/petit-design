@@ -1,25 +1,26 @@
 import { useState, type ChangeEvent } from 'react';
 import { useLanguage } from '@/lib/i18n';
-import { Button } from '@/components/ui/button';
 import { MessageCircle, Send, Baby, Phone, User, ShoppingBag } from 'lucide-react';
 import { z } from 'zod';
 import { trackFormSubmission } from '@/hooks/useMetaPixel';
 import { getWhatsAppUrl } from '@/lib/whatsapp';
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "El nombre es requerido").max(100, "Máximo 100 caracteres"),
-  phone: z.string().trim().min(7, "Número inválido").max(20, "Máximo 20 caracteres"),
-  product: z.string().trim().max(200, "Máximo 200 caracteres").optional(),
-  gender: z.enum(['girl', 'boy', 'surprise']),
-  message: z.string().trim().max(500, "Máximo 500 caracteres").optional(),
-});
+const getContactSchema = (language: 'es' | 'en') =>
+  z.object({
+    name: z.string().trim().min(1, language === 'es' ? 'El nombre es requerido' : 'Name is required').max(100, language === 'es' ? 'Máximo 100 caracteres' : 'Maximum 100 characters'),
+    phone: z.string().trim().min(7, language === 'es' ? 'Número inválido' : 'Invalid number').max(20, language === 'es' ? 'Máximo 20 caracteres' : 'Maximum 20 characters'),
+    product: z.string().trim().max(200, language === 'es' ? 'Máximo 200 caracteres' : 'Maximum 200 characters').optional(),
+    gender: z.enum(['girl', 'boy', 'surprise']),
+    message: z.string().trim().max(500, language === 'es' ? 'Máximo 500 caracteres' : 'Maximum 500 characters').optional(),
+  });
 
 const inputClasses = 'flex w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm'
 
-type ContactFormData = z.infer<typeof contactSchema>;
+type ContactFormData = z.infer<ReturnType<typeof getContactSchema>>;
 
 export function ContactForm() {
   const { language } = useLanguage();
+  const contactSchema = getContactSchema(language);
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     phone: '',
@@ -27,7 +28,28 @@ export function ContactForm() {
     gender: 'girl',
     message: '',
   });
-  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  const getValidationErrors = (values: ContactFormData) => {
+    const result = contactSchema.safeParse(values);
+
+    if (result.success) {
+      return {} as Partial<Record<keyof ContactFormData, string>>;
+    }
+
+    const fieldErrors: Partial<Record<keyof ContactFormData, string>> = {};
+    result.error.issues.forEach(err => {
+      if (err.path[0]) {
+        fieldErrors[err.path[0] as keyof ContactFormData] = err.message;
+      }
+    });
+
+    return fieldErrors;
+  };
+
+  const validationErrors = hasSubmitted
+    ? getValidationErrors(formData)
+    : ({} as Partial<Record<keyof ContactFormData, string>>);
 
   const translations = {
     es: {
@@ -46,7 +68,7 @@ export function ContactForm() {
       messagePlaceholder: '¿Algún detalle adicional que quieras contarnos?',
       messageLabel: 'Mensaje adicional (opcional)',
       sendButton: 'Enviar mensaje a WhatsApp',
-      whatsappGreeting: '¡Hola! Me interesa conocer más sobre los productos en la página web!',
+      whatsappGreeting: '¡Hola! Me interesa conocer más sobre los productos en la página web',
     },
     en: {
       title: 'Do you have any questions?',
@@ -64,7 +86,7 @@ export function ContactForm() {
       messagePlaceholder: 'Any additional details you want to share?',
       messageLabel: 'Additional message (optional)',
       sendButton: 'Send message to WhatsApp',
-      whatsappGreeting: "Hi! I'm interested in learning more about the products on the website!",
+      whatsappGreeting: "Hi! I'm interested in learning more about the products on the website",
     },
   };
 
@@ -72,19 +94,16 @@ export function ContactForm() {
 
   const handleInputChange = (field: keyof ContactFormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: undefined }));
-    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const result = contactSchema.safeParse(formData);
+    const fieldErrors = getValidationErrors(formData);
 
-    if (!result.success) {
-      const fieldErrors: Partial<Record<keyof ContactFormData, string>> = {};
-      setErrors(fieldErrors);
+    setHasSubmitted(true);
+
+    if (Object.keys(fieldErrors).length > 0) {
       return;
     }
 
@@ -98,26 +117,26 @@ export function ContactForm() {
     const messageLines = [
       t.whatsappGreeting,
       '',
-      `👤 *${language === 'es' ? 'Nombre' : 'Name'}:* ${formData.name}`,
-      `📱 *${language === 'es' ? 'Teléfono' : 'Phone'}:* ${formData.phone}`,
+      `👤 ${language === 'es' ? 'Nombre' : 'Name'}: *${formData.name}*`,
+      `📱 ${language === 'es' ? 'Teléfono' : 'Phone'}: *${formData.phone}*`,
     ];
 
     if (formData.product?.trim()) {
-      messageLines.push(`🛍️ *${language === 'es' ? 'Producto de interés' : 'Product'}:* ${formData.product}`);
+      messageLines.push(`🛍️ ${language === 'es' ? 'Producto de interés' : 'Product'}: *${formData.product}*`);
     } else {
-      messageLines.push(`🛍️ *${language === 'es' ? 'Producto' : 'Product'}:* ${language === 'es' ? 'Necesito asesoría' : 'I need advice'}`);
+      messageLines.push(`🛍️ ${language === 'es' ? 'Producto' : 'Product'}: *${language === 'es' ? 'Necesito asesoría' : 'I need advice'}*`);
     }
 
-    messageLines.push(`🎀 *${language === 'es' ? 'Género del bebé' : "Baby's gender"}:* ${genderText}`);
+    messageLines.push(`🎀 ${language === 'es' ? 'Género del bebé' : "Baby's gender"}: *${genderText}*`);
 
     if (formData.message?.trim()) {
-      messageLines.push(`💬 *${language === 'es' ? 'Mensaje' : 'Message'}:* ${formData.message}`);
+      messageLines.push(`💬 ${language === 'es' ? 'Mensaje' : 'Message'}: *${formData.message}*`);
     }
 
     trackFormSubmission('Inicio', { content_category: formData.product || 'General' });
 
     setTimeout(() => {
-      window.open(getWhatsAppUrl({ message: messageLines.join('\n'), source: 'Inicio - Formulario', language }), '_blank');
+      window.open(getWhatsAppUrl({ message: messageLines.join('\n'), source: 'Formulario Sitio Web', language }), '_blank');
     }, 150);
   };
 
@@ -148,11 +167,11 @@ export function ContactForm() {
               placeholder={t.namePlaceholder}
               value={formData.name}
               onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('name', event.target.value)}
-              className={`h-9 ${inputClasses} ${errors.name ? 'border-destructive' : ''}`}
+              className={`h-9 ${inputClasses} ${validationErrors.name ? 'border-destructive' : ''}`}
 							autoComplete="name"
             />
-            {errors.name && (
-              <p className="text-xs text-destructive">{errors.name}</p>
+            {validationErrors.name && (
+              <p className="text-xs text-destructive">{validationErrors.name}</p>
             )}
           </div>
 
@@ -168,11 +187,11 @@ export function ContactForm() {
               placeholder={t.phonePlaceholder}
               value={formData.phone}
               onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('phone', event.target.value)}
-              className={`h-9 ${inputClasses} ${errors.phone ? 'border-destructive' : ''}`}
+              className={`h-9 ${inputClasses} ${validationErrors.phone ? 'border-destructive' : ''}`}
 							autoComplete="tel"
             />
-            {errors.phone && (
-              <p className="text-xs text-destructive">{errors.phone}</p>
+            {validationErrors.phone && (
+              <p className="text-xs text-destructive">{validationErrors.phone}</p>
             )}
           </div>
 
@@ -187,7 +206,7 @@ export function ContactForm() {
               placeholder={t.productPlaceholder}
               value={formData.product}
               onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('product', event.target.value)}
-              className={`h-9 ${inputClasses} ${errors.product ? 'border-destructive' : ''}`}
+              className={`h-9 ${inputClasses}`}
             />
           </div>
 
@@ -208,7 +227,7 @@ export function ContactForm() {
 									onChange={
 										(event: ChangeEvent<HTMLInputElement>) => handleInputChange('gender', event.target.value)
 									}
-									className={`h-4 w-4 appearance-none border border-gray-300 checked:bg-pink-300 checked:border-pink-500 rounded-full cursor-pointer ${errors.name ? 'border-destructive' : ''}`}
+									className={'h-4 w-4 appearance-none border border-gray-300 checked:bg-pink-300 checked:border-pink-500 rounded-full cursor-pointer'}
 								/>
 								<label htmlFor="girl" className="cursor-pointer font-normal text-sm">
 									🎀 {t.girl}
@@ -224,7 +243,7 @@ export function ContactForm() {
 									onChange={
 										(event: ChangeEvent<HTMLInputElement>) => handleInputChange('gender', event.target.value)
 									}
-									className={`h-4 w-4 appearance-none border border-gray-300 checked:bg-blue-300 checked:border-blue-500 rounded-full cursor-pointer ${errors.name ? 'border-destructive' : ''}`}
+									className={'h-4 w-4 appearance-none border border-gray-300 checked:bg-blue-300 checked:border-blue-500 rounded-full cursor-pointer'}
 								/>
 								<label htmlFor="boy" className="cursor-pointer font-normal text-sm">
 									🧸 {t.boy}
@@ -240,7 +259,7 @@ export function ContactForm() {
 									onChange={
 										(event: ChangeEvent<HTMLInputElement>) => handleInputChange('gender', event.target.value)
 									}
-									className={`h-4 w-4 appearance-none border border-gray-300 checked:bg-green-300 checked:border-green-500 rounded-full cursor-pointer  ${errors.name ? 'border-destructive' : ''}`}
+									className={'h-4 w-4 appearance-none border border-gray-300 checked:bg-green-300 checked:border-green-500 rounded-full cursor-pointer '}
 								/>
 								<label htmlFor="gender-surprise" className="cursor-pointer font-normal text-sm">
 									🎁 {t.surprise}
@@ -261,18 +280,18 @@ export function ContactForm() {
               value={formData.message}
               onChange={(event: ChangeEvent<HTMLTextAreaElement>) => handleInputChange('message', event.target.value)}
               rows={2}
-              className={`4 w-4 ${inputClasses} ${errors.message ? 'border-destructive' : ''}`}
+              className={`4 w-4 ${inputClasses}`}
             />
           </div>
 
           {/* Submit button */}
-          <Button
+          <button
             type="submit"
-            className="h-10 px-4 py-2 w-full gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white"
+            className="h-10 px-4 py-2 w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] rounded-md text-white cursor-pointer"
           >
             <Send className="h-4 w-4" />
             {t.sendButton}
-          </Button>
+          </button>
         </form>
       </div>
     </div>

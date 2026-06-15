@@ -169,6 +169,10 @@
     color: hsl(var(--mint-dark));
   }
 
+  .text-destructive {
+    color: hsl(var(--destructive));
+  }
+
   .hover\:text-accent-foreground:hover {
     color: hsl(var(--accent-foreground));
   }
@@ -307,6 +311,10 @@
 
   .border-input {
     border-color: hsl(var(--input));
+  }
+
+  .border-destructive {
+    border-color: hsl(var(--destructive));
   }
 
   .border-border\/50 {
