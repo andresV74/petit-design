@@ -3,6 +3,7 @@ import { FeaturedKitsSection } from '@/components/home/FeaturedKitsSection.tsx'
 import { CategoriesSection } from '@/components/home/CategoriesSection.tsx'
 import { PersonalizeSection } from '@/components/home/PersonalizeSection.tsx'
 import { WhyChooseUsSection } from '@/components/home/WhyChooseUsSection.tsx'
+import { TestimonialsSection } from '@/components/home/TestimonialsSection.tsx'
 
 export function HomePage() {
   return (
@@ -12,6 +13,7 @@ export function HomePage() {
       <CategoriesSection />
       <PersonalizeSection />
       <WhyChooseUsSection />
+      <TestimonialsSection />
     </>
   )
 }
