@@ -13,7 +13,7 @@ function App() {
       <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/nosotros" element={<AboutPage />} />
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>
       </main>
