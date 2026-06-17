@@ -156,7 +156,7 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <p className="text-sm text-muted-foreground flex items-center gap-1">
-              Hecho con <Heart className="h-4 w-4 text-mint fill-mint" /> desde Manizales, Colombia 🇨🇴
+              Hecho con <Heart className="h-4 w-4 text-mint fill-mint stroke-mint" /> desde Manizales, Colombia 🇨🇴
             </p>
           </div>
         </div>

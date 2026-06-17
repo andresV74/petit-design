@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Sparkles, Baby, MessageCircle, ZoomIn } from 'lucide-react';
 import { useLanguage } from '@/lib/i18n';
 import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { Badge } from '@/components/ui/badge.tsx';
 import { FabricZoomModal } from '@/components/products/FabricZoomModal.tsx';
 import boyFabrics from '@/data/boyFabrics.json';
 import girlFabrics from '@/data/girlFabrics.json';
@@ -69,15 +70,15 @@ export function PersonalizeSection() {
   const currentFabrics = selectedGender === 'boy' ? boyFabrics : selectedGender === 'girl' ? girlFabrics : [];
 
   return (
-    <section className="py-16 md:py-24 bg-linear-to-b from-background to-muted/30">
+    <section className="py-16 md:py-24 bg-linear-to-b from-background">
       <div className="container px-4">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 bg-mint/20 text-mint-dark">
+          <Badge className="gap-2 px-4 py-2 mb-4 bg-primary/10 text-primary border-transparent">
             <Sparkles className="h-4 w-4 " />
-            <span className="text-sm font-medium text-primary">
+            <span className="text-sm font-medium">
               {language === 'es' ? 'Personalización única' : 'Unique personalization'}
             </span>
-          </div>
+          </Badge>
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
             {language === 'es' ? 'Personaliza tu Producto' : 'Personalize Your Product'}
           </h2>

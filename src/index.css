@@ -6,42 +6,42 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 @theme {
-    --background: 0 0% 100%;
-    --foreground: 210 10% 25%;
+    --color-background: hsl(0 0% 100%);
+    --color-foreground: hsl(210 10% 25%);
 
     --color-card: hsl(0 0% 100%);
-    --card-foreground: 210 10% 25%;
+    --color-card-foreground: hsl(210 10% 25%);
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 10% 25%;
+    --color-popover-foreground: hsl(210 10% 25%);
 
-    --primary: 168 40% 65%;
-    --primary-foreground: 0 0% 100%;
+    --color-primary: hsl(168 40% 65%);
+    --color-primary-foreground: hsl(0 0% 100%);
 
     --secondary: 210 20% 96%;
     --secondary-foreground: 210 10% 30%;
 
-    --muted: 210 15% 95%;
-    --muted-foreground: 210 10% 45%;
+    --color-muted: hsl(210 15% 95%);
+    --color-muted-foreground: hsl(210 10% 45%);
 
-    --accent: 168 35% 70%;
-    --accent-foreground: 168 40% 20%;
+    --color-accent: hsl(168 35% 70%);
+    --color-accent-foreground: hsl(168 40% 20%);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --color-destructive: hsl(0 84.2% 60.2%);
+    --color-destructive-foreground: hsl(210 40% 98%);
 
-    --border: 210 15% 90%;
-    --input: 210 15% 90%;
-    --ring: 168 40% 65%;
+    --color-border: hsl(210 15% 90%);
+    --color-input: hsl(210 15% 90%);
+    --color-ring: hsl(168 40% 65%);
 
     --radius: 0.75rem;
 
     /* Custom colors for Petit Design - Mint Green, Light Gray, White */
     --color-mint: hsl(168 40% 65%);
     --color-mint-light: hsl(168 35% 85%);
-    --mint-dark: 168 45% 45%;
-    --gray-light: 210 15% 95%;
-    --gray-medium: 210 10% 75%;
+    --color-mint-dark: hsl(168 45% 45%);
+    --color-gray-light: hsl(210 15% 95%);
+    --color-gray-medium: hsl(210 10% 75%);
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 210 10% 30%;
@@ -61,8 +61,8 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     font-family: 'Lato', sans-serif;
   }
 
@@ -101,185 +101,18 @@
     font-family: 'Montserrat', sans-serif;
   }
 
-  .text-foreground {
-    color: hsl(var(--foreground));
-  }
-
-  .text-muted-foreground {
-    color: hsl(var(--muted-foreground));
-  }
-
-  .text-popover-foreground {
-    color: hsl(var(--popover-foreground));
-  }
-
-  .text-primary-foreground {
-    color: hsl(var(--primary-foreground));
-  }
-
-  .text-mint-dark,
-  .hover\:text-mint-dark:hover {
-    color: hsl(var(--mint-dark));
-  }
-
-  .text-destructive {
-    color: hsl(var(--destructive));
-  }
-
-  .hover\:text-accent-foreground:hover {
-    color: hsl(var(--accent-foreground));
-  }
-
-  .bg-gray-light\/50 {
-    background-color: hsl(var(--gray-light) / 0.5);
-  }
-
-  .bg-accent,
-  .hover\:bg-accent:hover,
-  .focus\:bg-accent:focus {
-    background-color: hsl(var(--accent));
-  }
-
-  .focus-visible\:ring-offset-2:focus-visible {
-    --tw-ring-color: hsl(var(--ring));
-  }
-
-  .bg-background {
-    background-color: hsl(var(--background));
-  }
-
-  .bg-background\/95 {
-    background-color: hsl(var(--background) / 0.95);
-  }
-
-  .bg-muted {
-    background-color: hsl(var(--muted));
-  }
-
-  .from-background {
-    --tw-gradient-from: hsl(var(--background));
-    --tw-gradient-to: hsl(var(--background) / 0);
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  }
-
-  .to-muted\/30 {
-    --tw-gradient-to: hsl(var(--muted) / 0.3);
-  }
-
-  .text-mint {
-    color: hsl(var(--mint));
-  }
-
-  .text-primary {
-    color: hsl(var(--primary));
-  }
-
-  .text-background {
-    color: hsl(var(--background));
-  }
-
-  .fill-mint {
-    fill: hsl(var(--mint));
-  }
-
-  .bg-mint {
-    background-color: hsl(var(--mint));
-  }
-
-  .bg-mint\/10 {
-    background-color: hsl(var(--mint) / 0.1);
-  }
-
-  .bg-mint\/20 {
-    background-color: hsl(var(--mint) / 0.2);
-  }
-
-  .bg-mint-light\/50 {
-    background-color: hsl(var(--mint-light) / 0.5);
-  }
-
-  .bg-foreground {
-    background-color: hsl(var(--foreground));
-  }
-
-  .bg-primary {
-    background-color: hsl(var(--primary));
-  }
-
-  .bg-primary\/10 {
-    background-color: hsl(var(--primary) / 0.1);
-  }
-
-  .hover\:bg-primary\/90:hover {
-    background-color: hsl(var(--primary) / 0.9);
-  }
-
-  .from-mint-light\/30 {
-    --tw-gradient-from: hsl(var(--mint-light) / 0.4);
-    --tw-gradient-to: hsl(var(--mint-light) / 0);
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  }
-
-  .hover\:bg-mint-light\/30:hover {
-    background-color: hsl(var(--mint-light) / 0.3);
-  }
-
-  .hover\:bg-mint-light\/50:hover {
-    background-color: hsl(var(--mint-light) / 0.5);
-  }
-
-  .hover\:bg-mint\/20:hover {
-    background-color: hsl(var(--mint) / 0.2);
-  }
-
-  .hover\:bg-mint\/30:hover {
-    background-color: hsl(var(--mint) / 0.3);
-  }
-
-  .hover\:bg-mint-dark:hover {
-    background-color: hsl(var(--mint-dark));
-  }
-
-  .group:hover .group-hover\:scale-105 {
+  .group:hover .group-hover-scale {
     --tw-scale-x: 1.05;
     --tw-scale-y: 1.05;
     transform: scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
-  .group:hover .group-hover\:text-primary {
-    color: hsl(var(--primary));
-  }
-
-  .border-border\/40 {
-    border-color: hsl(var(--border) / 0.4);
-  }
-
-  .border-mint {
-    border-color: hsl(var(--mint));
-  }
-
-  .border-mint\/30 {
-    border-color: hsl(var(--mint) / 0.3);
-  }
-
-  .border-input {
-    border-color: hsl(var(--input));
+  .group:hover .group-hover-text-primary {
+    color: var(--color-primary);
   }
 
   .border-destructive {
-    border-color: hsl(var(--destructive));
-  }
-
-  .border-border\/50 {
-    border-color: hsl(var(--border) / 0.5);
-  }
-
-  .border-primary\/10 {
-    border-color: hsl(var(--primary) / 0.1);
-  }
-
-  .ring-primary {
-    --tw-ring-color: hsl(var(--primary));
+    border-color: var(--color-destructive);
   }
 
   .transition-colors {
@@ -317,4 +150,16 @@
       transform: translateY(0);
     }
   }
+}
+
+@utility from-background {
+  --tw-gradient-from: var(--color-background);
+  --tw-gradient-to: color-mix(in oklab, var(--color-muted) 30%, transparent);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+@utility from-mint-light\/30 {
+  --tw-gradient-from: hsl(var(--mint-light) / 0.4);
+  --tw-gradient-to: hsl(var(--mint-light) / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }

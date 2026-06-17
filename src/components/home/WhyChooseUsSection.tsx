@@ -29,7 +29,7 @@ export function WhyChooseUsSection() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-linear-to-b from-background to-muted/30">
+    <section className="py-16 md:py-24 bg-linear-to-b from-background">
       <div className="container px-4">
         <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-center mb-12">
           {t('benefits.title')}

@@ -36,13 +36,13 @@ export function FeaturedKitsSection() {
                 <img
                   src="./src/assets/KIT-0002_KIT_COMPLETO_PARA_RECIBIR_AL_B_foto1.webp"
                   alt="Kit Personalizado para Recibir al Bebé"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover-scale"
                 />
               </figure>
               <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs">
                 Destacado
               </div>
-              <h3 className="text-lg font-semibold text-foreground uppercase group-hover:text-primary transition-colors mb-1">
+              <h3 className="text-lg font-semibold text-foreground uppercase group-hover-text-primary transition-colors mb-1">
                 Kit completo para recibir al bebé
               </h3>
               <p className="text-muted-foreground">
@@ -54,7 +54,7 @@ export function FeaturedKitsSection() {
 
         {/* CTA */}
         <div className="text-center">
-          <Button asChild className="h-11 rounded-md gap-2 px-8 bg-mint text-white">
+          <Button asChild className="h-11 rounded-md gap-2 px-8 bg-primary text-primary-foreground">
             <Link to="/catalogo/kits">
               {language === 'es' ? 'Ver todos los Kits' : 'View all Kits'}
               <ArrowRight className="h-4 w-4" />

@@ -74,7 +74,7 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <Button
                 asChild
-                className="bg-mint hover:bg-mint-dark text-white  h-11 rounded-md px-8"
+                className="bg-mint hover:bg-mint-dark text-white hover:text-white h-11 rounded-md px-8"
               >
                 <Link to="/catalogo" className="gap-2">
                   {t('hero.cta')}
@@ -83,7 +83,7 @@ export function HeroSection() {
               </Button>
               <Button
                 asChild
-                className="border-mint text-mint-dark hover:bg-mint-light/50 h-11 rounded-md px-8 border border-input bg-background hover:bg-accent hover:text-accent-foreground"
+                className="border border-mint text-mint-dark h-11 rounded-md px-8 bg-background hover:bg-mint-light/50"
               >
                 <a
                   href={getWhatsAppUrl({ source: 'Inicio', language })}
