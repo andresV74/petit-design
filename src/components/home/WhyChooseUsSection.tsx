@@ -1,6 +1,6 @@
 import { Heart, MapPin, Shield, Headphones } from 'lucide-react';
 import { useLanguage } from '@/lib/i18n';
-import { ContactForm } from './ContactForm.tsx';
+import { ContactForm } from '../ContactForm.tsx';
 
 export function WhyChooseUsSection() {
   const { t } = useLanguage();

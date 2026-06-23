@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent } from 'react';
 import { useLanguage } from '@/lib/i18n';
-import { MessageCircle, Send, Baby, Phone, User, ShoppingBag } from 'lucide-react';
+import { MessageCircle, Mail, Send, Baby, Phone, User, ShoppingBag } from 'lucide-react';
 import { z } from 'zod';
 import { trackFormSubmission } from '@/hooks/useMetaPixel';
 import { getWhatsAppUrl } from '@/lib/whatsapp';
@@ -8,6 +8,7 @@ import { getWhatsAppUrl } from '@/lib/whatsapp';
 const getContactSchema = (language: 'es' | 'en') =>
   z.object({
     name: z.string().trim().min(1, language === 'es' ? 'El nombre es requerido' : 'Name is required').max(100, language === 'es' ? 'Máximo 100 caracteres' : 'Maximum 100 characters'),
+    email: z.email(language === 'es' ? 'Email inválido' : 'Invalid email').max(200, language === 'es' ? 'Máximo 200 caracteres' : 'Maximum 200 characters').optional(),
     phone: z.string().trim().min(7, language === 'es' ? 'Número inválido' : 'Invalid number').max(20, language === 'es' ? 'Máximo 20 caracteres' : 'Maximum 20 characters'),
     product: z.string().trim().max(200, language === 'es' ? 'Máximo 200 caracteres' : 'Maximum 200 characters').optional(),
     gender: z.enum(['girl', 'boy', 'surprise']),
@@ -51,41 +52,47 @@ export function ContactForm() {
     ? getValidationErrors(formData)
     : ({} as Partial<Record<keyof ContactFormData, string>>);
 
+  const isHomePage = window.location.pathname === '/'
+
   const translations = {
     es: {
-      title: '¿Tienes alguna pregunta?',
-      subtitle: 'Cuéntanos qué necesitas y te contactaremos por WhatsApp',
+      title: `${isHomePage ? '¿Tienes alguna pregunta?' : 'Envíanos un mensaje'}`,
+      subtitle: `${isHomePage ? 'Cuéntanos qué necesitas y te contactaremos por WhatsApp' : 'Completa el formulario y nos pondremos en contacto contigo'}`,
       namePlaceholder: 'Tu nombre completo',
       nameLabel: 'Nombre',
+      emailLabel: 'Correo electrónico',
+      emailPlaceholder: 'tu@correo.com',
       phonePlaceholder: 'Ej: 310 123 4567',
-      phoneLabel: 'Número de contacto',
-      productPlaceholder: 'Escribe el producto o déjalo vacío para asesoría',
-      productLabel: '¿Tienes algún producto de interés o te asesoramos?',
+      phoneLabel: `${isHomePage ? 'Número de contacto' : 'Teléfono / WhatsApp'}`,
+      productPlaceholder: 'Escribe el producto de interés para asesoría',
+      productLabel: `${isHomePage ? '¿Tienes algún producto de interés o te asesoramos?' : 'Producto de interés (opcional)'}`,
       genderLabel: 'Género del bebé',
       girl: 'Niña',
       boy: 'Niño',
       surprise: 'Sorpresa / Aún no sé',
-      messagePlaceholder: '¿Algún detalle adicional que quieras contarnos?',
-      messageLabel: 'Mensaje adicional (opcional)',
-      sendButton: 'Enviar mensaje a WhatsApp',
+      messagePlaceholder: `${isHomePage ? '¿Algún detalle adicional que quieras contarnos?' : 'Cuéntanos cómo podemos ayudarte...'}`,
+      messageLabel: `${isHomePage ? 'Mensaje adicional (opcional)' : 'Tu mensaje'}`,
+      sendButton: `${isHomePage ? 'Enviar mensaje a WhatsApp' : 'Enviar mensaje'}`,
       whatsappGreeting: '¡Hola! Me interesa conocer más sobre los productos en la página web',
     },
     en: {
-      title: 'Do you have any questions?',
-      subtitle: "Tell us what you need and we'll contact you via WhatsApp",
+      title: "Do you have any questions?",
+      subtitle: `${isHomePage ? "Tell us what you need and we'll contact you via WhatsApp" : "Fill out the form and we'll get in touch with you"}`,
       namePlaceholder: 'Your full name',
       nameLabel: 'Name',
+      emailLabel: 'Email address',
+      emailPlaceholder: 'your@email.com',
       phonePlaceholder: 'Ex: 310 123 4567',
-      phoneLabel: 'Contact number',
-      productPlaceholder: 'Type the product or leave empty for advice',
-      productLabel: 'Do you have a product in mind or need advice?',
+      phoneLabel: `${isHomePage ? 'Contact number' : 'Phone / WhatsApp'}`,
+      productPlaceholder: 'Type the product for advice',
+      productLabel: `${isHomePage ? 'Do you have a product in mind or need advice?' : 'Product of interest (optional)'}`,
       genderLabel: "Baby's gender",
       girl: 'Girl',
       boy: 'Boy',
       surprise: "Surprise / Don't know yet",
-      messagePlaceholder: 'Any additional details you want to share?',
-      messageLabel: 'Additional message (optional)',
-      sendButton: 'Send message to WhatsApp',
+      messagePlaceholder: `${isHomePage ? 'Any additional details you want to share?' : 'Tell us how we can help...'}`,
+      messageLabel: `${isHomePage ? 'Additional message (optional)' : 'Your message'}`,
+      sendButton: `${isHomePage ? 'Send message to WhatsApp' : 'Send message'}`,
       whatsappGreeting: "Hi! I'm interested in learning more about the products on the website",
     },
   };
@@ -141,73 +148,101 @@ export function ContactForm() {
   };
 
   return (
-    <div className="rounded-lg bg-card text-card-foreground border-2 border-primary/10 shadow-lg">
-      <div className="space-y-1.5 p-6 text-center pb-2">
-        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-          <MessageCircle className="h-6 w-6 text-primary" />
+    <div className={`rounded-lg bg-card text-card-foreground border-2 border-primary/10 ${isHomePage ? 'shadow-lg' : 'shadow-sm'}`}>
+      <div className={`grid p-6 pb-2 items-center ${isHomePage ? 'text-center gap-1.5' : 'grid-cols-[auto_1fr] gap-x-3'}`}>
+        <div className={`mx-auto flex items-center justify-center rounded-full bg-primary/10 ${isHomePage ? 'h-12 w-12 mb-3' : 'h-9 w-9'}`}>
+          {isHomePage ? (
+            <MessageCircle className="h-6 w-6 text-primary" />
+          ) : (
+            <Mail className="h-5 w-5 text-primary" />
+          )}
         </div>
         <h3 className="leading-none tracking-tight text-xl md:text-2xl font-bold">
           {t.title}
         </h3>
-        <div className="text-muted-foreground text-sm mt-1">
+        <div className={`text-muted-foreground text-sm mt-1 ${!isHomePage ? 'col-start-2' : ''}`}>
           {t.subtitle}
         </div>
       </div>
 
       <div className="p-6 pt-4">
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Name */}
-          <div className="space-y-1.5">
-            <label htmlFor="name" className="flex items-center gap-2 text-sm">
-              <User className="h-3.5 w-3.5 text-muted-foreground" />
-              {t.nameLabel}
-            </label>
-            <input
-              id="name"
-              placeholder={t.namePlaceholder}
-              value={formData.name}
-              onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('name', event.target.value)}
-              className={`h-9 ${inputClasses} ${validationErrors.name ? 'border-destructive' : ''}`}
-							autoComplete="name"
-            />
-            {validationErrors.name && (
-              <p className="text-xs text-destructive">{validationErrors.name}</p>
-            )}
-          </div>
+          <div className={`grid gap-5 ${!isHomePage ? 'sm:grid-cols-2' : ''}`}>
+            {/* Name */}
+            <div className="space-y-1.5">
+              <label htmlFor="name" className="flex items-center gap-2 text-sm">
+                <User className="h-3.5 w-3.5 text-muted-foreground" />
+                {t.nameLabel}
+              </label>
+              <input
+                id="name"
+                placeholder={t.namePlaceholder}
+                value={formData.name}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('name', event.target.value)}
+                className={`h-9 ${inputClasses} ${validationErrors.name ? 'border-destructive' : ''}`}
+                autoComplete="name"
+              />
+              {validationErrors.name && (
+                <p className="text-xs text-destructive">{validationErrors.name}</p>
+              )}
+            </div>
 
-          {/* Phone */}
-          <div className="space-y-1.5">
-            <label htmlFor="phone" className="flex items-center gap-2 text-sm">
-              <Phone className="h-3.5 w-3.5 text-muted-foreground" />
-              {t.phoneLabel}
-            </label>
-            <input
-              id="phone"
-              type="tel"
-              placeholder={t.phonePlaceholder}
-              value={formData.phone}
-              onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('phone', event.target.value)}
-              className={`h-9 ${inputClasses} ${validationErrors.phone ? 'border-destructive' : ''}`}
-							autoComplete="tel"
-            />
-            {validationErrors.phone && (
-              <p className="text-xs text-destructive">{validationErrors.phone}</p>
-            )}
-          </div>
+            {/* Email */
+              !isHomePage && (
+                <div className="space-y-1.5">
+                  <label htmlFor="name" className="flex items-center gap-2 text-sm">
+                    <Mail className="h-3.5 w-3.5 text-muted-foreground" />
+                    {t.emailLabel}
+                  </label>
+                  <input
+                    id="name"
+                    placeholder={t.emailPlaceholder}
+                    value={formData.name}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('name', event.target.value)}
+                    className={`h-9 ${inputClasses} ${validationErrors.name ? 'border-destructive' : ''}`}
+                    autoComplete="name"
+                  />
+                  {validationErrors.name && (
+                    <p className="text-xs text-destructive">{validationErrors.name}</p>
+                  )}
+                </div>
+              )
+            }
 
-          {/* Product */}
-          <div className="space-y-1.5">
-            <label htmlFor="product" className="flex items-center gap-2 text-sm">
-              <ShoppingBag className="h-3.5 w-3.5 text-muted-foreground" />
-              {t.productLabel}
-            </label>
-            <input
-              id="product"
-              placeholder={t.productPlaceholder}
-              value={formData.product}
-              onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('product', event.target.value)}
-              className={`h-9 ${inputClasses}`}
-            />
+            {/* Phone */}
+            <div className="space-y-1.5">
+              <label htmlFor="phone" className="flex items-center gap-2 text-sm">
+                <Phone className="h-3.5 w-3.5 text-muted-foreground" />
+                {t.phoneLabel}
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                placeholder={t.phonePlaceholder}
+                value={formData.phone}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('phone', event.target.value)}
+                className={`h-9 ${inputClasses} ${validationErrors.phone ? 'border-destructive' : ''}`}
+                autoComplete="tel"
+              />
+              {validationErrors.phone && (
+                <p className="text-xs text-destructive">{validationErrors.phone}</p>
+              )}
+            </div>
+
+            {/* Product */}
+            <div className="space-y-1.5">
+              <label htmlFor="product" className="flex items-center gap-2 text-sm">
+                <ShoppingBag className="h-3.5 w-3.5 text-muted-foreground" />
+                {t.productLabel}
+              </label>
+              <input
+                id="product"
+                placeholder={t.productPlaceholder}
+                value={formData.product}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('product', event.target.value)}
+                className={`h-9 ${inputClasses}`}
+              />
+            </div>
           </div>
 
           {/* Gender */}

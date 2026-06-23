@@ -19,6 +19,28 @@ export function HomePage() {
       <meta name="twitter:title" content="Petit Design | Lencería Personalizada para Bebés" />
       <meta name="twitter:description" content="Lencería de cunas y accesorios personalizados para bebés, hechos con amor en Colombia. Sets, cobijas, nidos y más, bordados con el nombre de tu bebé." />
 
+      <script type="application/ld+json">
+          {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Petit Design",
+          "url": "https://petitdesign.com.co",
+          "logo": "https://petitdesign.com.co/logo-full.png",
+          "description": "Lencería de cunas y accesorios personalizados para bebés, hechos con amor en Colombia.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Manizales",
+            "addressCountry": "CO"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+573105453701",
+            "contactType": "customer service",
+            "availableLanguage": ["Spanish", "English"]
+          }
+        })}
+      </script>
+
       <link rel="preload" as="image" href="/hero-banner.webp" fetchPriority="high" />
 
       <HeroSection />
