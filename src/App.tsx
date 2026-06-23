@@ -6,6 +6,7 @@ import { WhatsAppButton } from '@/components/WhatsAppButton.tsx'
 import { HomePage } from './pages/HomePage.tsx'
 import { AboutPage } from './pages/AboutPage.tsx'
 import { ContactPage } from './pages/ContactPage.tsx'
+import { PoliciesPage } from './pages/PoliciesPage.tsx'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/nosotros" element={<AboutPage />} />
             <Route path="/contacto" element={<ContactPage />} />
+            <Route path="/politicas" element={<PoliciesPage />} />
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>
       </main>
