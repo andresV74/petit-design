@@ -20,8 +20,7 @@ export function AboutPage() {
 
       En Petit Design no solo confeccionamos productos. Creamos piezas pensadas para permanecer en la memoria de las familias, acompañar momentos irrepetibles y hacer aún más especial el inicio de una nueva historia.
 
-      Seguimos diseñando con la misma ilusión del primer día, convencidos de que cuando el trabajo se hace con disciplina, pasión y propósito, los sueños sí pueden convertirse en realidad.
-`,
+      Seguimos diseñando con la misma ilusión del primer día, convencidos de que cuando el trabajo se hace con disciplina, pasión y propósito, los sueños sí pueden convertirse en realidad.`,
       purposeTitle: 'Nuestro Propósito',
       purposeText: 'En Petit Design trabajamos con un propósito claro: crear productos que transmitan amor, calidad, cuidado y dedicación.',
       highlights: [

@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
+import { ProductCard } from '@/components/products/ProductCard.tsx'
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/i18n';
 import { Badge } from '@/components/ui/badge.tsx';
+import productsData from '@/data/products.json'
 
 export function FeaturedKitsSection() {
   const { language } = useLanguage();
@@ -28,28 +30,11 @@ export function FeaturedKitsSection() {
 
         {/* Kits Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
-					<article>
-						<Link to="/kits/kit-0002"
-              className="group block relative"
-            >
-              <figure className="aspect-square overflow-hidden rounded-2xl bg-muted mb-4">
-                <img
-                  src="./src/assets/KIT-0002_KIT_COMPLETO_PARA_RECIBIR_AL_B_foto1.webp"
-                  alt="Kit Personalizado para Recibir al Bebé"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover-scale"
-                />
-              </figure>
-              <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs">
-                Destacado
-              </div>
-              <h3 className="text-lg font-semibold text-foreground uppercase group-hover-text-primary transition-colors mb-1">
-                Kit completo para recibir al bebé
-              </h3>
-              <p className="text-muted-foreground">
-                Desde $ 1.760.000
-              </p>
-						</Link>
-					</article>
+          {
+            productsData.filter((product) => product.category === 'kits').map(({id, image, isFeatured, name_es, price}) => (
+              <ProductCard key={id} image={image} isFeatured={isFeatured} title={name_es} price={price} />
+            ))
+          }
         </div>
 
         {/* CTA */}

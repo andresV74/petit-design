@@ -18,6 +18,7 @@ const translations: Translations = {
   'nav.about': { es: 'Nosotros', en: 'About Us' },
   'nav.contact': { es: 'Contacto', en: 'Contact' },
   'nav.categories': { es: 'Categorías', en: 'Categories' },
+  'nav.policies': { es: 'Politicas', en: 'Policies' },
 
   // Banner
   'banner.title': { es: 'Encuentra el regalo perfecto', en: 'Find the perfect gift' },

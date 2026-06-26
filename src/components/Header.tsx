@@ -13,43 +13,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
-
-// Main categories with subcategories for the menu
-const menuCategories = [
-  {
-    id: 'accesorios-lenceria',
-    name_es: 'Accesorios de Lencería',
-    name_en: 'Linen Accessories',
-    slug: 'accesorios-lenceria',
-    hasSubcategories: true,
-    subcategories: [
-      { slug: 'decoracion', name_es: 'Decoración', name_en: 'Decoration' },
-      { slug: 'cambio-panal-accesorios', name_es: 'Cambio de Pañal', name_en: 'Diaper Changing' },
-      { slug: 'cuidado-bebe-accesorios', name_es: 'Cuidado del Bebé', name_en: 'Baby Care' },
-      { slug: 'organizadores', name_es: 'Organizadores', name_en: 'Organizers' },
-    ]
-  },
-  {
-    id: 'kits',
-    name_es: 'Kits',
-    name_en: 'Kits',
-    slug: 'kits',
-    hasSubcategories: false,
-    subcategories: []
-  },
-  {
-    id: 'lenceria-cuna',
-    name_es: 'Lencería de Cunas y Cama Cunas',
-    name_en: 'Crib and Toddler Bed Linens',
-    slug: 'lenceria',
-    hasSubcategories: true,
-    subcategories: [
-      { slug: 'cambio-panal-cuna', name_es: 'Cambio de Pañal', name_en: 'Diaper Changing' },
-      { slug: 'nido', name_es: 'Nido', name_en: 'Nest' },
-      { slug: 'cuidado-bebe-cuna', name_es: 'Lencería de Cuna', name_en: 'Crib Linens' },
-    ]
-  }
-];
+import { categories } from '@/data/categories.ts'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +28,7 @@ export function Header() {
     { href: '/', label: t('nav.home') },
     { href: '/nosotros', label: t('nav.about') },
     { href: '/contacto', label: t('nav.contact') },
-    { href: '/politicas', label: language === 'es' ? 'Políticas' : 'Policies' },
+    { href: '/politicas', label: t('nav.policies') },
   ];
 
   return (
@@ -104,8 +68,8 @@ export function Header() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-56 bg-background">
-              {menuCategories.map(cat => (
-                cat.hasSubcategories ? (
+              {categories.map(cat => (
+                cat.subcategories.length > 0 ? (
                   <DropdownMenuSub key={cat.id}>
                     <DropdownMenuSubTrigger className="cursor-pointer">
                       {language === 'es' ? cat.name_es : cat.name_en}
@@ -114,7 +78,7 @@ export function Header() {
                       {cat.subcategories.map(sub => (
                         <DropdownMenuItem key={sub.slug} asChild>
                           <Link
-                            to={`/catalogo/subcategoria/${sub.slug}`}
+                            to={`/catalogo/${cat.slug}/${sub.slug}`}
                             className="w-full cursor-pointer"
                           >
                             {language === 'es' ? sub.name_es : sub.name_en}
@@ -209,9 +173,9 @@ export function Header() {
           <div className="py-2">
             <p className="text-sm font-semibold text-foreground mb-2">{t('nav.categories')}</p>
             <div className="flex flex-col gap-1 pl-2">
-              {menuCategories.map(cat => (
+              {categories.map(cat => (
                 <div key={cat.id}>
-                  {cat.hasSubcategories ? (
+                  {cat.subcategories.length > 0 ? (
                     <>
                       <button
                         onClick={() => setExpandedMobileCategory(
@@ -236,7 +200,7 @@ export function Header() {
                         {cat.subcategories.map(sub => (
                           <Link
                             key={sub.slug}
-                            to={`/catalogo/subcategoria/${sub.slug}`}
+                            to={`/catalogo/${cat.slug}/${sub.slug}`}
                             onClick={() => setIsOpen(false)}
                             className="block py-1.5 text-sm text-muted-foreground hover:text-mint-dark"
                           >

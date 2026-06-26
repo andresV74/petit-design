@@ -1,4 +1,5 @@
 import { useState, type ChangeEvent } from 'react';
+import { useLocation } from 'react-router-dom'
 import { useLanguage } from '@/lib/i18n';
 import { MessageCircle, Mail, Send, Baby, Phone, User, ShoppingBag } from 'lucide-react';
 import { z } from 'zod';
@@ -52,7 +53,8 @@ export function ContactForm() {
     ? getValidationErrors(formData)
     : ({} as Partial<Record<keyof ContactFormData, string>>);
 
-  const isHomePage = window.location.pathname === '/'
+  const location = useLocation()
+  const isHomePage = location.pathname === '/'
 
   const translations = {
     es: {

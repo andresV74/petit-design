@@ -7,6 +7,7 @@ import { HomePage } from './pages/HomePage.tsx'
 import { AboutPage } from './pages/AboutPage.tsx'
 import { ContactPage } from './pages/ContactPage.tsx'
 import { PoliciesPage } from './pages/PoliciesPage.tsx'
+import { CatalogPage } from './pages/CatalogPage.tsx'
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
             <Route path="/nosotros" element={<AboutPage />} />
             <Route path="/contacto" element={<ContactPage />} />
             <Route path="/politicas" element={<PoliciesPage />} />
+            <Route path="/catalogo" element={<CatalogPage />} />
+            <Route path="/catalogo/:category" element={<CatalogPage />} />
+            <Route path="/catalogo/:category/:subcategory" element={<CatalogPage />} />
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>
       </main>
