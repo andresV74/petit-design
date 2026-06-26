@@ -127,15 +127,15 @@ export  function CatalogPage() {
                 productsData
                   .filter((product) => product.category === category && product.subcategory === subcategory)
                   .map((card) => (
-                    <ProductCard key={card.id} image={card.image} isFeatured={card.isFeatured} title={card.name_es} price={card.price} />
+                    <ProductCard key={card.id} product={card} language={language} />
                   ))
               ) : category ? (
                 productsData.filter((product) => product.category === category).map((card) => (
-                  <ProductCard key={card.id} image={card.image} isFeatured={card.isFeatured} title={card.name_es} price={card.price} />
+                  <ProductCard key={card.id} product={card} language={language} />
                 ))
               ) : (
                 productsData.map((card) => (
-                  <ProductCard key={card.id} image={card.image} isFeatured={card.isFeatured} title={card.name_es} price={card.price} />
+                  <ProductCard key={card.id} product={card} language={language} />
                 ))
               )
             }

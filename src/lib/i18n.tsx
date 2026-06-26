@@ -44,6 +44,7 @@ const translations: Translations = {
   'benefits.attention.desc': { es: 'Te acompañamos en cada paso de tu pedido', en: 'We accompany you every step of your order' },
 
   // Products
+  'products.singleFeatured': { es: 'Destacado', en: 'Featured' },
   'products.featured': { es: 'Productos Destacados', en: 'Featured Products' },
   'products.viewAll': { es: 'Ver todos los productos', en: 'View all products' },
   'products.from': { es: 'Desde', en: 'From' },

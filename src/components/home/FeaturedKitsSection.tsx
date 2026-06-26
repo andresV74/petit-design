@@ -31,8 +31,8 @@ export function FeaturedKitsSection() {
         {/* Kits Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
           {
-            productsData.filter((product) => product.category === 'kits').map(({id, image, isFeatured, name_es, price}) => (
-              <ProductCard key={id} image={image} isFeatured={isFeatured} title={name_es} price={price} />
+            productsData.filter((card) => card.category === 'kits').map((card) => (
+              <ProductCard key={card.id} product={card} language={language} />
             ))
           }
         </div>
