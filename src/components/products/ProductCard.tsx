@@ -25,7 +25,7 @@ export function ProductCard({ product, language }: ProductCardProps) {
 
 	return (
 		<article className='animate-fade-in' >
-			<Link to="/kits/kit-0002"
+			<Link to={`/producto/${product.slug}`}
 				className="group block relative"
 			>
 				<figure className="aspect-square overflow-hidden rounded-2xl bg-muted mb-4">

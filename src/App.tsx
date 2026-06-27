@@ -10,6 +10,7 @@ const AboutPage = lazy(() => import('./pages/AboutPage.tsx').then(m => ({ defaul
 const ContactPage = lazy(() => import('./pages/ContactPage.tsx').then(m => ({ default: m.ContactPage })))
 const PoliciesPage = lazy(() => import('./pages/PoliciesPage.tsx').then(m => ({ default: m.PoliciesPage })))
 const CatalogPage = lazy(() => import('./pages/CatalogPage.tsx').then(m => ({ default: m.CatalogPage })))
+const ProductPage = lazy(() => import('./pages/ProductPage.tsx').then(m => ({ default: m.ProductPage })))
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/catalogo" element={<CatalogPage />} />
             <Route path="/catalogo/:category" element={<CatalogPage />} />
             <Route path="/catalogo/:category/:subcategory" element={<CatalogPage />} />
+            <Route path='/producto/:slug' element={<ProductPage />} />
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>
         </Suspense>

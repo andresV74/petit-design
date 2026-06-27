@@ -20,17 +20,18 @@
 		"price": 1760000,
 		"category": "kits",
 		"subcategory": "",
-		"isFeatured": true
+		"isFeatured": true,
+		"productionDays": 15
 	},
 	{
 		"id": "234",
 		"name_es": "KIT REGALO IDEAL (BABY SHOWER)",
 		"name_en": "Ideal Gift Kit (Baby Shower)",
 		"slug": "KIT-REGALO-IDEAL",
-		"shortDescription_es": "",
-		"shortDescription_en": "",
-		"longDescription_es": "Descripción\n\nUn kit pensado especialmente para regalar en baby shower: práctico y funcional, con productos que realmente se usan en la rutina diaria de mamá y bebé. Combina organización, cambio de pañal fuera de casa y un organizador multiusos.\n\nQué incluye\n\nSet Botiquín para Bebé: ideal para productos de higiene y medicamentos; mantiene frascos firmes y ayuda a evitar derrames.\n\nCambiador Pañalera: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n\nCartuchera: bolsita organizadora multiusos para artículos pequeños; ideal para bolso, casa o para guardar esenciales.\n\nBeneficios clave\n\nRegalo útil y funcional para el día a día\n\nFacilita el cambio de pañal fuera de casa\n\nMantiene higiene y accesorios siempre organizados\n\nAlto valor percibido en un solo kit\n\nIdeal para\n\nBaby shower\n\nMamás primerizas\n\nRutina diaria y salidas",
-		"longDescription_en": "Description\n\nUn kit pensado especialmente para regalar en baby shower: práctico y funcional, con productos que realmente se usan en la rutina diaria de mamá y bebé. Combina organización, cambio de pañal fuera de casa y un organizador multiusos.\n\nQué incluye\n\nSet Botiquín para Bebé: ideal para productos de higiene y medicamentos; mantiene frascos firmes y ayuda a evitar derrames.\n\nCambiador Pañalera: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n\nCartuchera: bolsita organizadora multiusos para artículos pequeños; ideal para bolso, casa o para guardar esenciales.\n\nBeneficios clave\n\nRegalo útil y funcional para el día a día\n\nFacilita el cambio de pañal fuera de casa\n\nMantiene higiene y accesorios siempre organizados\n\nAlto valor percibido en un solo kit\n\nIdeal para\n\nBaby shower\n\nMamás primerizas\n\nRutina diaria y salidas",
+		"shortDescription_es": "El regalo ideal para baby shower, con artículos seleccionados.",
+		"shortDescription_en": "The perfect baby shower gift, featuring carefully selected items.",
+		"longDescription_es": "Un kit pensado especialmente para regalar en baby shower: práctico y funcional, con productos que realmente se usan en la rutina diaria de mamá y bebé. Combina organización, cambio de pañal fuera de casa y un organizador multiusos.\n\n**Qué incluye**\n\nSet Botiquín para Bebé: ideal para productos de higiene y medicamentos; mantiene frascos firmes y ayuda a evitar derrames.\n\nCambiador Pañalera: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n\nCartuchera: bolsita organizadora multiusos para artículos pequeños; ideal para bolso, casa o para guardar esenciales.\n\nBeneficios clave\n\nRegalo útil y funcional para el día a día\n\nFacilita el cambio de pañal fuera de casa\n\nMantiene higiene y accesorios siempre organizados\n\nAlto valor percibido en un solo kit\n\nIdeal para\n\nBaby shower\n\nMamás primerizas\n\nRutina diaria y salidas",
+		"longDescription_en": "A kit designed especially as a baby shower gift: practical and functional, with products that are actually used in the daily routine of mom and baby. It combines organization, on-the-go diaper changing, and a multipurpose organizer.\n\n**What's Included**\n\nSet Botiquín para Bebé: ideal para productos de higiene y medicamentos; mantiene frascos firmes y ayuda a evitar derrames.\n\nCambiador Pañalera: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n\nCartuchera: bolsita organizadora multiusos para artículos pequeños; ideal para bolso, casa o para guardar esenciales.\n\nBeneficios clave\n\nRegalo útil y funcional para el día a día\n\nFacilita el cambio de pañal fuera de casa\n\nMantiene higiene y accesorios siempre organizados\n\nAlto valor percibido en un solo kit\n\nIdeal para\n\nBaby shower\n\nMamás primerizas\n\nRutina diaria y salidas",
 		"images": [
 			{
 				"id": "i520",
@@ -43,7 +44,8 @@
 		"price": 400000,
 		"category": "kits",
 		"subcategory": "",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 20
 	},
 	{
 		"id": "687",
@@ -66,7 +68,8 @@
 		"price": 770000,
 		"category": "kits",
 		"subcategory": "",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "679",
@@ -89,7 +92,8 @@
 		"price": 210000,
 		"category": "accesorios-lenceria",
 		"subcategory": "decoracion",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "960",
@@ -112,7 +116,8 @@
 		"price": 160000,
 		"category": "accesorios-lenceria",
 		"subcategory": "decoracion",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "123",
@@ -135,7 +140,8 @@
 		"price": 150000,
 		"category": "accesorios-lenceria",
 		"subcategory": "cambio-panal-accesorios",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "576",
@@ -158,7 +164,8 @@
 		"price": 110000,
 		"category": "accesorios-lenceria",
 		"subcategory": "cambio-panal-accesorios",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "235",
@@ -181,7 +188,8 @@
 		"price": 310000,
 		"category": "accesorios-lenceria",
 		"subcategory": "cuidado-bebe",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "568",
@@ -204,7 +212,8 @@
 		"price": 50000,
 		"category": "accesorios-lenceria",
 		"subcategory": "cuidado-bebe",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "213",
@@ -227,7 +236,8 @@
 		"price": 110000,
 		"category": "accesorios-lenceria",
 		"subcategory": "organizadores",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "901",
@@ -250,7 +260,8 @@
 		"price": 110000,
 		"category": "accesorios-lenceria",
 		"subcategory": "organizadores",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "329",
@@ -273,7 +284,8 @@
 		"price": 210000,
 		"category": "lenceria-cuna",
 		"subcategory": "cambio-panal-lenceria",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "693",
@@ -296,7 +308,8 @@
 		"price": 540000,
 		"category": "lenceria-cuna",
 		"subcategory": "nido",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "720",
@@ -319,7 +332,8 @@
 		"price": 640000,
 		"category": "lenceria-cuna",
 		"subcategory": "nido",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "482",
@@ -342,7 +356,8 @@
 		"price": 500000,
 		"category": "lenceria-cuna",
 		"subcategory": "cuidado-bebe-cuna",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	},
 	{
 		"id": "286",
@@ -365,6 +380,7 @@
 		"price": 650000,
 		"category": "lenceria-cuna",
 		"subcategory": "cuidado-bebe-cuna",
-		"isFeatured": false
+		"isFeatured": false,
+		"productionDays": 15
 	}
 ]

@@ -47,6 +47,7 @@ export function FabricZoomModal({
   //   }
   // };
 
+  // TODO: change this to a dialog tag
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
@@ -104,8 +105,7 @@ export function FabricZoomModal({
         </div>
 
         {/* Action button */}
-        {/*
-        {(onSelect || fabric) && (
+        {/* {(onSelect || fabric) && (
           <>
             <Button
               className="w-full gap-2 h-11 rounded-md px-8"
@@ -121,8 +121,7 @@ export function FabricZoomModal({
                 : 'We\'ll take you to see available products'}
             </p>
           </>
-        )}
-          */}
+        )} */}
       </div>
     </div>
   );

@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 import { catalogContent } from '@/data/catalogContent.ts'
 import productsData from '@/data/products.json'
 
-// Categories that should appear in the catalog (matching header navigation)
-
-export  function CatalogPage() {
+export function CatalogPage() {
   const { category, subcategory } = useParams<{ category?: string; subcategory?: string }>();
   const { language } = useLanguage();
 
@@ -130,7 +128,9 @@ export  function CatalogPage() {
                     <ProductCard key={card.id} product={card} language={language} />
                   ))
               ) : category ? (
-                productsData.filter((product) => product.category === category).map((card) => (
+                productsData
+                  .filter((product) => product.category === category)
+                  .map((card) => (
                   <ProductCard key={card.id} product={card} language={language} />
                 ))
               ) : (
