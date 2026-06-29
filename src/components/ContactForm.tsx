@@ -16,7 +16,7 @@ const getContactSchema = (language: 'es' | 'en') =>
     message: z.string().trim().max(500, language === 'es' ? 'Máximo 500 caracteres' : 'Maximum 500 characters').optional(),
   });
 
-const inputClasses = 'flex w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm'
+export const inputClasses = 'flex w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm'
 
 type ContactFormData = z.infer<ReturnType<typeof getContactSchema>>;
 

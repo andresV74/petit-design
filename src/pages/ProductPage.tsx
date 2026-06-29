@@ -8,6 +8,7 @@ import { useLanguage } from '@/lib/i18n'
 import { FabricSelector } from '@/components/products/FabricSelector'
 import { trackEvent, trackWhatsAppClick } from '@/hooks/useMetaPixel'
 import { getWhatsAppUrl } from '@/lib/whatsapp'
+import { inputClasses } from '@/components/ContactForm.tsx'
 
 import products from '@/data/products.json'
 
@@ -35,6 +36,7 @@ export function ProductPage() {
   const [selectedFabric, setSelectedFabric] = useState('')
   const [observations, setObservations] = useState('')
   const hasTrackedView = useRef(false)
+  
   useEffect(() => {
     if (displayProduct && !hasTrackedView.current) {
       hasTrackedView.current = true
@@ -72,7 +74,6 @@ export function ProductPage() {
 
   const handleWhatsAppOrder = () => {
     const colorLabel = t(`color.${embroideryColor}`)
-    const fabricName = allFabrics.find(f => f.id === selectedFabric)?.name || ''
     const productUrl = `${window.location.origin}/producto/${displayProduct?.slug}`
     const productImage = images[0]?.imageUrl ? `${window.location.origin}${images[0].imageUrl}` : ''
 
@@ -262,7 +263,7 @@ export function ProductPage() {
                   placeholder={t('product.babyNamePlaceholder')}
                   value={babyName}
                   onChange={(e) => setBabyName(e.target.value)}
-                  className="bg-background text-lg"
+                  className={inputClasses}
                   maxLength={15}
                 />
               </div>
@@ -325,7 +326,7 @@ export function ProductPage() {
                   placeholder={t('product.observationsPlaceholder')}
                   value={observations}
                   onChange={(e) => setObservations(e.target.value)}
-                  className="bg-background resize-none"
+                  className={`resize-none ${inputClasses}`}
                   rows={3}
                 />
               </div>
