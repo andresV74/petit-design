@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { ChevronLeft, MessageCircle, Heart, Clock, Shield, Sparkles } from 'lucide-react'
+import { MessageCircle, Heart, Clock, Shield, Sparkles } from 'lucide-react'
 import { ProductLongDescription } from '@/components/products/ProductLongDescription'
 import { Button } from '@/components/ui/button'
 import { ProductPreview } from '@/components/products/ProductPreview.tsx'
@@ -9,6 +9,7 @@ import { FabricSelector } from '@/components/products/FabricSelector'
 import { trackEvent, trackWhatsAppClick } from '@/hooks/useMetaPixel'
 import { getWhatsAppUrl } from '@/lib/whatsapp'
 import { inputClasses } from '@/components/ContactForm.tsx'
+import { catalogContent } from '@/data/catalogContent.ts'
 
 import products from '@/data/products.json'
 
@@ -24,11 +25,11 @@ const embroideryColors = [
 export function ProductPage() {
   const { slug } = useParams<{ slug: string }>()
   const { t, language } = useLanguage()
-
-
-  // const { data: product, isLoading } = useProduct(slug || '')
+  const catalogTranslations = catalogContent[language]
 
   const displayProduct = products.find(product => product.slug === slug)
+  const category = displayProduct?.category
+  const subcategory = displayProduct?.subcategory
 
   const [selectedImage, setSelectedImage] = useState(0)
   const [babyName, setBabyName] = useState('')
@@ -36,7 +37,7 @@ export function ProductPage() {
   const [selectedFabric, setSelectedFabric] = useState('')
   const [observations, setObservations] = useState('')
   const hasTrackedView = useRef(false)
-  
+
   useEffect(() => {
     if (displayProduct && !hasTrackedView.current) {
       hasTrackedView.current = true
@@ -129,6 +130,14 @@ export function ProductPage() {
     ? images[0].imageUrl.startsWith('http') ? images[0].imageUrl : `https://petitdesign.com.co${images[0].imageUrl}`
     : 'https://petitdesign.com.co/logo-full.png'
 
+  const getTitlesBySlug = (slug: string | undefined, field: 'title' | 'description') => {
+    if (!slug) {
+      return catalogTranslations.pageTitle
+    }
+
+    return catalogTranslations.categories.find(category => category.slug === slug)?.[field]
+  }
+
   return (
     <>
 			<title>{productTitle}</title>
@@ -163,13 +172,21 @@ export function ProductPage() {
 
       <div className="container px-4 py-8 md:py-12">
         {/* Breadcrumb */}
-        <Link
-          to="/catalogo"
-          className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors mb-8"
-        >
-          <ChevronLeft className="h-4 w-4" />
-          {t('nav.catalog')}
-        </Link>
+        {subcategory && (
+          <div className="flex flex-wrap items-center justify-start gap-x-2 mb-7 text-muted-foreground">
+            <Link to="/catalogo" className="hover:text-mint underline hover:no-underline">
+              {language === 'es' ? 'Catálogo' : 'Catalog'}
+            </Link>
+            <span>/</span>
+            <Link to={`/catalogo/${category}`} className="hover:text-mint underline hover:no-underline">
+              {getTitlesBySlug(category, 'title')}
+            </Link>
+            <span>/</span>
+            <Link to={`/catalogo/${category}/${subcategory}`} className="hover:text-mint underline hover:no-underline">
+              {getTitlesBySlug(subcategory, 'title')}
+            </Link>
+          </div>
+        )}
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Image Gallery with Interactive Preview */}
