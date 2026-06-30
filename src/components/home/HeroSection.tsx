@@ -37,7 +37,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="container relative z-10 px-4 py-16 md:py-24">
+      <div className="container relative px-4 py-16 md:py-24">
         <div className="max-w-xl">
           {/* Text Content */}
           <div className="flex flex-col gap-6 animate-fade-in">

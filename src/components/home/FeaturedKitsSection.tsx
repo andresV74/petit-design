@@ -11,7 +11,7 @@ export function FeaturedKitsSection() {
 
   return (
     <section className="py-16 md:py-24 bg-linear-to-b from-mint-light/30 relative overflow-hidden">
-      <div className="container px-4 relative z-10">
+      <div className="container px-4 relative">
         {/* Header */}
         <div className="text-center mb-12">
           <Badge className="mb-4 gap-2 px-4 py-2 bg-mint/20 text-mint-dark border-mint/30">

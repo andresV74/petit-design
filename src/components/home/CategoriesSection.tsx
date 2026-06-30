@@ -92,7 +92,7 @@ export function CategoriesSection() {
                 {/* Category Card */}
 								<button
 									onClick={() => handleCategoryClick(category.id, true)}
-									className="group relative aspect-4/3 overflow-hidden rounded-2xl text-left transition-all hover:shadow-lg z-20 cursor-pointer"
+									className="group relative aspect-4/3 overflow-hidden rounded-2xl text-left transition-all hover:shadow-lg cursor-pointer"
 								>
 									<img
 										src={imageUrl}
@@ -117,7 +117,7 @@ export function CategoriesSection() {
 
                 {/* Subcategories Dropdown */}
 								<div className={
-									`overflow-hidden transition-all duration-300 ease-in-out bg-white rounded-b-2xl shadow-md -mt-2 z-10
+									`overflow-hidden transition-all duration-300 ease-in-out bg-white rounded-b-2xl shadow-md -mt-2
 									${expandedCategory === category.id ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`
 								}>
 									<div className="p-4 space-y-2">
