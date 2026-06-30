@@ -3,58 +3,64 @@ import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/lib/i18n';
 
-// Fallback images for categories
 const categoryImages: Record<string, string> = {
   'lenceria': '/products/product-1.jpeg',
-  'nidos': '/products/nido-estandar.png',
   'accesorios-lenceria': '/products/product-9.jpeg',
-  'bolsitas-panalera': '/products/product-4.jpeg',
-  'baby-sleeping': '/products/baby-sleeping-pijama.png',
-  'toallas-baberos': '/products/product-5.jpeg',
-  'cojines-cobijas': '/products/product-3.jpeg',
-  'kit-cambiador': '/products/product-7.jpeg',
-  'sets-personalizados': '/products/product-2.jpeg',
-  'kits': '/products/product-2.jpeg',
 };
 
+// TODO: centralize the global state
 const mainCategories = [
 	{
 		id: 'lenceria',
-		slug: 'lenceria',
+		slug: 'lenceria-cuna',
 		name_en: 'Crib and Toddler Bed Linens',
 		name_es: 'Lencería de Cunas y Cama Cunas',
 		image_url: categoryImages['lenceria'],
 		subcategories: [
 			{
 				key: '1',
-				name: 'Cambio de pañal'},
+				name: 'Cambio de pañal',
+				slug: 'cambio-panal-lenceria'
+			},
 			{
 				key: '2',
-				name: 'Nido'},
+				name: 'Nido',
+				slug: 'nido'
+			},
 			{
 				key: '3',
-				name: 'Lencería de Cuna'},
+				name: 'Lencería de Cuna',
+				slug: 'cuidado-bebe-cuna'
+			},
 		]
 	},
 	{
 		id: 'accesorios',
-		slug: 'accesorios',
+		slug: 'accesorios-lenceria',
 		name_en: 'Linen Accessories',
 		name_es: 'Accesorios de Lencería ',
 		image_url: categoryImages['accesorios-lenceria'],
 		subcategories: [
 			{
 				key: '1',
-				name: 'Decoración'},
+				name: 'Decoración',
+				slug: 'decoracion'
+			},
 			{
 				key: '2',
-				name: 'Cambio de Pañal'},
+				name: 'Cambio de Pañal',
+				slug: 'cambio-panal-accesorios'
+			},
 			{
 				key: '3',
-				name: 'Cuidado del Bebé'},
+				name: 'Cuidado del Bebé',
+				slug: 'cuidado-bebe'
+			},
 			{
 				key: '4',
-				name: 'Organizadores'},
+				name: 'Organizadores',
+				slug: 'organizadores'
+			},
 		]
 	},
 ]
@@ -84,10 +90,8 @@ export function CategoriesSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto justify-items-center">
-          {mainCategories.map((category) => {
-            const imageUrl = category.image_url || categoryImages[category.slug] || '/products/product-1.jpeg';
-
-            return (
+          {
+						mainCategories.map((category) =>  (
               <div key={category.id} className="flex flex-col">
                 {/* Category Card */}
 								<button
@@ -95,7 +99,7 @@ export function CategoriesSection() {
 									className="group relative aspect-4/3 overflow-hidden rounded-2xl text-left transition-all hover:shadow-lg z-20 cursor-pointer"
 								>
 									<img
-										src={imageUrl}
+										src={category.image_url}
 										alt={language === 'es' ? category.name_es : category.name_en}
 										loading="lazy"
 										decoding="async"
@@ -124,7 +128,7 @@ export function CategoriesSection() {
 										{category.subcategories.map((subcategory) => (
 											<Link
 												key={subcategory.key}
-												to={`/catalogo/subcategoria/`}
+												to={`/catalogo/${category.slug}/${subcategory.slug}`}
 												className="flex items-center justify-between p-3 rounded-lg hover:bg-mint-light/30 transition-colors group"
 											>
 												<span className="text-foreground font-medium">
@@ -136,8 +140,8 @@ export function CategoriesSection() {
 									</div>
 								</div>
               </div>
-            );
-          })}
+            ))
+					}
         </div>
       </div>
     </section>
