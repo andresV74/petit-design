@@ -96,7 +96,7 @@ export function CategoriesSection() {
                 {/* Category Card */}
 								<button
 									onClick={() => handleCategoryClick(category.id, true)}
-									className="group relative aspect-4/3 overflow-hidden rounded-2xl text-left transition-all hover:shadow-lg z-20 cursor-pointer"
+									className="group w-full relative aspect-4/3 overflow-hidden rounded-2xl text-left transition-all hover:shadow-lg z-20 cursor-pointer"
 								>
 									<img
 										src={category.image_url}

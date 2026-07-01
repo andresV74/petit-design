@@ -19,7 +19,7 @@ export function ProductLongDescription({ description, language }: ProductLongDes
     <div className={`${styles.description} mt-8 border border-border rounded-2xl overflow-hidden`}>
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between p-5 bg-muted/30 hover:bg-muted/50 transition-colors text-left"
+        className="w-full flex items-center justify-between p-5 bg-muted/30 hover:bg-muted/50 transition-colors text-left cursor-pointer"
       >
         <div className="flex items-center gap-2">
           <FileText className="h-5 w-5 text-primary" />

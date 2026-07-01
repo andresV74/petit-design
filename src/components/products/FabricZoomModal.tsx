@@ -61,7 +61,7 @@ export function FabricZoomModal({
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full hover:bg-muted transition-colors"
+          className="absolute top-4 right-4 p-2 rounded-full hover:bg-muted transition-colors cursor-pointer"
         >
           <X className="h-5 w-5" />
         </button>
@@ -71,13 +71,13 @@ export function FabricZoomModal({
           <>
             <button
               onClick={(e) => { e.stopPropagation(); onPrevious(); }}
-              className="absolute left-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors z-10"
+              className="absolute left-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors z-10 cursor-pointer"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); onNext(); }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors z-10"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors z-10 cursor-pointer"
             >
               <ChevronRight className="h-6 w-6" />
             </button>

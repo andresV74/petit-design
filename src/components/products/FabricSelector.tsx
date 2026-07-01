@@ -141,10 +141,12 @@ export function FabricSelector({
 			{/* Fabric Grid */}
 			{selectedGender && currentFabrics.length > 0 && (
 				<div className="space-y-3 animate-fade-in-from-bottom">
-					<div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3 p-3 bg-background rounded-xl border max-h-70 overflow-y-auto">
-						{currentFabrics.map((fabric, index) => (
-							<FabricButton key={index} fabric={fabric as Fabric} index={index} selectedFabric={selectedFabric} handleFabricZoom={handleFabricZoom} />
-						))}
+					<div className="max-h-70 overflow-y-auto bg-background rounded-xl border">
+						<div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3 p-3">
+							{currentFabrics.map((fabric, index) => (
+								<FabricButton key={index} fabric={fabric as Fabric} index={index} selectedFabric={selectedFabric} handleFabricZoom={handleFabricZoom} />
+							))}
+						</div>
 					</div>
 
 					{/* WhatsApp CTA */}

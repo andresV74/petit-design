@@ -183,7 +183,7 @@ export function ProductPage() {
                     key={image.id}
                     onClick={() => setSelectedImage(index)}
                     className={
-                      `shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors
+                      `shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors cursor-pointer
 											${selectedImage === index ? 'border-primary' : 'border-transparent hover:border-primary/50'}`
 
                     }
@@ -265,7 +265,7 @@ export function ProductPage() {
                       key={color.value}
                       onClick={() => setEmbroideryColor(color.value)}
                       className={
-                        `w-12 h-12 rounded-full transition-all relative
+                        `w-12 h-12 rounded-full transition-all relative cursor-pointer
                         ${color.border && 'border-2 border-border'}
                         ${embroideryColor === color.value
                           ? "ring-2 ring-primary ring-offset-2 scale-110"

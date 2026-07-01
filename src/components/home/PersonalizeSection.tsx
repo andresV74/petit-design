@@ -148,7 +148,7 @@ export function PersonalizeSection() {
                 <button
                   key={fabric.id}
                   onClick={() => handleFabricClick(fabric, index)}
-                  className="group relative"
+                  className="group relative cursor-pointer"
                 >
                   {/* Fabric swatch - larger size with hover effect */}
                   <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:shadow-2xl group-hover:z-10">
