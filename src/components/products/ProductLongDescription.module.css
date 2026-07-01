@@ -1,0 +1,14 @@
+.description {
+	p {
+		margin-bottom: 20px;
+	}
+
+	ul {
+		margin-left: 20px;
+		margin-bottom: 20px;
+
+		li {
+			list-style-type: disc;
+		}
+	}
+}

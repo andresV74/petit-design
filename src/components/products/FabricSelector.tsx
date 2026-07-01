@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react'
-import { Baby, ChevronLeft, ChevronRight, MessageCircle, X } from 'lucide-react'
+import { Baby, MessageCircle } from 'lucide-react'
 import { FabricButton } from './FabricButton.tsx'
+import { Dialog, type DialogRef } from '@/components/ui/dialog.tsx'
 import { useLanguage } from '@/lib/i18n'
-import { getWhatsAppUrl } from '@/lib/whatsapp'
-import { Button } from '@/components/ui/button'
+import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 
 import boyFabrics from '@/data/boyFabrics.json'
 import girlFabrics from '@/data/girlFabrics.json'
@@ -34,13 +34,13 @@ export function FabricSelector({
 	const [selectedGender, setSelectedGender] = useState<'boy' | 'girl' | null>(initialGender)
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
 	const [zoomIndex, setZoomIndex] = useState(0)
-	const dialogRef = useRef<HTMLDialogElement | null>(null)
+	const dialogRef = useRef<DialogRef | null>(null)
 
-	const currentFabrics = selectedGender === 'boy'
+	const currentFabrics: Fabric[] = (selectedGender === 'boy'
 		? boyFabrics
 		: selectedGender === 'girl'
 			? girlFabrics
-			: []
+			: []) as unknown as Fabric[]
 
 
 	/**
@@ -54,7 +54,7 @@ export function FabricSelector({
 		e.stopPropagation()
 		setZoomFabric(fabric)
 		setZoomIndex(index)
-		dialogRef.current?.showModal()
+		dialogRef.current?.open()
 	}
 
 	/**
@@ -87,13 +87,6 @@ export function FabricSelector({
 
 	const handleClearSelection = () => {
 		onFabricSelect('')
-		dialogRef.current?.close()
-	}
-
-	/**
-	 * Closes the dialog modal
-	 */
-	const handleDialogClose = () => {
 		dialogRef.current?.close()
 	}
 
@@ -178,77 +171,16 @@ export function FabricSelector({
 			)}
 
 			{/* Zoom Modal */}
-			<dialog
+			<Dialog
 				ref={dialogRef}
-				className="sm:max-w-md p-0 overflow-hidden fixed top-0 right-0 bottom-0 left-0 z-20 m-auto rounded-xl backdrop:bg-foreground/80 "
-			>
-				{zoomFabric && (
-					<div className="p-6 relative">
-						{/* Close button */}
-						<Button
-							className="absolute right-3 top-3 z-10 p-1 bg-white opacity-85 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
-							onClick={handleDialogClose}
-						>
-							<X />
-						</Button>
-
-						{/* Navigation arrows */}
-						{currentFabrics.length > 1 && (
-							<>
-								<button
-									onClick={() => handleZoomNavigate('prev')}
-									className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors z-10"
-								>
-									<ChevronLeft className="h-5 w-5" />
-								</button>
-								<button
-									onClick={() => handleZoomNavigate('next')}
-									className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors z-10"
-								>
-									<ChevronRight className="h-5 w-5" />
-								</button>
-							</>
-						)}
-
-						{/* Large fabric preview */}
-						<div className="relative aspect-square rounded-2xl overflow-hidden mb-4 shadow-lg">
-							<img
-								src={zoomFabric.image}
-								alt={zoomFabric.name}
-								className="w-full h-full object-cover"
-							/>
-						</div>
-
-						{/* Fabric info */}
-						<div className="text-center mb-4">
-							<h3 className="font-display text-xl font-semibold">
-								{zoomFabric.name}
-							</h3>
-							<p className="text-sm text-muted-foreground mt-1">
-								{zoomIndex + 1} / {currentFabrics.length}
-							</p>
-						</div>
-
-						{/* Action button */}
-						<Button
-							className="w-full gap-2 h-11 rounded-md px-8 bg-primary text-primary-foreground"
-							onClick={handleSelectFromZoom}
-						>
-							{language === 'es' ? 'Seleccionar esta tela' : 'Select this fabric'}
-						</Button>
-
-						{/* Clears fabric button */}
-						{selectedFabric === zoomFabric.id && (
-							<Button
-								className="w-full gap-2 h-11 rounded-md mt-4 px-8 bg-primary text-primary-foreground"
-								onClick={handleClearSelection}
-							>
-								{language === 'es' ? 'Anular selección de tela' : 'Clears fabric selection'}
-							</Button>
-						)}
-					</div>
-				)}
-			</dialog>
+				zoomFabric={zoomFabric}
+				currentFabrics={currentFabrics}
+				handleZoomNavigate={handleZoomNavigate}
+				handleSelectFromZoom={handleSelectFromZoom}
+				handleClearSelection={handleClearSelection}
+				selectedFabric={selectedFabric}
+				zoomIndex={zoomIndex}
+			/>
 		</div>
 	)
 }

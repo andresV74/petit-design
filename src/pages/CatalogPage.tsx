@@ -1,22 +1,23 @@
-import { useParams } from 'react-router-dom';
-import { ProductCard } from '@/components/products/ProductCard';
-import { useLanguage } from '@/lib/i18n';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
+import { ProductCard } from '@/components/products/ProductCard.tsx'
+import { Breadcrumbs } from '@/components/ui/breadcrumbs'
+import { useLanguage } from '@/lib/i18n'
+import { Link } from 'react-router-dom'
 import { catalogContent } from '@/data/catalogContent.ts'
 import productsData from '@/data/products.json'
 
 export function CatalogPage() {
-  const { category, subcategory } = useParams<{ category?: string; subcategory?: string }>();
-  const { language } = useLanguage();
+  const { category, subcategory } = useParams<{ category?: string; subcategory?: string }>()
+  const { language } = useLanguage()
 
-  const t = catalogContent[language];
+  const t = catalogContent[language]
   const headTitle = `${t.pageTitle} | Petit Design`
 
   const canonicalUrl = subcategory
     ? `https://petitdesign.com.co/catalogo/${category}/${subcategory}`
     : category
       ? `https://petitdesign.com.co/catalogo/${category}`
-      : 'https://petitdesign.com.co/catalogo';
+      : 'https://petitdesign.com.co/catalogo'
 
   const getTitlesBySlug = (slug: string | undefined, field: 'title' | 'description') => {
     if (!slug) {
@@ -87,21 +88,7 @@ export function CatalogPage() {
         )}
 
         {/* Breadcrumb for subcategory */}
-        {subcategory && (
-          <div className="flex flex-wrap items-center justify-center gap-x-2 mb-8 text-sm text-muted-foreground">
-            <Link to="/catalogo" className="hover:text-mint underline hover:no-underline">
-              {language === 'es' ? 'Catálogo' : 'Catalog'}
-            </Link>
-            <span>/</span>
-            <Link to={`/catalogo/${category}`} className="hover:text-mint underline hover:no-underline">
-              {getTitlesBySlug(category, 'title')}
-            </Link>
-            <span>/</span>
-            <span>
-              {getTitlesBySlug(subcategory, 'title')}
-            </span>
-          </div>
-        )}
+        <Breadcrumbs category={category} subcategory={subcategory} isProduct={false} />
 
         {/* Products Grid */}
         {productsData.length === 0 ? (
@@ -143,5 +130,5 @@ export function CatalogPage() {
         )}
       </div>
     </>
-  );
+  )
 }

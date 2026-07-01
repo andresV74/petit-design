@@ -1,15 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { MessageCircle, Heart, Clock, Shield, Sparkles } from 'lucide-react'
 import { ProductLongDescription } from '@/components/products/ProductLongDescription'
-import { Button } from '@/components/ui/button'
 import { ProductPreview } from '@/components/products/ProductPreview.tsx'
+import { FabricSelector } from '@/components/products/FabricSelector.tsx'
+import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { useLanguage } from '@/lib/i18n'
-import { FabricSelector } from '@/components/products/FabricSelector'
+import { Button } from '@/components/ui/button'
 import { trackEvent, trackWhatsAppClick } from '@/hooks/useMetaPixel'
 import { getWhatsAppUrl } from '@/lib/whatsapp'
 import { inputClasses } from '@/components/ContactForm.tsx'
-import { catalogContent } from '@/data/catalogContent.ts'
 
 import products from '@/data/products.json'
 
@@ -25,7 +25,6 @@ const embroideryColors = [
 export function ProductPage() {
   const { slug } = useParams<{ slug: string }>()
   const { t, language } = useLanguage()
-  const catalogTranslations = catalogContent[language]
 
   const displayProduct = products.find(product => product.slug === slug)
   const category = displayProduct?.category
@@ -130,14 +129,6 @@ export function ProductPage() {
     ? images[0].imageUrl.startsWith('http') ? images[0].imageUrl : `https://petitdesign.com.co${images[0].imageUrl}`
     : 'https://petitdesign.com.co/logo-full.png'
 
-  const getTitlesBySlug = (slug: string | undefined, field: 'title' | 'description') => {
-    if (!slug) {
-      return catalogTranslations.pageTitle
-    }
-
-    return catalogTranslations.categories.find(category => category.slug === slug)?.[field]
-  }
-
   return (
     <>
 			<title>{productTitle}</title>
@@ -172,21 +163,7 @@ export function ProductPage() {
 
       <div className="container px-4 py-8 md:py-12">
         {/* Breadcrumb */}
-        {subcategory && (
-          <div className="flex flex-wrap items-center justify-start gap-x-2 mb-7 text-muted-foreground">
-            <Link to="/catalogo" className="hover:text-mint underline hover:no-underline">
-              {language === 'es' ? 'Catálogo' : 'Catalog'}
-            </Link>
-            <span>/</span>
-            <Link to={`/catalogo/${category}`} className="hover:text-mint underline hover:no-underline">
-              {getTitlesBySlug(category, 'title')}
-            </Link>
-            <span>/</span>
-            <Link to={`/catalogo/${category}/${subcategory}`} className="hover:text-mint underline hover:no-underline">
-              {getTitlesBySlug(subcategory, 'title')}
-            </Link>
-          </div>
-        )}
+        <Breadcrumbs category={category} subcategory={subcategory} isProduct={true} />
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Image Gallery with Interactive Preview */}
@@ -194,9 +171,6 @@ export function ProductPage() {
             {/* Main Preview with Name Overlay */}
             <ProductPreview
               imageUrl={images?.[selectedImage]?.imageUrl}
-              babyName={babyName}
-              embroideryColor={embroideryColor}
-              fontType={'great_vibes'}
               alt={language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}
             />
 
@@ -216,7 +190,7 @@ export function ProductPage() {
                   >
                     <img
                       src={image.imageUrl}
-                      alt=""
+                      alt={language === 'es' ? image.altText_es : image.altText_en}
                       className="h-full w-full object-cover"
                     />
                   </button>
@@ -227,14 +201,12 @@ export function ProductPage() {
 
           {/* Product Info */}
           <div className="space-y-6">
-            <div>
-              <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold mb-2">
-                {language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}
-              </h1>
-              <p className="text-2xl font-semibold text-primary">
-                {formatPrice(displayProduct?.price)}
-              </p>
-            </div>
+            <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold mb-2">
+              {language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}
+            </h1>
+            <p className="text-2xl font-semibold text-primary">
+              {formatPrice(displayProduct?.price)}
+            </p>
 
             <p className="text-muted-foreground leading-relaxed">
               {language === 'es' ? displayProduct?.shortDescription_es : displayProduct?.shortDescription_en}
@@ -287,7 +259,7 @@ export function ProductPage() {
 
               <div className="space-y-3">
                 <label>{t('product.embroideryColor')}</label>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 mt-3">
                   {embroideryColors.map((color) => (
                     <button
                       key={color.value}

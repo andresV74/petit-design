@@ -30,8 +30,8 @@
 		"slug": "KIT-REGALO-IDEAL",
 		"shortDescription_es": "El regalo ideal para baby shower, con artículos seleccionados.",
 		"shortDescription_en": "The perfect baby shower gift, featuring carefully selected items.",
-		"longDescription_es": "Un kit pensado especialmente para regalar en baby shower: práctico y funcional, con productos que realmente se usan en la rutina diaria de mamá y bebé. Combina organización, cambio de pañal fuera de casa y un organizador multiusos.\n\n**Qué incluye**\n\nSet Botiquín para Bebé: ideal para productos de higiene y medicamentos; mantiene frascos firmes y ayuda a evitar derrames.\n\nCambiador Pañalera: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n\nCartuchera: bolsita organizadora multiusos para artículos pequeños; ideal para bolso, casa o para guardar esenciales.\n\nBeneficios clave\n\nRegalo útil y funcional para el día a día\n\nFacilita el cambio de pañal fuera de casa\n\nMantiene higiene y accesorios siempre organizados\n\nAlto valor percibido en un solo kit\n\nIdeal para\n\nBaby shower\n\nMamás primerizas\n\nRutina diaria y salidas",
-		"longDescription_en": "A kit designed especially as a baby shower gift: practical and functional, with products that are actually used in the daily routine of mom and baby. It combines organization, on-the-go diaper changing, and a multipurpose organizer.\n\n**What's Included**\n\nSet Botiquín para Bebé: ideal para productos de higiene y medicamentos; mantiene frascos firmes y ayuda a evitar derrames.\n\nCambiador Pañalera: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n\nCartuchera: bolsita organizadora multiusos para artículos pequeños; ideal para bolso, casa o para guardar esenciales.\n\nBeneficios clave\n\nRegalo útil y funcional para el día a día\n\nFacilita el cambio de pañal fuera de casa\n\nMantiene higiene y accesorios siempre organizados\n\nAlto valor percibido en un solo kit\n\nIdeal para\n\nBaby shower\n\nMamás primerizas\n\nRutina diaria y salidas",
+		"longDescription_es": "Un kit pensado especialmente para regalar en baby shower: práctico y funcional, con productos que realmente se usan en la rutina diaria de mamá y bebé. Combina organización, cambio de pañal fuera de casa y un organizador multiusos.\n\n**Qué incluye**\n\n- **Set Botiquín para Bebé**: ideal para productos de higiene y medicamentos; mantiene frascos firmes y ayuda a evitar derrames.\n- **Cambiador Pañalera**: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n- **Cartuchera**: bolsita organizadora multiusos para artículos pequeños; ideal para bolso, casa o para guardar esenciales.\n\n**Beneficios clave**\n- Regalo útil y funcional para el día a día\n- Facilita el cambio de pañal fuera de casa\n- Mantiene higiene y accesorios siempre organizados\n- Alto valor percibido en un solo kit\n\n**Ideal para**\n- Baby shower\n- Mamás primerizas\n- Rutina diaria y salidas",
+		"longDescription_en": "A kit designed especially as a baby shower gift: practical and functional, with products that are actually used in the daily routine of mom and baby. It combines organization, on-the-go diaper changing, and a multipurpose organizer.\n\n**What's Included**\n\n- **Set Botiquín para Bebé**: ideal para productos de higiene y medicamentos; mantiene frascos firmes y ayuda a evitar derrames.\n\n- Cambiador Pañalera: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n\nCartuchera: bolsita organizadora multiusos para artículos pequeños; ideal para bolso, casa o para guardar esenciales.\n\nBeneficios clave\n\nRegalo útil y funcional para el día a día\n\nFacilita el cambio de pañal fuera de casa\n\nMantiene higiene y accesorios siempre organizados\n\nAlto valor percibido en un solo kit\n\nIdeal para\n\nBaby shower\n\nMamás primerizas\n\nRutina diaria y salidas",
 		"images": [
 			{
 				"id": "i520",
@@ -39,6 +39,20 @@
 				"altText_es": "KIT REGALO IDEAL (BABY SHOWER)",
 				"altText_en": "Ideal Gift Kit (Baby Shower)",
 				"isPrimary": true
+			},
+			{
+				"id": "i521",
+				"imageUrl": "/products/kit-regalo-ideal-2.webp",
+				"altText_es": "KIT REGALO IDEAL (BABY SHOWER)",
+				"altText_en": "Ideal Gift Kit (Baby Shower)",
+				"isPrimary": false
+			},
+			{
+				"id": "i522",
+				"imageUrl": "/products/kit-regalo-ideal-3.webp",
+				"altText_es": "KIT REGALO IDEAL (BABY SHOWER)",
+				"altText_en": "Ideal Gift Kit (Baby Shower)",
+				"isPrimary": false
 			}
 		],
 		"price": 400000,
