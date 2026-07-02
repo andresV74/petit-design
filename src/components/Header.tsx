@@ -8,10 +8,10 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuSeparator,
+  // DropdownMenuSub,
+  // DropdownMenuSubContent,
+  // DropdownMenuSubTrigger,
+  // DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { categories } from '@/data/categories.ts'
 
@@ -25,7 +25,7 @@ export function Header() {
   };
 
   const navLinks = [
-    { href: '/', label: t('nav.home') },
+    { href: '/catalogo/kits', label: 'Kits' },
     { href: '/nosotros', label: t('nav.about') },
     { href: '/contacto', label: t('nav.contact') },
     { href: '/politicas', label: t('nav.policies') },
@@ -46,7 +46,61 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-4">
+          <Link
+            key={'/'}
+            to={'/'}
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-mint-dark"
+          >
+            {t('nav.home')}
+          </Link>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                className="font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2 py-2"
+              >
+                {language === 'es' ? categories[0].name_es : categories[0].name_en}
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" className="w-56 bg-background">
+              {categories[0].subcategories.map(sub => (
+                <DropdownMenuItem key={sub.slug} asChild>
+                  <Link
+                    to={`/catalogo/${categories[0].slug}/${sub.slug}`}
+                    className="w-full cursor-pointer"
+                  >
+                    {language === 'es' ? sub.name_es : sub.name_en}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                className="font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2 py-2"
+              >
+                {language === 'es' ? categories[2].name_es : categories[2].name_en}
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" className="w-56 bg-background">
+              {categories[2].subcategories.map(sub => (
+                <DropdownMenuItem key={sub.slug} asChild>
+                  <Link
+                    to={`/catalogo/${categories[0].slug}/${sub.slug}`}
+                    className="w-full cursor-pointer"
+                  >
+                    {language === 'es' ? sub.name_es : sub.name_en}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -58,12 +112,12 @@ export function Header() {
           ))}
 
           {/* Categories Dropdown with Subcategories */}
-          <DropdownMenu>
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 className="font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2 py-2"
               >
-                {t('nav.categories')}
+                {t('nav.catalog')}
                 <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -102,7 +156,7 @@ export function Header() {
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
 
           {/* Fabric Catalogs Dropdown */}
           <DropdownMenu>
