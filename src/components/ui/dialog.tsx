@@ -12,15 +12,27 @@ export interface DialogRef {
 export interface DialogProps {
 	zoomFabric: Fabric | null
 	currentFabrics: Fabric[]
-	handleZoomNavigate: (direction: 'prev' | 'next') => void
+	// handleZoomNavigate: (direction: 'prev' | 'next') => void
 	handleSelectFromZoom: () => void
 	handleClearSelection: () => void
 	selectedFabric: string
 	zoomIndex: number
+	setZoomIndex: (index: number) => void
+	setZoomFabric: (fabric: Fabric | null) => void
 }
 
 export const Dialog = forwardRef<DialogRef, DialogProps>(
-	({ zoomFabric, currentFabrics, handleZoomNavigate, handleSelectFromZoom, handleClearSelection, selectedFabric, zoomIndex }, ref) => {
+	({
+		zoomFabric,
+		currentFabrics,
+		// handleZoomNavigate,
+		handleSelectFromZoom,
+		handleClearSelection,
+		selectedFabric,
+		zoomIndex,
+		setZoomIndex,
+		setZoomFabric,
+	}, ref) => {
 	const { language } = useLanguage()
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -28,6 +40,24 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 		open: () => dialogRef.current?.showModal(),
 		close: () => dialogRef.current?.close(),
 	}))
+
+	/**
+	 * Handles Dialog fabrics navigation
+	 *
+	 * @param direction forward and backward dialog navigation
+	 */
+	const handleZoomNavigate = (direction: 'prev' | 'next') => {
+		if (direction === 'prev') {
+			const newIndex = zoomIndex === 0 ? currentFabrics.length - 1 : zoomIndex - 1
+			setZoomIndex(newIndex)
+			setZoomFabric(currentFabrics[newIndex] as Fabric)
+		} else {
+			const newIndex = zoomIndex === currentFabrics.length - 1 ? 0 : zoomIndex + 1
+			setZoomIndex(newIndex)
+			setZoomFabric(currentFabrics[newIndex] as Fabric)
+		}
+	}
+
 
 	return (
 		<dialog

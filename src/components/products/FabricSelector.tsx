@@ -2,7 +2,9 @@ import { useState, useRef } from 'react'
 import { Baby, MessageCircle } from 'lucide-react'
 import { FabricButton } from './FabricButton.tsx'
 import { Dialog, type DialogRef } from '@/components/ui/dialog.tsx'
-import { useLanguage } from '@/lib/i18n'
+import { handleSelectFromZoom } from '@/components/utils/handleSelectFromZoom.ts'
+import { handleClearSelection } from '@/components/utils/handleClearSelection.ts'
+import { useLanguage } from '@/lib/i18n.tsx'
 import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 
 import boyFabrics from '@/data/boyFabrics.json'
@@ -42,7 +44,6 @@ export function FabricSelector({
 			? girlFabrics
 			: []) as unknown as Fabric[]
 
-
 	/**
 	 * Opens the Dialog modal with the chosen fabric from the fabric grid
 	 *
@@ -57,41 +58,8 @@ export function FabricSelector({
 		dialogRef.current?.open()
 	}
 
-	/**
-	 * Handles Dialog fabrics navigation
-	 *
-	 * @param direction forward and backward dialog navigation
-	 */
-	const handleZoomNavigate = (direction: 'prev' | 'next') => {
-		if (direction === 'prev') {
-			const newIndex = zoomIndex === 0 ? currentFabrics.length - 1 : zoomIndex - 1
-			setZoomIndex(newIndex)
-			setZoomFabric(currentFabrics[newIndex] as Fabric)
-		} else {
-			const newIndex = zoomIndex === currentFabrics.length - 1 ? 0 : zoomIndex + 1
-			setZoomIndex(newIndex)
-			setZoomFabric(currentFabrics[newIndex] as Fabric)
-		}
-	}
-
-	/**
-	 * Stores the fabric chosen from the dialog modal and closes the modal
-	 */
-	const handleSelectFromZoom = () => {
-		if (zoomFabric) {
-			onFabricSelect(zoomFabric.id)
-			setZoomFabric(null)
-			dialogRef.current?.close()
-		}
-	}
-
-	const handleClearSelection = () => {
-		onFabricSelect('')
-		dialogRef.current?.close()
-	}
-
 	// Find selected fabric name
-	const selectedFabricObj = [...boyFabrics, ...girlFabrics].find(f => f.id === selectedFabric)
+	const selectedFabricObj = [...boyFabrics, ...girlFabrics].find(fabric => fabric.id === selectedFabric)
 
 	return (
 		<div className="space-y-4">
@@ -177,11 +145,12 @@ export function FabricSelector({
 				ref={dialogRef}
 				zoomFabric={zoomFabric}
 				currentFabrics={currentFabrics}
-				handleZoomNavigate={handleZoomNavigate}
-				handleSelectFromZoom={handleSelectFromZoom}
-				handleClearSelection={handleClearSelection}
+				handleSelectFromZoom={() => handleSelectFromZoom(zoomFabric, onFabricSelect, setZoomFabric, dialogRef as unknown as React.RefObject<HTMLDialogElement>)}
+				handleClearSelection={() => handleClearSelection(onFabricSelect, dialogRef as unknown as React.RefObject<HTMLDialogElement>)}
 				selectedFabric={selectedFabric}
 				zoomIndex={zoomIndex}
+				setZoomIndex={setZoomIndex}
+				setZoomFabric={setZoomFabric}
 			/>
 		</div>
 	)
