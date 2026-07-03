@@ -91,7 +91,7 @@ export function Header() {
               {categories[2].subcategories.map(sub => (
                 <DropdownMenuItem key={sub.slug} asChild>
                   <Link
-                    to={`/catalogo/${categories[0].slug}/${sub.slug}`}
+                    to={`/catalogo/${categories[2].slug}/${sub.slug}`}
                     className="w-full cursor-pointer"
                   >
                     {language === 'es' ? sub.name_es : sub.name_en}
