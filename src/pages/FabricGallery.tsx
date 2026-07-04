@@ -107,13 +107,13 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
               <button
                 key={fabric.id}
                 onClick={(e) => handleFabricZoom(fabric, index, e)}
-                className="group animate-fade-in-up text-left rounded-2xl cursor-pointer"
+                className="group animate-fade-in-up text-left rounded-2xl cursor-pointer place-self-start"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.03] group-focus:outline-none group-focus:ring-2 group-focus:ring-primary group-focus:ring-offset-2">
                   <img
                     src={fabric.image}
-                    alt={fabric.name}
+                    alt={language === 'es' ? fabric.name_es : fabric.name_en}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
 
@@ -127,7 +127,7 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
 
                 {/* Name below image */}
                 <h3 className="mt-3 text-center font-medium text-foreground group-hover:text-primary transition-colors">
-                  {fabric.name}
+                  {language === 'es' ? fabric.name_es : fabric.name_en}
                 </h3>
               </button>
             ))}

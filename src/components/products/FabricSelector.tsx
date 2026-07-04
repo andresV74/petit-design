@@ -13,9 +13,8 @@ import girlFabrics from '@/data/girlFabrics.json'
 export interface Fabric {
   id: string
   slug: string
-  name: string
-  nameOriginal: string
-  nameNormalized: string
+  name_es: string
+  name_en: string
   image: string
   gender: 'boy' | 'girl'
   page: number
@@ -70,7 +69,7 @@ export function FabricSelector({
 				</span>
 				{selectedFabricObj && (
 					<span className="text-xs text-primary font-medium bg-primary/10 px-2 py-1 rounded-full">
-						{selectedFabricObj.name}
+						{language === 'es' ? selectedFabricObj.name_es : selectedFabricObj.name_en}
 					</span>
 				)}
 			</div>

@@ -1,21 +1,27 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Sparkles, Baby, MessageCircle, ZoomIn } from 'lucide-react';
-import { useLanguage } from '@/lib/i18n';
-import { getWhatsAppUrl } from '@/lib/whatsapp';
-import { Badge } from '@/components/ui/badge.tsx';
-import { FabricZoomModal } from '@/components/products/FabricZoomModal.tsx';
-import boyFabrics from '@/data/boyFabrics.json';
-import girlFabrics from '@/data/girlFabrics.json';
+import { useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Sparkles, Baby, MessageCircle, ZoomIn } from 'lucide-react'
+import { Dialog, type DialogRef } from '@/components/ui/dialog.tsx'
+import { handleSelectFromZoom } from '@/components/utils/handleSelectFromZoom.ts'
+import { handleClearSelection } from '@/components/utils/handleClearSelection.ts'
+import { useLanguage } from '@/lib/i18n.tsx'
+import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
+import { Badge } from '@/components/ui/badge.tsx'
+import type { Fabric } from '@/components/products/FabricSelector.tsx'
+
+import boyFabrics from '@/data/boyFabrics.json'
+import girlFabrics from '@/data/girlFabrics.json'
 
 export function PersonalizeSection() {
-  const { language } = useLanguage();
-  const navigate = useNavigate();
-  const [hoveredGender, setHoveredGender] = useState<'boy' | 'girl' | null>(null);
-  const [selectedGender, setSelectedGender] = useState<'boy' | 'girl' | null>(null);
-	const [zoomFabric, setZoomFabric] = useState<{ id: string; name: string; image: string } | null>(null);
+  const { language } = useLanguage()
+  const navigate = useNavigate()
+  const [hoveredGender, setHoveredGender] = useState<'boy' | 'girl' | null>(null)
+  const [selectedGender, setSelectedGender] = useState<'boy' | 'girl' | null>(null)
+	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
+  const [selectedFabric, setSelectedFabric] = useState('')
+  const dialogRef = useRef<DialogRef | null>(null)
 
-  const [zoomIndex, setZoomIndex] = useState(0);
+  const [zoomIndex, setZoomIndex] = useState(0)
 
   const genderOptions = [
     {
@@ -36,38 +42,23 @@ export function PersonalizeSection() {
       textColor: 'text-pink-700',
 			route: '/telas/nina'
     },
-  ];
+  ]
 
   const handleGenderClick = (gender: 'boy' | 'girl') => {
     setSelectedGender(selectedGender === gender ? null : gender);
   };
 
-	const handleFabricClick = (fabric: { id: string; name: string; image: string }, index: number) => {
-    setZoomFabric(fabric);
-    setZoomIndex(index);
-  };
+  const handleFabricZoom = (fabric: Fabric, index: number, e: React.MouseEvent) => {
+		e.stopPropagation()
+		setZoomFabric(fabric)
+		setZoomIndex(index)
+		dialogRef.current?.open()
+	}
 
-  const handleZoomNavigate = (direction: 'prev' | 'next') => {
-    const fabrics = selectedGender === 'boy' ? boyFabrics : girlFabrics;
-    if (direction === 'prev') {
-      const newIndex = zoomIndex === 0 ? fabrics.length - 1 : zoomIndex - 1;
-      setZoomIndex(newIndex);
-      setZoomFabric(fabrics[newIndex]);
-    } else {
-      const newIndex = zoomIndex === fabrics.length - 1 ? 0 : zoomIndex + 1;
-      setZoomIndex(newIndex);
-      setZoomFabric(fabrics[newIndex]);
-    }
-  };
-
-  const handleSelectFabric = () => {
-    if (zoomFabric) {
-      sessionStorage.setItem('selectedFabric', JSON.stringify(zoomFabric));
-    }
-    setZoomFabric(null);
-  };
-
-  const currentFabrics = selectedGender === 'boy' ? boyFabrics : selectedGender === 'girl' ? girlFabrics : [];
+  const currentFabrics: Fabric[] = (selectedGender === 'boy'
+    ? boyFabrics
+    : selectedGender === 'girl'
+      ? girlFabrics : []) as unknown as Fabric[]
 
   return (
     <section className="py-16 md:py-24 bg-linear-to-b from-background">
@@ -147,14 +138,14 @@ export function PersonalizeSection() {
 							{currentFabrics.slice(0, 8).map((fabric, index) => (
                 <button
                   key={fabric.id}
-                  onClick={() => handleFabricClick(fabric, index)}
+                  onClick={(e) => handleFabricZoom(fabric, index, e)}
                   className="group relative cursor-pointer"
                 >
                   {/* Fabric swatch - larger size with hover effect */}
                   <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:shadow-2xl group-hover:z-10">
                     <img
                       src={fabric.image}
-                      alt={fabric.name}
+                      alt={language === 'es' ? fabric.name_es : fabric.name_en}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover"
@@ -169,7 +160,7 @@ export function PersonalizeSection() {
                   <div className="absolute -bottom-9 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                     <span className={`text-xs font-medium px-2 py-1 rounded text-white
 											${selectedGender === 'boy' ? 'bg-blue-400' : 'bg-pink-400'}`}>
-                      {fabric.name}
+                      {language === 'es' ? fabric.name_es : fabric.name_en}
                     </span>
                   </div>
                 </button>
@@ -215,15 +206,16 @@ export function PersonalizeSection() {
       </div>
 
       {/* Zoom Modal */}
-      <FabricZoomModal
-        isOpen={!!zoomFabric}
-        fabric={zoomFabric}
-        onClose={() => setZoomFabric(null)}
-        onPrevious={() => handleZoomNavigate('prev')}
-        onNext={() => handleZoomNavigate('next')}
-        onSelect={handleSelectFabric}
-        currentIndex={zoomIndex}
-        totalCount={currentFabrics.length}
+      <Dialog
+        ref={dialogRef}
+        zoomFabric={zoomFabric}
+        currentFabrics={currentFabrics}
+        handleSelectFromZoom={() => handleSelectFromZoom(zoomFabric, setSelectedFabric, setZoomFabric, dialogRef as unknown as React.RefObject<HTMLDialogElement>)}
+        handleClearSelection={() => handleClearSelection(setSelectedFabric, dialogRef as unknown as React.RefObject<HTMLDialogElement>)}
+        selectedFabric={selectedFabric}
+        zoomIndex={zoomIndex}
+        setZoomIndex={setZoomIndex}
+        setZoomFabric={setZoomFabric}
       />
     </section>
   );

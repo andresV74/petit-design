@@ -1,14 +1,14 @@
-// import { useNavigate } from 'react-router-dom';
-// import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-// import { useLanguage } from '@/lib/i18n';
+import { useNavigate } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { useLanguage } from '@/lib/i18n.tsx'
 
 interface FabricZoomModalProps {
   isOpen: boolean;
   onClose: () => void;
   image?: string;
   name?: string;
-  fabric?: { id: string; name: string; image: string } | null;
+  fabric?: { id: string; name_es: string; name_en: string; image: string } | null;
   onPrevious?: () => void;
   onNext?: () => void;
   onSelect?: () => void;
@@ -24,28 +24,28 @@ export function FabricZoomModal({
   fabric,
   onPrevious,
   onNext,
-  // onSelect,
+  onSelect,
   currentIndex = 0,
   totalCount = 0
 }: FabricZoomModalProps) {
-  // const { language } = useLanguage();
-  // const navigate = useNavigate();
+  const { language } = useLanguage();
+  const navigate = useNavigate();
 
   // Use fabric object if provided, otherwise use image/name props
   const displayImage = fabric?.image || image || '';
-  const displayName = fabric?.name || name || '';
+  const displayName = language === 'es' ? fabric?.name_es || name || '' : fabric?.name_en || name || '';
 
   if (!isOpen) return null;
 
-  // const handleSelect = () => {
-  //   if (onSelect) {
-  //     onSelect();
-  //   } else if (fabric) {
-  //     sessionStorage.setItem('selectedFabric', JSON.stringify(fabric));
-  //     navigate('/catalogo');
-  //     onClose();
-  //   }
-  // };
+  const handleSelect = () => {
+    if (onSelect) {
+      onSelect();
+    } else if (fabric) {
+      sessionStorage.setItem('selectedFabric', JSON.stringify(fabric));
+      navigate('/catalogo');
+      onClose();
+    }
+  };
 
   // TODO: change this to a dialog tag
   // TODO: put back and fixed interaction to preselect a fabric
@@ -106,7 +106,7 @@ export function FabricZoomModal({
         </div>
 
         {/* Action button */}
-        {/* {(onSelect || fabric) && (
+        {(onSelect || fabric) && (
           <>
             <Button
               className="w-full gap-2 h-11 rounded-md px-8"
@@ -122,7 +122,7 @@ export function FabricZoomModal({
                 : 'We\'ll take you to see available products'}
             </p>
           </>
-        )} */}
+        )}
       </div>
     </div>
   );

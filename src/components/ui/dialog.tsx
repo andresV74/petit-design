@@ -96,7 +96,7 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 					<div className="relative aspect-square rounded-2xl overflow-hidden mb-4 shadow-lg">
 						<img
 							src={zoomFabric.image}
-							alt={zoomFabric.name}
+							alt={language === 'es' ? zoomFabric.name_es : zoomFabric.name_en}
 							className="w-full h-full object-cover"
 						/>
 					</div>
@@ -104,7 +104,7 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 					{/* Fabric info */}
 					<div className="text-center mb-4">
 						<h3 className="font-display text-xl font-semibold">
-							{zoomFabric.name}
+							{language === 'es' ? zoomFabric.name_es : zoomFabric.name_en}
 						</h3>
 						<p className="text-sm text-muted-foreground mt-1">
 							{zoomIndex + 1} / {currentFabrics.length}
