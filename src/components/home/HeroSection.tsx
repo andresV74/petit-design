@@ -42,17 +42,13 @@ export function HeroSection() {
           {/* Text Content */}
           <div className="flex flex-col gap-6 animate-fade-in">
             <span className="text-mint-dark font-medium text-sm uppercase tracking-wider">
-              {language === 'es' ? '100% Personalizable' : '100% Customizable'}
+              {t('hero.beforeTitle')}
             </span>
             <h1 className="font-display text-3xl sm:text-4xl/10 md:text-5xl/12 font-semibold leading-tight text-foreground">
-              {language === 'es'
-                ? 'Lencería de cunas y accesorios de lencería para bebés y niños, hechos con amor'
-                : 'Crib linens and linen accessories for babies and kids, made with love'}
+              {t('hero.title')}
             </h1>
             <p className="text-lg text-muted-foreground max-w-md">
-              {language === 'es'
-                ? 'Cada producto es único y personalizado con el nombre de tu bebé. Diseños exclusivos hechos a mano en Colombia.'
-                : 'Each product is unique and personalized with your baby\'s name. Exclusive handmade designs from Colombia.'}
+              {t('hero.subtitle')}
             </p>
 
             {/* Personalization Badge */}
@@ -61,12 +57,10 @@ export function HeroSection() {
                 <span className="text-white font-display text-lg">✨</span>
               </div>
               <p className="text-sm text-foreground">
-                <strong>{language === 'es' ? 'Todos nuestros productos son personalizables' : 'All our products are customizable'}</strong>
+                <strong>{t('hero.badgeTitle')}</strong>
                 <br />
                 <span className="text-muted-foreground">
-                  {language === 'es'
-                    ? 'Bordamos el nombre de tu bebé con amor'
-                    : 'We embroider your baby\'s name with love'}
+                  {t('hero.badgeSubtitle')}
                 </span>
               </p>
             </div>
@@ -93,18 +87,10 @@ export function HeroSection() {
                   className="gap-2"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  {language === 'es' ? 'Consultar por WhatsApp' : 'Ask on WhatsApp'}
+                  {t('hero.whatsAppCta')}
                 </a>
               </Button>
             </div>
-
-            {/* WhatsApp Notice */}
-            <p className="text-sm text-muted-foreground flex items-center gap-2">
-              <MessageCircle className="h-4 w-4 text-mint" />
-              {language === 'es'
-                ? 'Finaliza tu pedido directamente por WhatsApp'
-                : 'Complete your order directly via WhatsApp'}
-            </p>
           </div>
         </div>
       </div>

@@ -171,12 +171,12 @@ export function Header() {
             <DropdownMenuContent align="center" className="w-48 bg-background">
               <DropdownMenuItem asChild>
                 <Link to="/telas/nino" className="w-full cursor-pointer">
-                  {language === 'es' ? 'Catálogo Niño' : "Boy's Catalog"}
+                  {t('nav.boysCatalog')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to="/telas/nina" className="w-full cursor-pointer">
-                  {language === 'es' ? 'Catálogo Niña' : "Girl's Catalog"}
+                  {t('nav.girlsCatalog')}
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>

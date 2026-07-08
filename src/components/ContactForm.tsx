@@ -1,10 +1,11 @@
-import { useState, type ChangeEvent } from 'react';
+import { useState, useMemo, type ChangeEvent } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useLanguage } from '@/lib/i18n';
-import { MessageCircle, Mail, Send, Baby, Phone, User, ShoppingBag } from 'lucide-react';
-import { z } from 'zod';
-import { trackFormSubmission } from '@/hooks/useMetaPixel';
-import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { useLanguage } from '@/lib/i18n.tsx'
+import { MessageCircle, Mail, Send, Baby, Phone, User, ShoppingBag } from 'lucide-react'
+import { z } from 'zod'
+import { trackFormSubmission } from '@/hooks/useMetaPixel'
+import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
+import { formTranslations } from '@/const/contactFormTranslations.tsx'
 
 const getContactSchema = (language: 'es' | 'en') =>
   z.object({
@@ -56,50 +57,11 @@ export function ContactForm() {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
 
-  const translations = {
-    es: {
-      title: `${isHomePage ? '¿Tienes alguna pregunta?' : 'Envíanos un mensaje'}`,
-      subtitle: `${isHomePage ? 'Cuéntanos qué necesitas y te contactaremos por WhatsApp' : 'Completa el formulario y nos pondremos en contacto contigo'}`,
-      namePlaceholder: 'Tu nombre completo',
-      nameLabel: 'Nombre',
-      emailLabel: 'Correo electrónico',
-      emailPlaceholder: 'tu@correo.com',
-      phonePlaceholder: 'Ej: 310 123 4567',
-      phoneLabel: `${isHomePage ? 'Número de contacto' : 'Teléfono / WhatsApp'}`,
-      productPlaceholder: 'Escribe el producto de interés para asesoría',
-      productLabel: `${isHomePage ? '¿Tienes algún producto de interés o te asesoramos?' : 'Producto de interés (opcional)'}`,
-      genderLabel: 'Género del bebé',
-      girl: 'Niña',
-      boy: 'Niño',
-      surprise: 'Sorpresa / Aún no sé',
-      messagePlaceholder: `${isHomePage ? '¿Algún detalle adicional que quieras contarnos?' : 'Cuéntanos cómo podemos ayudarte...'}`,
-      messageLabel: `${isHomePage ? 'Mensaje adicional (opcional)' : 'Tu mensaje'}`,
-      sendButton: `${isHomePage ? 'Enviar mensaje a WhatsApp' : 'Enviar mensaje'}`,
-      whatsappGreeting: '¡Hola! Me interesa conocer más sobre los productos en la página web',
-    },
-    en: {
-      title: "Do you have any questions?",
-      subtitle: `${isHomePage ? "Tell us what you need and we'll contact you via WhatsApp" : "Fill out the form and we'll get in touch with you"}`,
-      namePlaceholder: 'Your full name',
-      nameLabel: 'Name',
-      emailLabel: 'Email address',
-      emailPlaceholder: 'your@email.com',
-      phonePlaceholder: 'Ex: 310 123 4567',
-      phoneLabel: `${isHomePage ? 'Contact number' : 'Phone / WhatsApp'}`,
-      productPlaceholder: 'Type the product for advice',
-      productLabel: `${isHomePage ? 'Do you have a product in mind or need advice?' : 'Product of interest (optional)'}`,
-      genderLabel: "Baby's gender",
-      girl: 'Girl',
-      boy: 'Boy',
-      surprise: "Surprise / Don't know yet",
-      messagePlaceholder: `${isHomePage ? 'Any additional details you want to share?' : 'Tell us how we can help...'}`,
-      messageLabel: `${isHomePage ? 'Additional message (optional)' : 'Your message'}`,
-      sendButton: `${isHomePage ? 'Send message to WhatsApp' : 'Send message'}`,
-      whatsappGreeting: "Hi! I'm interested in learning more about the products on the website",
-    },
-  };
+  const t = useMemo(() => {
+    const allTranslations = formTranslations({ isHomePage })
 
-  const t = translations[language];
+    return allTranslations[language]
+  }, [isHomePage, language])
 
   const handleInputChange = (field: keyof ContactFormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -124,7 +86,7 @@ export function ContactForm() {
     const genderText = genderMap[formData.gender];
 
     const messageLines = [
-      t.whatsappGreeting,
+      t.whatsAppGreeting,
       '',
       `👤 ${language === 'es' ? 'Nombre' : 'Name'}: *${formData.name}*`,
       `📱 ${language === 'es' ? 'Teléfono' : 'Phone'}: *${formData.phone}*`,

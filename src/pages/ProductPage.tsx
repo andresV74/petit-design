@@ -134,14 +134,17 @@ export function ProductPage() {
 			<title>{productTitle}</title>
 			<meta name="description" content={productDescription} />
 			<link rel="canonical" href={productCanonical} />
+
 			<meta property="og:title" content={productTitle} />
 			<meta property="og:description" content={productDescription} />
 			<meta property="og:url" content={productCanonical} />
 			<meta property="og:type" content="product" />
 			<meta property="og:image" content={productImageUrl} />
+
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:title" content={productTitle} />
 			<meta name="twitter:description" content={productDescription} />
+
 			<script type="application/ld+json">{JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "Product",

@@ -116,7 +116,7 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/politicas" className="text-muted-foreground hover:text-mint-dark transition-colors">
-                  Políticas
+                  {t('nav.policies')}
                 </Link>
               </li>
             </ul>

@@ -66,7 +66,7 @@ const mainCategories = [
 ]
 
 export function CategoriesSection() {
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   const handleCategoryClick = (categoryId: string, hasSubcategories: boolean) => {
@@ -80,12 +80,10 @@ export function CategoriesSection() {
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
-            {language === 'es' ? 'Nuestras Categorías' : 'Our Categories'}
+            {t('categories.title')}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            {language === 'es'
-              ? 'Explora nuestra colección de productos artesanales personalizados para tu bebé'
-              : 'Explore our collection of personalized handmade products for your baby'}
+            {t('categories.subtitle')}
           </p>
         </div>
 
@@ -111,7 +109,7 @@ export function CategoriesSection() {
 											{language === 'es' ? category.name_es : category.name_en}
 										</h3>
 										<span className="flex items-center gap-1 text-sm text-white/80">
-											{language === 'es' ? 'Ver subcategorías' : 'View subcategories'}
+											{t('categories.cta')}
 											<ChevronDown className={
 												`h-4 w-4 transition-transform ${expandedCategory === category.id && "rotate-180"}`
 											} />

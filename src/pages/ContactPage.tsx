@@ -1,38 +1,27 @@
-import { useLanguage } from '@/lib/i18n';
+import { useLanguage } from '@/lib/i18n.tsx'
 import { ContactForm } from '@/components/ContactForm.tsx'
-import { WhatsAppCard } from '@/components/contactPage/WhatsAppCard'
-import { InfoCard } from '@/components/contactPage/InfoCard'
+import { WhatsAppCard } from '@/components/contactPage/WhatsAppCard.tsx'
+import { InfoCard } from '@/components/contactPage/InfoCard.tsx'
 
 export function ContactPage() {
-  const { language } = useLanguage();
+  const { t } = useLanguage();
 
-  const content = {
-    es: {
-      pageTitle: 'Contáctanos',
-      pageSubtitle: 'Estamos aquí para ayudarte. Escríbenos por el medio que prefieras y te responderemos lo antes posible.',
-      pageDescription: 'Contáctanos para personalizar la lencería de tu bebé. Escríbenos por formulario o WhatsApp.',
-    },
-    en: {
-      pageTitle: 'Contact Us',
-      pageSubtitle: "We're here to help. Write to us through your preferred channel and we'll respond as soon as possible.",
-      pageDescription: 'Contact us to personalize your baby linens. Write to us via form or WhatsApp.',
-    },
-  };
 
-  const t = content[language];
-  const headTitle = `${t.pageTitle} | Petit Design`
+  const headTitle = `${t('contact.title')} | Petit Design`
 
   return (
     <>
 			<title>{headTitle}</title>
-			<meta name="description" content={`${t.pageDescription} Petit Design - Manizales, Colombia.`} />
+			<meta name="description" content={`${t('contact.description')} Petit Design - Manizales, Colombia.`} />
 			<link rel="canonical" href="https://petitdesign.com.co/contacto" />
-			<meta property="og:title" content={`${t.pageTitle} | Petit Design`} />
-			<meta property="og:description" content={t.pageDescription} />
+
+			<meta property="og:title" content={`${t('contact.title')} | Petit Design`} />
+			<meta property="og:description" content={t('contact.description')} />
 			<meta property="og:url" content="https://petitdesign.com.co/contacto" />
-			<meta property="og:type" content="website" />
-			<meta property="og:image" content="https://petitdesign.com.co/logo-full.png" />
+
 			<meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:description" content={`${t('contact.description')} Petit Design - Manizales, Colombia.`} />
+
 			<script type="application/ld+json">{JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "ContactPage",
@@ -55,10 +44,10 @@ export function ContactPage() {
         <div className="container px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 animate-fade-in">
-              {t.pageTitle}
+              {t('contact.title')}
             </h1>
-            <p className="text-lg text-muted-foreground animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              {t.pageSubtitle}
+            <p className="text-lg text-muted-foreground animate-fade-in text-balance" style={{ animationDelay: '0.1s' }}>
+              {t('contact.subtitle')}
             </p>
           </div>
         </div>

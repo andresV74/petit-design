@@ -13,7 +13,7 @@ import boyFabrics from '@/data/boyFabrics.json'
 import girlFabrics from '@/data/girlFabrics.json'
 
 export function PersonalizeSection() {
-  const { language } = useLanguage()
+  const { t, language } = useLanguage()
   const navigate = useNavigate()
   const [hoveredGender, setHoveredGender] = useState<'boy' | 'girl' | null>(null)
   const [selectedGender, setSelectedGender] = useState<'boy' | 'girl' | null>(null)
@@ -67,16 +67,14 @@ export function PersonalizeSection() {
           <Badge className="gap-2 px-4 py-2 mb-4 bg-primary/10 text-primary border-transparent">
             <Sparkles className="h-4 w-4 " />
             <span className="text-sm font-medium">
-              {language === 'es' ? 'Personalización única' : 'Unique personalization'}
+              {t('personalization.badge')}
             </span>
           </Badge>
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
-            {language === 'es' ? 'Personaliza tu Producto' : 'Personalize Your Product'}
+            {t('personalization.title')}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            {language === 'es'
-              ? 'Comienza eligiendo el género del bebé para ver nuestras telas exclusivas'
-              : 'Start by choosing the baby\'s gender to see our exclusive fabrics'}
+            {t('personalization.description')}
           </p>
         </div>
 
@@ -109,8 +107,8 @@ export function PersonalizeSection() {
 
               <p className={`text-sm opacity-80 ${option.textColor}`}>
                 {selectedGender === option.id
-                  ? (language === 'es' ? 'Ver telas abajo' : 'See fabrics below')
-                  : (language === 'es' ? 'Ver telas disponibles' : 'See available fabrics')}
+                  ? (t('personalization.buttonCtaSelected'))
+                  : (t('personalization.buttonCta'))}
               </p>
 
               {/* Decorative elements */}
@@ -173,7 +171,7 @@ export function PersonalizeSection() {
                 onClick={() => navigate(selectedGender === 'boy' ? '/telas/nino' : '/telas/nina')}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium cursor-pointer hover:bg-primary/90 transition-colors"
               >
-                {language === 'es' ? 'Ver todas las telas' : 'View all fabrics'}
+                {t('personalization.viewAll')}
               </button>
             </div>
 
@@ -187,9 +185,7 @@ export function PersonalizeSection() {
               >
                 <MessageCircle className="h-5 w-5 text-mint-dark shrink-0" />
                 <p className="text-sm text-foreground">
-                  {language === 'es'
-                    ? '¡Tenemos muchos más diseños! Pregunta por WhatsApp para ver más opciones.'
-                    : 'We have many more designs! Ask on WhatsApp to see more options.'}
+                  {t('personalization.whatsAppCta')}
                 </p>
               </a>
             </div>
@@ -198,9 +194,7 @@ export function PersonalizeSection() {
 
         {!selectedGender && (
           <p className="text-center text-sm text-muted-foreground mt-8">
-            {language === 'es'
-              ? '✨ Elige una opción para ver las telas disponibles'
-              : '✨ Choose an option to see available fabrics'}
+            {t('personalization.instructions')}
           </p>
         )}
       </div>

@@ -4,32 +4,18 @@ import { trackWhatsAppClick } from '@/hooks/useMetaPixel';
 import { getWhatsAppUrl } from '@/lib/whatsapp';
 
 export function InfoCard() {
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
 
   const content = {
-    es: {
-      infoTitle: 'Información de contacto',
-      phoneInfo: '+57 310 545 3701',
-      emailInfo: 'petitanddesign@gmail.com',
-      locationInfo: 'Manizales, Colombia',
-      hoursInfo: 'Lunes a viernes: 8am - 6pm',
-      hoursLabel: 'Horario de atención',
-    },
-    en: {
-      infoTitle: 'Contact information',
-      phoneInfo: '+57 310 545 3701',
-      emailInfo: 'petitanddesign@gmail.com',
-      locationInfo: 'Manizales, Colombia',
-      hoursInfo: 'Monday to Friday: 8am - 6pm',
-      hoursLabel: 'Business hours',
-    },
+		phone: '+57 310 545 3701',
+		email: 'petitanddesign@gmail.com',
+		location: 'Manizales, Colombia',
   };
 
-  const t = content[language];
 
   return (
 		<div className="p-6 bg-card rounded-2xl border border-border/50 shadow-sm">
-			<h3 className="font-display text-lg font-semibold mb-4">{t.infoTitle}</h3>
+			<h3 className="font-display text-lg font-semibold mb-4">{t('infoCard.title')}</h3>
 			<div className="space-y-4">
 				<a
 					href={getWhatsAppUrl({ source: 'Contáctanos', language })}
@@ -39,7 +25,7 @@ export function InfoCard() {
 					<div className="p-2 rounded-full bg-mint/10 shrink-0">
 						<Phone className="h-4 w-4 text-mint-dark" />
 					</div>
-					<span className="text-sm">{t.phoneInfo}</span>
+					<span className="text-sm">{content.phone}</span>
 				</a>
 				<a
 					href="mailto:petitanddesign@gmail.com"
@@ -48,21 +34,21 @@ export function InfoCard() {
 					<div className="p-2 rounded-full bg-mint/10 shrink-0">
 						<Mail className="h-4 w-4 text-mint-dark" />
 					</div>
-					<span className="text-sm">{t.emailInfo}</span>
+					<span className="text-sm">{content.email}</span>
 				</a>
 				<div className="flex items-center gap-3 text-muted-foreground">
 					<div className="p-2 rounded-full bg-mint/10 shrink-0">
 						<MapPin className="h-4 w-4 text-mint-dark" />
 					</div>
-					<span className="text-sm">{t.locationInfo}</span>
+					<span className="text-sm">{content.location}</span>
 				</div>
 				<div className="flex items-center gap-3 text-muted-foreground">
 					<div className="p-2 rounded-full bg-mint/10 shrink-0">
 						<Clock className="h-4 w-4 text-mint-dark" />
 					</div>
 					<div>
-						<span className="text-xs text-muted-foreground/70 block">{t.hoursLabel}</span>
-						<span className="text-sm">{t.hoursInfo}</span>
+						<span className="text-xs text-muted-foreground/70 block">{t('infoCard.scheduleInfo')}</span>
+						<span className="text-sm">{t('infoCard.scheduleLabel')}</span>
 					</div>
 				</div>
 			</div>

@@ -32,11 +32,11 @@ export function CatalogPage() {
 			<title>{headTitle}</title>
 			<meta name="description" content="Explora nuestro catálogo de lencería personalizada para bebés. Productos hechos a mano en Colombia con materiales premium." />
 			<link rel="canonical" href={canonicalUrl} />
+
 			<meta property="og:title" content={headTitle} />
 			<meta property="og:description" content="Explora nuestro catálogo de lencería personalizada para bebés. Productos hechos a mano en Colombia con materiales premium." />
 			<meta property="og:url" content={canonicalUrl} />
-			<meta property="og:type" content="website" />
-			<meta property="og:image" content="https://petitdesign.com.co/logo-full.png" />
+
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:title" content={headTitle} />
 			<meta name="twitter:description" content="Explora nuestro catálogo de lencería personalizada para bebés. Productos hechos a mano en Colombia con materiales premium." />

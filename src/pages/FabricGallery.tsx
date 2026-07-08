@@ -61,11 +61,11 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
 			<title>{fabricTitle}</title>
 			<meta name="description" content="Explora nuestro catálogo de telas 100% algodón para personalizar la lencería de tu bebé. Diseños exclusivos de Petit Design." />
 			<link rel="canonical" href={fabricCanonical} />
+
 			<meta property="og:title" content={fabricTitle} />
 			<meta property="og:description" content="Explora nuestro catálogo de telas 100% algodón para personalizar la lencería de tu bebé. Diseños exclusivos de Petit Design." />
 			<meta property="og:url" content={fabricCanonical} />
-			<meta property="og:type" content="website" />
-			<meta property="og:image" content="https://petitdesign.com.co/logo-full.png" />
+
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:title" content={fabricTitle} />
 			<meta name="twitter:description" content="Explora nuestro catálogo de telas 100% algodón para personalizar la lencería de tu bebé. Diseños exclusivos de Petit Design." />
