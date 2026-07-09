@@ -1,8 +1,8 @@
 export const categories = [
   {
     id: 'accesorios-lenceria',
-    name_es: 'Accesorios de Lencería',
-    name_en: 'Linen Accessories',
+    name_es: 'Accesorios',
+    name_en: 'Accessories',
     slug: 'accesorios-lenceria',
     description_es: 'Accesorios especiales para complementar el set de tu bebé',
     description_en: 'Special accessories to complement your baby\'s set',
@@ -24,8 +24,8 @@ export const categories = [
   },
   {
     id: 'lenceria-cuna',
-    name_es: 'Lencería de Cunas y Cama Cunas',
-    name_en: 'Crib and Toddler Bed Linens',
+    name_es: 'Lencería de Cunas',
+    name_en: 'Crib Linens',
     slug: 'lenceria-cuna',
     description_es: 'Ropa de cama delicada para los primeros sueños de tu bebé',
     description_en: 'Delicate bedding for your baby\'s first dreams',
