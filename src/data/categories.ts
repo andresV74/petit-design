@@ -1,9 +1,9 @@
 export const categories = [
   {
-    id: 'accesorios-lenceria',
+    id: 'accesorios',
     name_es: 'Accesorios',
     name_en: 'Accessories',
-    slug: 'accesorios-lenceria',
+    slug: 'accesorios',
     description_es: 'Accesorios especiales para complementar el set de tu bebé',
     description_en: 'Special accessories to complement your baby\'s set',
     subcategories: [

@@ -7,7 +7,7 @@ export const catalogContent = {
 		categories: [
 			{
 				title: 'Accesorios de Lencería',
-				slug: 'accesorios-lenceria',
+				slug: 'accesorios',
 				description: 'Accesorios especiales para complementar el set de tu bebé',
 			},
 			{
@@ -58,7 +58,7 @@ export const catalogContent = {
 		categories: [
 			{
 				title: 'Linen Accessories',
-				slug: 'accesorios-lenceria',
+				slug: 'accesorios',
 				description: 'Special accessories to complement your baby\'s set',
 			},
 			{

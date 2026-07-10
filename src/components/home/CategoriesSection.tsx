@@ -5,7 +5,7 @@ import { useLanguage } from '@/lib/i18n';
 
 const categoryImages: Record<string, string> = {
   'lenceria': '/products/product-1.jpeg',
-  'accesorios-lenceria': '/products/product-9.jpeg',
+  'accesorios': '/products/product-9.jpeg',
 };
 
 // TODO: centralize the global state
@@ -36,10 +36,10 @@ const mainCategories = [
 	},
 	{
 		id: 'accesorios',
-		slug: 'accesorios-lenceria',
+		slug: 'accesorios',
 		name_en: 'Linen Accessories',
 		name_es: 'Accesorios de Lencería ',
-		image_url: categoryImages['accesorios-lenceria'],
+		image_url: categoryImages['accesorios'],
 		subcategories: [
 			{
 				key: '1',
