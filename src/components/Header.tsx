@@ -147,7 +147,7 @@ export function Header() {
               <Button
                 className="text-sm font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2 py-2"
               >
-                {language === 'es' ? 'Telas' : 'Fabrics'}
+                {t('header.fabrics')}
                 <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -258,14 +258,14 @@ export function Header() {
               onClick={() => setIsOpen(false)}
               className="py-1.5 text-sm text-muted-foreground hover:text-mint-dark"
             >
-              {language === 'es' ? 'Catálogo Telas Niño' : "Boy's Fabrics Catalog"}
+              {t('header.boysFabricsCatalog')}
             </Link>
             <Link
               to="/telas/nina"
               onClick={() => setIsOpen(false)}
               className="py-1.5 text-sm text-muted-foreground hover:text-mint-dark"
             >
-              {language === 'es' ? 'Catálogo Telas Niña' : "Girl's Fabrics Catalog"}
+              {t('header.girlsFabricsCatalog')}
             </Link>
           </div>
 

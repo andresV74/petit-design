@@ -16,6 +16,11 @@ export const translations: Translations = {
   'nav.boysCatalog': { es: 'Catálogo Niño', en: "Boy's Catalog" },
   'nav.girlsCatalog': { es: 'Catálogo Niña', en: "Girl's Catalog" },
 
+  // Header
+  'header.fabrics': { es: 'Telas', en: "Fabrics" },
+  'header.boysFabricsCatalog': { es: 'Catálogo Telas Niño', en: "Boy's Fabric Catalog" },
+  'header.girlsFabricsCatalog': { es: 'Catálogo Telas Niña', en: "Girls' Fabrics Catalog" },
+
   // Homepage hero
   'hero.beforeTitle': { es: '100% Personalizable', en: '100% Customizable'},
   'hero.title': {

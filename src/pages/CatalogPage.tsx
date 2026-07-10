@@ -65,7 +65,7 @@ export function CatalogPage() {
                     : "bg-muted text-muted-foreground hover:bg-mint-light"}`
                 }
               >
-                {language === 'es' ? 'Todos' : 'All'}
+                {t.allButtonText}
               </Link>
               {t.categories.map(cat => (
                 cat.description && (
@@ -94,15 +94,13 @@ export function CatalogPage() {
         {productsData.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">
-              {language === 'es'
-                ? 'No hay productos disponibles en esta categoría todavía.'
-                : 'No products available in this category yet.'}
+              {t.noProducts}
             </p>
             <Link
               to="/catalogo"
               className="inline-block mt-4 text-mint hover:text-mint-dark underline"
             >
-              {language === 'es' ? 'Ver todos los productos' : 'View all products'}
+              {t.allProducts}
             </Link>
           </div>)
         : (

@@ -12,7 +12,6 @@ export interface DialogRef {
 export interface DialogProps {
 	zoomFabric: Fabric | null
 	currentFabrics: Fabric[]
-	// handleZoomNavigate: (direction: 'prev' | 'next') => void
 	handleSelectFromZoom: () => void
 	handleClearSelection: () => void
 	selectedFabric: string
@@ -25,7 +24,6 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 	({
 		zoomFabric,
 		currentFabrics,
-		// handleZoomNavigate,
 		handleSelectFromZoom,
 		handleClearSelection,
 		selectedFabric,

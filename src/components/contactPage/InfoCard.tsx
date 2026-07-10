@@ -1,17 +1,11 @@
-import { Mail, MapPin, Clock, Phone } from 'lucide-react';
-import { useLanguage } from '@/lib/i18n';
-import { trackWhatsAppClick } from '@/hooks/useMetaPixel';
-import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { Mail, MapPin, Clock, Phone } from 'lucide-react'
+import { useLanguage } from '@/lib/i18n'
+import { trackWhatsAppClick } from '@/hooks/useMetaPixel'
+import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
+import { contactInfo } from '@/const/contactInfo.ts'
 
 export function InfoCard() {
   const { t, language } = useLanguage();
-
-  const content = {
-		phone: '+57 310 545 3701',
-		email: 'petitanddesign@gmail.com',
-		location: 'Manizales, Colombia',
-  };
-
 
   return (
 		<div className="p-6 bg-card rounded-2xl border border-border/50 shadow-sm">
@@ -25,7 +19,7 @@ export function InfoCard() {
 					<div className="p-2 rounded-full bg-mint/10 shrink-0">
 						<Phone className="h-4 w-4 text-mint-dark" />
 					</div>
-					<span className="text-sm">{content.phone}</span>
+					<span className="text-sm">{contactInfo.phone}</span>
 				</a>
 				<a
 					href="mailto:petitanddesign@gmail.com"
@@ -34,13 +28,13 @@ export function InfoCard() {
 					<div className="p-2 rounded-full bg-mint/10 shrink-0">
 						<Mail className="h-4 w-4 text-mint-dark" />
 					</div>
-					<span className="text-sm">{content.email}</span>
+					<span className="text-sm">{contactInfo.email}</span>
 				</a>
 				<div className="flex items-center gap-3 text-muted-foreground">
 					<div className="p-2 rounded-full bg-mint/10 shrink-0">
 						<MapPin className="h-4 w-4 text-mint-dark" />
 					</div>
-					<span className="text-sm">{content.location}</span>
+					<span className="text-sm">{contactInfo.location}</span>
 				</div>
 				<div className="flex items-center gap-3 text-muted-foreground">
 					<div className="p-2 rounded-full bg-mint/10 shrink-0">
@@ -53,5 +47,5 @@ export function InfoCard() {
 				</div>
 			</div>
 		</div>
-  );
+  )
 }

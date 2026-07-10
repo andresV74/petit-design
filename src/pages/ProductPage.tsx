@@ -29,6 +29,7 @@ export function ProductPage() {
   const displayProduct = products.find(product => product.slug === slug)
   const category = displayProduct?.category
   const subcategory = displayProduct?.subcategory
+  console.log(displayProduct)
 
   const [selectedImage, setSelectedImage] = useState(0)
   const [babyName, setBabyName] = useState('')
@@ -115,7 +116,10 @@ export function ProductPage() {
       value: displayPrice,
     })
 
-    window.open(getWhatsAppUrl({ message: messageLines.join('\n'), source: `Producto: ${language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}`, language }), '_blank')
+    window.open(getWhatsAppUrl({
+      message: messageLines.join('\n'),
+      source: `Producto: ${language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}`, language
+    }), '_blank')
   }
 
   const images = displayProduct?.images ?? []

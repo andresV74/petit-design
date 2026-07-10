@@ -1,6 +1,9 @@
 export const catalogContent = {
 	es: {
 		pageTitle: 'Catálogo',
+		allButtonText: 'Todos',
+		noProducts: 'No hay productos disponibles en esta categoría todavía.',
+		allProducts: 'Ver todos los productos',
 		categories: [
 			{
 				title: 'Accesorios de Lencería',
@@ -49,6 +52,9 @@ export const catalogContent = {
 	},
 	en: {
 		pageTitle: 'Catalog',
+		allButtonText: 'all',
+		noProducts: 'No products available in this category yet.',
+		allProducts: 'View all products',
 		categories: [
 			{
 				title: 'Linen Accessories',

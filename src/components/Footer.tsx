@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
-import { MessageCircle, Heart } from 'lucide-react';
-import { useLanguage } from '@/lib/i18n.tsx';
-import { trackWhatsAppClick } from '@/hooks/useMetaPixel.ts';
-import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { Link } from 'react-router-dom'
+import { MessageCircle, Heart } from 'lucide-react'
+import { useLanguage } from '@/lib/i18n.tsx'
+import { trackWhatsAppClick } from '@/hooks/useMetaPixel.ts'
+import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
+import { contactInfo } from '@/const/contactInfo.ts'
 
 // TikTok icon component since lucide-react doesn't have it
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -134,7 +135,7 @@ export function Footer() {
                   onClick={() => trackWhatsAppClick('Footer teléfono', { content_category: 'Footer' })}
                   className="hover:text-mint-dark transition-colors"
                 >
-                  +57 310 545 3701
+                  {contactInfo.phone}
                 </a>
               </li>
               <li>
@@ -142,10 +143,10 @@ export function Footer() {
                   href="mailto:petitanddesign@gmail.com"
                   className="hover:text-mint-dark transition-colors"
                 >
-                  petitanddesign@gmail.com
+                  {contactInfo.email}
                 </a>
               </li>
-              <li>Colombia 🇨🇴</li>
+              <li>{contactInfo.location} 🇨🇴</li>
             </ul>
           </div>
         </div>
