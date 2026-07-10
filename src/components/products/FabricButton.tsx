@@ -23,7 +23,7 @@ export function FabricButton({fabric, index, selectedFabric, handleFabricZoom}: 
 		>
 			<img
 				src={fabric.image}
-				alt={fabric.name}
+				alt={fabric.name_es}
 				className="w-full h-full object-cover"
 				loading="lazy"
 			/>
