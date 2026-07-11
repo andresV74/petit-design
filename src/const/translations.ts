@@ -312,7 +312,7 @@ export const translations: Translations = {
   'product.productionTime': { es: 'Tiempo de producción', en: 'Production time' },
   'product.days': { es: 'días', en: 'days' },
   'product.trustMessage': { es: 'Este producto se elabora especialmente para tu bebé con el mayor cariño y cuidado.', en: 'This product is made especially for your baby with the greatest care and love.' },
-  'product.orderWhatsapp': { es: 'Enviar pedido por WhatsApp', en: 'Send order via WhatsApp' },
+  'product.buy': { es: 'Comprar ahora', en: 'Buy now' },
 
   // Colors
   'color.blanco': { es: 'Blanco', en: 'White' },

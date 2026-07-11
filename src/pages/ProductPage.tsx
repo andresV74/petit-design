@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom'
 import { MessageCircle, Heart, Clock, Shield, Sparkles } from 'lucide-react'
 import { ProductLongDescription } from '@/components/products/ProductLongDescription.tsx'
 import { ProductPreview } from '@/components/products/ProductPreview.tsx'
+import { ProductEmbroideryColor } from '@/components/products/ProductEmbroideryColor.tsx'
 import { FabricSelector } from '@/components/products/FabricSelector.tsx'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs.tsx'
 import { useLanguage } from '@/lib/i18n.tsx'
 import { Button } from '@/components/ui/button.tsx'
-import { trackEvent, trackWhatsAppClick } from '@/hooks/useMetaPixel.ts'
-import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
+import { trackEvent, /*trackWhatsAppClick*/ } from '@/hooks/useMetaPixel.ts'
+// import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 import { inputClasses } from '@/components/ContactForm.tsx'
 
 import products from '@/data/products.json'
@@ -29,9 +30,7 @@ export function ProductPage() {
   const displayProduct = products.find(product => product.slug === slug)
   const category = displayProduct?.category
   const subcategory = displayProduct?.subcategory
-  console.log(displayProduct)
 
-  const [selectedImage, setSelectedImage] = useState(0)
   const [babyName, setBabyName] = useState('')
   const [embroideryColor, setEmbroideryColor] = useState('rosa_claro')
   const [selectedFabric, setSelectedFabric] = useState('')
@@ -73,54 +72,54 @@ export function ProductPage() {
     }).format(price)
   }
 
-  const handleWhatsAppOrder = () => {
-    const colorLabel = t(`color.${embroideryColor}`)
-    const productUrl = `${window.location.origin}/producto/${displayProduct?.slug}`
-    const productImage = images[0]?.imageUrl ? `${window.location.origin}${images[0].imageUrl}` : ''
+  // const handleWhatsAppOrder = () => {
+  //   const colorLabel = t(`color.${embroideryColor}`)
+  //   const productUrl = `${window.location.origin}/producto/${displayProduct?.slug}`
+  //   const productImage = images[0]?.imageUrl ? `${window.location.origin}${images[0].imageUrl}` : ''
 
-    const displayPrice = displayProduct?.price
+  //   const displayPrice = displayProduct?.price
 
-    const messageLines = language === 'es'
-      ? [
-          `¡Hola! Me gustaría hacer un pedido:`,
-          ``,
-          `📦 *Producto:* ${displayProduct?.name_es}`,
-          `🔗 *Ver producto:* ${productUrl}`,
-          `🖼️ *Imagen:* ${productImage}`,
-        ]
-      : [
-          `Hello! I would like to place an order:`,
-          ``,
-          `📦 *Product:* ${displayProduct?.name_en}`,
-          `🔗 *View product:* ${productUrl}`,
-          `🖼️ *Image:* ${productImage}`,
-        ]
+  //   const messageLines = language === 'es'
+  //     ? [
+  //         `¡Hola! Me gustaría hacer un pedido:`,
+  //         ``,
+  //         `📦 *Producto:* ${displayProduct?.name_es}`,
+  //         `🔗 *Ver producto:* ${productUrl}`,
+  //         `🖼️ *Imagen:* ${productImage}`,
+  //       ]
+  //     : [
+  //         `Hello! I would like to place an order:`,
+  //         ``,
+  //         `📦 *Product:* ${displayProduct?.name_en}`,
+  //         `🔗 *View product:* ${productUrl}`,
+  //         `🖼️ *Image:* ${productImage}`,
+  //       ]
 
-    messageLines.push('')
-    messageLines.push(language === 'es' ? `✨ *Personalización:*` : `✨ *Personalization:*`)
-    messageLines.push(language === 'es' ? `👶 Nombre del bebé: ${babyName || 'Por definir'}` : `👶 Baby's name: ${babyName || 'To be defined'}`)
-    messageLines.push(language === 'es' ? `🎨 Color del bordado: ${colorLabel}` : `🎨 Embroidery color: ${colorLabel}`)
-    messageLines.push(language === 'es' ? `✍️ Tipo de letra: Por definir vía WhatsApp` : `✍️ Font type: To be defined via WhatsApp`)
+  //   messageLines.push('')
+  //   messageLines.push(language === 'es' ? `✨ *Personalización:*` : `✨ *Personalization:*`)
+  //   messageLines.push(language === 'es' ? `👶 Nombre del bebé: ${babyName || 'Por definir'}` : `👶 Baby's name: ${babyName || 'To be defined'}`)
+  //   messageLines.push(language === 'es' ? `🎨 Color del bordado: ${colorLabel}` : `🎨 Embroidery color: ${colorLabel}`)
+  //   messageLines.push(language === 'es' ? `✍️ Tipo de letra: Por definir vía WhatsApp` : `✍️ Font type: To be defined via WhatsApp`)
 
-    messageLines.push(language === 'es'
-      ? `📝 Observaciones: ${observations || 'Ninguna'}`
-      : `📝 Observations: ${observations || 'None'}`
-    )
-    messageLines.push('')
-    messageLines.push(language === 'es' ? '¡Gracias!' : 'Thank you!')
+  //   messageLines.push(language === 'es'
+  //     ? `📝 Observaciones: ${observations || 'Ninguna'}`
+  //     : `📝 Observations: ${observations || 'None'}`
+  //   )
+  //   messageLines.push('')
+  //   messageLines.push(language === 'es' ? '¡Gracias!' : 'Thank you!')
 
-    trackWhatsAppClick(`Producto: ${language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}`, {
-      content_category: 'Product Order',
-      content_ids: [displayProduct?.id],
-      currency: 'COP',
-      value: displayPrice,
-    })
+  //   trackWhatsAppClick(`Producto: ${language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}`, {
+  //     content_category: 'Product Order',
+  //     content_ids: [displayProduct?.id],
+  //     currency: 'COP',
+  //     value: displayPrice,
+  //   })
 
-    window.open(getWhatsAppUrl({
-      message: messageLines.join('\n'),
-      source: `Producto: ${language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}`, language
-    }), '_blank')
-  }
+  //   window.open(getWhatsAppUrl({
+  //     message: messageLines.join('\n'),
+  //     source: `Producto: ${language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}`, language
+  //   }), '_blank')
+  // }
 
   const images = displayProduct?.images ?? []
 
@@ -173,37 +172,10 @@ export function ProductPage() {
         <Breadcrumbs category={category} subcategory={subcategory} isProduct={true} />
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {/* Image Gallery with Interactive Preview */}
           <div className="space-y-4">
-            {/* Main Preview with Name Overlay */}
             <ProductPreview
-              imageUrl={images?.[selectedImage]?.imageUrl}
-              alt={language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}
+              images={images}
             />
-
-
-            {/* Thumbnails */}
-            {images?.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto pb-2">
-                {images.map((image, index) => (
-                  <button
-                    key={image.id}
-                    onClick={() => setSelectedImage(index)}
-                    className={
-                      `shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors cursor-pointer
-											${selectedImage === index ? 'border-primary' : 'border-transparent hover:border-primary/50'}`
-
-                    }
-                  >
-                    <img
-                      src={image.imageUrl}
-                      alt={language === 'es' ? image.altText_es : image.altText_en}
-                      className="h-full w-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
           </div>
 
           {/* Product Info */}
@@ -264,39 +236,13 @@ export function ProductPage() {
                 />
               </div>
 
-              <div className="space-y-3">
-                <label>{t('product.embroideryColor')}</label>
-                <div className="flex flex-wrap gap-3 mt-3">
-                  {embroideryColors.map((color) => (
-                    <button
-                      key={color.value}
-                      onClick={() => setEmbroideryColor(color.value)}
-                      className={
-                        `w-12 h-12 rounded-full transition-all relative cursor-pointer
-                        ${color.border && 'border-2 border-border'}
-                        ${embroideryColor === color.value
-                          ? "ring-2 ring-primary ring-offset-2 scale-110"
-                          : "hover:scale-105"}`
-                      }
-                      style={{ backgroundColor: color.color }}
-                      title={t(`color.${color.value}`)}
-                    >
-                      {embroideryColor === color.value && (
-                        <span className="absolute inset-0 flex items-center justify-center">
-                          <span className={
-                            `w-2 h-2 rounded-full
-                            ${color.value === 'blanco' ? "bg-gray-400" : "bg-white"}`
-                          } />
-                        </span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground font-medium">
-                  {t(`color.${embroideryColor}`)}
-                </p>
-              </div>
+              <ProductEmbroideryColor
+                embroideryColors={embroideryColors}
+                embroideryColor={embroideryColor}
+                setEmbroideryColor={setEmbroideryColor}
+              />
 
+              {/* TODO: Preguntar si esto queda o se va? */}
               {/* Font selection note - handled via WhatsApp */}
               <div className="p-3 rounded-xl bg-mint-light/30 border border-mint/20">
                 <p className="text-sm text-foreground flex items-center gap-2">
@@ -336,10 +282,9 @@ export function ProductPage() {
             {/* Order Button */}
             <Button
               className="h-11 rounded-md px-8 w-full gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white text-lg py-6"
-              onClick={handleWhatsAppOrder}
+              // onClick={handleWhatsAppOrder}
             >
-              <MessageCircle className="h-5 w-5" />
-              {t('product.orderWhatsapp')}
+              {t('product.buy')}
             </Button>
           </div>
         </div>
