@@ -1,7 +1,8 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react'
 import { Button } from '@/components/ui/button.tsx'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
-import { useLanguage } from '@/lib/i18n'
+import { useLanguage } from '@/lib/i18n.tsx'
+import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import type { Fabric } from '@/components/products/FabricSelector.tsx'
 
 export interface DialogRef {
@@ -13,8 +14,6 @@ export interface DialogProps {
 	zoomFabric: Fabric | null
 	currentFabrics: Fabric[]
 	handleSelectFromZoom: () => void
-	handleClearSelection: () => void
-	selectedFabric: string
 	zoomIndex: number
 	setZoomIndex: (index: number) => void
 	setZoomFabric: (fabric: Fabric | null) => void
@@ -25,14 +24,14 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 		zoomFabric,
 		currentFabrics,
 		handleSelectFromZoom,
-		handleClearSelection,
-		selectedFabric,
 		zoomIndex,
 		setZoomIndex,
 		setZoomFabric,
 	}, ref) => {
 	const { language } = useLanguage()
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
+	const selectedFabric = useFabricsStore((state) => state.fabric)
+	const clearFabric = useFabricsStore((state) => state.clearFabric)
 
 	useImperativeHandle(ref, () => ({
 		open: () => dialogRef.current?.showModal(),
@@ -56,7 +55,12 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 		}
 	}
 
+	const handleClearSelectionNew = () => {
+		clearFabric()
+		dialogRef.current?.close()
+	}
 
+	// TODO: move all translations of this page to the translation const
 	return (
 		<dialog
 			ref={dialogRef}
@@ -110,18 +114,20 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 					</div>
 
 					{/* Action button */}
-					<Button
-						className="w-full gap-2 h-11 rounded-md px-8 bg-primary text-primary-foreground"
-						onClick={handleSelectFromZoom}
-					>
-						{language === 'es' ? 'Seleccionar esta tela' : 'Select this fabric'}
-					</Button>
+					{selectedFabric?.id !== zoomFabric.id && (
+						<Button
+							className="w-full gap-2 h-11 rounded-md px-8 bg-primary text-primary-foreground"
+							onClick={handleSelectFromZoom}
+						>
+							{language === 'es' ? 'Seleccionar esta tela' : 'Select this fabric'}
+						</Button>
+					)}
 
 					{/* Clears fabric button */}
-					{selectedFabric === zoomFabric.id && (
+					{selectedFabric?.id === zoomFabric.id && (
 						<Button
-							className="w-full gap-2 h-11 rounded-md mt-4 px-8 bg-primary text-primary-foreground"
-							onClick={handleClearSelection}
+							className="w-full gap-2 h-11 rounded-md px-8 bg-destructive hover:bg-destructive-hover text-destructive-foreground"
+							onClick={handleClearSelectionNew}
 						>
 							{language === 'es' ? 'Anular selección de tela' : 'Clears fabric selection'}
 						</Button>

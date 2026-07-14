@@ -1,12 +1,11 @@
 import { useState, useRef } from 'react'
-import { Link/*, useNavigate*/ } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Sparkles, MessageCircle } from 'lucide-react'
 import { useLanguage } from '@/lib/i18n'
 import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 import { trackWhatsAppClick } from '@/hooks/useMetaPixel.ts'
 import { Dialog, type DialogRef } from '@/components/ui/dialog.tsx'
-import { handleSelectFromZoom } from '@/components/utils/handleSelectFromZoom.ts'
-import { handleClearSelection } from '@/components/utils/handleClearSelection.ts'
+import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import type { Fabric } from '@/components/products/FabricSelector.tsx'
 
 import boyFabrics from '@/data/boyFabrics.json'
@@ -19,9 +18,10 @@ interface FabricGalleryProps {
 export function FabricGallery({ gender }: FabricGalleryProps) {
   const { language } = useLanguage()
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
-  const [selectedFabric, setSelectedFabric] = useState('')
 	const [zoomIndex, setZoomIndex] = useState(0)
 	const dialogRef = useRef<DialogRef | null>(null)
+  const selectedFabric = useFabricsStore((state) => state.fabric)
+  const setFabric = useFabricsStore((state) => state.setFabric)
 
 	const fabrics: Fabric[] = (gender === 'boy'
 		? boyFabrics
@@ -29,6 +29,7 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
 			? girlFabrics
 			: []) as unknown as Fabric[]
 
+  // TODO: move all translations of this page to the translation const
 	const title = gender === 'boy'
     ? (language === 'es' ? 'Catálogo de Telas - Niño' : 'Fabric Catalog - Boy')
     : (language === 'es' ? 'Catálogo de Telas - Niña' : 'Fabric Catalog - Girl')
@@ -56,6 +57,23 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
 		dialogRef.current?.open()
 	}
 
+  // TODO: Move to an util to use it site wide
+  /**
+   * Handle the selected fabric and stores the fabric in the global context
+   */
+  const handleSelectedFabric = () => {
+    if (!zoomFabric) return
+
+    setFabric(zoomFabric)
+    dialogRef.current?.close()
+  }
+
+  const fabricName = () => {
+    return language === 'es'
+      ? selectedFabric?.name_es
+      : selectedFabric?.name_en
+  }
+
   return (
     <>
 			<title>{fabricTitle}</title>
@@ -76,6 +94,11 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
           <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
             {title}
           </h1>
+          {selectedFabric && (
+            <h2 className='text-xl mb-5 font-bold text-mint-dark'>
+              {`Tela seleccionada: ${fabricName()}`}
+            </h2>
+          )}
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             {subtitle}
           </p>
@@ -115,10 +138,11 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
                     src={fabric.image}
                     alt={language === 'es' ? fabric.name_es : fabric.name_en}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading='lazy'
                   />
 
                   {/* Selection indicator */}
-                  {selectedFabric === fabric.id && (
+                  {selectedFabric?.id === fabric.id && (
 										<div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
 											<Sparkles className="h-3 w-3" />
 										</div>
@@ -148,9 +172,7 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
 				ref={dialogRef}
 				zoomFabric={zoomFabric}
 				currentFabrics={fabrics}
-				handleSelectFromZoom={() => handleSelectFromZoom(zoomFabric, setSelectedFabric, setZoomFabric, dialogRef as unknown as React.RefObject<HTMLDialogElement>)}
-				handleClearSelection={() => handleClearSelection(setSelectedFabric, dialogRef as unknown as React.RefObject<HTMLDialogElement>)}
-				selectedFabric={selectedFabric}
+				handleSelectFromZoom={handleSelectedFabric}
 				zoomIndex={zoomIndex}
 				setZoomIndex={setZoomIndex}
 				setZoomFabric={setZoomFabric}

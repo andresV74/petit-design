@@ -2,10 +2,9 @@ import { useState, useRef } from 'react'
 import { Baby, MessageCircle } from 'lucide-react'
 import { FabricButton } from './FabricButton.tsx'
 import { Dialog, type DialogRef } from '@/components/ui/dialog.tsx'
-import { handleSelectFromZoom } from '@/components/utils/handleSelectFromZoom.ts'
-import { handleClearSelection } from '@/components/utils/handleClearSelection.ts'
 import { useLanguage } from '@/lib/i18n.tsx'
 import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
+import { useFabricsStore } from '@/store/fabricsStore.tsx'
 
 import boyFabrics from '@/data/boyFabrics.json'
 import girlFabrics from '@/data/girlFabrics.json'
@@ -21,14 +20,10 @@ export interface Fabric {
 }
 
 interface FabricSelectorProps {
-	selectedFabric: string
-	onFabricSelect: (fabricId: string) => void
 	initialGender?: 'boy' | 'girl' | null
 }
 
 export function FabricSelector({
-	selectedFabric,
-	onFabricSelect,
 	initialGender = null,
 }: FabricSelectorProps) {
 	const { language } = useLanguage()
@@ -36,6 +31,8 @@ export function FabricSelector({
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
 	const [zoomIndex, setZoomIndex] = useState(0)
 	const dialogRef = useRef<DialogRef | null>(null)
+	const selectedFabricNew = useFabricsStore((state) => state.fabric)
+	const setFabric = useFabricsStore((state) => state.setFabric)
 
 	const currentFabrics: Fabric[] = (selectedGender === 'boy'
 		? boyFabrics
@@ -44,7 +41,7 @@ export function FabricSelector({
 			: []) as unknown as Fabric[]
 
 	/**
-	 * Opens the Dialog modal with the chosen fabric from the fabric grid
+	 * Opens the Dialog modal with the chosen fabric from the grid
 	 *
 	 * @param fabric the chosen fabric
 	 * @param index the index of the fabric form the list
@@ -57,8 +54,18 @@ export function FabricSelector({
 		dialogRef.current?.open()
 	}
 
+  /**
+   * Handle the selected fabric and stores the fabric in the global context
+   */
+  const handleSelectedFabric = () => {
+    if (!zoomFabric) return
+
+    setFabric(zoomFabric)
+    dialogRef.current?.close()
+  }
+
 	// Find selected fabric name
-	const selectedFabricObj = [...boyFabrics, ...girlFabrics].find(fabric => fabric.id === selectedFabric)
+	const selectedFabricObj = [...boyFabrics, ...girlFabrics].find(fabric => fabric.id === selectedFabricNew?.id)
 
 	return (
 		<div className="space-y-4">
@@ -111,7 +118,7 @@ export function FabricSelector({
 					<div className="max-h-70 overflow-y-auto bg-background rounded-xl border">
 						<div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3 p-3">
 							{currentFabrics.map((fabric, index) => (
-								<FabricButton key={index} fabric={fabric as Fabric} index={index} selectedFabric={selectedFabric} handleFabricZoom={handleFabricZoom} />
+								<FabricButton key={index} fabric={fabric as Fabric} index={index} handleFabricZoom={handleFabricZoom} />
 							))}
 						</div>
 					</div>
@@ -144,9 +151,7 @@ export function FabricSelector({
 				ref={dialogRef}
 				zoomFabric={zoomFabric}
 				currentFabrics={currentFabrics}
-				handleSelectFromZoom={() => handleSelectFromZoom(zoomFabric, onFabricSelect, setZoomFabric, dialogRef as unknown as React.RefObject<HTMLDialogElement>)}
-				handleClearSelection={() => handleClearSelection(onFabricSelect, dialogRef as unknown as React.RefObject<HTMLDialogElement>)}
-				selectedFabric={selectedFabric}
+				handleSelectFromZoom={handleSelectedFabric}
 				zoomIndex={zoomIndex}
 				setZoomIndex={setZoomIndex}
 				setZoomFabric={setZoomFabric}

@@ -10,6 +10,7 @@ import { useLanguage } from '@/lib/i18n.tsx'
 import { Button } from '@/components/ui/button.tsx'
 import { trackEvent, /*trackWhatsAppClick*/ } from '@/hooks/useMetaPixel.ts'
 // import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
+import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import { inputClasses } from '@/components/ContactForm.tsx'
 
 import products from '@/data/products.json'
@@ -33,9 +34,9 @@ export function ProductPage() {
 
   const [babyName, setBabyName] = useState('')
   const [embroideryColor, setEmbroideryColor] = useState('rosa_claro')
-  const [selectedFabric, setSelectedFabric] = useState('')
   const [observations, setObservations] = useState('')
   const hasTrackedView = useRef(false)
+  const fabricSelected = useFabricsStore((state) => state.fabric)
 
   useEffect(() => {
     if (displayProduct && !hasTrackedView.current) {
@@ -176,6 +177,14 @@ export function ProductPage() {
             <ProductPreview
               images={images}
             />
+
+            {fabricSelected && (
+              <div
+                className='w-full bg-muted border border-border rounded-2xl px-4 py-3 text-lg pointer-events-none'
+              >
+                <p>{fabricSelected?.name_es}</p>
+              </div>
+            )}
           </div>
 
           {/* Product Info */}
@@ -253,13 +262,7 @@ export function ProductPage() {
                 </p>
               </div>
 
-							{/* Fabric Selection with Gender Toggle - Hidden for Baby Sleeping products */}
-							{
-								<FabricSelector
-									selectedFabric={selectedFabric}
-									onFabricSelect={setSelectedFabric}
-								/>
-              }
+							{ <FabricSelector /> }
 
               <div className="space-y-2">
                 <label htmlFor="observations">{t('product.observations')}</label>
