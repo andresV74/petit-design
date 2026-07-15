@@ -143,7 +143,6 @@ export function PersonalizeSection() {
             </h3>
 
             <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-              {/* TODO: re-factorize FabricButton to use it here too  */}
 							{currentFabrics.slice(0, 8).map((fabric, index) => (
                 <button
                   key={fabric.id}

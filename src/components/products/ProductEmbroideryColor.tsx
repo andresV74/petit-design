@@ -28,7 +28,7 @@ export function ProductEmbroideryColor({
 						onClick={() => setEmbroideryColor(color.value)}
 						className={
 							`w-12 h-12 rounded-full transition-all relative cursor-pointer
-							${color.border && 'border-2 border-border'}
+							${color.border ? 'border-2 border-border' : ''}
 							${embroideryColor === color.value
 								? "ring-2 ring-primary ring-offset-2 scale-110"
 								: "hover:scale-105"}`

@@ -33,7 +33,7 @@ export function ProductPage() {
   const subcategory = displayProduct?.subcategory
 
   const [babyName, setBabyName] = useState('')
-  const [embroideryColor, setEmbroideryColor] = useState('rosa_claro')
+  const [embroideryColor, setEmbroideryColor] = useState('')
   const [observations, setObservations] = useState('')
   const hasTrackedView = useRef(false)
   const fabricSelected = useFabricsStore((state) => state.fabric)
@@ -250,7 +250,7 @@ export function ProductPage() {
                 setEmbroideryColor={setEmbroideryColor}
               />
 
-              {/* TODO: Preguntar si esto queda o se va? */}
+              {/* TODO: esto queda, programarlo dependiendo de las fuentes */}
               {/* Font selection note - handled via WhatsApp */}
               <div className="p-3 rounded-xl bg-mint-light/30 border border-mint/20">
                 <p className="text-sm text-foreground flex items-center gap-2">
@@ -283,7 +283,7 @@ export function ProductPage() {
 
             {/* Order Button */}
             <Button
-              className="h-11 rounded-md px-8 w-full gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white text-lg py-6"
+              className="h-11 rounded-md px-8 w-full bg-primary text-primary-foreground text-xl font-bold py-6"
               // onClick={handleWhatsAppOrder}
             >
               {t('product.buy')}

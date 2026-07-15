@@ -142,7 +142,7 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
                 </div>
 
                 {/* Name below image */}
-                <h3 className="mt-3 text-center font-medium text-foreground group-hover:text-primary transition-colors">
+                <h3 className="mt-3 text-center font-medium text-foreground text-balance group-hover:text-primary transition-colors">
                   {language === 'es' ? fabric.name_es : fabric.name_en}
                 </h3>
               </button>
