@@ -26,7 +26,7 @@ interface FabricSelectorProps {
 export function FabricSelector({
 	initialGender = null,
 }: FabricSelectorProps) {
-	const { language } = useLanguage()
+	const { t, language } = useLanguage()
 	const [selectedGender, setSelectedGender] = useState<'boy' | 'girl' | null>(initialGender)
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
 	const [zoomIndex, setZoomIndex] = useState(0)
@@ -72,7 +72,7 @@ export function FabricSelector({
 			{/* Label */}
 			<div className="flex items-center justify-between">
 				<span className="text-sm font-medium flex items-center gap-2">
-					🧵 {language === 'es' ? 'Selecciona una tela' : 'Select a fabric'}
+					🧵 {t('product.select')}
 				</span>
 				{selectedFabricObj && (
 					<span className="text-xs text-primary font-medium bg-primary/10 px-2 py-1 rounded-full">
@@ -94,7 +94,7 @@ export function FabricSelector({
 					}
 				>
 					<Baby className={`h-5 w-5 ${selectedGender === 'boy' ? "text-blue-500" : "text-muted-foreground"}`} />
-					<span className="font-medium">{language === 'es' ? 'Niño' : 'Boy'}</span>
+					<span className="font-medium">{t('product.boy')}</span>
 					<span className="text-xs text-muted-foreground">({boyFabrics.length})</span>
 				</button>
 				<button
@@ -107,7 +107,7 @@ export function FabricSelector({
 					}
 				>
 					<Baby className={`h-5 w-5 ${selectedGender === 'girl' ? "text-pink-500" : "text-muted-foreground"}`} />
-					<span className="font-medium">{language === 'es' ? 'Niña' : 'Girl'}</span>
+					<span className="font-medium">{t('product.girl')}</span>
 					<span className="text-xs text-muted-foreground">({girlFabrics.length})</span>
 				</button>
 			</div>
@@ -131,18 +131,14 @@ export function FabricSelector({
 						className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
 					>
 						<MessageCircle className="h-4 w-4 text-mint" />
-						{language === 'es'
-							? '¿No encuentras la tela perfecta? ¡Tenemos más opciones!'
-							: "Can't find the perfect fabric? We have more options!"}
+						{t('product.moreOptions')}
 					</a>
 				</div>
 			)}
 
 			{!selectedGender && (
 				<p className="text-sm text-muted-foreground text-center py-4">
-					{language === 'es'
-						? '👆 Selecciona niño o niña para ver las telas disponibles'
-						: '👆 Select boy or girl to see available fabrics'}
+					{t('product.selectGender')}
 				</p>
 			)}
 

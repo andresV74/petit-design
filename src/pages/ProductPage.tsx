@@ -204,7 +204,6 @@ export function ProductPage() {
             {displayProduct?.longDescription_es && (
               <ProductLongDescription
                 description={language === 'es' ? displayProduct?.longDescription_es : displayProduct?.longDescription_en}
-                language={language}
               />
             )}
 

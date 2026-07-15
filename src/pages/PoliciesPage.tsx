@@ -68,7 +68,7 @@ export function PoliciesPage() {
       <section className="py-12 md:py-16">
         <div className="container px-4">
           <h2 className="font-display text-2xl md:text-3xl font-semibold mb-8 text-center">
-            {language === 'es' ? 'Preguntas Frecuentes' : 'Frequently Asked Questions'}
+            {t('policies.faqs')}
           </h2>
 
           <div className="max-w-3xl mx-auto">
@@ -123,22 +123,20 @@ export function PoliciesPage() {
         <div className="container px-4">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="font-display text-2xl md:text-3xl font-semibold mb-4">
-              {language === 'es' ? '¿Tienes más preguntas?' : 'Have more questions?'}
+              {t('policies.moreTitle')}
             </h2>
             <p className="text-muted-foreground mb-6">
-              {language === 'es'
-                ? 'Estamos aquí para ayudarte. Contáctanos por WhatsApp y te asesoramos en todo el proceso.'
-                : 'We\'re here to help. Contact us on WhatsApp and we\'ll guide you through the entire process.'}
+              {t('policies.moreDescription')}
             </p>
             <Button asChild className="h-11 rounded-md px-8 bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2">
               <a
-                href={getWhatsAppUrl({ message: language === 'es' ? '¡Hola! Tengo una pregunta sobre las políticas de Petit Design' : 'Hello! I have a question about Petit Design policies', source: 'Políticas y Normas de Envío', language })}
+                href={getWhatsAppUrl({ message: t('policies.moreCtaMessage'), source: 'Políticas y Normas de Envío', language })}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick('Políticas CTA', { content_category: 'Policies' })}
               >
                 <MessageCircle className="h-5 w-5" />
-                {language === 'es' ? 'Contactar por WhatsApp' : 'Contact via WhatsApp'}
+                {t('policies.moreCta')}
               </a>
             </Button>
           </div>

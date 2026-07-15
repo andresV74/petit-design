@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useLanguage } from '@/lib/i18n'
+import { useLanguage } from '@/lib/i18n.tsx'
 import { catalogContent } from '@/data/catalogContent.ts'
 
 interface BreadcrumbsProps {
@@ -28,7 +28,7 @@ export function Breadcrumbs({ category, subcategory, isProduct }: BreadcrumbsPro
 			{subcategory && (
 				<div className={`flex flex-wrap items-center gap-x-2 text-muted-foreground ${isProduct ? extraProductClasses : extraCatalogClasses}`}>
 					<Link to="/catalogo" className="hover:text-mint underline hover:no-underline">
-						{language === 'es' ? 'Catálogo' : 'Catalog'}
+						{t.pageTitle}
 					</Link>
 					<span>/</span>
 					<Link to={`/catalogo/${category}`} className="hover:text-mint underline hover:no-underline">
@@ -49,7 +49,7 @@ export function Breadcrumbs({ category, subcategory, isProduct }: BreadcrumbsPro
 			{!subcategory && category && isProduct && (
 				<div className="flex flex-wrap items-center justify-start gap-x-2 mb-7 text-muted-foreground">
 					<Link to="/catalogo" className="hover:text-mint underline hover:no-underline">
-						{language === 'es' ? 'Catálogo' : 'Catalog'}
+						{t.pageTitle}
 					</Link>
 					<span>/</span>
 					<Link to={`/catalogo/${category}`} className="hover:text-mint underline hover:no-underline">

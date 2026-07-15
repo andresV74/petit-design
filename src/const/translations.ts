@@ -94,7 +94,6 @@ export const translations: Translations = {
   // Homepage testimonials
   'testimonials.title': { es: 'Lo que dicen nuestras clientas', en: 'What our customers say' },
 
-
   // About page
   'about.badge': { es: '12 años de historia', en: '12 years of history' },
   'about.title': { es: 'Quiénes somos', en: 'Who are we' },
@@ -221,7 +220,11 @@ export const translations: Translations = {
 
   // Policies page
   'policies.title': { es: 'Políticas y Normas de Envío', en: 'Shipping Policies & Guidelines' },
-  'policies.subtitle': { es: 'Políticas y Normas de Envío', en: 'Everything you need to know before placing your order' },
+  'policies.subtitle': {
+    es: 'Todo lo que necesitas saber antes de realizar tu pedido',
+    en: 'Everything you need to know before placing your order'
+  },
+  'policies.faqs': { es: 'Preguntas Frecuentes', en: 'Frequently Asked Questions' },
   'policies.question.1': { es: '¿Qué es Petit Design?', en: 'What is Petit Design?' },
   'policies.answer.1': {
     es: 'Petit Design es una marca colombiana con más de 11 años de experiencia dedicada a la creación de lencería y accesorios para bebé. Todos nuestros productos son hechos en Colombia, en nuestro taller propio en Manizales, con telas 100% algodón y procesos artesanales de confección y personalización. Acompañamos a las mamás desde el nacimiento del bebé y en cada etapa de su crecimiento, cuidando cada detalle.',
@@ -293,6 +296,16 @@ export const translations: Translations = {
     es: 'Atendemos cada caso de forma empática y responsable, buscando siempre una solución clara y justa para el cliente.',
     en: 'We handle each case empathetically and responsibly, always seeking a clear and fair solution for the customer.'
   },
+  'policies.moreTitle': { es: '¿Tienes más preguntas?', en: 'Have more questions?' },
+  'policies.moreDescription': {
+    es: 'Estamos aquí para ayudarte. Contáctanos por WhatsApp y te asesoramos en todo el proceso.',
+    en: 'We\'re here to help. Contact us on WhatsApp and we\'ll guide you through the entire process.'
+  },
+  'policies.moreCtaMessage': {
+    es: '¡Hola! Tengo una pregunta sobre las políticas de Petit Design',
+    en: 'Hello! I have a question about Petit Design policies'
+  },
+  'policies.moreCta': { es: 'Contactar por WhatsApp', en: 'Contact via WhatsApp' },
 
 
   // Products
@@ -313,6 +326,34 @@ export const translations: Translations = {
   'product.days': { es: 'días', en: 'days' },
   'product.trustMessage': { es: 'Este producto se elabora especialmente para tu bebé con el mayor cariño y cuidado.', en: 'This product is made especially for your baby with the greatest care and love.' },
   'product.buy': { es: 'Comprar ahora', en: 'Buy now' },
+  'product.select': { es: 'Selecciona una tela', en: 'Select a fabric' },
+  'product.boy': { es: 'Niño', en: 'Boy' },
+  'product.girl': { es: 'Niña', en: 'Girl' },
+  'product.moreOptions': {
+    es: '¿No encuentras la tela perfecta? ¡Tenemos más opciones!',
+    en: `Can"t find the perfect fabric? We have more options!` },
+  'product.selectGender': {
+    es: '👆 Selecciona niño o niña para ver las telas disponibles',
+    en: '👆 Select boy or girl to see available fabrics'
+  },
+  'product.fullDescription': { es: 'Descripción completa', en: 'Full description' },
+
+  // Fabric Gallery
+  'fabricGallery.boysTitle': { es: 'Catálogo de Telas - Niño', en: 'Fabric Catalog - Boy' },
+  'fabricGallery.girlsTitle': { es: 'Catálogo de Telas - Niña', en: 'Fabric Catalog - Girl' },
+  'fabricGallery.boysTitle2': { es: 'Catálogo de Telas - Niño - Petit Design', en: 'Fabric Catalog - Boy - Petit Design' },
+  'fabricGallery.girlsTitle2': { es: 'Catálogo de Telas - Niña - Petit Design', en: 'Fabric Catalog - Girl - Petit Design' },
+  'fabricGallery.subtitle': { es: 'Haz clic en una tela para seleccionarla',  en: 'Click on a fabric to select it' },
+  'fabricGallery.disclaimer': {
+    es: '¡Tenemos muchos más diseños disponibles! Consulta por WhatsApp para ver más opciones.',
+    en: 'We have many more designs available! Ask on WhatsApp to see more options.'
+  },
+  'fabricGallery.message': {
+    es: '¡Hola! Me gustaría ver más diseños de telas',
+    en: 'Hello! I would like to see more fabric designs'
+  },
+  'fabricGallery.seeMore': { es: 'Ver más',  en: 'See more' },
+  'fabricGallery.moreFabrics': { es: 'Próximamente nuevas telas disponibles',  en: 'New fabrics coming soon' },
 
   // Colors
   'color.blanco': { es: 'Blanco', en: 'White' },
@@ -339,4 +380,6 @@ export const translations: Translations = {
   'general.loading': { es: 'Cargando...', en: 'Loading...' },
   'general.error': { es: 'Ha ocurrido un error', en: 'An error occurred' },
   'general.noProducts': { es: 'No hay productos disponibles', en: 'No products available' },
+  'general.select': { es: 'Seleccionar esta tela', en: 'Select this fabric' },
+  'general.unselect': { es: 'Anular selección de tela', en: 'Clears fabric selection' },
 }

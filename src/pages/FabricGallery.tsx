@@ -16,7 +16,7 @@ interface FabricGalleryProps {
 }
 
 export function FabricGallery({ gender }: FabricGalleryProps) {
-  const { language } = useLanguage()
+  const { t, language } = useLanguage()
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
 	const [zoomIndex, setZoomIndex] = useState(0)
 	const dialogRef = useRef<DialogRef | null>(null)
@@ -29,18 +29,12 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
 			? girlFabrics
 			: []) as unknown as Fabric[]
 
-  // TODO: move all translations of this page to the translation const
-	const title = gender === 'boy'
-    ? (language === 'es' ? 'Catálogo de Telas - Niño' : 'Fabric Catalog - Boy')
-    : (language === 'es' ? 'Catálogo de Telas - Niña' : 'Fabric Catalog - Girl')
+	const title = gender === 'boy' ? (t('fabricGallery.boysTitle')) : (t('fabricGallery.girlsTitle'))
 
-  const subtitle = language === 'es'
-    ? 'Haz clic en una tela para seleccionarla y ver los productos disponibles'
-    : 'Click on a fabric to select it and see available products'
+  const subtitle = t('fabricGallery.subtitle')
 
-  const fabricTitle = gender === 'boy'
-    ? 'Catálogo de Telas - Niño | Petit Design'
-    : 'Catálogo de Telas - Niña | Petit Design';
+  const fabricTitle = gender === 'boy' ? t('fabricGallery.boysTitle2') : t('fabricGallery.girlsTitle2')
+
   const fabricCanonical = `https://petitdesign.com.co/telas/${gender === 'boy' ? 'nino' : 'nina'}`
 
 	/**
@@ -107,18 +101,16 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
           <div className="mt-6 inline-flex items-center gap-3 px-5 py-3 bg-mint/10 border border-mint/20 rounded-xl">
             <MessageCircle className="h-5 w-5 text-mint-dark shrink-0" />
             <p className="text-sm text-foreground">
-              {language === 'es'
-                ? '¡Tenemos muchos más diseños disponibles! Consulta por WhatsApp para ver más opciones.'
-                : 'We have many more designs available! Ask on WhatsApp to see more options.'}
+              {t('fabricGallery.disclaimer')}
             </p>
             <Link
-              to={getWhatsAppUrl({ message: language === 'es' ? '¡Hola! Me gustaría ver más diseños de telas' : 'Hello! I would like to see more fabric designs', source: 'Catálogo de Telas', language })}
+              to={getWhatsAppUrl({ message: t('fabricGallery.message'), source: 'Catálogo de Telas', language })}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick('Catálogo de Telas', { content_category: 'Fabrics' })}
               className="text-sm font-medium text-mint-dark hover:text-mint underline shrink-0"
             >
-              {language === 'es' ? 'Ver más' : 'See more'}
+              {t('fabricGallery.seeMore')}
             </Link>
           </div>
         </div>
@@ -159,9 +151,7 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
         ) : (
           <div className="text-center py-16">
             <p className="text-muted-foreground text-lg">
-              {language === 'es'
-                ? 'Próximamente nuevas telas disponibles'
-                : 'New fabrics coming soon'}
+              {t('fabricGallery.modeFabrics')}
             </p>
           </div>
         )}

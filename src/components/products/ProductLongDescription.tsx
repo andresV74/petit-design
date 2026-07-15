@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import { ChevronDown, ChevronUp, FileText } from 'lucide-react';
+import { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import { ChevronDown, ChevronUp, FileText } from 'lucide-react'
+import { useLanguage } from '@/lib/i18n.tsx'
 import styles from './ProductLongDescription.module.css'
 
 interface ProductLongDescriptionProps {
   description: string | undefined;
-  language: 'es' | 'en';
 }
 
-export function ProductLongDescription({ description, language }: ProductLongDescriptionProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
+export function ProductLongDescription({ description }: ProductLongDescriptionProps) {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const { t } = useLanguage()
 
   if (!description) return null;
 
@@ -24,7 +25,7 @@ export function ProductLongDescription({ description, language }: ProductLongDes
         <div className="flex items-center gap-2">
           <FileText className="h-5 w-5 text-primary" />
           <span className="font-display text-lg font-semibold">
-            {language === 'es' ? 'Descripción completa' : 'Full description'}
+            {t('product.fullDescription')}
           </span>
         </div>
         {isExpanded ? (

@@ -79,29 +79,29 @@ export function ContactForm() {
     }
 
     const genderMap = {
-      girl: language === 'es' ? 'Niña' : 'Girl',
-      boy: language === 'es' ? 'Niño' : 'Boy',
-      surprise: language === 'es' ? 'Sorpresa / Aún no sé' : "Surprise / Don't know yet",
+      girl: t.girl,
+      boy: t.boy,
+      surprise: t.surprise,
     };
     const genderText = genderMap[formData.gender];
 
     const messageLines = [
       t.whatsAppGreeting,
       '',
-      `👤 ${language === 'es' ? 'Nombre' : 'Name'}: *${formData.name}*`,
-      `📱 ${language === 'es' ? 'Teléfono' : 'Phone'}: *${formData.phone}*`,
+      `👤 ${t.nameLabel}: *${formData.name}*`,
+      `📱 ${t.phoneLabel}: *${formData.phone}*`,
     ];
 
     if (formData.product?.trim()) {
-      messageLines.push(`🛍️ ${language === 'es' ? 'Producto de interés' : 'Product'}: *${formData.product}*`);
+      messageLines.push(`🛍️ ${t.productLabel}: *${formData.product}*`);
     } else {
-      messageLines.push(`🛍️ ${language === 'es' ? 'Producto' : 'Product'}: *${language === 'es' ? 'Necesito asesoría' : 'I need advice'}*`);
+      messageLines.push(`🛍️ ${t.product}: *${t.advise}*`);
     }
 
-    messageLines.push(`🎀 ${language === 'es' ? 'Género del bebé' : "Baby's gender"}: *${genderText}*`);
+    messageLines.push(`🎀 ${t.genderLabel}: *${genderText}*`);
 
     if (formData.message?.trim()) {
-      messageLines.push(`💬 ${language === 'es' ? 'Mensaje' : 'Message'}: *${formData.message}*`);
+      messageLines.push(`💬 ${t.message}: *${formData.message}*`);
     }
 
     trackFormSubmission('Inicio', { content_category: formData.product || 'General' });

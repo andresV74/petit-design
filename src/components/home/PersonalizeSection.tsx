@@ -189,7 +189,7 @@ export function PersonalizeSection() {
             {/* WhatsApp CTA for more designs */}
             <div className="mt-6 flex justify-center">
               <a
-                href={getWhatsAppUrl({ message: language === 'es' ? '¡Hola! Me gustaría ver más diseños de telas' : 'Hello! I would like to see more fabric designs', source: 'Inicio - Telas', language })}
+                href={getWhatsAppUrl({ message: t('fabricGallery.message'), source: 'Inicio - Telas', language })}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-5 py-3 bg-mint/10 border border-mint/20 rounded-xl hover:bg-mint/20 transition-colors"
