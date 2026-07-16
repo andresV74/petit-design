@@ -30,7 +30,6 @@ export function ProductPage() {
 
   const displayProduct = products.find(product => product.slug === slug)
   const category = displayProduct?.category
-  const subcategory = displayProduct?.subcategory
 
   const [babyName, setBabyName] = useState('')
   const [embroideryColor, setEmbroideryColor] = useState('')
@@ -170,7 +169,7 @@ export function ProductPage() {
 
       <div className="container px-4 py-8 md:py-12">
         {/* Breadcrumb */}
-        <Breadcrumbs category={category} subcategory={subcategory} isProduct={true} />
+        <Breadcrumbs category={category} isProduct={true} />
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           <div className="space-y-4">

@@ -1,7 +1,7 @@
 export const catalogContent = {
 	es: {
 		pageTitle: 'Catálogo',
-		allButtonText: 'Todos',
+		allButtonText: 'Todos los Productos',
 		noProducts: 'No hay productos disponibles en esta categoría todavía.',
 		allProducts: 'Ver todos los productos',
 		categories: [
@@ -11,48 +11,20 @@ export const catalogContent = {
 				description: 'Accesorios especiales para complementar el set de tu bebé',
 			},
 			{
-				title: 'Kits',
-				slug: 'kits',
-				description: 'Sets completos personalizados para el nacimiento y primeros meses del bebé',
-			},
-			{
 				title: 'Lencería de Cunas y Cama Cunas',
 				slug: 'lenceria-cuna',
 				description: 'Ropa de cama delicada para los primeros sueños de tu bebé',
 			},
 			{
-				title: 'Decoración',
-				slug: 'decoracion',
-			},
-			{
-				title: 'Cambio de Pañal',
-				slug: 'cambio-panal-accesorios',
-			},
-			{
-				title: 'Cuidado del Bebé',
-				slug: 'cuidado-bebe',
-			},
-			{
-				title: 'Organizadores',
-				slug: 'organizadores',
-			},
-			{
-				title: 'Cambio de Pañal',
-				slug: 'cambio-panal-lenceria',
-			},
-			{
-				title: 'Nido',
-				slug: 'nido',
-			},
-			{
-				title: 'Lencería de Cuna',
-				slug: 'cuidado-bebe-cuna',
+				title: 'Kits',
+				slug: 'kits',
+				description: 'Sets completos personalizados para el nacimiento y primeros meses del bebé',
 			},
 		],
 	},
 	en: {
 		pageTitle: 'Catalog',
-		allButtonText: 'all',
+		allButtonText: 'All Products',
 		noProducts: 'No products available in this category yet.',
 		allProducts: 'View all products',
 		categories: [
@@ -62,42 +34,14 @@ export const catalogContent = {
 				description: 'Special accessories to complement your baby\'s set',
 			},
 			{
-				title: 'Kits',
-				slug: 'kits',
-				description: 'Complete personalized sets for birth and baby\'s first months',
-			},
-			{
 				title: 'Crib and Toddler Bed Linens',
 				slug: 'lenceria-cuna',
 				description: 'Delicate bedding for your baby\'s first dreams',
 			},
 			{
-				title: 'Decoration',
-				slug: 'decoracion',
-			},
-			{
-				title: 'Diaper Changing',
-				slug: 'cambio-panal-accesorios',
-			},
-			{
-				title: 'Baby Care',
-				slug: 'cuidado-bebe',
-			},
-			{
-				title: 'Organizers',
-				slug: 'organizadores',
-			},
-			{
-				title: 'Diaper Changing',
-				slug: 'cambio-panal-lenceria',
-			},
-			{
-				title: 'Nest',
-				slug: 'nido',
-			},
-			{
-				title: 'Crib Linens',
-				slug: 'cuidado-bebe-cuna',
+				title: 'Kits',
+				slug: 'kits',
+				description: 'Complete personalized sets for birth and baby\'s first months',
 			},
 		],
 	},

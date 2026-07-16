@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom'
 import { ProductCard } from '@/components/products/ProductCard.tsx'
-import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { useLanguage } from '@/lib/i18n'
 import { Link } from 'react-router-dom'
 import { catalogContent } from '@/data/catalogContent.ts'
@@ -53,42 +52,35 @@ export function CatalogPage() {
         </div>
 
         {/* Filters Section */}
-        {!subcategory && (
-          <div className="mb-8 space-y-4">
-            <div className="flex flex-wrap justify-center gap-2">
+        <div className="mb-8 space-y-4">
+          <div className="flex flex-wrap justify-center gap-2">
+            <Link
+              to="/catalogo"
+              className={
+                `px-4 py-2 rounded-full text-sm font-medium transition-colors
+                ${!category
+                  ? "bg-mint text-white"
+                  : "bg-muted text-muted-foreground hover:bg-mint-light"}`
+              }
+            >
+              {t.allButtonText}
+            </Link>
+            {t.categories.map(cat => (
               <Link
-                to="/catalogo"
+                key={cat.slug}
+                to={`/catalogo/${cat.slug}`}
                 className={
                   `px-4 py-2 rounded-full text-sm font-medium transition-colors
-                  ${!category
+                  ${category === cat.slug
                     ? "bg-mint text-white"
                     : "bg-muted text-muted-foreground hover:bg-mint-light"}`
                 }
               >
-                {t.allButtonText}
+                {cat.title}
               </Link>
-              {t.categories.map(cat => (
-                cat.description && (
-                  <Link
-                    key={cat.slug}
-                    to={`/catalogo/${cat.slug}`}
-                    className={
-                      `px-4 py-2 rounded-full text-sm font-medium transition-colors
-                      ${category === cat.slug
-                        ? "bg-mint text-white"
-                        : "bg-muted text-muted-foreground hover:bg-mint-light"}`
-                    }
-                  >
-                    {cat.title}
-                  </Link>
-                )
-              ))}
-            </div>
+            ))}
           </div>
-        )}
-
-        {/* Breadcrumb for subcategory */}
-        <Breadcrumbs category={category} subcategory={subcategory} isProduct={false} />
+        </div>
 
         {/* Products Grid */}
         {productsData.length === 0 ? (
