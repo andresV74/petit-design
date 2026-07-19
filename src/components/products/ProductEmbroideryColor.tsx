@@ -48,8 +48,7 @@ export function ProductEmbroideryColor({
 				))}
 			</div>
 			<p className="text-sm text-muted-foreground font-medium">
-				{/* TODO: Check this translation */}
-				{t(`color.${embroideryColor}`)}
+				{embroideryColor && t(`color.${embroideryColor}`)}
 			</p>
 		</div>
 	)
