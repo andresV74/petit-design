@@ -41,7 +41,7 @@ export function ProductCard({ product, language }: ProductCardProps) {
 						{t('products.singleFeatured')}
 					</div>)
 				}
-				<h3 className="text-lg font-semibold text-foreground uppercase group-hover-text-primary transition-colors mb-1">
+				<h3 className="text-lg font-semibold text-balance text-foreground group-hover-text-primary transition-colors mb-1">
 					{language === 'es' ? product.name_es : product.name_en}
 				</h3>
 				<p className="text-muted-foreground">

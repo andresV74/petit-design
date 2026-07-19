@@ -50,13 +50,13 @@ export function Header() {
           >
             {t('nav.home')}
           </Link>
-          {tCatalog.categories.map(({ title, slug }) => (
+          {tCatalog.categories.map(({ title, menuTitle, slug }) => (
             <Link
               key={slug}
-              to={`/catalog0/${slug}`}
+              to={`/catalogo/${slug}`}
               className='whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground'
             >
-              {title}
+              {menuTitle ? menuTitle : title}
             </Link>
           ))}
           {navLinks.map((link) => (

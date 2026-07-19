@@ -28,7 +28,7 @@ export function ProductPreview({
 
       {/* Thumbnails */}
       {images?.length > 1 && (
-        <div className="flex gap-2 overflow-x-auto pb-2">
+        <div className="flex gap-2 overflow-x-auto max-w-[calc(100vw-32px)] md:max-w-none pb-3">
           {images.map((image, index) => (
             <button
               key={image.id}

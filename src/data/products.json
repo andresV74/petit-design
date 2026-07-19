@@ -1,399 +1,1411 @@
 [
 	{
-		"id": "124",
-		"name_es": "KIT COMPLETO PARA RECIBIR AL BEBÉ",
+		"id": "k01",
+		"name_es": "Kit Completo para Recibir al Bebé",
 		"name_en": "Complete Baby Welcome Kit",
 		"slug": "KIT-COMPLETO-PARA-RECIBIR-AL-BEBÉ",
-		"shortDescription_es": "",
-		"shortDescription_en": "",
-		"longDescription_es": "Descripción Un kit pensado para dejar la cuna y la habitación listas antes del nacimiento. Combina organización, protección, confort y diseño, con los productos más importantes para recibir al bebé en casa con todo preparado.\n\nQué incluye\n\nSet x3 Bolsitas Organizadoras: para ropa del bebé organizada desde la clínica.\n\nSet Botiquín para Bebé: higiene y medicamentos siempre a la mano.\n\nBumper de Cuna: protectores acolchados en espuma, delicados y personalizados, que evitan golpes y aportan calidez.\n\nCojines Decorativos para Cuna: set decorativo (dos cuadrados y uno rectangular) personalizados con el nombre del bebé.\n\nSábana Ajustable de Cuna: en tela 100% algodón, se ajusta perfectamente al colchón.\n\nCobija: en algodón, ideal para el día del nacimiento y los primeros meses.\n\nPor qué elegirlo\n\nDeja la cuna completamente lista\n\nCombina seguridad, confort y estética\n\nIdeal como regalo de nacimiento o lista de bebé\n\nTodo coordinado con la identidad Petit Design",
-		"longDescription_en": "Description Un kit pensado para dejar la cuna y la habitación listas antes del nacimiento. Combina organización, protección, confort y diseño, con los productos más importantes para recibir al bebé en casa con todo preparado.\n\nQué incluye\n\nSet x3 Bolsitas Organizadoras: para ropa del bebé organizada desde la clínica.\n\nSet Botiquín para Bebé: higiene y medicamentos siempre a la mano.\n\nBumper de Cuna: protectores acolchados en espuma, delicados y personalizados, que evitan golpes y aportan calidez.\n\nCojines Decorativos para Cuna: set decorativo (dos cuadrados y uno rectangular) personalizados con el nombre del bebé.\n\nSábana Ajustable de Cuna: en tela 100% algodón, se ajusta perfectamente al colchón.\n\nCobija: en algodón, ideal para el día del nacimiento y los primeros meses.\n\nPor qué elegirlo\n\nDeja la cuna completamente lista\n\nCombina seguridad, confort y estética\n\nIdeal como regalo de nacimiento o lista de bebé\n\nTodo coordinado con la identidad Petit Design",
+		"shortDescription_es": "Kit completo con todo lo necesario para recibir al bebé. El regalo perfecto.",
+		"shortDescription_en": "A complete kit with everything you need to welcome your baby. The perfect gift.",
+		"longDescription_es": "Un kit pensado para dejar la cuna y la habitación listas antes del nacimiento. Combina organización, protección, confort y diseño, con los productos más importantes para recibir al bebé en casa con todo preparado.\n\n**Qué incluye**\n\n- **Set x3 Bolsitas Organizadoras**: para ropa del bebé organizada desde la clínica.\n- **Set Botiquín para Bebé**: higiene y medicamentos siempre a la mano.\n- **Bumper de Cuna**: protectores acolchados en espuma, delicados y personalizados, que evitan golpes y aportan calidez.\n- **Cojines Decorativos para Cuna**: set decorativo (dos cuadrados y uno rectangular) personalizados con el nombre del bebé.\n- **Sábana Ajustable de Cuna**: en tela 100% algodón, se ajusta perfectamente al colchón.\n- **Cobija**: en algodón, ideal para el día del nacimiento y los primeros meses.\n\n**Por qué elegirlo**\n\n- Deja la cuna completamente lista\n- Combina seguridad, confort y estética\n- Ideal como regalo de nacimiento o lista de bebé\n- Todo coordinado con la identidad Petit Design",
+		"longDescription_en": "A kit designed to get the crib and nursery ready before the baby is born. It combines organization, protection, comfort, and design, featuring the essential products you need to welcome your baby home with everything ready to go.\n\n**What's Included**\n\n- **Set of 3 Organizer Pouches**: For baby clothes organized by the clinic.\n- **Baby First Aid Kit Set**: Hygiene supplies and medications always within reach.\n- **Bumper for the Crib**: Soft, custom-made foam-padded protectors that prevent impacts and provide warmth.\n- **Decorative Crib Pillows**: Decorative set (two square and one rectangular) personalized with the baby's name.\n- **Fitted Crib Sheet**: Made of 100% cotton, it fits the mattress perfectly.\n- **Blanket**: made of cotton, ideal for the day of birth and the first few months.\n\n**Why Choose It**\n\n- Get the crib completely ready\n- It combines safety, comfort, and style\n- Perfect as a baby shower gift or for a baby registry\n- All coordinated with the Petit Design brand identity",
 		"images": [
 			{
-				"id": "i520",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Kits/Sin_Subcategoria/KIT-0002_KIT_COMPLETO_PARA_RECIBIR_AL_B_foto1.jpg",
-				"altText_es": "KIT COMPLETO PARA RECIBIR AL BEBÉ",
+				"id": "k01i01",
+				"imageUrl": "/products/kits/kit-completo-para-recibir-al-bebe.webp",
+				"altText_es": "Kit Completo para Recibir al Bebé",
 				"altText_en": "Complete Baby Welcome Kit",
 				"isPrimary": true
 			}
 		],
-		"price": 1760000,
+		"price": 2000000,
 		"category": "kits",
 		"subcategory": "",
 		"isFeatured": true,
 		"productionDays": 15
 	},
 	{
-		"id": "234",
-		"name_es": "KIT REGALO IDEAL (BABY SHOWER)",
+		"id": "k02",
+		"name_es": "Kit Regalo Ideal (Bby Shower)",
 		"name_en": "Ideal Gift Kit (Baby Shower)",
 		"slug": "KIT-REGALO-IDEAL",
 		"shortDescription_es": "El regalo ideal para baby shower, con artículos seleccionados.",
 		"shortDescription_en": "The perfect baby shower gift, featuring carefully selected items.",
 		"longDescription_es": "Un kit pensado especialmente para regalar en baby shower: práctico y funcional, con productos que realmente se usan en la rutina diaria de mamá y bebé. Combina organización, cambio de pañal fuera de casa y un organizador multiusos.\n\n**Qué incluye**\n\n- **Set Botiquín para Bebé**: ideal para productos de higiene y medicamentos; mantiene frascos firmes y ayuda a evitar derrames.\n- **Cambiador Pañalera**: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n- **Cartuchera**: bolsita organizadora multiusos para artículos pequeños; ideal para bolso, casa o para guardar esenciales.\n\n**Beneficios clave**\n- Regalo útil y funcional para el día a día\n- Facilita el cambio de pañal fuera de casa\n- Mantiene higiene y accesorios siempre organizados\n- Alto valor percibido en un solo kit\n\n**Ideal para**\n- Baby shower\n- Mamás primerizas\n- Rutina diaria y salidas",
-		"longDescription_en": "A kit designed especially as a baby shower gift: practical and functional, with products that are actually used in the daily routine of mom and baby. It combines organization, on-the-go diaper changing, and a multipurpose organizer.\n\n**What's Included**\n\n- **Set Botiquín para Bebé**: ideal para productos de higiene y medicamentos; mantiene frascos firmes y ayuda a evitar derrames.\n\n- Cambiador Pañalera: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n\nCartuchera: bolsita organizadora multiusos para artículos pequeños; ideal para bolso, casa o para guardar esenciales.\n\nBeneficios clave\n\nRegalo útil y funcional para el día a día\n\nFacilita el cambio de pañal fuera de casa\n\nMantiene higiene y accesorios siempre organizados\n\nAlto valor percibido en un solo kit\n\nIdeal para\n\nBaby shower\n\nMamás primerizas\n\nRutina diaria y salidas",
+		"longDescription_en": "A kit designed especially as a baby shower gift: practical and functional, with products that are actually used in the daily routine of mom and baby. It combines organization, on-the-go diaper changing, and a multipurpose organizer.\n\n**What's Included**\n\n- **Baby First-Aid Kit Set**: Ideal for hygiene products and medications; keeps bottles secure and helps prevent spills.\n- **Diaper Changing Mat**: A foldable changing mat that can be used on any surface, with internal pockets for diapers, wipes, and cream.\n- **Pencil Case**: a multipurpose organizer pouch for small items; perfect for your purse, home, or for storing essentials.\n\n**Key Benefits**\n\n- A useful and practical gift for everyday use\n- Makes changing diapers on the go easier\n- Keep your toiletries and accessories organized at all times\n- High perceived value in a single kit\n\n**Ideal para**\n\n- Baby shower\n- First-time moms\n- Daily Routine and Outings",
 		"images": [
 			{
-				"id": "i520",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Kits/Sin_Subcategoria/KIT-0006_KIT_REGALO_IDEAL_(BABY__SHOWER_foto1.jpg",
-				"altText_es": "KIT REGALO IDEAL (BABY SHOWER)",
+				"id": "k02i01",
+				"imageUrl": "/products/kits/kit-regalo-ideal.webp",
+				"altText_es": "Kit Regalo Ideal (Bby Shower)",
 				"altText_en": "Ideal Gift Kit (Baby Shower)",
 				"isPrimary": true
-			},
-			{
-				"id": "i521",
-				"imageUrl": "/products/kit-regalo-ideal-2.webp",
-				"altText_es": "KIT REGALO IDEAL (BABY SHOWER)",
-				"altText_en": "Ideal Gift Kit (Baby Shower)",
-				"isPrimary": false
-			},
-			{
-				"id": "i522",
-				"imageUrl": "/products/kit-regalo-ideal-3.webp",
-				"altText_es": "KIT REGALO IDEAL (BABY SHOWER)",
-				"altText_en": "Ideal Gift Kit (Baby Shower)",
-				"isPrimary": false
 			}
 		],
-		"price": 400000,
+		"price": 405000,
 		"category": "kits",
 		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 20
 	},
 	{
-		"id": "687",
-		"name_es": "KIT NIDO & ORGANIZADORES",
+		"id": "k03",
+		"name_es": "Kit Nido & Organizadores",
 		"name_en": "Nest & Organizers Kit",
 		"slug": "KIT-NIDO-ORGANIZADORES",
 		"shortDescription_es": "Combinación perfecta de nido y organizadores para el bebé.",
 		"shortDescription_en": "Perfect combination of nest and organizers for the baby",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"longDescription_es": "Un kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\n**Qué incluye**\n\n- **Nido Estándar + Play Gym + Almohada Antireflujo**: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n- **Set de 3 Bolsas Organizadoras**: ideales para organizar la ropa por cambios, clínica y viajes.\n\n**Beneficios clave**\n\n- Espacio cómodo y acogedor para el descanso del bebé\n- Estimulación temprana a través del Play Gym\n- Organización práctica de ropa desde el nacimiento\n- Ideal para lista de bebé y regalo especial\n\n**Ideal para**\n- Nacimiento y primeros meses\n- Rutina diaria en casa\n- Regalo premium",
+		"longDescription_en": "A kit designed to help your baby rest and keep your daily routine organized from the very first days. It combines a standard bassinet with essential accessories for hospital stays, travel, and daily life at home.\n\n**What's Included**\n\n- **Standard Co-Sleeping Crib + Play Gym + Anti-Reflux Pillow**: co-sleeping crib with an arch for stimulation and interaction. Includes an anti-reflux pillow. Important: The arch is for stimulation only; it should not be used to support the weight of the crib.\n- **Set of 3 Organizer Bags**: perfect for organizing clothes for daily changes, doctor's appointments, and travel.\n\n**Key Benefits**\n\n- A comfortable and cozy space for your baby to rest\n- Early Stimulation Through the Play Gym\n- Practical Clothing Organization from Birth Onward\n- Perfect for a baby registry and as a special gift\n\n**Ideal for**\n- Birth and the First Few Months\n- Daily Routine at Home\n- Premium Gift",
 		"images": [
 			{
-				"id": "i520",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Kits/Sin_Subcategoria/KIT-0005_KIT_NIDO_&_ORGANIZADORES_foto1.jpg",
-				"altText_es": "KIT NIDO & ORGANIZADORES",
+				"id": "k03i01",
+				"imageUrl": "/products/kits/kit-nido-y-organizadores.webp",
+				"altText_es": "Kit Nido & Organizadores",
 				"altText_en": "Nest & Organizers Kit",
 				"isPrimary": true
 			}
 		],
-		"price": 770000,
+		"price": 775000,
 		"category": "kits",
 		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "679",
-		"name_es": "COJINES DECORATIVOS PARA CUNA",
-		"name_en": "Decorative Crib Pillows",
-		"slug": "COJINES-DECORATIVOS-PARA-CUNA",
-		"shortDescription_es": "Set de cojines decorativos para adornar la cuna.",
-		"shortDescription_en": "Set of decorative pillows to spruce up the crib.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "k04",
+		"name_es": "Kit Esenciales Nacimiento & Rutina",
+		"name_en": "Birth & Daily Routine Essentials Kit",
+		"slug": "kit-esenciales-nacimiento-rutina",
+		"shortDescription_es": "Kit con los esenciales para el nacimiento y la rutina diaria del bebé.",
+		"shortDescription_en": "A kit with all the essentials for your baby's arrival and daily routine.",
+		"longDescription_es": "Un kit completo que reúne los esenciales del nacimiento y la rutina diaria. Ideal para quienes quieren resolver lo más importante en un solo pedido, sin complicaciones.\n\n**Qué incluye**\n\n- **Set x3 Bolsitas Organizadoras**: para ropa del bebé organizada por cambios.\n- **Set Botiquín para Bebé**: productos de aseo y medicamentos bien organizados.\n- **Neceser de Aseo**: accesorios pequeños del día a día.\n- **Dona de Lactancia**: soporte y comodidad para la mamá.\n- **Bolsita Cuadrada Plana**: perfecta para llevar ropa de cambio sin ocupar espacio.\n- **Toalla de Bebé con Capucha**: 100% algodón, ideal desde recién nacido para el momento del baño.\n\n**Por qué elegirlo**\n\n- Resuelve clínica, casa y rutina diaria\n- Ideal como primer kit completo\n- Práctico, funcional y personalizado\n- Excelente opción de regalo premium",
+		"longDescription_en": "A complete kit that includes all the essentials for newborn care and daily routines. Ideal for those who want to take care of the most important items in a single, hassle-free order.\n\n**What's Included**\n\n- **Set of 3 Organizer Bags**: for keeping baby clothes organized by outfit.\n- **Baby First-Aid Kit Set**: Well-organized toiletries and medications.\n- **Toiletry Bag**: small everyday items.\n- **Breastfeeding Donor**: support and comfort for the mother.\n- **Flat Square Pouch**: perfect for carrying a change of clothes without taking up much space.\n- **Hooded Baby Towel**: 100% cotton, perfect for bath time starting from newborn.\n\n**Por qué elegirlo**\n\n- Resuelve clínica, casa y rutina diaria\n- Ideal como primer kit completo\n- Practical, functional, and personalized\n- An excellent choice for a premium gift",
 		"images": [
 			{
-				"id": "i520",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Accesorios_de_lenceria/Decoracion/ACC-0035_COJINES_DECORATIVOS_PARA_CUNA_foto1.jpg",
-				"altText_es": "COJINES DECORATIVOS PARA CUNA",
-				"altText_en": "Decorative Crib Pillows",
+				"id": "k04i01",
+				"imageUrl": "/products/kits/kit-esenciales-nacimiento-y-rutina.webp",
+				"altText_es": "Kit Esenciales Nacimiento & Rutina",
+				"altText_en": "Birth & Daily Routine Essentials Kit",
 				"isPrimary": true
 			}
 		],
-		"price": 210000,
-		"category": "accesorios",
-		"subcategory": "decoracion",
+		"price": 1057000,
+		"category": "kits",
+		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "960",
-		"name_es": "MUÑECOS",
-		"name_en": "Stuffed Toys",
-		"slug": "MUNECOS",
-		"shortDescription_es": "Muñecos decorativos suaves para la habitación del bebé.",
-		"shortDescription_en": "Soft decorative stuffed toys for the baby's room.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "k05",
+		"name_es": "Kit \"Más Vendido para Clínica & Viaje\"",
+		"name_en": "Best-Selling Kit for Clinics & Travel",
+		"slug": "kit-mas-vendido-clinica-viaje",
+		"shortDescription_es": "Nuestro kit más vendido, perfecto para la clínica y viajes. Incluye todo lo esencial para el bebé.",
+		"shortDescription_en": "Our best-selling kit, perfect for the clinic and travel. It includes all the essentials for your baby.",
+		"longDescription_es": "Nuestro kit más vendido para el día del nacimiento y las primeras salidas. Está pensado para que la maleta de clínica y la pañalera queden organizadas, prácticas y completas, con todo lo esencial separado y a la mano.\n\n**Qué incluye**\n\n- **Set de 3 Bolsas Organizadoras**: bolsitas ideales para organizar la ropa del bebé por cambios, clínica, viajes o closet.\n- **Set Botiquín para Bebé**: diseñado para productos de higiene y medicamentos; su estructura permite mantener los frascos firmes y evitar derrames.\n- **Neceser de Aseo**: perfecto para accesorios pequeños como peinilla, moñitos, cortaúñas, chupos y esenciales del día a día.\n\n**Beneficios clave**\n\n- Organiza la maleta de clínica en minutos\n- Mantiene ropa, aseo y medicamentos separados y accesibles\n- Ideal para clínica, viajes y uso diario\n- Personalizable con nombre (tela, sesgo y bordado)\n\n**Ideal para**\n\n- Día del nacimiento\n- Viajes y salidas\n- Pañalera grande y organización del closet",
+		"longDescription_en": "Our best-selling kit for the day of birth and those first outings. It's designed to keep your hospital bag and diaper bag organized, practical, and fully stocked, with all the essentials separated and within easy reach.\n\n**What's Included**\n\n- **Set of 3 Organizer Bags**: small bags perfect for organizing your baby's clothes for diaper changes, doctor's appointments, trips, or the closet.\n- **Baby First-Aid Kit Set**: designed for hygiene products and medications; its design keeps bottles secure and prevents spills.\n- **Toiletry Bag**: perfect for small accessories like a comb, hair ties, nail clippers, pacifiers, and everyday essentials.\n\n**Key Benefits**\n\n- Organize your medical bag in minutes\n- Keep clothes, toiletries, and medications separate and within easy reach\n- Ideal for the clinic, travel, and everyday use\n- Customizable with a name (fabric, bias tape, and embroidery)\n\n**Ideal for**\n\n- Birthday\n- Trips and Outings\n- Large Diaper Organizer and Closet Organization",
 		"images": [
 			{
-				"id": "i520",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Accesorios_de_lenceria/Decoracion/ACC-0034_MUNECOS_foto1.jpg",
-				"altText_es": "MUÑECOS",
-				"altText_en": "Stuffed Toys",
+				"id": "k05i01",
+				"imageUrl": "/products/kits/kit-mas-vendido.webp",
+				"altText_es": "Kit \"Más Vendido para Clínica & Viaje\"",
+				"altText_en": "Best-Selling Kit for Clinics & Travel",
 				"isPrimary": true
 			}
 		],
-		"price": 160000,
-		"category": "accesorios",
-		"subcategory": "decoracion",
+		"price": 549000,
+		"category": "kits",
+		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "123",
-		"name_es": "COLCHÓN CAMBIADOR",
-		"name_en": "Changing Mattress",
-		"slug": "COLCHON-CAMBIADOR",
-		"shortDescription_es": "Colchón cambiador acolchado y cómodo.",
-		"shortDescription_en": "A padded, comfortable changing pad.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "k06",
+		"name_es": "Kit Mamá & Bebé Listos (Baby Shower)",
+		"name_en": "Ready-to-Go Mom & Baby Kit (Baby Shower)",
+		"slug": "kit-mama-bebe-listos",
+		"shortDescription_es": "Kit ideal para baby shower, incluye artículos para mamá y bebé.",
+		"shortDescription_en": "The perfect baby shower gift set, including items for mom and baby.",
+		"longDescription_es": "El regalo ideal para baby shower: práctico, funcional y pensado para la rutina real. Une lactancia, cambio de pañal y organización para acompañar a mamá y bebé desde los primeros días.\n\n**Qué incluye**\n\n- **Dona de Lactancia**: soporte ergonómico que mejora la posición durante la lactancia, aportando altura y confort.\n- **Cambiador Pañalera**: cambiador plegable para usar en cualquier superficie, con bolsillos internos para pañales, pañitos y crema.\n- **Neceser de Aseo**: para organizar accesorios pequeños del bebé y tenerlos siempre a la mano.\n\n**Beneficios clave**\n\n- Lactancia más cómoda y ergonómica\n- Cambio de pañal práctico fuera de casa\n- Organización real para la rutina diaria\n- Excelente como regalo útil\n\n**Ideal para**\n\n- Baby shower\n- Mamás primerizas\n- Rutina diaria y salidas",
+		"longDescription_en": "The perfect baby shower gift: practical, functional, and designed for everyday life. It combines breastfeeding, diaper changes, and organization to support mom and baby from the very first days.\n\n**What's Included**\n\n- **Breastfeeding Pillow**: An ergonomic support pillow that improves your position while breastfeeding, providing extra height and comfort.\n- **Diaper Changing Mat**: A foldable changing mat that can be used on any surface, with internal pockets for diapers, wipes, and cream.\n- **Toiletry Bag**: for organizing your baby's small items and keeping them within easy reach.\n\n**Key Benefits**\n\n- More comfortable and ergonomic breastfeeding\n- Convenient Diaper Changes on the Go\n- Effective Organization for Your Daily Routine\n- Great as a practical gift\n\n**Ideal for**\n\n- Baby shower\n- First-time moms\n- Daily Routine and Outings",
 		"images": [
 			{
-				"id": "i520",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Accesorios_de_lenceria/Cambio_de_panal/ACC-0036_COLCHON_CAMBIADOR_foto1.jpg",
-				"altText_es": "COLCHÓN CAMBIADOR",
-				"altText_en": "Changing Mattress",
+				"id": "k06i01",
+				"imageUrl": "/products/kits/kit-mas-vendido.webp",
+				"altText_es": "Kit Mamá & Bebé Listos (Baby Shower)",
+				"altText_en": "Ready-to-Go Mom & Baby Kit (Baby Shower)",
 				"isPrimary": true
 			}
 		],
-		"price": 150000,
+		"price": 549000,
+		"category": "kits",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a01",
+		"name_es": "Banderines Personalizados",
+		"name_en": "Personalized Banners",
+		"slug": "banderines-personalizados",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "Un complemento decorativo perfecto para llenar ese espacio especial y darle un toque único a la habitación de tu bebé. Cada banderín se personaliza con la inicial del nombre y puedes elegir los colores que más te gusten, tanto para niño como para niña.\n\n**Valor por letra: $30.000**.\n\n**PEDRO** tiene 5 letras.\n\n**5 x $30.000 = $150.000**\n\n**Creamos banderines tanto para niño como para niña**",
+		"longDescription_en": "A perfect decorative accent to fill that special space and add a unique touch to your baby's room. Each pennant is personalized with the first initial of your baby's name, and you can choose your favorite colors, whether it's for a boy or a girl.\n\n**Value per letter: $30.000**.\n\n**PEDRO** has 5 letters.\n\n**5 x $30.000 = $150.000**\n\n**We create banners for both boys and girls**",
+		"images": [
+			{
+				"id": "i520",
+				"imageUrl": "/products/banderines/banderines-1.webp",
+				"altText_es": "Banderín Personalizado",
+				"altText_en": "Personalized Banner",
+				"isPrimary": true
+			},
+			{
+				"id": "i521",
+				"imageUrl": "/products/banderines/banderines-2.webp",
+				"altText_es": "Banderín Personalizado",
+				"altText_en": "Personalized Banner",
+				"isPrimary": false
+			},
+			{
+				"id": "i522",
+				"imageUrl": "/products/banderines/banderines-3.webp",
+				"altText_es": "Banderín Personalizado",
+				"altText_en": "Personalized Banner",
+				"isPrimary": false
+			},
+			{
+				"id": "i523",
+				"imageUrl": "/products/banderines/banderines-4.webp",
+				"altText_es": "Banderín Personalizado",
+				"altText_en": "Personalized Banner",
+				"isPrimary": false
+			}
+		],
+		"price": 30000,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a02",
+		"name_es": "Bolsa Extra Big",
+		"name_en": "Extra-Large Bag",
+		"slug": "bolsa-extra-big",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "Optimiza el almacenamiento de la lencería y accesorios de tu bebé con nuestra espaciosa bolsa organizadora! Diseñada para cobijas, sábanas y mantas, esta bolsa grande mantiene todo en orden y al alcance.\n\nHaz que la rutina diaria sea más fácil y ordenada para ti y tu bebé.\n\nTamaño\n\n35 alto, 40 frente, 30 fondo",
+		"longDescription_en": "Optimize storage for your baby's linens and accessories with our spacious organizer bag! Designed for blankets, sheets, and throws, this large bag keeps everything organized and within easy reach.\n\nMake your daily routine easier and more organized for you and your baby\n\nSize\n\n35 (height), 40 (front), 30 (depth)",
+		"images": [
+			{
+				"id": "a02i01",
+				"imageUrl": "/products/bolsa-extra-big/bolsa-extra-big-1.webp",
+				"altText_es": "Bolsa Extra Big",
+				"altText_en": "Extra-Large Bag",
+				"isPrimary": true
+			},
+			{
+				"id": "a02i02",
+				"imageUrl": "/products/bolsa-extra-big/bolsa-extra-big-2.webp",
+				"altText_es": "Bolsa Extra Big",
+				"altText_en": "Extra-Large Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a02i03",
+				"imageUrl": "/products/bolsa-extra-big/bolsa-extra-big-3.webp",
+				"altText_es": "Bolsa Extra Big",
+				"altText_en": "Extra-Large Bag",
+				"isPrimary": false
+			}
+		],
+		"price": 270000,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a03",
+		"name_es": "Bolsita Plana",
+		"name_en": "Flat Little Pouch",
+		"slug": "bolsita-plana",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
+		"images": [
+			{
+				"id": "a03i01",
+				"imageUrl": "/products/bolsita-plana/bolsita-plana-1.webp",
+				"altText_es": "Bolsita Plana",
+				"altText_en": "Flat Little Pouch",
+				"isPrimary": true
+			},
+			{
+				"id": "a03i02",
+				"imageUrl": "/products/bolsita-plana/bolsita-plana-2.webp",
+				"altText_es": "Bolsita Plana",
+				"altText_en": "Flat Little Pouch",
+				"isPrimary": false
+			},
+			{
+				"id": "a03i03",
+				"imageUrl": "/products/bolsita-plana/bolsita-plana-3.webp",
+				"altText_es": "Bolsita Plana",
+				"altText_en": "Flat Little Pouch",
+				"isPrimary": false
+			},
+			{
+				"id": "a03i04",
+				"imageUrl": "/products/bolsita-plana/bolsita-plana-4.webp",
+				"altText_es": "Bolsita Plana",
+				"altText_en": "Flat Little Pouch",
+				"isPrimary": false
+			},
+			{
+				"id": "a03i05",
+				"imageUrl": "/products/bolsita-plana/bolsita-plana-5.webp",
+				"altText_es": "Bolsita Plana",
+				"altText_en": "Flat Little Pouch",
+				"isPrimary": false
+			},
+			{
+				"id": "a03i06",
+				"imageUrl": "/products/bolsita-plana/bolsita-plana-6.webp",
+				"altText_es": "Bolsita Plana",
+				"altText_en": "Flat Little Pouch",
+				"isPrimary": false
+			},
+			{
+				"id": "a03i07",
+				"imageUrl": "/products/bolsita-plana/bolsita-plana-7.webp",
+				"altText_es": "Bolsita Plana",
+				"altText_en": "Flat Little Pouch",
+				"isPrimary": false
+			}
+		],
+		"price": 110000,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a04",
+		"name_es": "Cambiador Pañalera",
+		"name_en": "Changing Diaper Bag",
+		"slug": "cambiador-panalera",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "Un accesorio práctico para acompañarte en cada salida con tu bebé. Su diseño compacto te permite llevarlo en la pañalera, mini pañalera o coche.\n\nCuenta con bolsillos para organizar pañales, pañitos húmedos y una muda de ropa, además de un bolsillo impermeable para guardar la ropa sucia o húmeda. Comodidad, organización y diseño en un solo producto.",
+		"longDescription_en": "A practical accessory to take with you on every outing with your baby. Its compact design lets you carry it in your diaper bag, mini diaper bag, or car.\n\nIt features pockets for organizing diapers, wet wipes, and a change of clothes, as well as a waterproof pocket for storing dirty or wet clothes. Comfort, organization, and style all in one product.",
+		"images": [
+			{
+				"id": "a04i01",
+				"imageUrl": "/products/cambiador-panalera/cambiador-panalera-1.webp",
+				"altText_es": "Cambiador Pañalera",
+				"altText_en": "Changing Diaper Bag",
+				"isPrimary": true
+			},
+			{
+				"id": "a04i02",
+				"imageUrl": "/products/cambiador-panalera/cambiador-panalera-2.webp",
+				"altText_es": "Cambiador Pañalera",
+				"altText_en": "Changing Diaper Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a04i03",
+				"imageUrl": "/products/cambiador-panalera/cambiador-panalera-3.webp",
+				"altText_es": "Cambiador Pañalera",
+				"altText_en": "Changing Diaper Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a04i04",
+				"imageUrl": "/products/cambiador-panalera/cambiador-panalera-4.webp",
+				"altText_es": "Cambiador Pañalera",
+				"altText_en": "Changing Diaper Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a04i05",
+				"imageUrl": "/products/cambiador-panalera/cambiador-panalera-5.webp",
+				"altText_es": "Cambiador Pañalera",
+				"altText_en": "Changing Diaper Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a04i06",
+				"imageUrl": "/products/cambiador-panalera/cambiador-panalera-6.webp",
+				"altText_es": "Cambiador Pañalera",
+				"altText_en": "Changing Diaper Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a04i07",
+				"imageUrl": "/products/cambiador-panalera/cambiador-panalera-7.webp",
+				"altText_es": "Cambiador Pañalera",
+				"altText_en": "Changing Diaper Bag",
+				"isPrimary": false
+			}
+		],
+		"price": 220000,
 		"category": "accesorios",
 		"subcategory": "cambio-panal-accesorios",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "576",
-		"name_es": "MINI PAÑALERA GRANDE",
-		"name_en": "Large Mini Diaper Bag",
-		"slug": "MINI-PANALERA-GRANDE",
-		"shortDescription_es": "Mini pañalera tamaño grande para llevar todo lo necesario.",
-		"shortDescription_en": "Large mini diaper bag to carry everything you need.",
+		"id": "a05",
+		"name_es": "Cesta Redonda",
+		"name_en": "Round Basket",
+		"slug": "cesta-redonda",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
 		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
 		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
 		"images": [
 			{
-				"id": "i520",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Accesorios_de_lenceria/Cambio_de_panal/ACC-0025_MINI_PANALERA_GRANDE_foto1.jpg",
-				"altText_es": "MINI PAÑALERA GRANDE",
-				"altText_en": "Large Mini Diaper Bag",
+				"id": "a05i01",
+				"imageUrl": "/products/cesta-redonda/cesta-redonda-1.webp",
+				"altText_es": "Cesta Redonda",
+				"altText_en": "Round Basket",
 				"isPrimary": true
+			},
+			{
+				"id": "a05i02",
+				"imageUrl": "/products/cesta-redonda/cesta-redonda-2.webp",
+				"altText_es": "Cesta Redonda",
+				"altText_en": "Round Basket",
+				"isPrimary": false
+			},
+			{
+				"id": "a05i03",
+				"imageUrl": "/products/cesta-redonda/cesta-redonda-3.webp",
+				"altText_es": "Cesta Redonda",
+				"altText_en": "Round Basket",
+				"isPrimary": false
+			},
+			{
+				"id": "a05i04",
+				"imageUrl": "/products/cesta-redonda/cesta-redonda-4.webp",
+				"altText_es": "Cesta Redonda",
+				"altText_en": "Round Basket",
+				"isPrimary": false
 			}
 		],
-		"price": 110000,
+		"price": 250000,
 		"category": "accesorios",
-		"subcategory": "cambio-panal-accesorios",
+		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "235",
-		"name_es": "DONA DE LACTANCIA",
-		"name_en": "Nursing Pillow",
-		"slug": "DONA-DE-LACTANCIA",
-		"shortDescription_es": "Almohada en forma de dona para apoyo durante la lactancia.",
-		"shortDescription_en": "Donut-shaped pillow for support during breastfeeding.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "a06",
+		"name_es": "Neceser",
+		"name_en": "Toiletry bag",
+		"slug": "Neceser",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
 		"images": [
 			{
-				"id": "i236",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Accesorios_de_lenceria/Cuidado_del_bebe/ACC-0038_DONA_DE_LACTANCIA_foto1.jpg",
-				"altText_es": "DONA DE LACTANCIA",
-				"altText_en": "Nursing Pillow",
+				"id": "a06i01",
+				"imageUrl": "/products/neceser/neceser-1.webp",
+				"altText_es": "Neceser",
+				"altText_en": "Toiletry bag",
 				"isPrimary": true
+			},
+			{
+				"id": "a06i02",
+				"imageUrl": "/products/neceser/neceser-2.webp",
+				"altText_es": "Neceser",
+				"altText_en": "Toiletry bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a06i03",
+				"imageUrl": "/products/neceser/neceser-3.webp",
+				"altText_es": "Neceser",
+				"altText_en": "Toiletry bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a06i04",
+				"imageUrl": "/products/neceser/neceser-4.webp",
+				"altText_es": "Neceser",
+				"altText_en": "Toiletry bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a06i05",
+				"imageUrl": "/products/neceser/neceser-5.webp",
+				"altText_es": "Neceser",
+				"altText_en": "Toiletry bag",
+				"isPrimary": false
 			}
 		],
-		"price": 310000,
+		"price": 0,
 		"category": "accesorios",
-		"subcategory": "cuidado-bebe",
+		"subcategory": "nido",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "568",
-		"name_es": "BABERO",
-		"name_en": "Bib",
-		"slug": "BABERO",
-		"shortDescription_es": "Babero suave y absorbente para proteger la ropa del bebé.",
-		"shortDescription_en": "Soft, absorbent bib to protect your baby's clothes.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "a07",
+		"name_es": "Cojines Personalizados",
+		"name_en": "Custom Pillows",
+		"slug": "cojines-personalizados",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "Diseñemos juntos el cojín ideal para la habitación de tu bebé.\n\nElige la tela, los colores, el bordado y cada detalle para crear una pieza única que complemente su espacio.\n\nMedida: 30 x 50 cm",
+		"longDescription_en": "Let's design the perfect pillow for your baby's room together.\n\nChoose the fabric, colors, embroidery, and every detail to create a one-of-a-kind piece that complements your space.\n\nSize: 30 x 50 cm",
 		"images": [
 			{
-				"id": "i639",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Accesorios_de_lenceria/Cuidado_del_bebe/ACC-0018_BABERO_foto1.jpg",
-				"altText_es": "BABERO",
-				"altText_en": "Bib",
+				"id": "a07i01",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-1.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
 				"isPrimary": true
+			},
+			{
+				"id": "a07i02",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-2.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
+			},
+			{
+				"id": "a07i03",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-3.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
+			},
+			{
+				"id": "a07i04",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-4.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
+			},
+			{
+				"id": "a07i05",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-5.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
+			},
+			{
+				"id": "a07i06",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-6.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
+			},
+			{
+				"id": "a07i07",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-7.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
+			},
+			{
+				"id": "a07i08",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-8.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
+			},
+			{
+				"id": "a07i09",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-9.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
+			},
+			{
+				"id": "a07i10",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-10.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
+			},
+			{
+				"id": "a07i11",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-11.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
+			},
+			{
+				"id": "a07i12",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-12.webp",
+				"altText_es": "Cojines Personalizados",
+				"altText_en": "Custom Pillows",
+				"isPrimary": false
 			}
 		],
-		"price": 50000,
+		"price": 220000,
 		"category": "accesorios",
-		"subcategory": "cuidado-bebe",
+		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "213",
-		"name_es": "CARTUCHERA",
-		"name_en": "Pencil Case",
-		"slug": "CARTUCHERA",
-		"shortDescription_es": "Bolsita cuadrada plana ideal para accesorios pequeños.",
-		"shortDescription_en": "Flat, square pouch, perfect for small accessories.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "a08",
+		"name_es": "Dona de Lactancia",
+		"name_en": "Breastfeeding Donor",
+		"slug": "dona_de_lactancia",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "La dona de lactancia es un cojín especialmente diseñado para brindar comodidad durante el proceso de lactancia. Su forma de dona o anillo ayuda a sostener al bebé en una posición cómoda y elevada, facilitando el agarre correcto y reduciendo la tensión en la espalda y los hombros de la madre. Además, proporciona un apoyo adicional para el bebé y permite a la mamá relajarse durante la alimentación. Es un accesorio valioso para muchas mamás que buscan mejorar su experiencia de lactancia.",
+		"longDescription_en": "The nursing pillow is a cushion specially designed to provide comfort during breastfeeding. Its donut- or ring-shaped design helps hold the baby in a comfortable, elevated position, facilitating a proper latch and reducing strain on the mother’s back and shoulders. It also provides additional support for the baby and allows the mother to relax during feedings. It is a valuable accessory for many mothers looking to enhance their breastfeeding experience.",
 		"images": [
 			{
-				"id": "i621",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Accesorios_de_lenceria/Organizadores/ACC-0040_CARTUCHERA_foto1.jpg",
-				"altText_es": "CARTUCHERA",
-				"altText_en": "Pencil Case",
+				"id": "a08i01",
+				"imageUrl": "/products/dona-de-lactancia/dona-de-lactancia-1.webp",
+				"altText_es": "Dona de Lactancia",
+				"altText_en": "Breastfeeding Donor",
 				"isPrimary": true
-			}
-		],
-		"price": 110000,
-		"category": "accesorios",
-		"subcategory": "organizadores",
-		"isFeatured": false,
-		"productionDays": 15
-	},
-	{
-		"id": "901",
-		"name_es": "BOLSITA CUADRADA PLANA",
-		"name_en": "Flat Square Bag",
-		"slug": "BOLSITA-CUADRADA-PLANA",
-		"shortDescription_es": "Cartuchera práctica para accesorios pequeños.",
-		"shortDescription_en": "Handy pouch for small accessories.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"images": [
+			},
 			{
-				"id": "i520",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/Accesorios_de_lenceria/Organizadores/ACC-0014_BOLSITA_CUADRADA_PLANA_foto1.jpg",
+				"id": "a08i02",
+				"imageUrl": "/products/dona-de-lactancia/dona-de-lactancia-2.webp",
 				"altText_es": "BOLSITA CUADRADA PLANA",
 				"altText_en": "Flat Square Bag",
-				"isPrimary": true
+				"isPrimary": false
+			},
+			{
+				"id": "a08i03",
+				"imageUrl": "/products/dona-de-lactancia/dona-de-lactancia-3.webp",
+				"altText_es": "BOLSITA CUADRADA PLANA",
+				"altText_en": "Flat Square Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a08i04",
+				"imageUrl": "/products/dona-de-lactancia/dona-de-lactancia-4.webp",
+				"altText_es": "BOLSITA CUADRADA PLANA",
+				"altText_en": "Flat Square Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a08i05",
+				"imageUrl": "/products/dona-de-lactancia/dona-de-lactancia-5.webp",
+				"altText_es": "BOLSITA CUADRADA PLANA",
+				"altText_en": "Flat Square Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a08i06",
+				"imageUrl": "/products/dona-de-lactancia/dona-de-lactancia-6.webp",
+				"altText_es": "BOLSITA CUADRADA PLANA",
+				"altText_en": "Flat Square Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a08i07",
+				"imageUrl": "/products/dona-de-lactancia/dona-de-lactancia-7.webp",
+				"altText_es": "BOLSITA CUADRADA PLANA",
+				"altText_en": "Flat Square Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a08i08",
+				"imageUrl": "/products/dona-de-lactancia/dona-de-lactancia-8.webp",
+				"altText_es": "BOLSITA CUADRADA PLANA",
+				"altText_en": "Flat Square Bag",
+				"isPrimary": false
+			},
+			{
+				"id": "a08i09",
+				"imageUrl": "/products/dona-de-lactancia/dona-de-lactancia-9.webp",
+				"altText_es": "BOLSITA CUADRADA PLANA",
+				"altText_en": "Flat Square Bag",
+				"isPrimary": false
 			}
 		],
-		"price": 110000,
+		"price": 315000,
 		"category": "accesorios",
-		"subcategory": "organizadores",
+		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "329",
-		"name_es": "FORRO CAMBIADOR",
-		"name_en": "Changing Cover",
-		"slug": "FORRO-CAMBIADOR",
-		"shortDescription_es": "Forro protector para cambiador, fácil de lavar.",
-		"shortDescription_en": "Protective changing pad cover, easy to wash.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "a09",
+		"name_es": "Mini Pañalera Grande",
+		"name_en": "Large Mini Diaper Bag",
+		"slug": "mini-pañalera-grande",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "Las mini pañaleras son ideales para organizar y llevar de manera eficiente los artículos de cambio del bebé en tu pañalera grande. Al tener una bolsa más pequeña dentro, facilitas la búsqueda rápida de pañales, toallitas y otros elementos esenciales cuando estás fuera de casa",
+		"longDescription_en": "Mini diaper bags are ideal for organizing and efficiently carrying your baby's changing supplies in your large diaper bag. Having a smaller bag inside makes it easier to quickly find diapers, wipes, and other essentials when you're away from home",
 		"images": [
 			{
-				"id": "i467",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/lenceria_de_cuna/Cambio_de_panal/LEN-0001_FORRO_CAMBIADOR_foto2.jpg",
-				"altText_es": "FORRO CAMBIADOR",
-				"altText_en": "Changing Cover",
+				"id": "a09i01",
+				"imageUrl": "/products/minipanalera/minipanalera-1.webp",
+				"altText_es": "Mini Pañalera Grande",
+				"altText_en": "Large Mini Diaper Bag",
 				"isPrimary": true
+			},
+			{
+				"id": "a09i02",
+				"imageUrl": "/products/minipanalera/minipanalera-2.webp",
+				"altText_es": "Mini Pañalera Grande",
+				"altText_en": "Large Mini Diaper Bag",
+				"isPrimary": false
 			}
 		],
-		"price": 210000,
-		"category": "lenceria-cuna",
-		"subcategory": "cambio-panal-lenceria",
+		"price": 115000,
+		"category": "accesorios",
+		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "693",
-		"name_es": "NIDO XL SENCILLO",
-		"name_en": "XL Simple Nest",
-		"slug": "NIDO-XL-SENCILLO",
-		"shortDescription_es": "Nido tamaño XL para bebés más grandes.",
-		"shortDescription_en": "XL-sized nest for older babies.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "a10",
+		"name_es": "Muñeco de Apego",
+		"name_en": "Comfort Doll",
+		"slug": "muñeco-de-apego",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
 		"images": [
 			{
-				"id": "i248",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/lenceria_de_cuna/Nido/LEN-0004_NIDO__XL_SENCILLO_foto1.jpg",
-				"altText_es": "NIDO XL SENCILLO",
-				"altText_en": "XL Simple Nest",
+				"id": "a10i01",
+				"imageUrl": "/products/muneco-de-apego/muneco-de-apego-1.webp",
+				"altText_es": "Muñeco de Apego",
+				"altText_en": "Comfort Doll",
 				"isPrimary": true
+			},
+			{
+				"id": "a10i02",
+				"imageUrl": "/products/muneco-de-apego/muneco-de-apego-2.webp",
+				"altText_es": "Muñeco de Apego",
+				"altText_en": "Comfort Doll",
+				"isPrimary": false
+			},
+			{
+				"id": "a10i03",
+				"imageUrl": "/products/muneco-de-apego/muneco-de-apego-3.webp",
+				"altText_es": "Muñeco de Apego",
+				"altText_en": "Comfort Doll",
+				"isPrimary": false
+			},
+			{
+				"id": "a10i04",
+				"imageUrl": "/products/muneco-de-apego/muneco-de-apego-4.webp",
+				"altText_es": "Muñeco de Apego",
+				"altText_en": "Comfort Doll",
+				"isPrimary": false
+			},
+			{
+				"id": "a10i05",
+				"imageUrl": "/products/muneco-de-apego/muneco-de-apego-5.webp",
+				"altText_es": "Muñeco de Apego",
+				"altText_en": "Comfort Doll",
+				"isPrimary": false
+			},
+			{
+				"id": "a10i06",
+				"imageUrl": "/products/muneco-de-apego/muneco-de-apego-6.webp",
+				"altText_es": "Muñeco de Apego",
+				"altText_en": "Comfort Doll",
+				"isPrimary": false
+			},
+			{
+				"id": "a10i07",
+				"imageUrl": "/products/muneco-de-apego/muneco-de-apego-7.webp",
+				"altText_es": "Muñeco de Apego",
+				"altText_en": "Comfort Doll",
+				"isPrimary": false
 			}
 		],
-		"price": 540000,
-		"category": "lenceria-cuna",
-		"subcategory": "nido",
+		"price": 115000,
+		"category": "accesorios",
+		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "720",
-		"name_es": "NIDO XL + PLAYGYM + ALMOHADA",
-		"name_en": "XL Nest + Playgym + Pillow",
-		"slug": "NIDO XL-PLAYGYM-ALMOHADA",
-		"shortDescription_es": "Set completo XL con nido, playgym y almohada.",
-		"shortDescription_en": "Complete XL Set with Crib, Play Gym, and Pillow.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "a11",
+		"name_es": "Pijama",
+		"name_en": "Pajama",
+		"slug": "pijama",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
 		"images": [
 			{
-				"id": "i728",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/lenceria_de_cuna/Nido/LEN-0005_NIDO__XL_+_PLAYGYM_+_ALMOHADA_foto1.jpg",
-				"altText_es": "NIDO XL + PLAYGYM + ALMOHADA",
-				"altText_en": "XL Nest + Playgym + Pillow",
+				"id": "a11i01",
+				"imageUrl": "/products/pijama/pijama-1.webp",
+				"altText_es": "Pijama",
+				"altText_en": "Pijama",
 				"isPrimary": true
+			},
+			{
+				"id": "a11i02",
+				"imageUrl": "/products/pijama/pijama-2.webp",
+				"altText_es": "Pijama",
+				"altText_en": "Pijama",
+				"isPrimary": false
+			},
+			{
+				"id": "a11i03",
+				"imageUrl": "/products/pijama/pijama-3.webp",
+				"altText_es": "Pijama",
+				"altText_en": "Pijama",
+				"isPrimary": false
+			},
+			{
+				"id": "a11i04",
+				"imageUrl": "/products/pijama/pijama-4.webp",
+				"altText_es": "Pijama",
+				"altText_en": "Pijama",
+				"isPrimary": false
+			},
+			{
+				"id": "a11i05",
+				"imageUrl": "/products/pijama/pijama-5.webp",
+				"altText_es": "Pijama",
+				"altText_en": "Pijama",
+				"isPrimary": false
+			},
+			{
+				"id": "a11i06",
+				"imageUrl": "/products/pijama/pijama-6.webp",
+				"altText_es": "Pijama",
+				"altText_en": "Pijama",
+				"isPrimary": false
 			}
 		],
-		"price": 640000,
-		"category": "lenceria-cuna",
-		"subcategory": "nido",
+		"price": 174000,
+		"category": "accesorios",
+		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "482",
-		"name_es": "BUMPER COLECHO",
-		"name_en": "Co-sleeping Bumper",
-		"slug": "BUMPER-COLECHO",
-		"shortDescription_es": "Bumper especial para cama de colecho.",
-		"shortDescription_en": "Special bumper for a co-sleeping bed.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "a12",
+		"name_es": "Ropero",
+		"name_en": "Closet",
+		"slug": "ropero",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
 		"images": [
 			{
-				"id": "i257",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/lenceria_de_cuna/Cuidado_del_bebe/LEN-0016_BUMPER_COLECHO_foto1.jpg",
-				"altText_es": "BUMPER COLECHO",
-				"altText_en": "Co-sleeping Bumper",
+				"id": "a12i01",
+				"imageUrl": "/products/ropero/ropero-1.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
 				"isPrimary": true
+			},
+			{
+				"id": "a12i02",
+				"imageUrl": "/products/ropero/ropero-2.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
+			},
+			{
+				"id": "a12i03",
+				"imageUrl": "/products/ropero/ropero-3.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
+			},
+			{
+				"id": "a12i04",
+				"imageUrl": "/products/ropero/ropero-4.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
 			}
 		],
-		"price": 500000,
-		"category": "lenceria-cuna",
-		"subcategory": "cuidado-bebe-cuna",
+		"price": 0,
+		"category": "accesorios",
+		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	},
 	{
-		"id": "286",
-		"name_es": "BUMPER DE CUNA",
-		"name_en": "Crib Bumper",
-		"slug": "BUMPER-DE-CUNA",
-		"shortDescription_es": "Bumper protector para cuna estándar.",
-		"shortDescription_en": "Protective bumper for a standard crib.",
-		"longDescription_es": "Descripción\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
-		"longDescription_en": "Description\n\nUn kit pensado para el descanso del bebé y la organización diaria desde los primeros días. Combina un nido estándar con accesorios esenciales para clínica, viajes y rutina en casa.\n\nQué incluye\n\nNido Estándar + Playgym + Almohada Antireflujo: nido colecho con arco para estimulación e interacción. Incluye almohada antireflujo. Importante: el arco es únicamente para estimulación, no debe usarse para cargar el nido.\n\nSet de 3 Bolsas Organizadoras: ideales para organizar la ropa por cambios, clínica y viajes.\n\nBeneficios clave\n\nEspacio cómodo y acogedor para el descanso del bebé\n\nEstimulación temprana a través del playgym\n\nOrganización práctica de ropa desde el nacimiento\n\nIdeal para lista de bebé y regalo especial\n\nIdeal para\n\nNacimiento y primeros meses\n\nRutina diaria en casa\n\nRegalo premium",
+		"id": "a13",
+		"name_es": "Set de Baberos",
+		"name_en": "Set of Bibs",
+		"slug": "set-de-baberos",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
 		"images": [
 			{
-				"id": "i245",
-				"imageUrl": "https://owreifmbwgdwhotjpvce.supabase.co/storage/v1/object/public/bucket-fotos-productos/lenceria_de_cuna/Cuidado_del_bebe/LEN-0011_BUMPER_DE_CUNA_foto1.jpg",
-				"altText_es": "BUMPER DE CUNA",
-				"altText_en": "Crib Bumper",
+				"id": "a13i01",
+				"imageUrl": "/products/set-baberos/set-baberos-1.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": true
+			},
+			{
+				"id": "a13i02",
+				"imageUrl": "/products/set-baberos/set-baberos-2.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
+			},
+			{
+				"id": "a13i03",
+				"imageUrl": "/products/set-baberos/set-baberos-3.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
+			},
+			{
+				"id": "a13i04",
+				"imageUrl": "/products/set-baberos/set-baberos-4.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
+			},
+			{
+				"id": "a13i05",
+				"imageUrl": "/products/set-baberos/set-baberos-5.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
+			},
+			{
+				"id": "a13i06",
+				"imageUrl": "/products/set-baberos/set-baberos-6.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
+			},
+			{
+				"id": "a13i07",
+				"imageUrl": "/products/set-baberos/set-baberos-7.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
+			}
+		],
+		"price": 0,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a14",
+		"name_es": "Set de Babitas",
+		"name_en": "Bib Set",
+		"slug": "set-de-babitas",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
+		"images": [
+			{
+				"id": "a14i01",
+				"imageUrl": "/products/set-babitas/set-babitas-1.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": true
+			},
+			{
+				"id": "a14i02",
+				"imageUrl": "/products/set-babitas/set-babitas-2.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
+			},
+			{
+				"id": "a14i03",
+				"imageUrl": "/products/set-babitas/set-babitas-3.webp",
+				"altText_es": "Ropero",
+				"altText_en": "Closet",
+				"isPrimary": false
+			}
+		],
+		"price": 0,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a15",
+		"name_es": "Set botiquín (x2)",
+		"name_en": "First Aid Kit Set (2-pack)",
+		"slug": "set-botiquín",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "Incluye **dos botiquines** personalizados, ideales para organizar productos de aseo, medicamentos y accesorios del bebé en casa o de viaje.\n\n**Medidas**:\n\n- Grande: 20 x 25 x 9 cm\n- Pequeño: 15 x 20 x 7 cm",
+		"longDescription_en": "It includes **two personalized first-aid kits**, perfect for organizing toiletries, medications, and baby accessories at home or while traveling.\n\n**Sizes**:\n\n- Big: 20 x 25 x 9 cm\n- Small: 15 x 20 x 7 cm",
+		"images": [
+			{
+				"id": "a15i01",
+				"imageUrl": "/products/set-botiquin/set-botiquin-1.webp",
+				"altText_es": "Set botiquín (x2)",
+				"altText_en": "First Aid Kit Set (2-pack)",
+				"isPrimary": true
+			},
+			{
+				"id": "a15i02",
+				"imageUrl": "/products/set-botiquin/set-botiquin-2.webp",
+				"altText_es": "Set botiquín (x2)",
+				"altText_en": "First Aid Kit Set (2-pack)",
+				"isPrimary": false
+			},
+			{
+				"id": "a15i03",
+				"imageUrl": "/products/set-botiquin/set-botiquin-3.webp",
+				"altText_es": "Set botiquín (x2)",
+				"altText_en": "First Aid Kit Set (2-pack)",
+				"isPrimary": false
+			},
+			{
+				"id": "a15i04",
+				"imageUrl": "/products/set-botiquin/set-botiquin-4.webp",
+				"altText_es": "Set botiquín (x2)",
+				"altText_en": "First Aid Kit Set (2-pack)",
+				"isPrimary": false
+			},
+			{
+				"id": "a15i05",
+				"imageUrl": "/products/set-botiquin/set-botiquin-5.webp",
+				"altText_es": "Set botiquín (x2)",
+				"altText_en": "First Aid Kit Set (2-pack)",
+				"isPrimary": false
+			}
+		],
+		"price": 195000,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a16",
+		"name_es": "Set de dos Bolsitas Organizadoras",
+		"name_en": "Set of Two Organizer Pouches",
+		"slug": "set-dos-bolsitas",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "Nuestro set de 2 bolsitas organizadoras está diseñado para acompañarte en cada etapa de la maternidad y la crianza.\n\nIncluye 2 bolsitas de diferentes tamaños:\n\n- Mediana: 28 x 28 cm\n- Pequeña: 20 x 20 cm\n\nSon perfectas para llevar todo organizado a la clínica en el nacimiento de tu bebé: mudas de ropa, pañales, accesorios y esos primeros esenciales que quieres tener siempre a la mano. Después, se convierten en un infaltable en casa, ayudándote a mantener el clóset ordenado, empacar maletas o separar cada cosa de manera práctica y linda.\n\nLo mejor de este set es que te acompañará por muchísimos años, porque su uso va mucho más allá de los primeros meses del bebé.\n\nPersonalízalo a tu gusto escogiendo la tela que más te enamore, el color del sesgo y el bordado para crear una pieza única y muy especial.",
+		"longDescription_en": "Our set of 2 organizer pouches is designed to support you through every stage of motherhood and parenting.\n\nIncludes 2 pouches of different sizes:\n\n- Medium: 28 x 28 cm\n- Small: 20 x 20 cm\n\nThey're perfect for keeping everything organized at the hospital when your baby is born: changes of clothes, diapers, accessories, and those first essentials you want to have within easy reach. Afterward, they become a must-have at home, helping you keep your closet tidy, pack suitcases, or organize everything in a practical and stylish way.\n\nThe best thing about this set is that it will last you for many, many years, because you can use it long after your baby's first few months.\n\nCustomize it to your liking by choosing the fabric you love most, the color of the bias tape, and the embroidery to create a unique and very special piece.",
+		"images": [
+			{
+				"id": "a16i01",
+				"imageUrl": "/products/set-2-bolsitas/set-2-bolsitas-1.webp",
+				"altText_es": "Set de dos Bolsitas Organizadoras",
+				"altText_en": "Set of Two Organizer Pouches",
+				"isPrimary": true
+			},
+			{
+				"id": "a16i02",
+				"imageUrl": "/products/set-2-bolsitas/set-2-bolsitas-2.webp",
+				"altText_es": "Set de dos Bolsitas Organizadoras",
+				"altText_en": "Set of Two Organizer Pouches",
+				"isPrimary": false
+			},
+			{
+				"id": "a16i03",
+				"imageUrl": "/products/set-2-bolsitas/set-2-bolsitas-3.webp",
+				"altText_es": "Set de dos Bolsitas Organizadoras",
+				"altText_en": "Set of Two Organizer Pouches",
+				"isPrimary": false
+			},
+			{
+				"id": "a16i04",
+				"imageUrl": "/products/set-2-bolsitas/set-2-bolsitas-4.webp",
+				"altText_es": "Set de dos Bolsitas Organizadoras",
+				"altText_en": "Set of Two Organizer Pouches",
+				"isPrimary": false
+			}
+		],
+		"price": 0,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a17",
+		"name_es": "Set de Tres Bolsitas Organizadoras",
+		"name_en": "Set of Three Organizer Pouches",
+		"slug": "set-tres-bolsitas",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "Nuestro set de 3 bolsitas organizadoras está diseñado para acompañarte en cada etapa de la maternidad y la crianza.\n\nIncluye 3 bolsitas de diferentes tamaños:\n\n- Mediana: 28 x 28 cm\n- Pequeña: 20 x 20 cm\n\nSon perfectas para llevar todo organizado a la clínica en el nacimiento de tu bebé: mudas de ropa, pañales, accesorios y esos primeros esenciales que quieres tener siempre a la mano. Después, se convierten en un infaltable en casa, ayudándote a mantener el clóset ordenado, empacar maletas o separar cada cosa de manera práctica y linda.\n\nLo mejor de este set es que te acompañará por muchísimos años, porque su uso va mucho más allá de los primeros meses del bebé.\n\nPersonalízalo a tu gusto escogiendo la tela que más te enamore, el color del sesgo y el bordado para crear una pieza única y muy especial.",
+		"longDescription_en": "Our set of 3 organizer pouches is designed to support you through every stage of motherhood and parenting.\n\nIncludes 3 pouches of different sizes:\n\n- Medium: 28 x 28 cm\n- Small: 20 x 20 cm\n\nThey're perfect for keeping everything organized at the hospital when your baby is born: changes of clothes, diapers, accessories, and those first essentials you want to have within easy reach. Afterward, they become a must-have at home, helping you keep your closet tidy, pack suitcases, or organize everything in a practical and stylish way.\n\nThe best thing about this set is that it will last you for many, many years, because you can use it long after your baby's first few months.\n\nCustomize it to your liking by choosing the fabric you love most, the color of the bias tape, and the embroidery to create a unique and very special piece.",
+		"images": [
+			{
+				"id": "a17i01",
+				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-1.webp",
+				"altText_es": "Set de Tres Bolsitas Organizadoras",
+				"altText_en": "Set of Three Organizer Pouches",
+				"isPrimary": true
+			},
+			{
+				"id": "a17i02",
+				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-2.webp",
+				"altText_es": "Set de Tres Bolsitas Organizadoras",
+				"altText_en": "Set of Three Organizer Pouches",
+				"isPrimary": false
+			},
+			{
+				"id": "a17i03",
+				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-3.webp",
+				"altText_es": "Set de Tres Bolsitas Organizadoras",
+				"altText_en": "Set of Three Organizer Pouches",
+				"isPrimary": false
+			},
+			{
+				"id": "a17i04",
+				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-4.webp",
+				"altText_es": "Set de Tres Bolsitas Organizadoras",
+				"altText_en": "Set of Three Organizer Pouches",
+				"isPrimary": false
+			}
+		],
+		"price": 315000,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a18",
+		"name_es": "Set de Tres Bolsitas Organizadoras",
+		"name_en": "Set of Three Organizer Pouches",
+		"slug": "set-tres-bolsitas",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "Nuestro set de 3 bolsitas organizadoras está diseñado para acompañarte en cada etapa de la maternidad y la crianza.\n\nIncluye 3 bolsitas de diferentes tamaños:\n\n- Mediana: 28 x 28 cm\n- Pequeña: 20 x 20 cm\n\nSon perfectas para llevar todo organizado a la clínica en el nacimiento de tu bebé: mudas de ropa, pañales, accesorios y esos primeros esenciales que quieres tener siempre a la mano. Después, se convierten en un infaltable en casa, ayudándote a mantener el clóset ordenado, empacar maletas o separar cada cosa de manera práctica y linda.\n\nLo mejor de este set es que te acompañará por muchísimos años, porque su uso va mucho más allá de los primeros meses del bebé.\n\nPersonalízalo a tu gusto escogiendo la tela que más te enamore, el color del sesgo y el bordado para crear una pieza única y muy especial.",
+		"longDescription_en": "Our set of 3 organizer pouches is designed to support you through every stage of motherhood and parenting.\n\nIncludes 3 pouches of different sizes:\n\n- Medium: 28 x 28 cm\n- Small: 20 x 20 cm\n\nThey're perfect for keeping everything organized at the hospital when your baby is born: changes of clothes, diapers, accessories, and those first essentials you want to have within easy reach. Afterward, they become a must-have at home, helping you keep your closet tidy, pack suitcases, or organize everything in a practical and stylish way.\n\nThe best thing about this set is that it will last you for many, many years, because you can use it long after your baby's first few months.\n\nCustomize it to your liking by choosing the fabric you love most, the color of the bias tape, and the embroidery to create a unique and very special piece.",
+		"images": [
+			{
+				"id": "a18i01",
+				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-1.webp",
+				"altText_es": "Set de Tres Bolsitas Organizadoras",
+				"altText_en": "Set of Three Organizer Pouches",
+				"isPrimary": true
+			},
+			{
+				"id": "a18i02",
+				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-2.webp",
+				"altText_es": "Set de Tres Bolsitas Organizadoras",
+				"altText_en": "Set of Three Organizer Pouches",
+				"isPrimary": false
+			},
+			{
+				"id": "a18i03",
+				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-3.webp",
+				"altText_es": "Set de Tres Bolsitas Organizadoras",
+				"altText_en": "Set of Three Organizer Pouches",
+				"isPrimary": false
+			},
+			{
+				"id": "a18i04",
+				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-4.webp",
+				"altText_es": "Set de Tres Bolsitas Organizadoras",
+				"altText_en": "Set of Three Organizer Pouches",
+				"isPrimary": false
+			}
+		],
+		"price": 315000,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a19",
+		"name_es": "Toalla Adulto",
+		"name_en": "Adult Towel",
+		"slug": "toalla-adulto",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
+		"images": [
+			{
+				"id": "a19i01",
+				"imageUrl": "/products/toalla-adulto/toalla-adulto-1.webp",
+				"altText_es": "Toalla Adulto",
+				"altText_en": "Adult Towel",
+				"isPrimary": true
+			},
+			{
+				"id": "a19i02",
+				"imageUrl": "/products/toalla-adulto/toalla-adulto-2.webp",
+				"altText_es": "Toalla Adulto",
+				"altText_en": "Adult Towel",
+				"isPrimary": false
+			}
+		],
+		"price": 0,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a20",
+		"name_es": "Toalla Bebé",
+		"name_en": "Baby Towel",
+		"slug": "toalla-bebe",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
+		"images": [
+			{
+				"id": "a20i01",
+				"imageUrl": "/products/toalla-bebe/toalla-bebe-1.webp",
+				"altText_es": "Toalla bebé",
+				"altText_en": "Baby Towel",
+				"isPrimary": true
+			},
+			{
+				"id": "a20i02",
+				"imageUrl": "/products/toalla-bebe/toalla-bebe-2.webp",
+				"altText_es": "Toalla bebé",
+				"altText_en": "Baby Towel",
+				"isPrimary": false
+			},
+			{
+				"id": "a20i03",
+				"imageUrl": "/products/toalla-bebe/toalla-bebe-3.webp",
+				"altText_es": "Toalla bebé",
+				"altText_en": "Baby Towel",
+				"isPrimary": false
+			},
+			{
+				"id": "a20i04",
+				"imageUrl": "/products/toalla-bebe/toalla-bebe-4.webp",
+				"altText_es": "Toalla bebé",
+				"altText_en": "Baby Towel",
+				"isPrimary": false
+			},
+			{
+				"id": "a20i05",
+				"imageUrl": "/products/toalla-bebe/toalla-bebe-5.webp",
+				"altText_es": "Toalla bebé",
+				"altText_en": "Baby Towel",
+				"isPrimary": false
+			},
+			{
+				"id": "a20i06",
+				"imageUrl": "/products/toalla-bebe/toalla-bebe-6.webp",
+				"altText_es": "Toalla bebé",
+				"altText_en": "Baby Towel",
+				"isPrimary": false
+			}
+		],
+		"price": 0,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "a21",
+		"name_es": "Tula Impermeable",
+		"name_en": "Waterproof Bag",
+		"slug": "tula-impermeable",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
+		"images": [
+			{
+				"id": "a21i01",
+				"imageUrl": "/products/tula-impermeable/tula-impermeable.webp",
+				"altText_es": "Tula Impermeable",
+				"altText_en": "Waterproof Bag",
 				"isPrimary": true
 			}
 		],
-		"price": 650000,
+		"price": 0,
+		"category": "accesorios",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "l01",
+		"name_es": "Cobijas Bebé",
+		"name_en": "Baby Blankets",
+		"slug": "cobijas-bebe",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
+		"images": [
+			{
+				"id": "l01i01",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-1.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": true
+			},
+			{
+				"id": "l01i02",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-2.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i03",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-3.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i04",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-4.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i05",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-5.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i06",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-6.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i07",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-7.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i08",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-8.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i09",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-9.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i10",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-10.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i011",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-11.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i012",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-12.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i13",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-13.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i14",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-14.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l01i15",
+				"imageUrl": "/products/cobija-bebe/cobija-bebe-15.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			}
+		],
+		"price": 0,
 		"category": "lenceria-cuna",
-		"subcategory": "cuidado-bebe-cuna",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "l02",
+		"name_es": "Nidos Estandar + Play Gym",
+		"name_en": "Standard Nests + Play Gym",
+		"slug": "standard-nests",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "",
+		"longDescription_en": "",
+		"images": [
+			{
+				"id": "l02i01",
+				"imageUrl": "/products/nidos-estandar/nidos-estandar-1.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": true
+			},
+			{
+				"id": "l02i02",
+				"imageUrl": "/products/nidos-estandar/nidos-estandar-2.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l02i03",
+				"imageUrl": "/products/nidos-estandar/nidos-estandar-3.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			},
+			{
+				"id": "l02i04",
+				"imageUrl": "/products/nidos-estandar/nidos-estandar-4.webp",
+				"altText_es": "Cobijas Bebé",
+				"altText_en": "Baby Blankets",
+				"isPrimary": false
+			}
+		],
+		"price": 0,
+		"category": "lenceria-cuna",
+		"subcategory": "",
 		"isFeatured": false,
 		"productionDays": 15
 	}

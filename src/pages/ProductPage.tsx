@@ -188,7 +188,7 @@ export function ProductPage() {
 
           {/* Product Info */}
           <div className="space-y-6">
-            <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold mb-2">
+            <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-balance mb-2">
               {language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}
             </h1>
             <p className="text-2xl font-semibold text-primary">

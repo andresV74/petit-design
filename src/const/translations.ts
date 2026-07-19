@@ -318,7 +318,7 @@ export const translations: Translations = {
   'product.personalize': { es: 'Personaliza tu producto', en: 'Personalize your product' },
   'product.babyName': { es: 'Nombre del bebé', en: 'Baby\'s name' },
   'product.babyNamePlaceholder': { es: 'Escribe el nombre aquí', en: 'Write the name here' },
-  'product.embroideryColor': { es: 'Color del bordado', en: 'Embroidery color' },
+  'product.embroideryColor': { es: 'Color de sesgo y bordado', en: 'Embroidery and cant color' },
   'product.fontType': { es: 'Tipo de letra', en: 'Font type' },
   'product.observations': { es: 'Observaciones especiales', en: 'Special observations' },
   'product.observationsPlaceholder': { es: '¿Algún detalle especial que debamos saber?', en: 'Any special detail we should know?' },
