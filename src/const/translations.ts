@@ -337,6 +337,7 @@ export const translations: Translations = {
     en: '👆 Select boy or girl to see available fabrics'
   },
   'product.fullDescription': { es: 'Descripción completa', en: 'Full description' },
+  'product.fabricSelected': { es: 'Tela seleccionada:', en: 'Fabric selected' },
 
   // Fabric Gallery
   'fabricGallery.boysTitle': { es: 'Catálogo de Telas - Niño', en: 'Fabric Catalog - Boy' },

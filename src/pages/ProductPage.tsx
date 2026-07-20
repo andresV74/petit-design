@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button.tsx'
 import { trackEvent, /*trackWhatsAppClick*/ } from '@/hooks/useMetaPixel.ts'
 // import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
+import { useProductCustomsStore } from '@/store/productCustoms.tsx'
 import { inputClasses } from '@/components/ContactForm.tsx'
 
 import products from '@/data/products.json'
@@ -35,7 +36,13 @@ export function ProductPage() {
   const [embroideryColor, setEmbroideryColor] = useState('')
   const [observations, setObservations] = useState('')
   const hasTrackedView = useRef(false)
-  const fabricSelected = useFabricsStore((state) => state.fabric)
+  const customs = useProductCustomsStore((state) => state.customs)
+  const setCustoms = useProductCustomsStore((state) => state.setCustom)
+  useFabricsStore.subscribe((state) => {
+    const newFabric = state.fabric
+
+    setCustoms({ fabric: newFabric})
+  })
 
   useEffect(() => {
     if (displayProduct && !hasTrackedView.current) {
@@ -177,11 +184,26 @@ export function ProductPage() {
               images={images}
             />
 
-            {fabricSelected && (
+            {customs && (
               <div
-                className='w-full bg-muted border border-border rounded-2xl px-4 py-3 text-lg pointer-events-none'
+                className='w-full bg-mint-light/40 border border-mint/50 rounded-2xl px-4 py-3 text-mint-dark pointer-events-none'
               >
-                <p>{fabricSelected?.name_es}</p>
+                {customs.fabric && (
+                  <p>{t('product.fabricSelected')}
+                    <span className='font-bold ps-1.5'>
+                      {language === 'es' ? customs.fabric.name_es : customs.fabric.name_en}
+                    </span>
+                    <span className='italic text-sm ps-1.5'>
+                      ({language === 'es'
+                        ? customs.fabric.gender === 'boy' ? 'niño' : 'niña'
+                        : customs.fabric.gender
+                      })
+                    </span>
+                  </p>
+                )}
+                {customs.color && (
+                  <p>{customs.color}</p>
+                )}
               </div>
             )}
           </div>
