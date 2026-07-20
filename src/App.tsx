@@ -4,6 +4,7 @@ import { LanguageProvider } from '@/lib/i18n.tsx'
 import { Header } from '@/components/Header.tsx'
 import { Footer } from '@/components/Footer.tsx'
 import { WhatsAppButton } from '@/components/WhatsAppButton.tsx'
+import { ScrollToTop } from '@/components/utils/ScrollToTop.tsx'
 
 import { HomePage } from './pages/HomePage.tsx'
 const AboutPage = lazy(() => import('./pages/AboutPage.tsx').then(m => ({ default: m.AboutPage })))
@@ -19,6 +20,7 @@ function App() {
       <Header />
       <main>
         <Suspense fallback={null}>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/nosotros" element={<AboutPage />} />
