@@ -1,3 +1,4 @@
+import { useProductCustomsStore } from '@/store/productCustoms.tsx'
 import { useLanguage } from '@/lib/i18n.tsx'
 
 interface EmbroideryColorsProps {
@@ -7,16 +8,23 @@ interface EmbroideryColorsProps {
 }
 interface ProductEmbroideryColorProps {
 	embroideryColors: EmbroideryColorsProps[]
-	embroideryColor: string
-	setEmbroideryColor: (color: string) => void
 }
 
 export function ProductEmbroideryColor({
 	embroideryColors,
-	embroideryColor,
-	setEmbroideryColor
 }: ProductEmbroideryColorProps) {
+	const selectedColor = useProductCustomsStore((state) => state.customs?.color)
+	const setColor = useProductCustomsStore((state) => state.setCustom)
+	const removeColor = useProductCustomsStore((state) => state.removeCustom)
 	const { t } = useLanguage()
+
+	const handleColor = (newColor: string) => {
+		return (
+			selectedColor === newColor
+				? removeColor('color')
+				: setColor({color: newColor})
+		)
+	}
 
 	return (
 		<div className="space-y-3">
@@ -25,18 +33,18 @@ export function ProductEmbroideryColor({
 				{embroideryColors.map((color) => (
 					<button
 						key={color.value}
-						onClick={() => setEmbroideryColor(color.value)}
+						onClick={() => handleColor(color.value)}
 						className={
 							`w-12 h-12 rounded-full transition-all relative cursor-pointer
 							${color.border ? 'border-2 border-border' : ''}
-							${embroideryColor === color.value
+							${selectedColor === color.value
 								? "ring-2 ring-primary ring-offset-2 scale-110"
 								: "hover:scale-105"}`
 						}
 						style={{ backgroundColor: color.color }}
 						title={t(`color.${color.value}`)}
 					>
-						{embroideryColor === color.value && (
+						{selectedColor === color.value && (
 							<span className="absolute inset-0 flex items-center justify-center">
 								<span className={
 									`w-2 h-2 rounded-full
@@ -48,7 +56,7 @@ export function ProductEmbroideryColor({
 				))}
 			</div>
 			<p className="text-sm text-muted-foreground font-medium">
-				{embroideryColor && t(`color.${embroideryColor}`)}
+				{selectedColor && t(`color.${selectedColor}`)}
 			</p>
 		</div>
 	)

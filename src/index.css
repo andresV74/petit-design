@@ -102,6 +102,10 @@
     font-family: 'Montserrat', sans-serif;
   }
 
+  .custom-container:not(:has(> p)) {
+    display: none;
+  }
+
   .group:hover .group-hover-scale {
     --tw-scale-x: 1.05;
     --tw-scale-y: 1.05;

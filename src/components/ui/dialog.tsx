@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button.tsx'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { useLanguage } from '@/lib/i18n.tsx'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
-import { useProductCustomsStore } from '@/store/productCustoms.tsx'
 import type { Fabric } from '@/components/products/FabricSelector.tsx'
 
 export interface DialogRef {
@@ -33,7 +32,6 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
 	const selectedFabric = useFabricsStore((state) => state.fabric)
 	const clearFabric = useFabricsStore((state) => state.clearFabric)
-	const clearFromCustoms = useProductCustomsStore((state) => state.removeCustom)
 
 	useImperativeHandle(ref, () => ({
 		open: () => dialogRef.current?.showModal(),
@@ -59,8 +57,6 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 
 	const handleClearSelection = () => {
 		clearFabric()
-		// TODO: Check if this clears the whole object
-		clearFromCustoms()
 		dialogRef.current?.close()
 	}
 

@@ -1,8 +1,9 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { MessageCircle, Heart, Clock, Shield, Sparkles } from 'lucide-react'
 import { ProductLongDescription } from '@/components/products/ProductLongDescription.tsx'
 import { ProductPreview } from '@/components/products/ProductPreview.tsx'
+import { CustomInfo } from '@/components/products/CustomInfo.tsx'
 import { ProductEmbroideryColor } from '@/components/products/ProductEmbroideryColor.tsx'
 import { FabricSelector } from '@/components/products/FabricSelector.tsx'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs.tsx'
@@ -32,11 +33,9 @@ export function ProductPage() {
   const displayProduct = products.find(product => product.slug === slug)
   const category = displayProduct?.category
 
-  const [babyName, setBabyName] = useState('')
-  const [embroideryColor, setEmbroideryColor] = useState('')
-  const [observations, setObservations] = useState('')
   const hasTrackedView = useRef(false)
-  const customs = useProductCustomsStore((state) => state.customs)
+  const name = useProductCustomsStore((state) => state.customs?.name ?? '')
+  const observations = useProductCustomsStore((state) => state.customs?.observations)
   const setCustoms = useProductCustomsStore((state) => state.setCustom)
   useFabricsStore.subscribe((state) => {
     const newFabric = state.fabric
@@ -58,16 +57,16 @@ export function ProductPage() {
     }
   }, [displayProduct, language])
 
-  const hasTrackedCustomize = useRef(false)
-  useEffect(() => {
-    if (babyName && !hasTrackedCustomize.current) {
-      hasTrackedCustomize.current = true
-      trackEvent('CustomizeProduct', {
-        content_name: language === 'es' ? displayProduct?.name_es : displayProduct?.name_en,
-        content_ids: [displayProduct?.id],
-      })
-    }
-  }, [babyName, displayProduct, language])
+  // const hasTrackedCustomize = useRef(false)
+  // useEffect(() => {
+  //   if (babyName && !hasTrackedCustomize.current) {
+  //     hasTrackedCustomize.current = true
+  //     trackEvent('CustomizeProduct', {
+  //       content_name: language === 'es' ? displayProduct?.name_es : displayProduct?.name_en,
+  //       content_ids: [displayProduct?.id],
+  //     })
+  //   }
+  // }, [babyName, displayProduct, language])
 
   const formatPrice = (price?: number) => {
     if (price == null) return ''
@@ -183,29 +182,7 @@ export function ProductPage() {
             <ProductPreview
               images={images}
             />
-
-            {customs && (
-              <div
-                className='w-full bg-mint-light/40 border border-mint/50 rounded-2xl px-4 py-3 text-mint-dark pointer-events-none'
-              >
-                {customs.fabric && (
-                  <p>{t('product.fabricSelected')}
-                    <span className='font-bold ps-1.5'>
-                      {language === 'es' ? customs.fabric.name_es : customs.fabric.name_en}
-                    </span>
-                    <span className='italic text-sm ps-1.5'>
-                      ({language === 'es'
-                        ? customs.fabric.gender === 'boy' ? 'niño' : 'niña'
-                        : customs.fabric.gender
-                      })
-                    </span>
-                  </p>
-                )}
-                {customs.color && (
-                  <p>{customs.color}</p>
-                )}
-              </div>
-            )}
+            <CustomInfo />
           </div>
 
           {/* Product Info */}
@@ -251,15 +228,16 @@ export function ProductPage() {
                 {t('product.personalize')}
               </h3>
 
+              {/* Name input */}
               <div className="space-y-2">
-                <label htmlFor="babyName" className="flex items-center gap-1">
-                  {t('product.babyName')} *
+                <label htmlFor="babyName" className="b">
+                  {t('product.babyName')}
                 </label>
                 <input
                   id="babyName"
                   placeholder={t('product.babyNamePlaceholder')}
-                  value={babyName}
-                  onChange={(e) => setBabyName(e.target.value)}
+                  value={name}
+                  onChange={(e) => setCustoms({name: e.target.value})}
                   className={inputClasses}
                   maxLength={15}
                 />
@@ -267,12 +245,10 @@ export function ProductPage() {
 
               <ProductEmbroideryColor
                 embroideryColors={embroideryColors}
-                embroideryColor={embroideryColor}
-                setEmbroideryColor={setEmbroideryColor}
               />
 
               {/* TODO: esto queda, programarlo dependiendo de las fuentes */}
-              {/* Font selection note - handled via WhatsApp */}
+              {/* Font selection */}
               <div className="p-3 rounded-xl bg-mint-light/30 border border-mint/20">
                 <p className="text-sm text-foreground flex items-center gap-2">
                   <MessageCircle className="h-4 w-4 text-mint shrink-0" />
@@ -285,12 +261,14 @@ export function ProductPage() {
 							{ <FabricSelector /> }
 
               <div className="space-y-2">
-                <label htmlFor="observations">{t('product.observations')}</label>
+                <label htmlFor="observations" className='block'>
+                  {t('product.observations')}
+                </label>
                 <textarea
                   id="observations"
                   placeholder={t('product.observationsPlaceholder')}
                   value={observations}
-                  onChange={(e) => setObservations(e.target.value)}
+                  onChange={(e) => setCustoms({ observations: e.target.value })}
                   className={`resize-none ${inputClasses}`}
                   rows={3}
                 />

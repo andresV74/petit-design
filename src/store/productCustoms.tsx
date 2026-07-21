@@ -19,13 +19,24 @@ interface Customizables {
 interface CustomsState {
 	customs: Customizables | null
 	setCustom: (custom: Customizables) => void
-	removeCustom: () => void
+	removeCustom: (property: keyof Customizables) => void
 }
 
 export const useProductCustomsStore = create<CustomsState>((set) => ({
 	customs: null,
 
-	setCustom: (newCustom: Customizables) => set({ customs: newCustom }),
+	setCustom: (newCustom: Customizables) =>
+		set((state) => ({
+				customs: state.customs ? { ...state.customs, ...newCustom } : newCustom,
+			})
+		),
 
-	removeCustom: () => set({ customs: null })
+	removeCustom: (property: keyof Customizables) =>
+		set((state) => {
+			if (!state.customs) return { customs: null }
+
+			const { [property]: _removed, ...remainingCustoms } = state.customs
+			void _removed
+			return { customs: remainingCustoms }
+		})
 }))
