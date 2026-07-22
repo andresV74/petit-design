@@ -1,4 +1,4 @@
-import { Heart, MapPin, Shield, Headphones } from 'lucide-react';
+import { Heart, MapPin, Shield } from 'lucide-react';
 import { useLanguage } from '@/lib/i18n';
 import { ContactForm } from '../ContactForm.tsx';
 
@@ -21,11 +21,6 @@ export function WhyChooseUsSection() {
       title: t('benefits.materials'),
       description: t('benefits.materials.desc'),
     },
-    {
-      icon: Headphones,
-      title: t('benefits.attention'),
-      description: t('benefits.attention.desc'),
-    },
   ];
 
   return (
@@ -35,8 +30,9 @@ export function WhyChooseUsSection() {
           {t('benefits.title')}
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Benefits - Left Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<ContactForm />
+
           <div className="space-y-6">
             {benefits.map((benefit, index) => (
               <div
@@ -57,9 +53,6 @@ export function WhyChooseUsSection() {
               </div>
             ))}
           </div>
-
-          {/* Contact Form - Right Side */}
-					<ContactForm />
         </div>
       </div>
     </section>

@@ -11,7 +11,7 @@ export const catalogContent = {
 		allProducts: 'Ver todos los productos',
 		categories: [
 			{
-				title: 'Accesorios de Lencería',
+				title: 'Accesorios para la habitación del bebé',
 				menuTitle: 'Accesorios',
 				slug: 'accesorios',
 				image_url: categoryImages['accesorios'],

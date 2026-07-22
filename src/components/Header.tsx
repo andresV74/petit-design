@@ -23,8 +23,8 @@ export function Header() {
 
   const navLinks = [
     { href: '/nosotros', label: t('nav.about') },
-    { href: '/contacto', label: t('nav.contact') },
     { href: '/politicas', label: t('nav.policies') },
+    { href: '/contacto', label: t('nav.contact') },
   ]
 
   return (
@@ -59,15 +59,6 @@ export function Header() {
               {menuTitle ? menuTitle : title}
             </Link>
           ))}
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className="whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground"
-            >
-              {link.label}
-            </Link>
-          ))}
 
           {/* Fabric Catalogs Dropdown */}
           <DropdownMenu>
@@ -92,6 +83,16 @@ export function Header() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              className="whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         {/* Actions */}

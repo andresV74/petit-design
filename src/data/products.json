@@ -131,7 +131,7 @@
 		"images": [
 			{
 				"id": "k06i01",
-				"imageUrl": "/products/kits/kit-mas-vendido.webp",
+				"imageUrl": "/products/kits/kit-mama-y-bebe.webp",
 				"altText_es": "Kit Mamá & Bebé Listos (Baby Shower)",
 				"altText_en": "Ready-to-Go Mom & Baby Kit (Baby Shower)",
 				"isPrimary": true
@@ -449,7 +449,7 @@
 				"isPrimary": false
 			}
 		],
-		"price": 0,
+		"price": 87000,
 		"category": "accesorios",
 		"subcategory": "nido",
 		"isFeatured": false,
@@ -457,9 +457,9 @@
 	},
 	{
 		"id": "a07",
-		"name_es": "Cojines Personalizados",
-		"name_en": "Custom Pillows",
-		"slug": "cojines-personalizados",
+		"name_es": "Cojín Personalizado",
+		"name_en": "Custom Pillow",
+		"slug": "cojin-personalizado-accesorios",
 		"shortDescription_es": "",
 		"shortDescription_en": "",
 		"longDescription_es": "Diseñemos juntos el cojín ideal para la habitación de tu bebé.\n\nElige la tela, los colores, el bordado y cada detalle para crear una pieza única que complemente su espacio.\n\nMedida: 30 x 50 cm",
@@ -468,85 +468,85 @@
 			{
 				"id": "a07i01",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-1.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": true
 			},
 			{
 				"id": "a07i02",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-2.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			},
 			{
 				"id": "a07i03",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-3.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			},
 			{
 				"id": "a07i04",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-4.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			},
 			{
 				"id": "a07i05",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-5.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			},
 			{
 				"id": "a07i06",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-6.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			},
 			{
 				"id": "a07i07",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-7.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			},
 			{
 				"id": "a07i08",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-8.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			},
 			{
 				"id": "a07i09",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-9.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			},
 			{
 				"id": "a07i10",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-10.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			},
 			{
 				"id": "a07i11",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-11.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			},
 			{
 				"id": "a07i12",
 				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-12.webp",
-				"altText_es": "Cojines Personalizados",
-				"altText_en": "Custom Pillows",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
 				"isPrimary": false
 			}
 		],
@@ -1084,51 +1084,6 @@
 		"productionDays": 15
 	},
 	{
-		"id": "a18",
-		"name_es": "Set de Tres Bolsitas Organizadoras",
-		"name_en": "Set of Three Organizer Pouches",
-		"slug": "set-tres-bolsitas",
-		"shortDescription_es": "",
-		"shortDescription_en": "",
-		"longDescription_es": "Nuestro set de 3 bolsitas organizadoras está diseñado para acompañarte en cada etapa de la maternidad y la crianza.\n\nIncluye 3 bolsitas de diferentes tamaños:\n\n- Mediana: 28 x 28 cm\n- Pequeña: 20 x 20 cm\n\nSon perfectas para llevar todo organizado a la clínica en el nacimiento de tu bebé: mudas de ropa, pañales, accesorios y esos primeros esenciales que quieres tener siempre a la mano. Después, se convierten en un infaltable en casa, ayudándote a mantener el clóset ordenado, empacar maletas o separar cada cosa de manera práctica y linda.\n\nLo mejor de este set es que te acompañará por muchísimos años, porque su uso va mucho más allá de los primeros meses del bebé.\n\nPersonalízalo a tu gusto escogiendo la tela que más te enamore, el color del sesgo y el bordado para crear una pieza única y muy especial.",
-		"longDescription_en": "Our set of 3 organizer pouches is designed to support you through every stage of motherhood and parenting.\n\nIncludes 3 pouches of different sizes:\n\n- Medium: 28 x 28 cm\n- Small: 20 x 20 cm\n\nThey're perfect for keeping everything organized at the hospital when your baby is born: changes of clothes, diapers, accessories, and those first essentials you want to have within easy reach. Afterward, they become a must-have at home, helping you keep your closet tidy, pack suitcases, or organize everything in a practical and stylish way.\n\nThe best thing about this set is that it will last you for many, many years, because you can use it long after your baby's first few months.\n\nCustomize it to your liking by choosing the fabric you love most, the color of the bias tape, and the embroidery to create a unique and very special piece.",
-		"images": [
-			{
-				"id": "a18i01",
-				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-1.webp",
-				"altText_es": "Set de Tres Bolsitas Organizadoras",
-				"altText_en": "Set of Three Organizer Pouches",
-				"isPrimary": true
-			},
-			{
-				"id": "a18i02",
-				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-2.webp",
-				"altText_es": "Set de Tres Bolsitas Organizadoras",
-				"altText_en": "Set of Three Organizer Pouches",
-				"isPrimary": false
-			},
-			{
-				"id": "a18i03",
-				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-3.webp",
-				"altText_es": "Set de Tres Bolsitas Organizadoras",
-				"altText_en": "Set of Three Organizer Pouches",
-				"isPrimary": false
-			},
-			{
-				"id": "a18i04",
-				"imageUrl": "/products/set-3-bolsitas/set-3-bolsitas-4.webp",
-				"altText_es": "Set de Tres Bolsitas Organizadoras",
-				"altText_en": "Set of Three Organizer Pouches",
-				"isPrimary": false
-			}
-		],
-		"price": 315000,
-		"category": "accesorios",
-		"subcategory": "",
-		"isFeatured": false,
-		"productionDays": 15
-	},
-	{
 		"id": "a19",
 		"name_es": "Toalla Adulto",
 		"name_en": "Adult Towel",
@@ -1249,8 +1204,8 @@
 		"slug": "cobijas-bebe",
 		"shortDescription_es": "",
 		"shortDescription_en": "",
-		"longDescription_es": "",
-		"longDescription_en": "",
+		"longDescription_es": "Nuestras cobijas de algodón están confeccionadas para brindar suavidad y comodidad desde los primeros días de vida. Elaboradas con telas de alta calidad, son ligeras, transpirables y perfectas para acompañar a tu bebé durante el descanso, los paseos o esos momentos especiales en brazos.\n\nCada cobija puede personalizarse con el nombre de tu bebé y un delicado bordado, convirtiéndola en una pieza única que también se transforma en un recuerdo para toda la vida.\n\n¿Quieres un bordado especial? Contáctanos por WhatsApp y diseñaremos una pieza personalizada para tu bebé.",
+		"longDescription_en": "Our cotton blankets are designed to provide softness and comfort from the very first days of life. Made with high-quality fabrics, they are lightweight, breathable, and perfect for keeping your baby cozy while sleeping, on outings, or during those special moments when you're holding them.\n\nEach blanket can be personalized with your baby's name and delicate embroidery, making it a one-of-a-kind piece that also becomes a keepsake for a lifetime.\n\nWould you like a special embroidery design? Contact us on WhatsApp, and we'll design a custom piece for your baby.",
 		"images": [
 			{
 				"id": "l01i01",
@@ -1358,7 +1313,7 @@
 				"isPrimary": false
 			}
 		],
-		"price": 0,
+		"price": 280000,
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
@@ -1369,41 +1324,322 @@
 		"name_es": "Nidos Estandar + Play Gym",
 		"name_en": "Standard Nests + Play Gym",
 		"slug": "standard-nests",
-		"shortDescription_es": "",
-		"shortDescription_en": "",
-		"longDescription_es": "",
-		"longDescription_en": "",
+		"shortDescription_es": "Set completo XL con nido y playgym",
+		"shortDescription_en": "Complete XL Set with Nest and Play Gym",
+		"longDescription_es": "El Nido Colecho XL está diseñado para acompañar a las familias durante los primeros meses, creando un espacio cómodo y delimitado para el bebé mientras descansa cerca de mamá y papá. Su principal diferencial es el tamaño: al ser más grande, permite que el nido dure mucho más tiempo en comparación con el tamaño estándar.\n\nEsta versión incluye Playgym (arco) para estimulación temprana.\n\n**Qué incluye**\n\n- 1 Nido colecho XL\n- 1 arco Playgym (estimulación)\n\n**Edad recomendada**\n\n0 a 8-12 meses (según crecimiento del bebé)\n\n**Medidas**\n\nMedida externa: 48 x 84 cm\n\nMedida interna: 38 x 47 cm\n\n**Beneficios**\n\n- Tamaño XL: mayor duración de uso vs tamaño estándar\n- Espacio delimitado y cómodo para el bebé\n- Playgym: estimulación (interacción, juegos suaves, canciones)\n- Playgym (arco) — uso correcto\n\nEl arco está diseñado únicamente para estimulación. No se debe levantar ni cargar el nido desde el arco.\n\n**Personalización**\n\nSe elabora con la tela/diseño elegido del catálogo Petit Design y puede personalizarse (si aplica).",
+		"longDescription_en": "The XL Co-Sleeping Nest is designed to support families during the first few months, creating a comfortable, enclosed space for the baby while they rest close to mom and dad. Its main distinguishing feature is its size: because it’s larger, the nest can be used for much longer than the standard size.\n\nThis version includes a Playgym (arch) for early stimulation.\n\n**What's Included**\n\n- 1 XL Co-Sleeping Nest\n- 1 Playgym arch (stimulation)\n\n**Recommended age**\n\n0 to 8–12 months (depending on the baby's growth)\n\n**Sizes**\n\nExternal size: 48 x 84 cm\n\nInternal size: 38 x 47 cm\n\n**Benefits**\n\n- Size XL: longer wear time compared to standard size\n- A comfortable, enclosed space for the baby\n- Playgym: stimulation (interaction, gentle play, songs)\n- Playgym (arch) — proper use\n\nThe arch is designed solely for stimulation. Do not lift or carry the nest by the arch.\n\n**Customization**\n\nIt is made using the fabric/design of your choice from the Petit Design catalog and can be customized (if applicable).",
 		"images": [
 			{
 				"id": "l02i01",
 				"imageUrl": "/products/nidos-estandar/nidos-estandar-1.webp",
-				"altText_es": "Cobijas Bebé",
-				"altText_en": "Baby Blankets",
+				"altText_es": "Nidos Estandar + Play Gym",
+				"altText_en": "Standard Nests + Play Gym",
 				"isPrimary": true
 			},
 			{
 				"id": "l02i02",
 				"imageUrl": "/products/nidos-estandar/nidos-estandar-2.webp",
-				"altText_es": "Cobijas Bebé",
-				"altText_en": "Baby Blankets",
+				"altText_es": "Nidos Estandar + Play Gym",
+				"altText_en": "Standard Nests + Play Gym",
 				"isPrimary": false
 			},
 			{
 				"id": "l02i03",
 				"imageUrl": "/products/nidos-estandar/nidos-estandar-3.webp",
-				"altText_es": "Cobijas Bebé",
-				"altText_en": "Baby Blankets",
+				"altText_es": "Nidos Estandar + Play Gym",
+				"altText_en": "Standard Nests + Play Gym",
 				"isPrimary": false
 			},
 			{
 				"id": "l02i04",
 				"imageUrl": "/products/nidos-estandar/nidos-estandar-4.webp",
-				"altText_es": "Cobijas Bebé",
-				"altText_en": "Baby Blankets",
+				"altText_es": "Nidos Estandar + Play Gym",
+				"altText_en": "Standard Nests + Play Gym",
 				"isPrimary": false
 			}
 		],
-		"price": 0,
+		"price": 640000,
+		"category": "lenceria-cuna",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "l03",
+		"name_es": "Colchón Cambiador",
+		"name_en": "Changing Pad",
+		"slug": "colchon-cambiador",
+		"shortDescription_es": "Colchón cambiador acolchado y cómodo.",
+		"shortDescription_en": "A padded, comfortable changing pad.",
+		"longDescription_es": "El Colchón Cambiador está diseñado con una forma tipo batea que brinda mayor estabilidad durante el cambio de pañal, ayudando a que el bebé no se deslice, especialmente en etapas en las que están más inquietos y se mueven mucho.\n\nViene en una medida estándar de 80 x 45 cm y está elaborado en tela plástica impermeable, ideal para facilitar la limpieza y mantener el cambiador en mejores condiciones en el uso diario.\n\nPara un uso más cómodo y armonioso con la lencería de la cuna, se recomienda complementarlo con nuestro Forro Cambiador (100% algodón), que ajusta a la medida del colchón y permite hacer match con las telas del set.\n\nSi el cliente requiere una medida diferente, también se puede realizar personalizado según necesidad.\n\n**¿Qué incluye?**\n\n- 1 colchón cambiador impermeable (medida estándar o personalizada)\n\n**Beneficios clave**\n\n- Diseño tipo batea: mayor estabilidad y seguridad en el cambio\n- Ayuda a evitar que el bebé se deslice\n- Impermeable: fácil de limpiar\n- Ideal para uso diario en el mueble cambiador\n- Recomendado para usar con Forro Cambiador para mayor confort y estética\n\n**Material**\n\nTela plástica impermeable\n\n**Medidas**\n\nEstándar: 80 x 45 cm\n\nOpción de medida personalizada (según requerimiento)\n\n**Ideal para**\n\n- Cambiador en casa\n- Rutina diaria de cambio de pañal\n- Bebés inquietos o en etapa de mayor movimiento",
+		"longDescription_en": "The Changing Pad is designed in a trough-like shape that provides greater stability during diaper changes, helping to keep the baby from slipping, especially during stages when they are more restless and move around a lot.\n\nIt comes in a standard size of 80 x 45 cm and is made of waterproof plastic fabric, which makes it easy to clean and helps keep the changing table in better condition with daily use.\n\nFor a more comfortable and coordinated look with the crib linens, we recommend pairing it with our Changing Pad Cover (100% cotton), which is tailored to fit the mattress and matches the fabrics in the set.\n\nIf the customer requires a different size, we can also customize it to meet their needs.\n\n**What's included?**\n\n- 1 waterproof changing pad (standard or custom size)\n\n**Key benefits**\n\n- Tray-style design: greater stability and safety during gear changes\n- Helps prevent the baby from slipping\n- Waterproof: easy to clean\n- Ideal for everyday use on the changing table\n- Recommended for use with the Diaper Changing Pad for added comfort and style\n\n**Material**\n\nWaterproof plastic fabric\n\n**Sizes**\n\nStandard: 80 x 45 cm\n\nCustom measurement option (upon request)\n\n**Ideal for**\n\n- Changing Table at Home\n- Daily Diaper-Changing Routine\n- Restless babies or babies going through a phase of increased movement",
+		"images": [
+			{
+				"id": "l03i01",
+				"imageUrl": "/products/colchon-cambiador/colchon-cambiador-1.webp",
+				"altText_es": "Colchón Cambiador",
+				"altText_en": "Changing Pad",
+				"isPrimary": true
+			},
+			{
+				"id": "l03i02",
+				"imageUrl": "/products/colchon-cambiador/colchon-cambiador-2.webp",
+				"altText_es": "Colchón Cambiador",
+				"altText_en": "Changing Pad",
+				"isPrimary": false
+			}
+		],
+		"price": 150000,
+		"category": "lenceria-cuna",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "l04",
+		"name_es": "Sábana Ajustable Cuna",
+		"name_en": "Fitted Crib Sheet",
+		"slug": "sabana-ajustable-cuna",
+		"shortDescription_es": "Sábana ajustable para cuna, 100% algodón.",
+		"shortDescription_en": "Fitted crib sheet, 100% cotton.",
+		"longDescription_es": "La Sábana Ajustable es la sábana que abraza el colchón y se ajusta firmemente para mantenerse en su lugar. Está confeccionada en tela 100% algodón, suave, cómoda y fresca para el descanso del bebé, ideal para el uso diario y para complementar la lencería de la cuna.\n\n**Qué incluye**\n\n- 1 sábana ajustable (para colchón)\n\n**Beneficios Clave**\n\n- Ajuste firme: se mantiene bien puesta y ordenada\n- 100% algodón: suave, cómoda y fresca\n- Ideal para uso diario y para combinar con la lencería de cuna\n\n**Material**\n\n100% algodón\n\n**Personalización**\n\nSe realiza según la medida del colchón (si aplica)",
+		"longDescription_en": "The fitted sheet is a sheet that wraps around the mattress and fits snugly to stay in place. It is made of 100% cotton fabric—soft, comfortable, and cool—to ensure a restful sleep for your baby. It is ideal for everyday use and complements the crib linens.\n\n**What's included**\n\n- 1 fitted sheet (for a mattress)\n\n**Key Benefits**\n\n- Snug fit: stays securely in place and looks neat\n- 100% cotton: soft, comfortable, and cool\n- Perfect for everyday use and for pairing with crib linens\n\n**Material**\n\n100% cotton\n\n**Customization**\n\nMade to fit the mattress (if applicable)",
+		"images": [
+			{
+				"id": "l04i01",
+				"imageUrl": "/products/sabana-ajustable-cuna/sabana-ajustable-cuna.webp",
+				"altText_es": "Sábana Ajustable Cuna",
+				"altText_en": "Fitted Crib Sheet",
+				"isPrimary": true
+			}
+		],
+		"price": 270000,
+		"category": "lenceria-cuna",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "l05",
+		"name_es": "Canasta de Aseo",
+		"name_en": "Laundry Basket",
+		"slug": "canasta-de-aseo",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "La canasta de aseo es un infaltable en la habitación de tu bebé. Diseñada para mantener organizados todos los esenciales del cambio de pañal y el cuidado diario, te permite tener pañales, cremas, pañitos, cepillo, termómetro y otros accesorios siempre a la mano.\n\nAdemás de facilitar la rutina diaria, su diseño aporta orden y armonía al mueble cambiador, convirtiéndose en un complemento funcional y decorativo. Está elaborada con materiales de alta calidad y acabados cuidadosamente confeccionados para acompañarte durante los primeros años de tu bebé.",
+		"longDescription_en": "A diaper basket is a must-have in your baby's room. Designed to keep all your diaper-changing and daily care essentials organized, it lets you keep diapers, lotions, wipes, a brush, a thermometer, and other accessories within easy reach.\n\nIn addition to making your daily routine easier, its design brings order and harmony to the changing table, making it both a functional and decorative piece. It is crafted from high-quality materials with carefully crafted finishes to accompany you through your baby's early years.",
+		"images": [
+			{
+				"id": "l05i01",
+				"imageUrl": "/products/canasta-de-aseo/canasta-de-aseo-1.webp",
+				"altText_es": "Canasta de Aseo",
+				"altText_en": "Laundry Basket",
+				"isPrimary": true
+			},
+			{
+				"id": "l05i02",
+				"imageUrl": "/products/canasta-de-aseo/canasta-de-aseo-2.webp",
+				"altText_es": "Canasta de Aseo",
+				"altText_en": "Laundry Basket",
+				"isPrimary": false
+			},
+			{
+				"id": "l05i03",
+				"imageUrl": "/products/canasta-de-aseo/canasta-de-aseo-3.webp",
+				"altText_es": "Canasta de Aseo",
+				"altText_en": "Laundry Basket",
+				"isPrimary": false
+			},
+			{
+				"id": "l05i04",
+				"imageUrl": "/products/canasta-de-aseo/canasta-de-aseo-4.webp",
+				"altText_es": "Canasta de Aseo",
+				"altText_en": "Laundry Basket",
+				"isPrimary": false
+			},
+			{
+				"id": "l05i05",
+				"imageUrl": "/products/canasta-de-aseo/canasta-de-aseo-5.webp",
+				"altText_es": "Canasta de Aseo",
+				"altText_en": "Laundry Basket",
+				"isPrimary": false
+			},
+			{
+				"id": "l05i06",
+				"imageUrl": "/products/canasta-de-aseo/canasta-de-aseo-6.webp",
+				"altText_es": "Canasta de Aseo",
+				"altText_en": "Laundry Basket",
+				"isPrimary": false
+			}
+		],
+		"price": 220000,
+		"category": "lenceria-cuna",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "l06",
+		"name_es": "Cojín Personalizado",
+		"name_en": "Custom Pillow",
+		"slug": "cojin-personalizado-lenceria",
+		"shortDescription_es": "",
+		"shortDescription_en": "",
+		"longDescription_es": "Diseñemos juntos el cojín ideal para la habitación de tu bebé.\n\nElige la tela, los colores, el bordado y cada detalle para crear una pieza única que complemente su espacio.\n\nMedida: 30 x 50 cm",
+		"longDescription_en": "Let's design the perfect pillow for your baby's room together.\n\nChoose the fabric, colors, embroidery, and every detail to create a one-of-a-kind piece that complements your space.\n\nSize: 30 x 50 cm",
+		"images": [
+			{
+				"id": "l06i01",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-1.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": true
+			},
+			{
+				"id": "l06i02",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-2.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			},
+			{
+				"id": "l06i03",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-3.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			},
+			{
+				"id": "l06i04",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-4.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			},
+			{
+				"id": "l06i05",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-5.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			},
+			{
+				"id": "l06i06",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-6.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			},
+			{
+				"id": "l06i07",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-7.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			},
+			{
+				"id": "l06i08",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-8.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			},
+			{
+				"id": "l06i09",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-9.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			},
+			{
+				"id": "l06i10",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-10.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			},
+			{
+				"id": "l06i11",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-11.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			},
+			{
+				"id": "l06i12",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-12.webp",
+				"altText_es": "Cojín Personalizado",
+				"altText_en": "Custom Pillow",
+				"isPrimary": false
+			}
+		],
+		"price": 220000,
+		"category": "lenceria-cuna",
+		"subcategory": "",
+		"isFeatured": false,
+		"productionDays": 15
+	},
+	{
+		"id": "l07",
+		"name_es": "Búmper para Cuna",
+		"name_en": "Crib Bumper",
+		"slug": "bumper-para-cuna",
+		"shortDescription_es": "Protector para Cuna",
+		"shortDescription_en": "Crib Protector",
+		"longDescription_es": "Nuestros bumpers son ideales para brindar mayor seguridad y comodidad a tu bebé mientras descansa.\n\nAyudan a protegerlo de golpes contra los barrotes de la cuna y evitan que saque sus manitos o piecitos, reduciendo el riesgo de incomodidad o pequeños accidentes.\n\nEstán elaborados con materiales suaves, acolchados y delicados con la piel del bebé, combinando seguridad, diseño y armonía en su habitación.\n\n✨ Funcionales, seguros y hermosos, como todo lo que creamos en PETIT DESIGN.",
+		"longDescription_en": "Our bumpers are ideal for providing your baby with greater safety and comfort while they rest.\n\nThey help protect your baby from bumping into the crib rails and prevent your baby from sticking their little hands or feet out, reducing the risk of discomfort or minor accidents.\n\nThey are made from soft, padded materials that are gentle on a baby's skin, combining safety, design, and harmony in the baby's room.\n\n✨ Functional, safe, and beautiful—just like everything we create at PETIT DESIGN.",
+		"images": [
+			{
+				"id": "l07i01",
+				"imageUrl": "/products/bumper/bumper-1.webp",
+				"altText_es": "Búmper para Cuna",
+				"altText_en": "Crib Bumper",
+				"isPrimary": true
+			},
+			{
+				"id": "l07i02",
+				"imageUrl": "/products/bumper/bumper-2.webp",
+				"altText_es": "Búmper para Cuna",
+				"altText_en": "Crib Bumper",
+				"isPrimary": false
+			},
+			{
+				"id": "l07i03",
+				"imageUrl": "/products/bumper/bumper-3.webp",
+				"altText_es": "Búmper para Cuna",
+				"altText_en": "Crib Bumper",
+				"isPrimary": false
+			},
+			{
+				"id": "l07i04",
+				"imageUrl": "/products/bumper/bumper-4.webp",
+				"altText_es": "Búmper para Cuna",
+				"altText_en": "Crib Bumper",
+				"isPrimary": false
+			},
+			{
+				"id": "l07i05",
+				"imageUrl": "/products/bumper/bumper-5.webp",
+				"altText_es": "Búmper para Cuna",
+				"altText_en": "Crib Bumper",
+				"isPrimary": false
+			},
+			{
+				"id": "l07i06",
+				"imageUrl": "/products/bumper/bumper-6.webp",
+				"altText_es": "Búmper para Cuna",
+				"altText_en": "Crib Bumper",
+				"isPrimary": false
+			},
+			{
+				"id": "l07i07",
+				"imageUrl": "/products/bumper/bumper-7.webp",
+				"altText_es": "Búmper para Cuna",
+				"altText_en": "Crib Bumper",
+				"isPrimary": false
+			}
+		],
+		"price": 650000,
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,

@@ -10,7 +10,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
   </svg>
-);
+)
 
 const InstagramIcon = ({ className }: { className?: string }) => (
 	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -25,10 +25,40 @@ const FacebookIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
   </svg>
-);
+)
+
+// Pinterest icon
+const PinterestIcon = ({ className }: { className?: string}) => (
+  <svg fill="currentColor" viewBox="0 0 32 32" className={className}>
+    <path d="M16.292 5C10.536 5 7.48 8.866 7.48 13.077c0 1.955 1.039 4.392 2.707 5.168.253.118.387.064.443-.18.047-.185.273-1.089.373-1.511a.402.402 0 0 0-.095-.386c-.55-.667-.988-1.896-.988-3.041 0-2.942 2.228-5.787 6.021-5.787 3.28 0 5.571 2.23 5.571 5.426 0 3.61-1.82 6.108-4.191 6.108-1.309 0-2.291-1.081-1.978-2.413.378-1.584 1.106-3.298 1.106-4.438 0-1.026-.552-1.883-1.685-1.883-1.341 0-2.415 1.385-2.415 3.241 0 1.182.4 1.978.4 1.978s-1.323 5.593-1.563 6.634c-.413 1.765.051 4.625.094 4.876.021.134.172.18.252.066.129-.175 1.725-2.565 2.174-4.292l.828-3.171c.439.829 1.707 1.531 3.061 1.531 4.021 0 6.923-3.703 6.923-8.299C24.52 8.301 20.92 5 16.292 5z"/>
+  </svg>
+)
 
 export function Footer() {
   const { t } = useLanguage();
+
+  const quickLinks = [
+    {
+      link: '/',
+      title: t('nav.home'),
+    },
+    {
+      link: '/catalogo',
+      title: t('nav.catalog'),
+    },
+    {
+      link: '/nosotros',
+      title: t('nav.about'),
+    },
+    {
+      link: '/politicas',
+      title: t('nav.policies'),
+    },
+    {
+      link: '/contacto',
+      title: t('nav.contact'),
+    },
+  ]
 
   return (
     <footer className="border-t border-border bg-gray-light/50">
@@ -48,7 +78,7 @@ export function Footer() {
             <p className="text-muted-foreground max-w-md">
               {t('footer.tagline')}
             </p>
-            <div className="flex items-center gap-4 mt-6">
+            <ul className="flex items-center gap-4 mt-6">
               <a
                 href="https://www.instagram.com/petit.design?igsh=a3Q3bTFnNjgzN2Nw&utm_source=qr"
                 target="_blank"
@@ -77,6 +107,15 @@ export function Footer() {
                 <TikTokIcon className="h-5 w-5" />
               </a>
               <a
+                href="https://co.pinterest.com/petitanddesign/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-mint/10 text-mint-dark hover:bg-mint/20 transition-colors"
+                aria-label="Pinterest"
+              >
+                <PinterestIcon className="h-5 w-5 scale-150" />
+              </a>
+              <a
                 href={getWhatsAppUrl({ source: 'Pie de página' })}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -86,7 +125,7 @@ export function Footer() {
               >
                 <MessageCircle className="h-5 w-5" />
               </a>
-            </div>
+            </ul>
           </div>
 
           {/* Quick Links */}
@@ -95,31 +134,13 @@ export function Footer() {
               {t('footer.quickLinks')}
             </h4>
             <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-muted-foreground hover:text-mint-dark transition-colors">
-                  {t('nav.home')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/catalogo" className="text-muted-foreground hover:text-mint-dark transition-colors">
-                  {t('nav.catalog')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/nosotros" className="text-muted-foreground hover:text-mint-dark transition-colors">
-                  {t('nav.about')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/contacto" className="text-muted-foreground hover:text-mint-dark transition-colors">
-                  {t('nav.contact')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/politicas" className="text-muted-foreground hover:text-mint-dark transition-colors">
-                  {t('nav.policies')}
-                </Link>
-              </li>
+              {quickLinks.map(({link, title}) => (
+                <li key={link}>
+                  <Link to="/" className="text-muted-foreground hover:text-mint-dark transition-colors">
+                    {title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

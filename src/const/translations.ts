@@ -24,12 +24,12 @@ export const translations: Translations = {
   // Homepage hero
   'hero.beforeTitle': { es: '100% Personalizable', en: '100% Customizable'},
   'hero.title': {
-    es: 'Lencería de cunas y accesorios de lencería para bebés y niños, hechos con amor',
-    en: 'Crib linens and linen accessories for babies and kids, made with love'
+    es: 'Lencería de cuna personalizada y accesorios para bebés y niños, diseñados para acompañar sus primeros años con calidad y dedicación',
+    en: 'Personalized crib linens and accessories for babies and children, designed to accompany them through their early years with quality and care'
   },
   'hero.subtitle': {
-    es: 'Cada producto es único y personalizado con el nombre de tu bebé. Diseños exclusivos hechos a mano en Colombia.',
-    en: 'Each product is unique and personalized with your baby\'s name. Exclusive handmade designs from Colombia.'
+    es: 'Cada producto es único y personalizado con el nombre de tu bebé. Diseños exclusivos 100% colombianos',
+    en: 'Each product is unique and personalized with your baby\'s name. Exclusive, 100% Colombian designs'
   },
   'hero.badgeTitle': { es: 'Todos nuestros productos son personalizables', en: 'All our products are customizable' },
   'hero.badgeSubtitle': { es: 'Bordamos el nombre de tu bebé con amor', en: 'We embroider your baby\'s name with love' },

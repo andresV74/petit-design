@@ -44,12 +44,9 @@ export function HeroSection() {
             <span className="text-mint-dark font-medium text-sm uppercase tracking-wider">
               {t('hero.beforeTitle')}
             </span>
-            <h1 className="font-display text-3xl sm:text-4xl/10 md:text-5xl/12 font-semibold leading-tight text-foreground">
+            <h1 className="font-display text-2xl sm:text-3xl/9 md:text-4xl/11 font-semibold leading-tight text-foreground">
               {t('hero.title')}
             </h1>
-            <p className="text-lg text-muted-foreground max-w-md">
-              {t('hero.subtitle')}
-            </p>
 
             {/* Personalization Badge */}
             <div className="flex items-center gap-3 p-4 bg-mint-light/50 rounded-xl border border-mint/30 max-w-md">
@@ -57,11 +54,7 @@ export function HeroSection() {
                 <span className="text-white font-display text-lg">✨</span>
               </div>
               <p className="text-sm text-foreground">
-                <strong>{t('hero.badgeTitle')}</strong>
-                <br />
-                <span className="text-muted-foreground">
-                  {t('hero.badgeSubtitle')}
-                </span>
+                {t('hero.subtitle')}
               </p>
             </div>
 

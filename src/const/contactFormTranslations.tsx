@@ -4,8 +4,8 @@ export interface formTranslationProps {
 
 export const formTranslations = ({ isHomePage }: formTranslationProps) => ({
 	es: {
-		title: isHomePage ? '¿Tienes alguna pregunta?' : 'Envíanos un mensaje',
-		subtitle: isHomePage ? 'Cuéntanos qué necesitas y te contactaremos por WhatsApp' : 'Completa el formulario y nos pondremos en contacto contigo',
+		title: isHomePage ? 'Atención personalizada' : 'Envíanos un mensaje',
+		subtitle: isHomePage ? 'Recibe 10% de descuento en tu primera compra' : 'Completa el formulario y nos pondremos en contacto contigo',
 		namePlaceholder: 'Tu nombre completo',
 		nameLabel: 'Nombre',
 		emailLabel: 'Correo electrónico',
@@ -27,8 +27,8 @@ export const formTranslations = ({ isHomePage }: formTranslationProps) => ({
 		whatsAppGreeting: '¡Hola! Me interesa conocer más sobre los productos en la página web',
 	},
 	en: {
-		title: "Do you have any questions?",
-		subtitle: isHomePage ? "Tell us what you need and we'll contact you via WhatsApp" : "Fill out the form and we'll get in touch with you",
+		title: "Personalized service",
+		subtitle: isHomePage ? "Get 10% off your first purchase" : "Fill out the form and we'll get in touch with you",
 		namePlaceholder: 'Your full name',
 		nameLabel: 'Name',
 		emailLabel: 'Email address',

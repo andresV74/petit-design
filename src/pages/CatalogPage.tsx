@@ -76,7 +76,7 @@ export function CatalogPage() {
                     : "bg-muted text-muted-foreground hover:bg-mint-light"}`
                 }
               >
-                {cat.title}
+                {cat.menuTitle ?? cat.title}
               </Link>
             ))}
           </div>
