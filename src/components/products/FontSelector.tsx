@@ -49,7 +49,7 @@ export function FontSelector() {
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align="center" className="w-64 bg-background">
 						{buttons.map(({ name }) => (
-							<DropdownMenuItem asChild >
+							<DropdownMenuItem asChild key={name} >
 							<button
 								className={`font-${name.toLowerCase()} ${name === 'Hello' ? 'text-2xl/10!' : 'text-3xl/8!'} w-full h-fit justify-center rounded-md cursor-pointer mb-2 pt-3 hover:bg-primary hover:text-primary-foreground`}
 								onClick={() => handleFont(name)}
@@ -60,7 +60,10 @@ export function FontSelector() {
 						))}
 				</DropdownMenuContent>
 			</DropdownMenu>
-
+			{/* Fix strange behavior with the fonts called in the template literals */}
+			<span className='hidden font-barbie'></span>
+			<span className='hidden font-hello'></span>
+			<span className='hidden font-vogue'></span>
 		</div>
 	)
 }
