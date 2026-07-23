@@ -31,7 +31,7 @@ export function FabricSelector({
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
 	const [zoomIndex, setZoomIndex] = useState(0)
 	const dialogRef = useRef<DialogRef | null>(null)
-	const selectedFabricNew = useFabricsStore((state) => state.fabric)
+	const selectedFabric = useFabricsStore((state) => state.fabric)
 	const setFabric = useFabricsStore((state) => state.setFabric)
 
 	const currentFabrics: Fabric[] = (selectedGender === 'boy'
@@ -54,6 +54,7 @@ export function FabricSelector({
 		dialogRef.current?.open()
 	}
 
+	// TODO: check if this logic can be inside the Dialog component.
   /**
    * Handle the selected fabric and stores the fabric in the global context
    */
@@ -65,7 +66,7 @@ export function FabricSelector({
   }
 
 	// Find selected fabric name
-	const selectedFabricObj = [...boyFabrics, ...girlFabrics].find(fabric => fabric.id === selectedFabricNew?.id)
+	const selectedFabricObj = [...boyFabrics, ...girlFabrics].find(fabric => fabric.id === selectedFabric?.id)
 
 	return (
 		<div className="space-y-4">

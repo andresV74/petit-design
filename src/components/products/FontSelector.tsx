@@ -1,4 +1,4 @@
-import { useProductCustomsStore } from '@/store/productCustoms.tsx'
+import { useProductCustomsStore } from '@/store/productCustomsStore'
 import {
   DropdownMenu,
   DropdownMenuContent,

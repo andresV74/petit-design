@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button.tsx'
 import { trackEvent, /*trackWhatsAppClick*/ } from '@/hooks/useMetaPixel.ts'
 // import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
-import { useProductCustomsStore } from '@/store/productCustoms.tsx'
+import { useProductCustomsStore } from '@/store/productCustomsStore'
 import { inputClasses } from '@/components/ContactForm.tsx'
 
 import products from '@/data/products.json'
@@ -250,6 +250,10 @@ export function ProductPage() {
               <ProductEmbroideryColor
                 embroideryColors={embroideryColors}
               />
+
+              <p className='text-sm mb-3'>
+                {t('product.namePreview')}
+              </p>
 
 							{ <FabricSelector /> }
 

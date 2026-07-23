@@ -1,7 +1,7 @@
-import { useProductCustomsStore } from '@/store/productCustoms.tsx'
+import { useProductCustomsStore } from '@/store/productCustomsStore'
 import { useLanguage } from '@/lib/i18n.tsx'
 
-interface EmbroideryColorsProps {
+export interface EmbroideryColorsProps {
 	value: string
 	color: string
 	border?: boolean
@@ -18,7 +18,7 @@ export function ProductEmbroideryColor({
 	const removeColor = useProductCustomsStore((state) => state.removeCustom)
 	const { t } = useLanguage()
 
-	const handleColor = (newColor: string) => {
+	const handleColor = (newColor: EmbroideryColorsProps) => {
 		return (
 			selectedColor === newColor
 				? removeColor('color')
@@ -33,18 +33,18 @@ export function ProductEmbroideryColor({
 				{embroideryColors.map((color) => (
 					<button
 						key={color.value}
-						onClick={() => handleColor(color.value)}
+						onClick={() => handleColor(color)}
 						className={
 							`w-12 h-12 rounded-full transition-all relative cursor-pointer
 							${color.border ? 'border-2 border-border' : ''}
-							${selectedColor === color.value
+							${selectedColor?.color === color.value
 								? "ring-2 ring-primary ring-offset-2 scale-110"
 								: "hover:scale-105"}`
 						}
 						style={{ backgroundColor: color.color }}
 						title={t(`color.${color.value}`)}
 					>
-						{selectedColor === color.value && (
+						{selectedColor === color && (
 							<span className="absolute inset-0 flex items-center justify-center">
 								<span className={
 									`w-2 h-2 rounded-full
@@ -56,7 +56,7 @@ export function ProductEmbroideryColor({
 				))}
 			</div>
 			<p className="text-sm text-muted-foreground font-medium">
-				{selectedColor && t(`color.${selectedColor}`)}
+				{selectedColor && t(`color.${selectedColor.value}`)}
 			</p>
 		</div>
 	)
