@@ -186,7 +186,10 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
-		"productionDays": 15
+		"productionDays": 15,
+		"extraCustomization": [
+			"pricePerLetter"
+		]
 	},
 	{
 		"id": "a02",

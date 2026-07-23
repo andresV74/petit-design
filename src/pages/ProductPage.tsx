@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { Heart, Clock, Shield, Sparkles } from 'lucide-react'
 import { ProductLongDescription } from '@/components/products/ProductLongDescription.tsx'
@@ -35,6 +35,7 @@ export function ProductPage() {
   const category = displayProduct?.category
 
   const hasTrackedView = useRef(false)
+  const [totalPrice, setTotalPrice] = useState(30000)
   const name = useProductCustomsStore((state) => state.customs?.name ?? '')
   const observations = useProductCustomsStore((state) => state.customs?.observations)
   const setCustoms = useProductCustomsStore((state) => state.setCustom)
@@ -58,6 +59,24 @@ export function ProductPage() {
     }
   }, [displayProduct, language])
 
+  const formatPrice = (price?: number) => {
+    if (price == null) return ''
+    return new Intl.NumberFormat('es-CO', {
+      style: 'currency',
+      currency: 'COP',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price)
+  }
+
+  const handlePrice = (e: React.ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
+    if (!displayProduct?.price) return
+    const canHandle = displayProduct?.extraCustomization?.includes('pricePerLetter')
+
+    setCustoms({name: e.target.value})
+    setTotalPrice(canHandle ? (displayProduct?.price * e.target.value.length) : displayProduct?.price)
+  }
+
   // const hasTrackedCustomize = useRef(false)
   // useEffect(() => {
   //   if (babyName && !hasTrackedCustomize.current) {
@@ -68,16 +87,6 @@ export function ProductPage() {
   //     })
   //   }
   // }, [babyName, displayProduct, language])
-
-  const formatPrice = (price?: number) => {
-    if (price == null) return ''
-    return new Intl.NumberFormat('es-CO', {
-      style: 'currency',
-      currency: 'COP',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(price)
-  }
 
   // const handleWhatsAppOrder = () => {
   //   const colorLabel = t(`color.${embroideryColor}`)
@@ -192,7 +201,7 @@ export function ProductPage() {
               {language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}
             </h1>
             <p className="text-2xl font-semibold text-primary">
-              {formatPrice(displayProduct?.price)}
+              {displayProduct?.extraCustomization?.includes('pricePerLetter') ? formatPrice(totalPrice) : formatPrice(displayProduct?.price)}
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
@@ -238,7 +247,7 @@ export function ProductPage() {
                   id="babyName"
                   placeholder={t('product.babyNamePlaceholder')}
                   value={name}
-                  onChange={(e) => setCustoms({name: e.target.value})}
+                  onChange={(e) => handlePrice(e)}
                   className={inputClasses}
                   maxLength={15}
                 />
