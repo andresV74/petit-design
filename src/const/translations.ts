@@ -238,7 +238,7 @@ export const translations: Translations = {
   'policies.question.3': { es: '¿Los productos son personalizados?', en: 'Are the products personalized?' },
   'policies.answer.3': {
     es: 'Sí. La mayoría de nuestros productos son personalizados con el nombre del bebé. Dependiendo del producto, puedes elegir la tela, el color del sesgo, el color del bordado, moños u otros acabados. Esto hace que cada pedido sea único y pensado especialmente para tu bebé.',
-    en: 'Yes. Most of our products are personalized with the baby\'s name. Depending on the product, you can choose the fabric, bias color, embroidery color, bows or other finishes. This makes each order unique and specially designed for your baby.'
+    en: 'Yes. Most of our products are personalized with the baby\'s name. Depending on the product, you can choose the fabric, cant color, embroidery color, bows or other finishes. This makes each order unique and specially designed for your baby.'
   },
   'policies.question.4': { es: '¿Cómo funciona el proceso de compra?', en: 'How does the purchasing process work?' },
   'policies.answer.4': {
@@ -339,6 +339,8 @@ export const translations: Translations = {
   'product.fullDescription': { es: 'Descripción completa', en: 'Full description' },
   'product.name': { es: 'Nombre para bordar:', en: 'Name to be embroidered::' },
   'product.fabricSelected': { es: 'Tela seleccionada:', en: 'Selected fabric:' },
+  'product.fontTitle': { es: 'Tipo de letra', en: 'Font' },
+  'product.fontCta': { es: 'Escoge tipo de letra para el nombre', en: 'Choose a font for the name' },
 
   // Fabric Gallery
   'fabricGallery.boysTitle': { es: 'Catálogo de Telas - Niño', en: 'Fabric Catalog - Boy' },

@@ -50,6 +50,7 @@ export function Header() {
           >
             {t('nav.home')}
           </Link>
+          
           {tCatalog.categories.map(({ title, menuTitle, slug }) => (
             <Link
               key={slug}

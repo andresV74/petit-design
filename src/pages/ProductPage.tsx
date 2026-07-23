@@ -1,9 +1,10 @@
 import { useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
-import { MessageCircle, Heart, Clock, Shield, Sparkles } from 'lucide-react'
+import { Heart, Clock, Shield, Sparkles } from 'lucide-react'
 import { ProductLongDescription } from '@/components/products/ProductLongDescription.tsx'
 import { ProductPreview } from '@/components/products/ProductPreview.tsx'
 import { CustomInfo } from '@/components/products/CustomInfo.tsx'
+import { FontSelector } from '@/components/products/FontSelector.tsx'
 import { ProductEmbroideryColor } from '@/components/products/ProductEmbroideryColor.tsx'
 import { FabricSelector } from '@/components/products/FabricSelector.tsx'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs.tsx'
@@ -243,20 +244,12 @@ export function ProductPage() {
                 />
               </div>
 
+              {/* Font selection */}
+              <FontSelector />
+
               <ProductEmbroideryColor
                 embroideryColors={embroideryColors}
               />
-
-              {/* TODO: esto queda, programarlo dependiendo de las fuentes */}
-              {/* Font selection */}
-              <div className="p-3 rounded-xl bg-mint-light/30 border border-mint/20">
-                <p className="text-sm text-foreground flex items-center gap-2">
-                  <MessageCircle className="h-4 w-4 text-mint shrink-0" />
-                  {language === 'es'
-                    ? 'El tipo de letra lo podrás seleccionar directamente vía WhatsApp con nuestro equipo.'
-                    : 'You can select the font type directly via WhatsApp with our team.'}
-                </p>
-              </div>
 
 							{ <FabricSelector /> }
 

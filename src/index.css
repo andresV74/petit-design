@@ -5,6 +5,30 @@
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
+@font-face {
+  font-family: Barbie;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/public/fonts/Barbie.woff2');
+}
+
+@font-face {
+  font-family: Hello;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/public/fonts/Hello.woff2');
+}
+
+@font-face {
+  font-family: Vogue;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/public/fonts/Vogue.woff2');
+}
+
 @theme {
     --color-background: hsl(0 0% 100%);
     --color-foreground: hsl(210 10% 25%);
@@ -52,6 +76,10 @@
     --sidebar-accent-foreground: 168 40% 25%;
     --sidebar-border: 210 15% 90%;
     --sidebar-ring: 168 40% 65%;
+
+    --font-barbie: "Barbie";
+    --font-hello: "Hello";
+    --font-vogue: "Vogue";
 }
 
 @layer base {

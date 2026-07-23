@@ -48,7 +48,7 @@ export const faqs = () => ({
 		},
 		{
 			question: 'Are the products personalized?' ,
-			answer: 'Yes. Most of our products are personalized with the baby\'s name. Depending on the product, you can choose the fabric, bias color, embroidery color, bows or other finishes. This makes each order unique and specially designed for your baby.'
+			answer: 'Yes. Most of our products are personalized with the baby\'s name. Depending on the product, you can choose the fabric, cant color, embroidery color, bows or other finishes. This makes each order unique and specially designed for your baby.'
 		},
 		{
 			question: 'How does the purchasing process work?' ,
