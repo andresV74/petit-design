@@ -342,9 +342,11 @@ export const translations: Translations = {
   'product.fontTitle': { es: 'Tipo de letra', en: 'Font' },
   'product.fontCta': { es: 'Escoge tipo de letra para el nombre', en: 'Choose a font for the name' },
   'product.namePreview': {
-    es: '👆 Completa el nombre, el tipo de letra y el color para ver una vista previa de la personalización.',
+    es: '👆 Completa el nombre, el tipo de letra y el color para tener una vista previa de la personalización.',
     en: '👆 Enter the name, font, and color to see a preview of the customization.'
   },
+  'product.quantity': { es: 'Cantidad', en: 'Quantity' },
+  'product.size': { es: 'Medida', en: 'Size' },
 
   // Fabric Gallery
   'fabricGallery.boysTitle': { es: 'Catálogo de Telas - Niño', en: 'Fabric Catalog - Boy' },

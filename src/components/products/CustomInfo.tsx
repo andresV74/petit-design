@@ -6,7 +6,7 @@ export function CustomInfo() {
 
 	return (
 		customs && (
-			<>
+			<div className='sticky top-25'>
 				<div
 					className='custom-container w-full bg-mint-light/40 border border-mint/50 rounded-2xl px-4 py-3 text-mint-dark pointer-events-none'
 				>
@@ -48,7 +48,7 @@ export function CustomInfo() {
 							{customs.name}
 						</p>
 					)}
-			</>
+			</div>
 		)
 	)
 }

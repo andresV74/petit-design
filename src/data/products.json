@@ -21,6 +21,7 @@
 		"category": "kits",
 		"subcategory": "",
 		"isFeatured": true,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -45,6 +46,7 @@
 		"category": "kits",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 20
 	},
 	{
@@ -69,6 +71,7 @@
 		"category": "kits",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -93,6 +96,7 @@
 		"category": "kits",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -117,6 +121,7 @@
 		"category": "kits",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -141,6 +146,7 @@
 		"category": "kits",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -186,10 +192,10 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15,
-		"extraCustomization": [
-			"pricePerLetter"
-		]
+		"extraCustomization": "pricePerLetter",
+		"initialPrice": 30000
 	},
 	{
 		"id": "a02",
@@ -227,6 +233,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -293,6 +300,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -359,6 +367,7 @@
 		"category": "accesorios",
 		"subcategory": "cambio-panal-accesorios",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -404,6 +413,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -456,6 +466,7 @@
 		"category": "accesorios",
 		"subcategory": "nido",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -557,6 +568,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -637,6 +649,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -668,13 +681,14 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
 		"id": "a10",
 		"name_es": "Muñeco de Apego",
 		"name_en": "Comfort Doll",
-		"slug": "muñeco-de-apego",
+		"slug": "muneco-de-apego",
 		"shortDescription_es": "Muñecos decorativos suaves para la habitación del bebé.",
 		"shortDescription_en": "Soft decorative stuffed animals for the baby's room.",
 		"longDescription_es": "Nuestros muñecos decorativos son el complemento perfecto para darle un toque especial a la habitación del bebé. Están pensados principalmente para decoración: se pueden ubicar en la cuna, silla mecedora, repisas o mesas auxiliares, aportando calidez y personalidad al espacio.\n\nTenemos diferentes opciones de personaje: ratón, conejo, elefante y jirafa. Cada muñeco va vestido con telas de nuestro catálogo, pero el diseño/estampado es aleatorio, ya que se elaboran con retazos seleccionados (manteniendo la estética de la marca).\n\n**Qué incluye**\n\n- 1 muñeco decorativo (a elección):\n- Ratón / Conejo / Elefante / Jirafa\n- Vestuario en tela de Petit Design (selección aleatoria)\n\n**Cómo elegir (al momento de comprar)**\n\nSeleccionas:\n\n- Niño o niña (paleta/estilo)\n- Tipo de muñeco (ratón, conejo, elefante o jirafa)\n- La tela/print del vestuario se asigna de forma aleatoria según disponibilidad de retazos.\n\n**Beneficios clave**\n\n- Aporta decoración y armonía al cuarto del bebé\n- Diferentes personajes para combinar con el estilo de la habitación\n- Cada pieza es única por la selección aleatoria de telas\n- Ideal como regalo decorativo\n\n**Ideal para**\n\n- Decoración de cuna, repisas y sillas mecedoras\n- Baby shower / nacimiento\n- Complementar sets y lencería del cuarto",
@@ -734,7 +748,20 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
-		"productionDays": 15
+		"useFabrics": false,
+		"productionDays": 15,
+		"extraCustomization": "priceByOption",
+		"initialPrice": 85000,
+		"options": [
+			{
+				"name": "1",
+				"value": 85000
+			},
+			{
+				"name": "2",
+				"value": 160000
+			}
+		]
 	},
 	{
 		"id": "a11",
@@ -793,6 +820,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -838,6 +866,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -904,6 +933,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -942,6 +972,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -994,6 +1025,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1039,6 +1071,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1084,6 +1117,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1111,11 +1145,13 @@
 				"isPrimary": false
 			}
 		],
-		"price": 144000,
+		"price": 140000,
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
-		"productionDays": 15
+		"useFabrics": false,
+		"productionDays": 15,
+		"colorFilter": ["blanco"]
 	},
 	{
 		"id": "a20",
@@ -1174,6 +1210,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1198,6 +1235,7 @@
 		"category": "accesorios",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1222,6 +1260,7 @@
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1246,6 +1285,7 @@
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1277,6 +1317,7 @@
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1322,6 +1363,7 @@
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1444,6 +1486,7 @@
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1475,6 +1518,7 @@
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1499,7 +1543,25 @@
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
-		"productionDays": 15
+		"useFabrics": false,
+		"productionDays": 15,
+		"extraCustomization": "priceByOption",
+		"initialPrice": 250000,
+		"colorFilter": ["blanco", "beige", "rosa_claro", "gris_perla"],
+		"options": [
+			{
+				"name": "70 x 130cm",
+				"value": 250000
+			},
+			{
+				"name": "100 x 150cm",
+				"value": 270000
+			},
+			{
+				"name": "100 x 190cm",
+				"value": 290000
+			}
+		]
 	},
 	{
 		"id": "l05",
@@ -1558,6 +1620,7 @@
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1659,6 +1722,7 @@
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
+		"useFabrics": true,
 		"productionDays": 15
 	},
 	{
@@ -1725,6 +1789,49 @@
 		"category": "lenceria-cuna",
 		"subcategory": "",
 		"isFeatured": false,
-		"productionDays": 15
+		"useFabrics": true,
+		"productionDays": 15,
+		"extraCustomization": "priceByOption",
+		"initialPrice": 650000,
+		"options": [
+			{
+				"name": "Cuna estándar (70 x 130 cm)",
+				"value": 650000
+			},
+			{
+				"name": "Cama cuna (100 x 120-150 cm)",
+				"value": 720000
+			},
+			{
+				"name": "Cama monteros (1.20-1.20x1.90)",
+				"value": 940000
+			}
+		],
+		"additionalOptions": [
+			{
+				"name": "Bumper bordado completo",
+				"value": "Bumper bordado completo"
+			},
+			{
+				"name": "Bumper bordado solo cabecero",
+				"value": "Bumper bordado solo cabecero"
+			},
+			{
+				"name": "Bumper clásico estampado",
+				"value": "Bumper clásico estampado"
+			},
+			{
+				"name": "Bumper con aplique de color",
+				"value": "Bumper con aplique de color"
+			},
+			{
+				"name": "Bumper con bolero, alforzas y aplique",
+				"value": "Bumper con bolero, alforzas y aplique"
+			},
+			{
+				"name": "Bumper solo aplique",
+				"value": "Bumper solo aplique"
+			}
+		]
 	}
 ]

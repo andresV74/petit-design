@@ -8,14 +8,19 @@ export interface EmbroideryColorsProps {
 }
 interface ProductEmbroideryColorProps {
 	embroideryColors: EmbroideryColorsProps[]
+	colorFilters: string[] | undefined
 }
 
 export function ProductEmbroideryColor({
 	embroideryColors,
+	colorFilters,
 }: ProductEmbroideryColorProps) {
 	const selectedColor = useProductCustomsStore((state) => state.customs?.color)
 	const setColor = useProductCustomsStore((state) => state.setCustom)
 	const removeColor = useProductCustomsStore((state) => state.removeCustom)
+	const colors = colorFilters
+		? embroideryColors.filter((item) => colorFilters.includes(item.value))
+		: embroideryColors
 	const { t } = useLanguage()
 
 	const handleColor = (newColor: EmbroideryColorsProps) => {
@@ -30,7 +35,7 @@ export function ProductEmbroideryColor({
 		<div className="space-y-3">
 			<label>{t('product.embroideryColor')}</label>
 			<div className="flex flex-wrap gap-3 mt-3">
-				{embroideryColors.map((color) => (
+				{colors.map((color) => (
 					<button
 						key={color.value}
 						onClick={() => handleColor(color)}

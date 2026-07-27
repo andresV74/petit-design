@@ -8,8 +8,8 @@ import { FontSelector } from '@/components/products/FontSelector.tsx'
 import { ProductEmbroideryColor } from '@/components/products/ProductEmbroideryColor.tsx'
 import { FabricSelector } from '@/components/products/FabricSelector.tsx'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs.tsx'
-import { useLanguage } from '@/lib/i18n.tsx'
 import { Button } from '@/components/ui/button.tsx'
+import { useLanguage } from '@/lib/i18n.tsx'
 import { trackEvent, /*trackWhatsAppClick*/ } from '@/hooks/useMetaPixel.ts'
 // import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
@@ -35,7 +35,7 @@ export function ProductPage() {
   const category = displayProduct?.category
 
   const hasTrackedView = useRef(false)
-  const [totalPrice, setTotalPrice] = useState(30000)
+  const [totalPrice, setTotalPrice] = useState<number | undefined>(displayProduct?.initialPrice)
   const name = useProductCustomsStore((state) => state.customs?.name ?? '')
   const observations = useProductCustomsStore((state) => state.customs?.observations)
   const setCustoms = useProductCustomsStore((state) => state.setCustom)
@@ -69,12 +69,21 @@ export function ProductPage() {
     }).format(price)
   }
 
-  const handlePrice = (e: React.ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
+  const handlePrice = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement, HTMLInputElement | HTMLSelectElement>) => {
+		const extraCustomization = displayProduct?.extraCustomization
     if (!displayProduct?.price) return
-    const canHandle = displayProduct?.extraCustomization?.includes('pricePerLetter')
 
-    setCustoms({name: e.target.value})
-    setTotalPrice(canHandle ? (displayProduct?.price * e.target.value.length) : displayProduct?.price)
+		switch (extraCustomization) {
+			case 'pricePerLetter':
+				setCustoms({name: event.target.value})
+				setTotalPrice(displayProduct?.price * event.target.value.length)
+				break
+			case 'priceByOption':
+        setTotalPrice(parseInt(event.target.value))
+				break
+			default:
+				break
+		}
   }
 
   // const hasTrackedCustomize = useRef(false)
@@ -188,7 +197,7 @@ export function ProductPage() {
         <Breadcrumbs category={category} isProduct={true} />
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          <div className="space-y-4">
+          <div className="space-y-4 relative">
             <ProductPreview
               images={images}
             />
@@ -201,8 +210,37 @@ export function ProductPage() {
               {language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}
             </h1>
             <p className="text-2xl font-semibold text-primary">
-              {displayProduct?.extraCustomization?.includes('pricePerLetter') ? formatPrice(totalPrice) : formatPrice(displayProduct?.price)}
+              {displayProduct?.extraCustomization ? formatPrice(totalPrice) : formatPrice(displayProduct?.price)}
             </p>
+
+            {displayProduct?.extraCustomization === 'priceByOption' && (
+              <div>
+                <label htmlFor="options" className='block mb-1'>
+                  {displayProduct.slug === 'muneco-de-apego'
+                    ? t('product.quantity')
+                    : t('product.size')
+                  }
+                  </label>
+                <select id='options' className='w-70' onChange={(event) => handlePrice(event)}>
+                  {displayProduct.options?.map(({ name, value}) => (
+                    <option key={value} value={value}>{name}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            {displayProduct?.additionalOptions && (
+              <div>
+                <label htmlFor="additionalOptions" className='block mb-1'>
+                  Escoge el estilo del bumper
+                  </label>
+                <select id='additionalOptions' className='w-70'>
+                  {displayProduct.additionalOptions?.map(({ name, value}) => (
+                    <option key={value} value={value}>{name}</option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             <p className="text-muted-foreground leading-relaxed">
               {language === 'es' ? displayProduct?.shortDescription_es : displayProduct?.shortDescription_en}
@@ -247,7 +285,7 @@ export function ProductPage() {
                   id="babyName"
                   placeholder={t('product.babyNamePlaceholder')}
                   value={name}
-                  onChange={(e) => handlePrice(e)}
+                  onChange={(event) => handlePrice(event)}
                   className={inputClasses}
                   maxLength={15}
                 />
@@ -258,13 +296,14 @@ export function ProductPage() {
 
               <ProductEmbroideryColor
                 embroideryColors={embroideryColors}
+                colorFilters={displayProduct?.colorFilter}
               />
 
               <p className='text-sm mb-3'>
                 {t('product.namePreview')}
               </p>
 
-							{ <FabricSelector /> }
+							{displayProduct?.useFabrics && <FabricSelector /> }
 
               <div className="space-y-2">
                 <label htmlFor="observations" className='block'>
