@@ -69,21 +69,13 @@ export function ProductPage() {
     }).format(price)
   }
 
-  const handlePrice = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement, HTMLInputElement | HTMLSelectElement>) => {
-		const extraCustomization = displayProduct?.extraCustomization
+  const handlePriceLetters = (e: React.ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
     if (!displayProduct?.price) return
 
-		switch (extraCustomization) {
-			case 'pricePerLetter':
-				setCustoms({name: event.target.value})
-				setTotalPrice(displayProduct?.price * event.target.value.length)
-				break
-			case 'priceByOption':
-        setTotalPrice(parseInt(event.target.value))
-				break
-			default:
-				break
-		}
+    const canHandle = displayProduct?.extraCustomization?.includes('pricePerLetter')
+
+    setCustoms({name: e.target.value})
+    setTotalPrice(canHandle ? (displayProduct?.price * e.target.value.length) : displayProduct?.price)
   }
 
   // const hasTrackedCustomize = useRef(false)
@@ -214,19 +206,19 @@ export function ProductPage() {
             </p>
 
             {displayProduct?.extraCustomization === 'priceByOption' && (
-              <div>
-                <label htmlFor="options" className='block mb-1'>
+              <fieldset className='space-y-1'>
+                <label htmlFor="options" className='block'>
                   {displayProduct.slug === 'muneco-de-apego'
                     ? t('product.quantity')
                     : t('product.size')
                   }
                   </label>
-                <select id='options' className='w-70' onChange={(event) => handlePrice(event)}>
+                <select id='options' className='w-70' onChange={(e) => setTotalPrice(parseInt(e.target.value))}>
                   {displayProduct.options?.map(({ name, value}) => (
                     <option key={value} value={value}>{name}</option>
                   ))}
                 </select>
-              </div>
+              </fieldset>
             )}
 
             {displayProduct?.additionalOptions && (
@@ -277,19 +269,19 @@ export function ProductPage() {
               </h3>
 
               {/* Name input */}
-              <div className="space-y-2">
-                <label htmlFor="babyName" className="b">
+              <fieldset className="space-y-2">
+                <label htmlFor="babyName">
                   {t('product.babyName')}
                 </label>
                 <input
                   id="babyName"
                   placeholder={t('product.babyNamePlaceholder')}
                   value={name}
-                  onChange={(event) => handlePrice(event)}
+                  onChange={(event) => handlePriceLetters(event)}
                   className={inputClasses}
                   maxLength={15}
                 />
-              </div>
+              </fieldset>
 
               {/* Font selection */}
               <FontSelector />

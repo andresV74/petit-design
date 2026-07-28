@@ -11,7 +11,7 @@ export function CustomInfo() {
 					className='custom-container w-full bg-mint-light/40 border border-mint/50 rounded-2xl px-4 py-3 text-mint-dark pointer-events-none'
 				>
 					{customs.name && (
-						<p>{t('product.name')} <span>{customs.name}</span></p>
+						<p>{t('product.name')} <span className='font-bold'>{customs.name}</span></p>
 					)}
 					{customs.font && (
 						<p>{t('product.fontTitle')}: <span className='font-bold'>{customs.font}</span></p>

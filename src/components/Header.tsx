@@ -50,7 +50,7 @@ export function Header() {
           >
             {t('nav.home')}
           </Link>
-          
+
           {tCatalog.categories.map(({ title, menuTitle, slug }) => (
             <Link
               key={slug}
@@ -119,6 +119,7 @@ export function Header() {
         </div>
       </div>
 
+      {/* TODO: fix mobile navigation */}
       {/* Mobile Navigation */}
       <div
         className={
