@@ -51,6 +51,7 @@ export function Header() {
             {t('nav.home')}
           </Link>
 
+          {/* Catalog Categories */}
           {tCatalog.categories.map(({ title, menuTitle, slug }) => (
             <Link
               key={slug}
@@ -119,7 +120,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* TODO: fix mobile navigation */}
       {/* Mobile Navigation */}
       <div
         className={
@@ -127,21 +127,20 @@ export function Header() {
           ${isOpen ? 'max-h-150' : 'max-h-0'}`
         }
       >
-        <nav className="flex flex-col gap-2 px-4 pb-4">
-          {/* Mobile Categories with Expandable Subcategories */}
-          {navLinks.map((link) => (
+        <nav className="flex flex-col gap-2 px-4 py-4">
+          {/* Catalog Categories */}
+          {tCatalog.categories.map(({ title, menuTitle, slug }) => (
             <Link
-              key={link.href}
-              to={link.href}
-              onClick={() => setIsOpen(false)}
-              className="py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-mint-dark"
+              key={slug}
+              to={`/catalogo/${slug}`}
+              className='py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-mint-dark'
             >
-              {link.label}
+              {menuTitle ? menuTitle : title}
             </Link>
           ))}
 
           {/* Mobile Fabrics Section */}
-          <div className="flex flex-col gap-1 pb-2">
+          <div className="flex flex-col gap-1">
             <Link
               to="/telas/nino"
               onClick={() => setIsOpen(false)}
@@ -157,6 +156,18 @@ export function Header() {
               {t('header.girlsFabricsCatalog')}
             </Link>
           </div>
+
+          {/* Mobile Categories with Expandable Subcategories */}
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              onClick={() => setIsOpen(false)}
+              className="py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-mint-dark"
+            >
+              {link.label}
+            </Link>
+          ))}
 
           <Button
             onClick={toggleLanguage}
