@@ -45,6 +45,10 @@ export function FontSelector() {
 					</option>
 				))}
 			</select>
+			{/* Fix strange behavior with the fonts called in the template literals */}
+			<span className='hidden font-barbie'></span>
+			<span className='hidden font-hello'></span>
+			<span className='hidden font-vogue'></span>
 		</fieldset>
 	)
 }

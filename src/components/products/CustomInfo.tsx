@@ -38,15 +38,15 @@ export function CustomInfo() {
 				</div>
 
 					{customs.name && customs.font && customs.color && (
-						<p
-							className={`mt-6 pt-3 text-center rounded-2xl font-${customs.font.toLowerCase()}
+						<div
+							className={`emboss mt-6 pt-3 text-center rounded-2xl bg-size-[60%] bg-center border border-border font-${customs.font.toLowerCase()}
 								${customs.color.value === 'blanco' ? 'bg-primary/70' : ''}
 								${customs.font === 'Hello' ? 'text-4xl/20 tracking-tighter' : 'text-5xl/20'}`
 							}
-								style={{ color: customs.color.color }}
+								style={{ color: customs.color.color, backgroundImage: `url(${customs.fabric?.image})` }}
 						>
 							{customs.name}
-						</p>
+						</div>
 					)}
 			</div>
 		)

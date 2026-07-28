@@ -163,6 +163,12 @@
     transform: rotate(45deg);
     width: 6px;
   }
+
+  .emboss {
+    text-shadow:
+    -1px -1px 0px #ffffff,
+    1px 1px 0px #3333336d;
+  }
 }
 
 @layer utilities {
