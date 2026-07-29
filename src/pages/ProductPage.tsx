@@ -69,6 +69,7 @@ export function ProductPage() {
     }).format(price)
   }
 
+  // TODO: display correct price when enter the name is already in store
   const handlePriceLetters = (e: React.ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
     if (!displayProduct?.price) return
 
@@ -222,7 +223,7 @@ export function ProductPage() {
             )}
 
             {displayProduct?.additionalOptions && (
-              <div>
+              <fieldset>
                 <label htmlFor="additionalOptions" className='block mb-1'>
                   Escoge el estilo del bumper
                   </label>
@@ -231,7 +232,7 @@ export function ProductPage() {
                     <option key={value} value={value}>{name}</option>
                   ))}
                 </select>
-              </div>
+              </fieldset>
             )}
 
             <p className="text-muted-foreground leading-relaxed">

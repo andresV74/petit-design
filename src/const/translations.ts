@@ -347,6 +347,7 @@ export const translations: Translations = {
   },
   'product.quantity': { es: 'Cantidad', en: 'Quantity' },
   'product.size': { es: 'Medida', en: 'Size' },
+  'product.warn': { es: 'Esto es una representación gráfica, el producto final puede variar', en: 'This is an illustration; the final product may vary.' },
 
   // Fabric Gallery
   'fabricGallery.boysTitle': { es: 'Catálogo de Telas - Niño', en: 'Fabric Catalog - Boy' },
