@@ -203,7 +203,12 @@ export function ProductPage() {
               {language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}
             </h1>
             <p className="text-2xl font-semibold text-primary">
-              {displayProduct?.extraCustomization ? formatPrice(totalPrice) : formatPrice(displayProduct?.price)}
+              {displayProduct?.extraCustomization === 'pricePerLetter' && name.length > 0
+                ? `${formatPrice(displayProduct.price * name.length)} para el nombre: ${name}`
+                : displayProduct?.extraCustomization === 'priceByOption'
+                  ? formatPrice(totalPrice)
+                  : formatPrice(displayProduct?.price)
+              }
             </p>
 
             {displayProduct?.extraCustomization === 'priceByOption' && (
