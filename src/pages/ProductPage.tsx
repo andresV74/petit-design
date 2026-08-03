@@ -69,7 +69,6 @@ export function ProductPage() {
     }).format(price)
   }
 
-  // TODO: display correct price when enter the name is already in store
   const handlePriceLetters = (e: React.ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
     if (!displayProduct?.price) return
 

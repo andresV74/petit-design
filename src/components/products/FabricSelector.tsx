@@ -32,7 +32,6 @@ export function FabricSelector({
 	const [zoomIndex, setZoomIndex] = useState(0)
 	const dialogRef = useRef<DialogRef | null>(null)
 	const selectedFabric = useFabricsStore((state) => state.fabric)
-	const setFabric = useFabricsStore((state) => state.setFabric)
 
 	const currentFabrics: Fabric[] = (selectedGender === 'boy'
 		? boyFabrics
@@ -53,17 +52,6 @@ export function FabricSelector({
 		setZoomIndex(index)
 		dialogRef.current?.open()
 	}
-
-	// TODO: check if this logic can be inside the Dialog component.
-  /**
-   * Handle the selected fabric and stores the fabric in the global context
-   */
-  const handleSelectedFabric = () => {
-    if (!zoomFabric) return
-
-    setFabric(zoomFabric)
-    dialogRef.current?.close()
-  }
 
 	// Find selected fabric name
 	const selectedFabricObj = [...boyFabrics, ...girlFabrics].find(fabric => fabric.id === selectedFabric?.id)
@@ -148,7 +136,6 @@ export function FabricSelector({
 				ref={dialogRef}
 				zoomFabric={zoomFabric}
 				currentFabrics={currentFabrics}
-				handleSelectFromZoom={handleSelectedFabric}
 				zoomIndex={zoomIndex}
 				setZoomIndex={setZoomIndex}
 				setZoomFabric={setZoomFabric}

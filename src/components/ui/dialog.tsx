@@ -13,7 +13,6 @@ export interface DialogRef {
 export interface DialogProps {
 	zoomFabric: Fabric | null
 	currentFabrics: Fabric[]
-	handleSelectFromZoom: () => void
 	zoomIndex: number
 	setZoomIndex: (index: number) => void
 	setZoomFabric: (fabric: Fabric | null) => void
@@ -23,7 +22,6 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 	({
 		zoomFabric,
 		currentFabrics,
-		handleSelectFromZoom,
 		zoomIndex,
 		setZoomIndex,
 		setZoomFabric,
@@ -31,6 +29,7 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 	const { t, language } = useLanguage()
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
 	const selectedFabric = useFabricsStore((state) => state.fabric)
+	const setFabric = useFabricsStore((state) => state.setFabric)
 	const clearFabric = useFabricsStore((state) => state.clearFabric)
 
 	useImperativeHandle(ref, () => ({
@@ -55,7 +54,14 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 		}
 	}
 
-	const handleClearSelection = () => {
+	const handleSetFabric = () => {
+		if (!zoomFabric) return
+
+		setFabric(zoomFabric)
+		dialogRef.current?.close()
+	}
+
+	const handleClearFabric = () => {
 		clearFabric()
 		dialogRef.current?.close()
 	}
@@ -116,7 +122,7 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 					{selectedFabric?.id !== zoomFabric.id && (
 						<Button
 							className="w-full gap-2 h-11 rounded-md px-8 bg-primary text-primary-foreground"
-							onClick={handleSelectFromZoom}
+							onClick={handleSetFabric}
 						>
 							{t('general.select')}
 						</Button>
@@ -126,7 +132,7 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 					{selectedFabric?.id === zoomFabric.id && (
 						<Button
 							className="w-full gap-2 h-11 rounded-md px-8 bg-destructive hover:bg-destructive-hover text-destructive-foreground"
-							onClick={handleClearSelection}
+							onClick={handleClearFabric}
 						>
 							{t('general.unselect')}
 						</Button>

@@ -21,7 +21,6 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
 	const [zoomIndex, setZoomIndex] = useState(0)
 	const dialogRef = useRef<DialogRef | null>(null)
   const selectedFabric = useFabricsStore((state) => state.fabric)
-  const setFabric = useFabricsStore((state) => state.setFabric)
 
 	const fabrics: Fabric[] = (gender === 'boy'
 		? boyFabrics
@@ -50,17 +49,6 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
 		setZoomIndex(index)
 		dialogRef.current?.open()
 	}
-
-  // TODO: Move to an util to use it site wide
-  /**
-   * Handle the selected fabric and stores the fabric in the global context
-   */
-  const handleSelectedFabric = () => {
-    if (!zoomFabric) return
-
-    setFabric(zoomFabric)
-    dialogRef.current?.close()
-  }
 
   const fabricName = () => {
     return language === 'es'
@@ -162,7 +150,6 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
 				ref={dialogRef}
 				zoomFabric={zoomFabric}
 				currentFabrics={fabrics}
-				handleSelectFromZoom={handleSelectedFabric}
 				zoomIndex={zoomIndex}
 				setZoomIndex={setZoomIndex}
 				setZoomFabric={setZoomFabric}
