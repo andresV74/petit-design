@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Sparkles, Baby, MessageCircle, ZoomIn } from 'lucide-react'
 import { Dialog, type DialogRef } from '@/components/ui/dialog.tsx'
+import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import { useLanguage } from '@/lib/i18n.tsx'
 import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 import { Badge } from '@/components/ui/badge.tsx'
@@ -17,6 +18,7 @@ export function PersonalizeSection() {
   const [selectedGender, setSelectedGender] = useState<'boy' | 'girl' | null>(null)
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
   const dialogRef = useRef<DialogRef | null>(null)
+	const setFabric = useFabricsStore((state) => state.setFabric)
 
   const [zoomIndex, setZoomIndex] = useState(0)
 
@@ -51,6 +53,17 @@ export function PersonalizeSection() {
 		setZoomIndex(index)
 		dialogRef.current?.open()
 	}
+
+  /**
+   * Handle the selected fabric and stores the fabric in the global context
+   */
+  const handleSelectedFabric = () => {
+    if (!zoomFabric) return
+
+    setFabric(zoomFabric)
+    dialogRef.current?.close()
+  }
+
 
   const currentFabrics: Fabric[] = (selectedGender === 'boy'
     ? boyFabrics
@@ -201,6 +214,7 @@ export function PersonalizeSection() {
         ref={dialogRef}
         zoomFabric={zoomFabric}
         currentFabrics={currentFabrics}
+        handleSelectFromZoom={handleSelectedFabric}
         zoomIndex={zoomIndex}
         setZoomIndex={setZoomIndex}
         setZoomFabric={setZoomFabric}
