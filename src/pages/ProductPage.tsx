@@ -194,7 +194,7 @@ export function ProductPage() {
             <ProductPreview
               images={images}
             />
-            <CustomInfo />
+            <CustomInfo useFabrics={displayProduct?.useFabrics} />
           </div>
 
           {/* Product Info */}
