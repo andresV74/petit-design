@@ -18,6 +18,7 @@ export function PersonalizeSection() {
   const [selectedGender, setSelectedGender] = useState<'boy' | 'girl' | null>(null)
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
   const dialogRef = useRef<DialogRef | null>(null)
+  const selectedFabric = useFabricsStore((state) => state.fabric)
 	const setFabric = useFabricsStore((state) => state.setFabric)
 
   const [zoomIndex, setZoomIndex] = useState(0)
@@ -150,7 +151,12 @@ export function PersonalizeSection() {
                   className="group relative cursor-pointer"
                 >
                   {/* Fabric swatch - larger size with hover effect */}
-                  <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:shadow-2xl group-hover:z-10">
+                  <div className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:shadow-2xl group-hover:z-10
+                    ${fabric.id === selectedFabric?.id
+                      ? selectedGender === 'boy'
+                        ? 'border-blue-400/40'
+                        : 'border-pink-400/40'
+                      : 'border-white'}`}>
                     <img
                       src={fabric.image}
                       alt={language === 'es' ? fabric.name_es : fabric.name_en}
