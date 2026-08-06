@@ -34,7 +34,7 @@ export function FontSelector() {
 				value={selectedFont}
 				onChange={(event) => handleFont(event.target.value)}
 			>
-				<option value="">Escoge tipo de letra para el nombre</option>
+				<option value="">{t('product.fontCta')}</option>
 				{buttons.map(({ name }) => (
 					<option
 						key={name}

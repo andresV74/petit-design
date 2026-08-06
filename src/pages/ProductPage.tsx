@@ -204,7 +204,7 @@ export function ProductPage() {
             </h1>
             <p className="text-2xl font-semibold text-primary">
               {displayProduct?.extraCustomization === 'pricePerLetter' && name.length > 0
-                ? `${formatPrice(displayProduct.price * name.length)} para el nombre: ${name}`
+                ? `${formatPrice(displayProduct.price * name.length)} ${t('product.price')}: ${name}`
                 : displayProduct?.extraCustomization === 'priceByOption'
                   ? formatPrice(totalPrice)
                   : formatPrice(displayProduct?.price)
