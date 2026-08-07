@@ -42,14 +42,14 @@ export const catalogContent = {
 				title: 'Linen Accessories',
 				menuTitle: 'Accessories',
 				slug: 'accesorios',
-				image_url: '',
+				image_url: categoryImages['accesorios'],
 				description: 'Special accessories to complement your baby\'s set',
 			},
 			{
 				title: 'Crib and Toddler Bed Linens',
 				menuTitle: 'Crib Linens',
 				slug: 'lenceria-cuna',
-				image_url: '',
+				image_url: categoryImages['lenceria'],
 				description: 'Delicate bedding for your baby\'s first dreams',
 			},
 			{

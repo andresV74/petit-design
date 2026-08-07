@@ -35,9 +35,9 @@ export function CategoriesSection() {
 											decoding="async"
 											className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
 										/>
-										<div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/0 to-transparent" />
+										<div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/0 to-transparent" />
 										<div className="absolute inset-0 flex flex-col items-center justify-end p-6">
-											<h3 className="font-display text-xl font-semibold text-white text-center mb-2">
+											<h3 className="flex items-center font-display text-xl font-semibold text-white text-center text-balance min-h-14 mb-2">
 												{category.title}
 											</h3>
 										</div>
