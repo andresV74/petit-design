@@ -24,8 +24,8 @@ export const translations: Translations = {
   // Homepage hero
   'hero.beforeTitle': { es: '100% Personalizable', en: '100% Customizable'},
   'hero.title': {
-    es: 'Lencería de cuna personalizada y accesorios para bebés y niños, diseñados para acompañar sus primeros años con calidad y dedicación',
-    en: 'Personalized crib linens and accessories for babies and children, designed to accompany them through their early years with quality and care'
+    es: 'Lencería de cuna y accesorios personalizados para bebés y niños',
+    en: 'Crib linens and personalized accessories for babies and children'
   },
   'hero.subtitle': {
     es: 'Cada producto es único y personalizado con el nombre de tu bebé. Diseños exclusivos 100% colombianos',
@@ -390,6 +390,10 @@ export const translations: Translations = {
   'footer.contact': { es: 'Contacto', en: 'Contact' },
   'footer.followUs': { es: 'Síguenos', en: 'Follow Us' },
   'footer.rights': { es: 'Todos los derechos reservados', en: 'All rights reserved' },
+  'footer.made': { es: 'Hecho con', en: 'Made with' },
+  'footer.from': { es: 'desde', en: 'from' },
+  'footer.catalogTitle': { es: 'Catálogo PDF', en: 'Catalog PDF' },
+  'footer.catalogDescription': { es: 'Descarga nuestro catálogo PDF con todas las opciones disponibles', en: 'Download our PDF catalog with all available options' },
 
   // General
   'general.loading': { es: 'Cargando...', en: 'Loading...' },

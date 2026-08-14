@@ -58,6 +58,7 @@ export function getWhatsAppUrl(options?: {
   message?: string;
   language?: 'es' | 'en';
   source?: string;
+  whatsAppNumber?: string
 }): string {
   const lang = options?.language || 'es';
   const baseMessage = options?.message || (lang === 'es' ? DEFAULT_MESSAGE_ES : DEFAULT_MESSAGE_EN);
@@ -71,7 +72,7 @@ export function getWhatsAppUrl(options?: {
   }
 
   const url = new URL('https://api.whatsapp.com/send');
-  url.searchParams.set('phone', WHATSAPP_NUMBER);
+  url.searchParams.set('phone', options?.whatsAppNumber || WHATSAPP_NUMBER);
   url.searchParams.set('text', fullMessage);
 
   return url.toString();

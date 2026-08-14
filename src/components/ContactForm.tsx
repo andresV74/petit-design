@@ -113,10 +113,10 @@ export function ContactForm() {
 
   return (
     <div className={`rounded-lg bg-card text-card-foreground border-2 border-primary/10 ${isHomePage ? 'shadow-lg' : 'shadow-sm'}`}>
-      <div className={`grid p-6 pb-2 items-center ${isHomePage ? 'text-center gap-1.5' : 'grid-cols-[auto_1fr] gap-x-3'}`}>
-        <div className={`mx-auto flex items-center justify-center rounded-full bg-primary/10 ${isHomePage ? 'h-12 w-12 mb-3' : 'h-9 w-9'}`}>
+      <div className="grid p-6 pb-2 items-center grid-cols-[auto_1fr] gap-x-3">
+        <div className="mx-auto flex items-center justify-center rounded-full bg-primary/10 h-9 w-9">
           {isHomePage ? (
-            <MessageCircle className="h-6 w-6 text-primary" />
+            <MessageCircle className="h-5 w-5 text-primary" />
           ) : (
             <Mail className="h-5 w-5 text-primary" />
           )}
@@ -124,148 +124,155 @@ export function ContactForm() {
         <h3 className="leading-none tracking-tight text-xl md:text-2xl font-bold">
           {t.title}
         </h3>
-        <div className={`text-muted-foreground text-sm mt-1 ${!isHomePage ? 'col-start-2' : ''}`}>
+        <div className="text-muted-foreground text-sm mt-1 col-start-2">
           {t.subtitle}
         </div>
       </div>
 
       <div className="p-6 pt-4">
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className={`grid gap-5 ${!isHomePage ? 'sm:grid-cols-2' : ''}`}>
-            {/* Name */}
-            <div className="space-y-1.5">
-              <label htmlFor="name" className="flex items-center gap-2 text-sm">
-                <User className="h-3.5 w-3.5 text-muted-foreground" />
-                {t.nameLabel}
-              </label>
-              <input
-                id="name"
-                placeholder={t.namePlaceholder}
-                value={formData.name}
-                onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('name', event.target.value)}
-                className={`h-9 ${inputClasses} ${validationErrors.name ? 'border-destructive' : ''}`}
-                autoComplete="name"
-              />
-              {validationErrors.name && (
-                <p className="text-xs text-destructive">{validationErrors.name}</p>
-              )}
-            </div>
-
-            {/* Email */
-              !isHomePage && (
-                <div className="space-y-1.5">
-                  <label htmlFor="name" className="flex items-center gap-2 text-sm">
-                    <Mail className="h-3.5 w-3.5 text-muted-foreground" />
-                    {t.emailLabel}
-                  </label>
-                  <input
-                    id="name"
-                    placeholder={t.emailPlaceholder}
-                    value={formData.name}
-                    onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('name', event.target.value)}
-                    className={`h-9 ${inputClasses} ${validationErrors.name ? 'border-destructive' : ''}`}
-                    autoComplete="name"
-                  />
-                  {validationErrors.name && (
-                    <p className="text-xs text-destructive">{validationErrors.name}</p>
-                  )}
-                </div>
-              )
-            }
-
-            {/* Phone */}
-            <div className="space-y-1.5">
-              <label htmlFor="phone" className="flex items-center gap-2 text-sm">
-                <Phone className="h-3.5 w-3.5 text-muted-foreground" />
-                {t.phoneLabel}
-              </label>
-              <input
-                id="phone"
-                type="tel"
-                placeholder={t.phonePlaceholder}
-                value={formData.phone}
-                onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('phone', event.target.value)}
-                className={`h-9 ${inputClasses} ${validationErrors.phone ? 'border-destructive' : ''}`}
-                autoComplete="tel"
-              />
-              {validationErrors.phone && (
-                <p className="text-xs text-destructive">{validationErrors.phone}</p>
-              )}
-            </div>
-
-            {/* Product */}
-            <div className="space-y-1.5">
-              <label htmlFor="product" className="flex items-center gap-2 text-sm">
-                <ShoppingBag className="h-3.5 w-3.5 text-muted-foreground" />
-                {t.productLabel}
-              </label>
-              <input
-                id="product"
-                placeholder={t.productPlaceholder}
-                value={formData.product}
-                onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('product', event.target.value)}
-                className={`h-9 ${inputClasses}`}
-              />
-            </div>
+          {/* Name */}
+          <div className="space-y-1.5">
+            <label htmlFor="name" className="flex items-center gap-2 text-sm">
+              <User className="h-3.5 w-3.5 text-muted-foreground" />
+              {t.nameLabel}
+            </label>
+            <input
+              id="name"
+              placeholder={t.namePlaceholder}
+              value={formData.name}
+              onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('name', event.target.value)}
+              className={`h-9 ${inputClasses} ${validationErrors.name ? 'border-destructive' : ''}`}
+              autoComplete="name"
+            />
+            {validationErrors.name && (
+              <p className="text-xs text-destructive">{validationErrors.name}</p>
+            )}
           </div>
 
+          {/* Email */}
+          {
+            !isHomePage && (
+              <div className="space-y-1.5">
+                <label htmlFor="email" className="flex items-center gap-2 text-sm">
+                  <Mail className="h-3.5 w-3.5 text-muted-foreground" />
+                  {t.emailLabel}
+                </label>
+                <input
+                  id="email"
+                  placeholder={t.emailPlaceholder}
+                  value={formData.email}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('name', event.target.value)}
+                  className={`h-9 ${inputClasses} ${validationErrors.name ? 'border-destructive' : ''}`}
+                  autoComplete="name"
+                />
+                {validationErrors.name && (
+                  <p className="text-xs text-destructive">{validationErrors.name}</p>
+                )}
+              </div>
+            )
+          }
+
+          {/* Phone */}
+          <div className="space-y-1.5">
+            <label htmlFor="phone" className="flex items-center gap-2 text-sm">
+              <Phone className="h-3.5 w-3.5 text-muted-foreground" />
+              {t.phoneLabel}
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              placeholder={t.phonePlaceholder}
+              value={formData.phone}
+              onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('phone', event.target.value)}
+              className={`h-9 ${inputClasses} ${validationErrors.phone ? 'border-destructive' : ''}`}
+              autoComplete="tel"
+            />
+            {validationErrors.phone && (
+              <p className="text-xs text-destructive">{validationErrors.phone}</p>
+            )}
+          </div>
+
+          {/* Product */}
+          {
+            isHomePage && (
+              <div className="space-y-1.5">
+                <label htmlFor="product" className="flex items-center gap-2 text-sm">
+                  <ShoppingBag className="h-3.5 w-3.5 text-muted-foreground" />
+                  {t.productLabel}
+                </label>
+                <input
+                  id="product"
+                  placeholder={t.productPlaceholder}
+                  value={formData.product}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange('product', event.target.value)}
+                  className={`h-9 ${inputClasses}`}
+                />
+              </div>
+            )
+          }
+
           {/* Gender */}
-					<fieldset className="space-y-2">
-						<legend className="flex items-center gap-2 text-sm">
-							<Baby className="h-3.5 w-3.5 text-muted-foreground" />
-							{t.genderLabel}
-						</legend>
-						<div className="flex gap-3 flex-wrap">
-							<div className="inline-flex items-center gap-1.5">
-								<input
-									type="radio"
-									value="girl"
-									id="girl"
-									name="gender"
-									checked={formData.gender === 'girl'}
-									onChange={
-										(event: ChangeEvent<HTMLInputElement>) => handleInputChange('gender', event.target.value)
-									}
-									className={'h-4 w-4 appearance-none border border-gray-300 checked:bg-pink-300 checked:border-pink-500 rounded-full cursor-pointer'}
-								/>
-								<label htmlFor="girl" className="cursor-pointer font-normal text-sm">
-									🎀 {t.girl}
-								</label>
-							</div>
-							<div className="inline-flex items-center gap-1.5">
-								<input
-									type="radio"
-									value="boy"
-									id="boy"
-									name="gender"
-									checked={formData.gender === 'boy'}
-									onChange={
-										(event: ChangeEvent<HTMLInputElement>) => handleInputChange('gender', event.target.value)
-									}
-									className={'h-4 w-4 appearance-none border border-gray-300 checked:bg-blue-300 checked:border-blue-500 rounded-full cursor-pointer'}
-								/>
-								<label htmlFor="boy" className="cursor-pointer font-normal text-sm">
-									🧸 {t.boy}
-								</label>
-							</div>
-							<div className="inline-flex items-center gap-1.5">
-								<input
-									type="radio"
-									value="surprise"
-									id="gender-surprise"
-									name="gender"
-									checked={formData.gender === 'surprise'}
-									onChange={
-										(event: ChangeEvent<HTMLInputElement>) => handleInputChange('gender', event.target.value)
-									}
-									className={'h-4 w-4 appearance-none border border-gray-300 checked:bg-green-300 checked:border-green-500 rounded-full cursor-pointer '}
-								/>
-								<label htmlFor="gender-surprise" className="cursor-pointer font-normal text-sm">
-									🎁 {t.surprise}
-								</label>
-							</div>
-						</div>
-					</fieldset>
+          {
+            isHomePage && (
+              <fieldset className="space-y-2">
+                <legend className="flex items-center gap-2 text-sm">
+                  <Baby className="h-3.5 w-3.5 text-muted-foreground" />
+                  {t.genderLabel}
+                </legend>
+                <div className="flex gap-3 flex-wrap">
+                  <div className="inline-flex items-center gap-1.5">
+                    <input
+                      type="radio"
+                      value="girl"
+                      id="girl"
+                      name="gender"
+                      checked={formData.gender === 'girl'}
+                      onChange={
+                        (event: ChangeEvent<HTMLInputElement>) => handleInputChange('gender', event.target.value)
+                      }
+                      className={'h-4 w-4 appearance-none border border-gray-300 checked:bg-pink-300 checked:border-pink-500 rounded-full cursor-pointer'}
+                    />
+                    <label htmlFor="girl" className="cursor-pointer font-normal text-sm">
+                      🎀 {t.girl}
+                    </label>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5">
+                    <input
+                      type="radio"
+                      value="boy"
+                      id="boy"
+                      name="gender"
+                      checked={formData.gender === 'boy'}
+                      onChange={
+                        (event: ChangeEvent<HTMLInputElement>) => handleInputChange('gender', event.target.value)
+                      }
+                      className={'h-4 w-4 appearance-none border border-gray-300 checked:bg-blue-300 checked:border-blue-500 rounded-full cursor-pointer'}
+                    />
+                    <label htmlFor="boy" className="cursor-pointer font-normal text-sm">
+                      🧸 {t.boy}
+                    </label>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5">
+                    <input
+                      type="radio"
+                      value="surprise"
+                      id="gender-surprise"
+                      name="gender"
+                      checked={formData.gender === 'surprise'}
+                      onChange={
+                        (event: ChangeEvent<HTMLInputElement>) => handleInputChange('gender', event.target.value)
+                      }
+                      className={'h-4 w-4 appearance-none border border-gray-300 checked:bg-green-300 checked:border-green-500 rounded-full cursor-pointer '}
+                    />
+                    <label htmlFor="gender-surprise" className="cursor-pointer font-normal text-sm">
+                      🎁 {t.surprise}
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            )
+          }
 
           {/* Additional message */}
           <div className="space-y-1.5">

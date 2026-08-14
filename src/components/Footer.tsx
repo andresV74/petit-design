@@ -136,7 +136,7 @@ export function Footer() {
             <ul className="space-y-2">
               {quickLinks.map(({link, title}) => (
                 <li key={link}>
-                  <Link to="/" className="text-muted-foreground hover:text-mint-dark transition-colors">
+                  <Link to={link} className="text-muted-foreground hover:text-mint-dark transition-colors">
                     {title}
                   </Link>
                 </li>
@@ -153,10 +153,21 @@ export function Footer() {
               <li>
                 <a
                   href={getWhatsAppUrl({ source: 'Pie de página' })}
+                  target="_blank"
                   onClick={() => trackWhatsAppClick('Footer teléfono', { content_category: 'Footer' })}
                   className="hover:text-mint-dark transition-colors"
                 >
                   {contactInfo.phone}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={getWhatsAppUrl({ source: 'Pie de página', whatsAppNumber: '573105453701' })}
+                  target="_blank"
+                  onClick={() => trackWhatsAppClick('Footer teléfono', { content_category: 'Footer' })}
+                  className="hover:text-mint-dark transition-colors"
+                >
+                  {contactInfo.phone2}
                 </a>
               </li>
               <li>
@@ -169,6 +180,18 @@ export function Footer() {
               </li>
               <li>{contactInfo.location} 🇨🇴</li>
             </ul>
+            <h4 className="font-display text-lg font-semibold mt-6 mb-4">
+              {t('footer.catalogTitle')}
+            </h4>
+            <p className="text-muted-foreground">
+              <a
+                href="/documents/Catalogo_Petit_Design.pdf"
+                download
+                className="hover:text-mint-dark transition-colors"
+              >
+                {t('footer.catalogDescription')}
+              </a>
+            </p>
           </div>
         </div>
 
@@ -178,7 +201,7 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <p className="text-sm text-muted-foreground flex items-center gap-1">
-              Hecho con <Heart className="h-4 w-4 text-mint fill-mint stroke-mint" /> desde Manizales, Colombia 🇨🇴
+              {t('footer.made')} <Heart className="h-4 w-4 text-mint fill-mint stroke-mint" /> {t('footer.from')} Manizales, Colombia 🇨🇴
             </p>
           </div>
         </div>

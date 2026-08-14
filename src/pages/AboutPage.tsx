@@ -91,7 +91,7 @@ export function AboutPage() {
             <div className="flex items-center justify-center">
               <div className="aspect-3/4 max-w-md rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="/images/founders.webp"
+                  src="/images/founder.webp"
                   alt="Mariana y Catalina - Fundadoras de Petit Design"
                   className="h-full w-full object-cover"
                 />

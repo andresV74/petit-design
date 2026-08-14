@@ -26,7 +26,7 @@
 	},
 	{
 		"id": "k02",
-		"name_es": "Kit Regalo Ideal (Bby Shower)",
+		"name_es": "Kit Regalo Ideal (Baby Shower)",
 		"name_en": "Ideal Gift Kit (Baby Shower)",
 		"slug": "KIT-REGALO-IDEAL",
 		"shortDescription_es": "El regalo ideal para baby shower, con artículos seleccionados.",
@@ -37,7 +37,7 @@
 			{
 				"id": "k02i01",
 				"imageUrl": "/products/kits/kit-regalo-ideal.webp",
-				"altText_es": "Kit Regalo Ideal (Bby Shower)",
+				"altText_es": "Kit Regalo Ideal (Baby Shower)",
 				"altText_en": "Ideal Gift Kit (Baby Shower)",
 				"isPrimary": true
 			}
@@ -51,7 +51,7 @@
 	},
 	{
 		"id": "k03",
-		"name_es": "Kit Nido & Organizadores",
+		"name_es": "Kit Nido Estándar + Play Gym & Set x 3 Bolsitas Organizadoras",
 		"name_en": "Nest & Organizers Kit",
 		"slug": "KIT-NIDO-ORGANIZADORES",
 		"shortDescription_es": "Combinación perfecta de nido y organizadores para el bebé.",
@@ -62,7 +62,7 @@
 			{
 				"id": "k03i01",
 				"imageUrl": "/products/kits/kit-nido-y-organizadores.webp",
-				"altText_es": "Kit Nido & Organizadores",
+				"altText_es": "Kit Nido Estándar + Play Gym & Set x 3 Bolsitas Organizadoras",
 				"altText_en": "Nest & Organizers Kit",
 				"isPrimary": true
 			}
@@ -418,8 +418,8 @@
 	},
 	{
 		"id": "a06",
-		"name_es": "Neceser",
-		"name_en": "Toiletry bag",
+		"name_es": "Neceser de Aseo",
+		"name_en": "Toiletry Bag",
 		"slug": "Neceser",
 		"shortDescription_es": "Neceser práctico para artículos de aseo.",
 		"shortDescription_en": "A practical toiletry bag.",
@@ -430,41 +430,41 @@
 				"id": "a06i01",
 				"imageUrl": "/products/neceser/neceser-1.webp",
 				"altText_es": "Neceser",
-				"altText_en": "Toiletry bag",
+				"altText_en": "Toiletry Bag",
 				"isPrimary": true
 			},
 			{
 				"id": "a06i02",
 				"imageUrl": "/products/neceser/neceser-2.webp",
 				"altText_es": "Neceser",
-				"altText_en": "Toiletry bag",
+				"altText_en": "Toiletry Bag",
 				"isPrimary": false
 			},
 			{
 				"id": "a06i03",
 				"imageUrl": "/products/neceser/neceser-3.webp",
 				"altText_es": "Neceser",
-				"altText_en": "Toiletry bag",
+				"altText_en": "Toiletry Bag",
 				"isPrimary": false
 			},
 			{
 				"id": "a06i04",
 				"imageUrl": "/products/neceser/neceser-4.webp",
 				"altText_es": "Neceser",
-				"altText_en": "Toiletry bag",
+				"altText_en": "Toiletry Bag",
 				"isPrimary": false
 			},
 			{
 				"id": "a06i05",
 				"imageUrl": "/products/neceser/neceser-5.webp",
 				"altText_es": "Neceser",
-				"altText_en": "Toiletry bag",
+				"altText_en": "Toiletry Bag",
 				"isPrimary": false
 			}
 		],
 		"price": 87000,
 		"category": "accesorios",
-		"subcategory": "nido",
+		"subcategory": "",
 		"isFeatured": false,
 		"useFabrics": true,
 		"productionDays": 15
@@ -938,8 +938,8 @@
 	},
 	{
 		"id": "a14",
-		"name_es": "Set de Babitas",
-		"name_en": "Bib Set",
+		"name_es": "Set x 3 Babitas",
+		"name_en": "Bib Set (3-pack)",
 		"slug": "set-de-babitas",
 		"shortDescription_es": "",
 		"shortDescription_en": "",
@@ -949,22 +949,22 @@
 			{
 				"id": "a14i01",
 				"imageUrl": "/products/set-babitas/set-babitas-1.webp",
-				"altText_es": "Ropero",
-				"altText_en": "Closet",
+				"altText_es": "Set x 3 Babitas",
+				"altText_en": "Bib Set (3-pack)",
 				"isPrimary": true
 			},
 			{
 				"id": "a14i02",
 				"imageUrl": "/products/set-babitas/set-babitas-2.webp",
-				"altText_es": "Ropero",
-				"altText_en": "Closet",
+				"altText_es": "Set x 3 Babitas",
+				"altText_en": "Bib Set (3-pack)",
 				"isPrimary": false
 			},
 			{
 				"id": "a14i03",
 				"imageUrl": "/products/set-babitas/set-babitas-3.webp",
-				"altText_es": "Ropero",
-				"altText_en": "Closet",
+				"altText_es": "Set x 3 Babitas",
+				"altText_en": "Bib Set (3-pack)",
 				"isPrimary": false
 			}
 		],
@@ -1290,7 +1290,7 @@
 	},
 	{
 		"id": "l09",
-		"name_es": "Nido Estandar + Play Gym + Almohada",
+		"name_es": "Nido Estándar + Play Gym + Almohada",
 		"name_en": "Standard Nest + Play Gym + Pillow",
 		"slug": "standard-nest",
 		"shortDescription_es": "Set completo con nido estándar, playgym y almohada.",
@@ -1368,7 +1368,7 @@
 	},
 	{
 		"id": "l01",
-		"name_es": "Cobijas Bebé",
+		"name_es": "Cobija de Bebé",
 		"name_en": "Baby Blankets",
 		"slug": "cobijas-bebe",
 		"shortDescription_es": "",
@@ -1379,105 +1379,105 @@
 			{
 				"id": "l01i01",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-1.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": true
 			},
 			{
 				"id": "l01i02",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-2.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i03",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-3.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i04",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-4.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i05",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-5.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i06",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-6.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i07",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-7.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i08",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-8.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i09",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-9.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i10",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-10.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i011",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-11.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i012",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-12.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i13",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-13.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i14",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-14.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			},
 			{
 				"id": "l01i15",
 				"imageUrl": "/products/cobija-bebe/cobija-bebe-15.webp",
-				"altText_es": "Cobijas Bebé",
+				"altText_es": "Cobija de Bebé",
 				"altText_en": "Baby Blankets",
 				"isPrimary": false
 			}
@@ -1635,7 +1635,7 @@
 		"images": [
 			{
 				"id": "l06i01",
-				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-1.webp",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-4.webp",
 				"altText_es": "Cojín Personalizado",
 				"altText_en": "Custom Pillow",
 				"isPrimary": true
@@ -1656,7 +1656,7 @@
 			},
 			{
 				"id": "l06i04",
-				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-4.webp",
+				"imageUrl": "/products/cojines-decorativos/cojines-decorativos-1.webp",
 				"altText_es": "Cojín Personalizado",
 				"altText_en": "Custom Pillow",
 				"isPrimary": false
