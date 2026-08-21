@@ -68,7 +68,7 @@ export function CustomInfo({ useFabrics = true }: CustomInfoProps) {
 						{customs.name && customs.font && customs.color && (
 							<div className='mt-3 md:mt-6'>
 								<p
-								className={`emboss pt-3 text-center rounded-xl bg-size-[60%] bg-center border border-border font-${customs.font.toLowerCase()}
+								className={`emboss pt-3 text-center rounded-xl bg-size-[60%] bg-center border border-border select-none font-${customs.font.toLowerCase()}
 									${customs.color.value === 'blanco' ? 'bg-primary/70' : ''}
 									${customs.font === 'Hello' ? 'text-4xl/20 tracking-tighter' : 'text-5xl/20'}`
 								}
