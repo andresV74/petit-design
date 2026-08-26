@@ -11,6 +11,7 @@ export const catalogContent = {
 		allProducts: 'Ver todos los productos',
 		categories: [
 			{
+				id: 'gid://shopify/Collection/459455758587',
 				title: 'Accesorios para la habitación del bebé',
 				menuTitle: 'Accesorios',
 				slug: 'accesorios',
@@ -18,6 +19,7 @@ export const catalogContent = {
 				description: 'Accesorios especiales para complementar el set de tu bebé',
 			},
 			{
+				id: 'gid://shopify/Collection/459455791355',
 				title: 'Lencería de Cunas y Cama Cunas',
 				menuTitle: 'Lencería de Cunas',
 				slug: 'lenceria-cuna',
@@ -25,6 +27,7 @@ export const catalogContent = {
 				description: 'Ropa de cama delicada para los primeros sueños de tu bebé',
 			},
 			{
+				id: 'gid://shopify/Collection/459455725819',
 				title: 'Kits',
 				slug: 'kits',
 				image_url: '',
@@ -39,6 +42,7 @@ export const catalogContent = {
 		allProducts: 'View all products',
 		categories: [
 			{
+				id: 'gid://shopify/Collection/459455758587',
 				title: 'Linen Accessories',
 				menuTitle: 'Accessories',
 				slug: 'accesorios',
@@ -46,6 +50,7 @@ export const catalogContent = {
 				description: 'Special accessories to complement your baby\'s set',
 			},
 			{
+				id: 'gid://shopify/Collection/459455791355',
 				title: 'Crib and Toddler Bed Linens',
 				menuTitle: 'Crib Linens',
 				slug: 'lenceria-cuna',
@@ -53,6 +58,7 @@ export const catalogContent = {
 				description: 'Delicate bedding for your baby\'s first dreams',
 			},
 			{
+				id: 'gid://shopify/Collection/459455725819',
 				title: 'Kits',
 				slug: 'kits',
 				image_url: '',

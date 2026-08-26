@@ -1,20 +1,23 @@
 import { useParams } from 'react-router-dom'
+import { useProducts } from '@/hooks/useProducts.ts'
 import { ProductCard } from '@/components/products/ProductCard.tsx'
 import { useLanguage } from '@/lib/i18n'
 import { Link } from 'react-router-dom'
 import { catalogContent } from '@/data/catalogContent.ts'
-import productsData from '@/data/products.json'
 
-export function CatalogPage() {
-  const { category, subcategory } = useParams<{ category?: string; subcategory?: string }>()
+interface ProductListProps {
+  first?: number;
+}
+
+export function CatalogPage({ first = 40 }: ProductListProps) {
+  const { category } = useParams<{ category?: string }>()
+  const { products, loading, error } = useProducts(first)
   const { language } = useLanguage()
 
   const t = catalogContent[language]
   const headTitle = `${t.pageTitle} | Petit Design`
 
-  const canonicalUrl = subcategory
-    ? `https://petitdesign.com.co/catalogo/${category}/${subcategory}`
-    : category
+  const canonicalUrl = category
       ? `https://petitdesign.com.co/catalogo/${category}`
       : 'https://petitdesign.com.co/catalogo'
 
@@ -25,6 +28,9 @@ export function CatalogPage() {
 
     return t.categories.find(category => category.slug === slug)?.[field]
   }
+
+  if (loading) return <p>Cargando productos...</p>;
+  if (error) return <p>Ocurrió un error al cargar productos.</p>;
 
   return (
     <>
@@ -83,7 +89,7 @@ export function CatalogPage() {
         </div>
 
         {/* Products Grid */}
-        {productsData.length === 0 ? (
+        {!products || products.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">
               {t.noProducts}
@@ -98,20 +104,14 @@ export function CatalogPage() {
         : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {
-              subcategory ? (
-                productsData
-                  .filter((product) => product.category === category && product.subcategory === subcategory)
-                  .map((card) => (
-                    <ProductCard key={card.id} product={card} language={language} />
-                  ))
-              ) : category ? (
-                productsData
-                  .filter((product) => product.category === category)
+              category ? (
+                products
+                  .filter((product) => product.collections.edges.some((edge: { node: { id: string } }) => edge.node.id === category))
                   .map((card) => (
                   <ProductCard key={card.id} product={card} language={language} />
                 ))
               ) : (
-                productsData.map((card) => (
+                products.map((card) => (
                   <ProductCard key={card.id} product={card} language={language} />
                 ))
               )

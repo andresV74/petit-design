@@ -21,3 +21,43 @@ export interface ProductImage {
   altText_en: string | null
   isPrimary: boolean
 }
+
+export interface ProductNew {
+  id: string
+  title: string
+  handle: string
+  media?: {
+    edges: {
+      node: {
+        image: {
+          url: string
+          altText: string
+        }
+      }
+    }[]
+  }
+  collections: {
+    edges: {
+      node: {
+        id: string
+        title: string
+        description:string
+      }
+    }[]
+  }
+  nameEn?: {
+    value: string
+  } | null
+  longDescription?: {
+    value: string
+  } | null
+  isFeatured?: {
+    value: string
+  } | null
+  priceRange?: {
+    minVariantPrice: {
+      amount: string
+      currencyCode: string
+    }
+  }
+}
