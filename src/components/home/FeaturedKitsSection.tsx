@@ -1,13 +1,21 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, Star } from 'lucide-react';
+import { Link } from 'react-router-dom'
+import { ArrowRight, Star } from 'lucide-react'
+import { useProducts } from '@/hooks/useProducts.ts'
 import { ProductCard } from '@/components/products/ProductCard.tsx'
-import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/lib/i18n';
-import { Badge } from '@/components/ui/badge.tsx';
-import productsData from '@/data/products.json'
+import { Button } from '@/components/ui/button'
+import { useLanguage } from '@/lib/i18n'
+import { Badge } from '@/components/ui/badge.tsx'
+import { catalogContent } from '@/data/catalogContent.ts'
+import type { ProductListProps } from '@/types/generalTypes.ts'
 
-export function FeaturedKitsSection() {
-  const { t, language } = useLanguage();
+
+export function FeaturedKitsSection({ first = 3 }: ProductListProps) {
+  const { t, language } = useLanguage()
+  const { products, loading, error } = useProducts(first)
+  const kitsId = catalogContent[language].categories.find((category) => category.slug === 'kits')?.id
+
+  if (loading) return <p>Cargando productos...</p>;
+  if (error) return <p>Ocurrió un error al cargar productos.</p>;
 
   return (
     <section className="py-16 md:py-24 bg-linear-to-b from-mint-light/30 relative overflow-hidden">
@@ -27,13 +35,28 @@ export function FeaturedKitsSection() {
         </div>
 
         {/* Kits Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
-          {
-            productsData.filter((card) => card.category === 'kits').slice(0, 3).map((card) => (
-              <ProductCard key={card.id} product={card} language={language} />
-            ))
-          }
-        </div>
+        {!products || products.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">
+              {t('catalogContent.noProducts')}
+            </p>
+            <Link
+              to="/catalogo"
+              className="inline-block mt-4 text-mint hover:text-mint-dark underline"
+            >
+              {t('catalogContent.allProducts')}
+            </Link>
+          </div>)
+        : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
+            {
+              products?.filter((product) => product.collections.edges.some((edge) => edge.node.id === kitsId))
+                .map((card) => (
+                <ProductCard key={card.id} product={card} language={language} />
+              ))
+            }
+          </div>
+        )}
 
         {/* CTA */}
         <div className="text-center">

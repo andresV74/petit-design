@@ -61,3 +61,7 @@ export interface ProductNew {
     }
   }
 }
+
+export interface ProductListProps {
+  first?: number;
+}

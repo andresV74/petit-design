@@ -4,10 +4,8 @@ import { ProductCard } from '@/components/products/ProductCard.tsx'
 import { useLanguage } from '@/lib/i18n'
 import { Link } from 'react-router-dom'
 import { catalogContent } from '@/data/catalogContent.ts'
+import type { ProductListProps } from '@/types/generalTypes.ts'
 
-interface ProductListProps {
-  first?: number;
-}
 
 export function CatalogPage({ first = 40 }: ProductListProps) {
   const { category } = useParams<{ category?: string }>()
