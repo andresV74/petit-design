@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { shopifyClient } from '../api/shopifyClient'
-import { PRODUCTS_LIST_QUERY } from '../api/queries/products'
+import { shopifyClient } from '../api/shopifyClient.ts'
+import { PRODUCTS_LIST_QUERY } from '../api/queries/products.ts'
 import type { ProductNew } from '@/types/generalTypes.ts'
 
 export function useProducts(first = 40) {

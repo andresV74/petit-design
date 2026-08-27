@@ -1,15 +1,16 @@
 import { useParams } from 'react-router-dom'
 import { useProducts } from '@/hooks/useProducts.ts'
+import { useCollections } from '@/hooks/useCollections.ts'
 import { ProductCard } from '@/components/products/ProductCard.tsx'
 import { useLanguage } from '@/lib/i18n'
 import { Link } from 'react-router-dom'
 import { catalogContent } from '@/data/catalogContent.ts'
 import type { ProductListProps } from '@/types/generalTypes.ts'
 
-
 export function CatalogPage({ first = 40 }: ProductListProps) {
   const { category } = useParams<{ category?: string }>()
   const { products, loading, error } = useProducts(first)
+  const { collections, loading: collectionsLoading, error: collectionsError } = useCollections(first)
   const { language } = useLanguage()
 
   const t = catalogContent[language]
@@ -19,16 +20,8 @@ export function CatalogPage({ first = 40 }: ProductListProps) {
       ? `https://petitdesign.com.co/catalogo/${category}`
       : 'https://petitdesign.com.co/catalogo'
 
-  const getTitlesBySlug = (slug: string | undefined, field: 'title' | 'description') => {
-    if (!slug) {
-      return t.pageTitle
-    }
-
-    return t.categories.find(category => category.slug === slug)?.[field]
-  }
-
-  if (loading) return <p>Cargando productos...</p>;
-  if (error) return <p>Ocurrió un error al cargar productos.</p>;
+  if (collectionsLoading && loading) return <p>Cargando productos y colecciones...</p>;
+  if (collectionsError && error) return <p>Ocurrió un error al cargar productos o colecciones.</p>;
 
   return (
     <>
@@ -46,20 +39,34 @@ export function CatalogPage({ first = 40 }: ProductListProps) {
 
       <div className="container px-4 py-12 md:py-16">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
-            {getTitlesBySlug(category, 'title')}
-          </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {getTitlesBySlug(category, 'description')?.substring(0, 3) === 'Cat' ? '' : getTitlesBySlug(category, 'description')}
-          </p>
-        </div>
+            {category ? (
+              products
+                ?.filter((product) => product.collections.edges.map((collection) => collection.node.title.toLocaleLowerCase().replace(/\s+/g, '-'))[0] === category)
+                .slice(0,1)
+                .map((card) => (
+                  <div key={card.id} className="text-center mb-8">
+                    <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+                      {card.collections.edges[0].node.title}
+                    </h1>
+                    <p className="text-muted-foreground max-w-2xl mx-auto">
+                      {card.collections.edges[0].node.description}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <div  className="text-center mb-8">
+                  <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+                    {t.pageTitle}
+                  </h1>
+                </div>
+              )
+            }
 
         {/* Filters Section */}
         <div className="mb-8 space-y-4">
           <div className="flex flex-wrap justify-center gap-2">
             <Link
-              to="/catalogo"
+              to="/collections"
               className={
                 `px-4 py-2 rounded-full text-sm font-medium transition-colors
                 ${!category
@@ -69,25 +76,28 @@ export function CatalogPage({ first = 40 }: ProductListProps) {
             >
               {t.allButtonText}
             </Link>
-            {t.categories.map(cat => (
+            {collections?.map(cat => {
+              const slug = cat.title.toLowerCase().replace(/\s+/g, '-')
+
+              return (
               <Link
-                key={cat.slug}
-                to={`/catalogo/${cat.slug}`}
+                key={cat.id}
+                to={`/collections/${slug}`}
                 className={
                   `px-4 py-2 rounded-full text-sm font-medium transition-colors
-                  ${category === cat.slug
+                  ${category === slug
                     ? "bg-mint text-white"
                     : "bg-muted text-muted-foreground hover:bg-mint-light"}`
                 }
               >
-                {cat.menuTitle ?? cat.title}
+                {cat.title}
               </Link>
-            ))}
+            )})}
           </div>
         </div>
 
         {/* Products Grid */}
-        {!products || products.length === 0 ? (
+        {!products || products.length === 0 && !collections || collections?.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">
               {t.noProducts}
@@ -104,7 +114,7 @@ export function CatalogPage({ first = 40 }: ProductListProps) {
             {
               category ? (
                 products
-                  .filter((product) => product.collections.edges.some((edge: { node: { id: string } }) => edge.node.id === category))
+                  .filter((product) => product.collections.edges.map((collection) => collection.node.title.toLocaleLowerCase().replace(/\s+/g, '-'))[0] === category)
                   .map((card) => (
                   <ProductCard key={card.id} product={card} language={language} />
                 ))

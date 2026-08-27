@@ -43,7 +43,7 @@ export function Footer() {
       title: t('nav.home'),
     },
     {
-      link: '/catalogo',
+      link: '/collections',
       title: t('nav.catalog'),
     },
     {

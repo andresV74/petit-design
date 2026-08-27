@@ -55,7 +55,7 @@ export function Header() {
           {tCatalog.categories.map(({ title, menuTitle, slug }) => (
             <Link
               key={slug}
-              to={`/catalogo/${slug}`}
+              to={`/collections/${slug}`}
               className='whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground'
             >
               {menuTitle ? menuTitle : title}
@@ -132,7 +132,7 @@ export function Header() {
           {tCatalog.categories.map(({ title, menuTitle, slug }) => (
             <Link
               key={slug}
-              to={`/catalogo/${slug}`}
+              to={`/collections/${slug}`}
               className='py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-mint-dark'
             >
               {menuTitle ? menuTitle : title}

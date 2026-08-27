@@ -26,8 +26,8 @@ function App() {
             <Route path="/nosotros" element={<AboutPage />} />
             <Route path="/contacto" element={<ContactPage />} />
             <Route path="/politicas" element={<PoliciesPage />} />
-            <Route path="/catalogo" element={<CatalogPage />} />
-            <Route path="/catalogo/:category" element={<CatalogPage />} />
+            <Route path="/collections" element={<CatalogPage />} />
+            <Route path="/collections/:category" element={<CatalogPage />} />
             <Route path='/producto/:slug' element={<ProductPage />} />
             <Route path="/telas/nino" element={<FabricGallery gender="boy" />} />
             <Route path="/telas/nina" element={<FabricGallery gender="girl" />} />
