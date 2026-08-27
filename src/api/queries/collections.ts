@@ -6,7 +6,7 @@ export const COLLECTIONS_LIST_QUERY = `
           id
           title
           description
-            image {
+          image {
             altText
             url
           }

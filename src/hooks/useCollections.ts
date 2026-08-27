@@ -6,6 +6,10 @@ type Collection = {
   id: string
   title: string
   description: string
+  image: {
+    altText: string
+    url: string
+  }
 }
 
 export function useCollections(first = 3) {

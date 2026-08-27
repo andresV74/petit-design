@@ -42,6 +42,10 @@ export interface ProductNew {
         id: string
         title: string
         description:string
+        image: {
+          altText: string
+          url: string
+        }
       }
     }[]
   }
