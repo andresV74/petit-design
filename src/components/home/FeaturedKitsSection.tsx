@@ -1,21 +1,22 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Star } from 'lucide-react'
 import { useProducts } from '@/hooks/useProducts.ts'
+import { useCollections } from '@/hooks/useCollections.ts'
 import { ProductCard } from '@/components/products/ProductCard.tsx'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/lib/i18n'
 import { Badge } from '@/components/ui/badge.tsx'
-import { catalogContent } from '@/data/catalogContent.ts'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
 
 
 export function FeaturedKitsSection({ first = 3 }: ImportsListProps) {
   const { t, language } = useLanguage()
   const { products, loading, error } = useProducts(first)
-  const kitsId = catalogContent[language].categories.find((category) => category.slug === 'kits')?.id
+  const { collections, loading: colLoading, error: colErrror } = useCollections(first)
+  const kitsId = collections?.find((collection) => collection.title === 'Kits')?.id
 
-  if (loading) return <p>Cargando productos...</p>;
-  if (error) return <p>Ocurrió un error al cargar productos.</p>;
+  if (loading && colLoading) return <p>Cargando productos...</p>;
+  if (error && colErrror) return <p>Ocurrió un error al cargar productos.</p>;
 
   return (
     <section className="py-16 md:py-24 bg-linear-to-b from-mint-light/30 relative overflow-hidden">

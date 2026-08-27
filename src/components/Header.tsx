@@ -60,7 +60,6 @@ export function Header({ first }: ImportsListProps) {
           {/* Catalog Categories */}
           {collections?.map(({ id, title }, index) => {
             const slug = title.toLowerCase().replace(/\s+/g, '-')
-            console.log(index)
 
             return (
             <Link
