@@ -62,6 +62,6 @@ export interface ProductNew {
   }
 }
 
-export interface ProductListProps {
+export interface ImportsListProps {
   first?: number;
 }

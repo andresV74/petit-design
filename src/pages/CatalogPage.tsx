@@ -5,9 +5,9 @@ import { ProductCard } from '@/components/products/ProductCard.tsx'
 import { useLanguage } from '@/lib/i18n'
 import { Link } from 'react-router-dom'
 import { catalogContent } from '@/data/catalogContent.ts'
-import type { ProductListProps } from '@/types/generalTypes.ts'
+import type { ImportsListProps } from '@/types/generalTypes.ts'
 
-export function CatalogPage({ first = 40 }: ProductListProps) {
+export function CatalogPage({ first = 40 }: ImportsListProps) {
   const { category } = useParams<{ category?: string }>()
   const { products, loading, error } = useProducts(first)
   const { collections, loading: collectionsLoading, error: collectionsError } = useCollections(first)
@@ -76,12 +76,12 @@ export function CatalogPage({ first = 40 }: ProductListProps) {
             >
               {t.allButtonText}
             </Link>
-            {collections?.map(cat => {
-              const slug = cat.title.toLowerCase().replace(/\s+/g, '-')
+            {collections?.map(({ id, title }) => {
+              const slug = title.toLowerCase().replace(/\s+/g, '-')
 
               return (
               <Link
-                key={cat.id}
+                key={id}
                 to={`/collections/${slug}`}
                 className={
                   `px-4 py-2 rounded-full text-sm font-medium transition-colors
@@ -90,7 +90,7 @@ export function CatalogPage({ first = 40 }: ProductListProps) {
                     : "bg-muted text-muted-foreground hover:bg-mint-light"}`
                 }
               >
-                {cat.title}
+                {title}
               </Link>
             )})}
           </div>

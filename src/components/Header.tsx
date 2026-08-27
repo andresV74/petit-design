@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCollections } from '@/hooks/useCollections.ts'
 import { Menu, X, Globe, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/lib/i18n.tsx'
@@ -9,11 +10,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import type { ImportsListProps } from '@/types/generalTypes.ts'
 import { catalogContent } from '@/data/catalogContent.ts'
 
-
-export function Header() {
+export function Header({ first }: ImportsListProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const { collections, loading, error } = useCollections(first)
   const { language, setLanguage, t } = useLanguage()
   const tCatalog = catalogContent[language]
 
@@ -26,6 +28,10 @@ export function Header() {
     { href: '/politicas', label: t('nav.policies') },
     { href: '/contacto', label: t('nav.contact') },
   ]
+
+  if (loading) return <p>Cargando productos y colecciones...</p>;
+  if (error) return <p>Ocurrió un error al cargar productos o colecciones.</p>;
+
 
   return (
     <header className="sticky top-0 z-30 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80">
@@ -52,15 +58,19 @@ export function Header() {
           </Link>
 
           {/* Catalog Categories */}
-          {tCatalog.categories.map(({ title, menuTitle, slug }) => (
+          {collections?.map(({ id, title }, index) => {
+            const slug = title.toLowerCase().replace(/\s+/g, '-')
+            console.log(index)
+
+            return (
             <Link
-              key={slug}
+              key={id}
               to={`/collections/${slug}`}
               className='whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground'
             >
-              {menuTitle ? menuTitle : title}
+              {tCatalog.categories[index].menuTitle}
             </Link>
-          ))}
+          )})}
 
           {/* Fabric Catalogs Dropdown */}
           <DropdownMenu>

@@ -6,10 +6,10 @@ import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/lib/i18n'
 import { Badge } from '@/components/ui/badge.tsx'
 import { catalogContent } from '@/data/catalogContent.ts'
-import type { ProductListProps } from '@/types/generalTypes.ts'
+import type { ImportsListProps } from '@/types/generalTypes.ts'
 
 
-export function FeaturedKitsSection({ first = 3 }: ProductListProps) {
+export function FeaturedKitsSection({ first = 3 }: ImportsListProps) {
   const { t, language } = useLanguage()
   const { products, loading, error } = useProducts(first)
   const kitsId = catalogContent[language].categories.find((category) => category.slug === 'kits')?.id
