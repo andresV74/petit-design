@@ -63,7 +63,7 @@ export function HeroSection() {
                 asChild
                 className="bg-mint hover:bg-mint-dark text-white hover:text-white h-11 rounded-md px-8"
               >
-                <Link to="/catalogo" className="gap-2">
+                <Link to="/collections" className="gap-2">
                   {t('hero.cta')}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
