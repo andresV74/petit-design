@@ -6,6 +6,7 @@ type Collection = {
   id: string
   title: string
   description: string
+  handle: string
   image: {
     altText: string
     url: string

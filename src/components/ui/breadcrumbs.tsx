@@ -3,7 +3,12 @@ import { useLanguage } from '@/lib/i18n.tsx'
 import { catalogContent } from '@/data/catalogContent.ts'
 
 interface BreadcrumbsProps {
-	category?: string
+	category?: {
+		node: {
+			title: string
+			handle: string
+		}
+	}
 	isProduct: boolean
 }
 
@@ -14,23 +19,15 @@ export function Breadcrumbs({ category, isProduct }: BreadcrumbsProps) {
 	const { language } = useLanguage()
 	const t = catalogContent[language]
 
-	const getTitlesBySlug = (slug: string | undefined, field: 'title' | 'description') => {
-    if (!slug) {
-      return t.pageTitle
-    }
-
-    return t.categories.find(category => category.slug === slug)?.[field]
-  }
-
 	return (
 		<>
 			<div className={`flex flex-wrap items-center gap-x-2 text-muted-foreground ${isProduct ? extraProductClasses : extraCatalogClasses}`}>
-				<Link to="/catalogo" className="hover:text-mint underline hover:no-underline">
+				<Link to="/collections" className="hover:text-mint underline hover:no-underline">
 					{t.pageTitle}
 				</Link>
 				<span>/</span>
-				<Link to={`/catalogo/${category}`} className="hover:text-mint underline hover:no-underline">
-					{getTitlesBySlug(category, 'title')}
+				<Link to={`/collections/${category?.node.handle}`} className="hover:text-mint underline hover:no-underline">
+					{category?.node.title}
 				</Link>
 			</div>
 		</>

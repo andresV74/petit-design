@@ -45,7 +45,7 @@ export function CustomInfo({ useFabrics = true }: CustomInfoProps) {
 								<p>{t('product.fontTitle')}: <span className='font-bold'>{customs.font}</span></p>
 							)}
 							{customs.color && (
-								<p>Color: <span className='font-bold'>{t(`color.${customs.color.value}`)}</span></p>
+								<p>Color: <span className='font-bold'>{t(`color.${customs.color.name}`)}</span></p>
 							)}
 							{!!fabric && useFabrics && (
 								<p>{t('product.fabricSelected')}
@@ -69,10 +69,10 @@ export function CustomInfo({ useFabrics = true }: CustomInfoProps) {
 							<div className='mt-3 md:mt-6'>
 								<p
 								className={`emboss pt-3 text-center rounded-xl bg-size-[60%] bg-center border border-border select-none font-${customs.font.toLowerCase()}
-									${customs.color.value === 'blanco' ? 'bg-primary/70' : ''}
+									${customs.color.name === 'blanco' ? 'bg-primary/70' : ''}
 									${customs.font === 'Hello' ? 'text-4xl/20 tracking-tighter' : 'text-5xl/20'}`
 								}
-									style={{ color: customs.color.color, backgroundImage: `url(${fabric?.image})` }}
+									style={{ color: customs.color.hex, backgroundImage: `url(${fabric?.imageUrl})` }}
 								>
 									{customs.name}
 								</p>

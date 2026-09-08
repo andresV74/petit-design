@@ -1,10 +1,10 @@
 import { create } from 'zustand'
 import type { Fabric } from '@/components/products/FabricSelector.tsx'
-import type { EmbroideryColorsProps } from '@/components/products/ProductEmbroideryColor.tsx'
+import type { SingleColorProps } from '@/components/products/Colors'
 
 interface Customizables {
 	name?: string
-	color?: EmbroideryColorsProps
+	color?: SingleColorProps
 	font?: string
 	fabric?: Fabric | null
 	observations?: string

@@ -5,12 +5,18 @@ export const PRODUCTS_LIST_QUERY = `
         node {
           id
           title
+          description
           handle
+          featuredImage {
+            url
+            altText
+          }
           media(first: 15) {
             edges {
               node {
                 ... on MediaImage {
                   image {
+                    id
                     url
                     altText
                   }
@@ -24,6 +30,7 @@ export const PRODUCTS_LIST_QUERY = `
                 id
                 title
                 description
+                handle
               }
             }
           }
@@ -36,10 +43,29 @@ export const PRODUCTS_LIST_QUERY = `
           isFeatured: metafield(key: "is_featured", namespace: "custom") {
             value
           }
+          useFabrics: metafield(key: "use_fabrics", namespace: "custom") {
+            value
+          }
           priceRange {
             minVariantPrice {
               amount
               currencyCode
+            }
+          }
+          variants(first: 30) {
+            edges {
+              node {
+                id
+                title
+                selectedOptions {
+                  name
+                  value
+                }
+                price {
+                  amount
+                  currencyCode
+                }
+              }
             }
           }
         }

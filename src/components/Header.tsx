@@ -58,18 +58,15 @@ export function Header({ first }: ImportsListProps) {
           </Link>
 
           {/* Catalog Categories */}
-          {collections?.map(({ id, title }, index) => {
-            const slug = title.toLowerCase().replace(/\s+/g, '-')
-
-            return (
+          {collections?.map(({ id, handle }, index) => (
             <Link
               key={id}
-              to={`/collections/${slug}`}
+              to={`/collections/${handle}`}
               className='whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground'
             >
               {tCatalog.categories[index].menuTitle}
             </Link>
-          )})}
+          ))}
 
           {/* Fabric Catalogs Dropdown */}
           <DropdownMenu>

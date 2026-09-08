@@ -8,7 +8,6 @@ import { useLanguage } from '@/lib/i18n'
 import { Badge } from '@/components/ui/badge.tsx'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
 
-
 export function FeaturedKitsSection({ first = 3 }: ImportsListProps) {
   const { t, language } = useLanguage()
   const { products, loading, error } = useProducts(first)

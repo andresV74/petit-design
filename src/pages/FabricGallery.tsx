@@ -2,26 +2,75 @@ import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Sparkles, MessageCircle } from 'lucide-react'
 import { useLanguage } from '@/lib/i18n'
+import { useFabrics } from '@/hooks/useFabrics'
 import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 import { trackWhatsAppClick } from '@/hooks/useMetaPixel.ts'
 import { Dialog, type DialogRef } from '@/components/ui/dialog.tsx'
+import { GIRL_FABRICS_LIST_QUERY } from '@/api/queries/girlFabrics.ts'
+import { BOY_FABRICS_LIST_QUERY } from '@/api/queries/boyFabrics.ts'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import type { Fabric } from '@/components/products/FabricSelector.tsx'
 
-import boyFabrics from '@/data/boyFabrics.json'
-import girlFabrics from '@/data/girlFabrics.json'
-
 interface FabricGalleryProps {
+  first: number
   gender: 'boy' | 'girl'
 }
 
-export function FabricGallery({ gender }: FabricGalleryProps) {
+export function FabricGallery({ first = 60, gender }: FabricGalleryProps) {
   const { t, language } = useLanguage()
+  const { fabrics: girlFabricsFull, loading: girlLoading, error: girlError } = useFabrics(first, GIRL_FABRICS_LIST_QUERY)
+  const { fabrics: boyFabricsFull, loading: boyLoading, error: boyError } = useFabrics(first, BOY_FABRICS_LIST_QUERY)
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
 	const [zoomIndex, setZoomIndex] = useState(0)
 	const dialogRef = useRef<DialogRef | null>(null)
   const selectedFabric = useFabricsStore((state) => state.fabric)
   const setFabric = useFabricsStore((state) => state.setFabric)
+  const girlFabrics = girlFabricsFull
+    ?.map((fabric) => {
+      const fields = fabric.fields ?? []
+
+      const gender = fields.find((f) => f.key === 'gender')
+      const nameEs = fields.find((f) => f.key === 'name_es')
+      const nameEn = fields.find((f) => f.key === 'name_en')
+      const imageField = fields.find((f => f.key === 'image'))
+
+      const imageRef = imageField?.reference
+      const imageUrl =
+        imageRef?.__typename === 'MediaImage'
+          ? imageRef.image.url
+          : undefined
+
+      return {
+        id: fabric.id,
+        gender: gender?.value,
+        name_es: nameEs?.value,
+        name_en: nameEn?.value,
+        imageUrl: imageUrl,
+      }
+    })
+  const boyFabrics = boyFabricsFull
+    ?.map((fabric) => {
+      const fields = fabric.fields ?? []
+
+      const gender = fields.find((f) => f.key === 'gender')
+      const nameEs = fields.find((f) => f.key === 'name_es')
+      const nameEn = fields.find((f) => f.key === 'name_en')
+      const imageField = fields.find((f => f.key === 'image'))
+
+      const imageRef = imageField?.reference
+      const imageUrl =
+        imageRef?.__typename === 'MediaImage'
+          ? imageRef.image.url
+          : undefined
+
+      return {
+        id: fabric.id,
+        gender: gender?.value,
+        name_es: nameEs?.value,
+        name_en: nameEn?.value,
+        imageUrl: imageUrl,
+      }
+    })
 
 	const fabrics: Fabric[] = (gender === 'boy'
 		? boyFabrics
@@ -30,11 +79,8 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
 			: []) as unknown as Fabric[]
 
 	const title = gender === 'boy' ? (t('fabricGallery.boysTitle')) : (t('fabricGallery.girlsTitle'))
-
   const subtitle = t('fabricGallery.subtitle')
-
   const fabricTitle = gender === 'boy' ? t('fabricGallery.boysTitle2') : t('fabricGallery.girlsTitle2')
-
   const fabricCanonical = `https://petitdesign.com.co/telas/${gender === 'boy' ? 'nino' : 'nina'}`
 
 	/**
@@ -68,6 +114,10 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
       : selectedFabric?.name_en
   }
 
+  if (girlLoading && boyLoading) return <p>Cargando telas para niñas...</p>;
+  if (girlError && boyError) return <p>Error al cargar telas.</p>;
+  if (!girlFabricsFull || girlFabricsFull.length === 0 || !boyFabricsFull || boyFabricsFull.length === 0) return <p>No hay telas configuradas.</p>
+
   return (
     <>
 			<title>{fabricTitle}</title>
@@ -93,9 +143,11 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
               {`Tela seleccionada: ${fabricName()}`}
             </h2>
           )}
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {subtitle}
-          </p>
+          {!selectedFabric &&
+            (<p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              {subtitle}
+            </p>
+          )}
 
           {/* More fabrics notice */}
           <div className="mt-6 inline-flex items-center gap-3 px-5 py-3 bg-mint/10 border border-mint/20 rounded-xl">
@@ -127,7 +179,7 @@ export function FabricGallery({ gender }: FabricGalleryProps) {
               >
                 <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.03] group-focus:outline-none group-focus:ring-2 group-focus:ring-primary group-focus:ring-offset-2">
                   <img
-                    src={fabric.image}
+                    src={fabric.imageUrl}
                     alt={language === 'es' ? fabric.name_es : fabric.name_en}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading='lazy'

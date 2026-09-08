@@ -1,20 +1,18 @@
 import { useState } from 'react'
-import ReactMarkdown from 'react-markdown'
+import DOMPurify from 'dompurify'
 import { ChevronDown, ChevronUp, FileText } from 'lucide-react'
 import { useLanguage } from '@/lib/i18n.tsx'
 import styles from './ProductLongDescription.module.css'
 
 interface ProductLongDescriptionProps {
-  description: string | undefined;
+  description: string | undefined
 }
 
 export function ProductLongDescription({ description }: ProductLongDescriptionProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   const { t } = useLanguage()
 
-  if (!description) return null;
-
-  const cleanedDescription = description.replace(/^##\s+.+\n+/, '');
+  if (!description) return null
 
   return (
     <div className={`${styles.description} mt-8 border border-border rounded-2xl overflow-hidden`}>
@@ -41,10 +39,11 @@ export function ProductLongDescription({ description }: ProductLongDescriptionPr
 					${isExpanded ? "max-h-1250 opacity-100" : "max-h-0 opacity-0"}`
         }
       >
-        <div className="p-5 pt-2 prose prose-sm max-w-none prose-headings:font-display prose-headings:text-foreground prose-h3:text-base prose-h3:font-semibold prose-h3:mt-5 prose-h3:mb-2 prose-p:text-muted-foreground prose-p:leading-relaxed prose-li:text-muted-foreground prose-strong:text-foreground prose-ul:my-2 prose-li:my-0.5">
-          <ReactMarkdown>{cleanedDescription}</ReactMarkdown>
-        </div>
+        <div
+          className="p-5 pt-2 prose prose-sm max-w-none prose-headings:font-display prose-headings:text-foreground prose-h3:text-base prose-h3:font-semibold prose-h3:mt-5 prose-h3:mb-2 prose-p:text-muted-foreground prose-p:leading-relaxed prose-li:text-muted-foreground prose-strong:text-foreground prose-ul:my-2 prose-li:my-0.5"
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
+        />
       </div>
     </div>
-  );
+  )
 }

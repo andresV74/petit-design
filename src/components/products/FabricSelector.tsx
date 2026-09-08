@@ -6,25 +6,24 @@ import { useLanguage } from '@/lib/i18n.tsx'
 import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
 
-import boyFabrics from '@/data/boyFabrics.json'
-import girlFabrics from '@/data/girlFabrics.json'
-
 export interface Fabric {
   id: string
-  slug: string
-  name_es: string
-  name_en: string
-  image: string
   gender: 'boy' | 'girl'
-  page: number
+  imageUrl: string | undefined
+  name_es: string | undefined
+  name_en: string | undefined
 }
 
 interface FabricSelectorProps {
-	initialGender?: 'boy' | 'girl' | null
+	initialGender?: 'boy' | 'girl' | null,
+	girlFabrics: Fabric[],
+	boyFabrics: Fabric[],
 }
 
 export function FabricSelector({
 	initialGender = null,
+	girlFabrics = [],
+	boyFabrics = [],
 }: FabricSelectorProps) {
 	const { t, language } = useLanguage()
 	const [selectedGender, setSelectedGender] = useState<'boy' | 'girl' | null>(initialGender)

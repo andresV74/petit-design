@@ -96,7 +96,7 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 					{/* Large fabric preview */}
 					<div className="relative aspect-square rounded-2xl overflow-hidden mb-4 shadow-lg select-none">
 						<img
-							src={zoomFabric.image}
+							src={zoomFabric.imageUrl}
 							alt={language === 'es' ? zoomFabric.name_es : zoomFabric.name_en}
 							className="w-full h-full object-cover"
 						/>

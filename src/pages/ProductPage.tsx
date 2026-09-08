@@ -1,44 +1,134 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
+import { useProduct } from '@/hooks/useProduct.ts'
+import { addToCart } from '@/api/cart.ts'
 import { Heart, Clock, Shield, Sparkles } from 'lucide-react'
 import { ProductLongDescription } from '@/components/products/ProductLongDescription.tsx'
 import { ProductPreview } from '@/components/products/ProductPreview.tsx'
 import { CustomInfo } from '@/components/products/CustomInfo.tsx'
 import { FontSelector } from '@/components/products/FontSelector.tsx'
-import { ProductEmbroideryColor } from '@/components/products/ProductEmbroideryColor.tsx'
+import { Colors } from '@/components/products/Colors.tsx'
 import { FabricSelector } from '@/components/products/FabricSelector.tsx'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs.tsx'
 import { Button } from '@/components/ui/button.tsx'
 import { useLanguage } from '@/lib/i18n.tsx'
-import { trackEvent, /*trackWhatsAppClick*/ } from '@/hooks/useMetaPixel.ts'
-// import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
+import { trackEvent } from '@/hooks/useMetaPixel.ts'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import { useProductCustomsStore } from '@/store/productCustomsStore'
 import { inputClasses } from '@/components/ContactForm.tsx'
+import { jsonToHtml } from '@/components/utils/jsonToHtml.ts'
 
-import products from '@/data/products.json'
-
-const embroideryColors = [
-  { value: 'blanco', color: '#FFFFFF', border: true },
-  { value: 'beige', color: '#D4C4B0' },
-  { value: 'rosa_claro', color: '#E8B4B8' },
-  { value: 'verde_salvia', color: '#7A9A7A' },
-  { value: 'azul_cielo', color: '#7EB6D8' },
-  { value: 'gris_perla', color: '#A8A8A8' },
-]
+type SelectedOptions = {
+  medida?: string
+  estilo?: string
+}
 
 export function ProductPage() {
-  const { slug } = useParams<{ slug: string }>()
+  const { handle } = useParams<{ handle: string }>()
+  const { product, loading, error } = useProduct(handle)
   const { t, language } = useLanguage()
 
-  const displayProduct = products.find(product => product.slug === slug)
-  const category = displayProduct?.category
+  const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
+  const [babyName, setBabyName] = useState('')
+  const [adding, setAdding] = useState(false)
+  const [added, setAdded] = useState(false)
+
+  const featuredImage = product?.featuredImage
+  const baseMinPrice = product?.priceRange?.minVariantPrice
+  const category = product?.collections.edges[0]
+  const images = product?.images?.edges
+
+  const productionDays = product?.productionDays?.value
+  const useFabrics = product?.useFabrics?.value === 'true'
+  const longDescriptionEn = jsonToHtml(JSON.parse(product?.longDescriptionEn?.value || '[]'))
+  // const isFeatured = product?.isFeatured?.value === 'true'
+  const nameEn = product?.nameEn?.value
+  const shortDescriptionEs = product?.shortDescriptionEs?.value
+  const shortDescriptionEn = product?.shortDescriptionEn?.value
+  const isCharacterPriced = product?.isCharacterPriced?.value === 'true'
+  const [selectedColor, setSelectedColor] = useState(null as { id: string; name?: string; hex?: string; border?: string } | null)
+  const colorNodes = product?.color?.references?.nodes ?? []
+  const colors = colorNodes
+    .filter((node) => node.__typename === 'Metaobject')
+    .map((meta) => {
+      const fields = meta.fields ?? []
+
+      return {
+        id: meta.id,
+        name: fields.find((f) => f.key === 'value')?.value,
+        hex: fields.find((f) => f.key === 'color')?.value,
+        border: fields.find((f) => f.key === 'border')?.value
+      }
+    })
+  const girlFabricsNodes = product?.girlFabrics?.references?.nodes ?? []
+  const girlFabrics = girlFabricsNodes
+    .filter((node) => node.__typename === 'Metaobject')
+    .map((meta) => {
+      const fields = meta.fields ?? []
+
+      const gender = fields.find((f) => f.key === 'gender')
+      const nameEs = fields.find((f) => f.key === 'name_es')
+      const nameEn = fields.find((f) => f.key === 'name_en')
+      const imageField = fields.find((f) => f.key === 'image')
+
+      const imageRef = imageField?.reference
+      const imageUrl =
+        imageRef?.__typename === 'MediaImage'
+          ? imageRef.image?.url
+          : undefined
+
+      return {
+        id: meta.id,
+        gender: gender?.value as 'boy' | 'girl',
+        name_es: nameEs?.value,
+        name_en: nameEn?.value,
+        imageUrl: imageUrl
+      }
+    })
+  const boyFabricsNodes = product?.boyFabrics?.references?.nodes ?? []
+  const boyFabrics = boyFabricsNodes
+    .filter((node) => node.__typename === 'Metaobject')
+    .map((meta) => {
+      const fields = meta.fields ?? []
+
+      const gender = fields.find((f) => f.key === 'gender')
+      const nameEs = fields.find((f) => f.key === 'name_es')
+      const nameEn = fields.find((f) => f.key === 'name_en')
+      const imageField = fields.find((f) => f.key === 'image')
+
+      const imageRef = imageField?.reference
+      const imageUrl =
+        imageRef?.__typename === 'MediaImage'
+          ? imageRef.image?.url
+          : undefined
+
+      return {
+        id: meta.id,
+        gender: gender?.value as 'boy' | 'girl',
+        name_es: nameEs?.value,
+        name_en: nameEn?.value,
+        imageUrl: imageUrl
+      }
+    })
+
+  const productTitle = `${language === 'es' ? product?.title : product?.nameEn?.value} | Petit Design`
+  const productDescription = language === 'es'
+    ? shortDescriptionEs ?? product?.title
+    : shortDescriptionEn ?? product?.nameEn?.value
+  const productCanonical = `https://petitdesign.com.co/producto/${handle}`
+  const productImageUrl = featuredImage
+    ? featuredImage.url
+    : images?.[0].node.url
 
   const hasTrackedView = useRef(false)
-  const [totalPrice, setTotalPrice] = useState<number | undefined>(displayProduct?.initialPrice)
-  const name = useProductCustomsStore((state) => state.customs?.name ?? '')
+
+	const babyNameStore = useProductCustomsStore((state) => state.customs?.name)
+	const selectedColorStore = useProductCustomsStore((state) => state.customs?.color)
+  const selectedFontStore = useProductCustomsStore((state) => state.customs?.font)
   const observations = useProductCustomsStore((state) => state.customs?.observations)
   const setCustoms = useProductCustomsStore((state) => state.setCustom)
+	const removeCustom = useProductCustomsStore((state) => state.removeCustom)
+
   useFabricsStore.subscribe((state) => {
     const newFabric = state.fabric
 
@@ -46,18 +136,18 @@ export function ProductPage() {
   })
 
   useEffect(() => {
-    if (displayProduct && !hasTrackedView.current) {
+    if (product && !hasTrackedView.current) {
       hasTrackedView.current = true
       trackEvent('ViewContent', {
-        content_ids: [displayProduct.id],
-        content_name: language === 'es' ? displayProduct.name_es : displayProduct.name_en,
+        content_ids: [product.id],
+        content_name: language === 'es' ? product.title : product?.nameEn?.value,
         content_type: 'product',
-        content_category: displayProduct.category || '',
+        content_category: category?.node.title || '',
         currency: 'COP',
-        value: displayProduct.price,
+        value: baseMinPrice?.amount,
       })
     }
-  }, [displayProduct, language])
+  }, [language, category, baseMinPrice?.amount, product])
 
   const formatPrice = (price?: number) => {
     if (price == null) return ''
@@ -69,86 +159,135 @@ export function ProductPage() {
     }).format(price)
   }
 
-  // TODO: display correct price when enter the name is already in store
-  const handlePriceLetters = (e: React.ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
-    if (!displayProduct?.price) return
+  const variants = (product?.variants?.edges ?? []).map(edge => edge.node)
+  const hasVariants = variants.length > 1
+  const medidaOption = product?.options?.find(option => option.name.toLowerCase() === 'medida')
+  const estiloOption = product?.options?.find(option => option.name.toLowerCase() === 'estilo')
 
-    const canHandle = displayProduct?.extraCustomization?.includes('pricePerLetter')
+  const selectedVariant = useMemo(() => {
+    if (!hasVariants) return variants[0] || null
 
-    setCustoms({name: e.target.value})
-    setTotalPrice(canHandle ? (displayProduct?.price * e.target.value.length) : displayProduct?.price)
+    return (
+      variants.find((v) => {
+        const opts = v.selectedOptions || []
+
+        const medidaMatch =
+          !medidaOption || !selectedOptions.medida
+          ? true
+          : opts.some(
+              (o) =>
+                o.name.toLowerCase() === 'medida' &&
+                o.value === selectedOptions.medida
+            )
+
+        const estiloMatch =
+          !estiloOption || !selectedOptions.estilo
+          ? true
+          : opts.some(
+              (o) =>
+                o.name.toLowerCase() === 'estilo' &&
+                o.value === selectedOptions.estilo
+            )
+
+        return medidaMatch && estiloMatch
+      }) || null
+    );
+  }, [hasVariants, variants, medidaOption, estiloOption, selectedOptions])
+
+  const variantPrice = selectedVariant?.price || null
+  const pricePerUnit = variantPrice || baseMinPrice
+
+  const trimmedName = babyName.trim()
+  const numChars = isCharacterPriced ? trimmedName.length : 0
+  const totalPrice =
+    isCharacterPriced && pricePerUnit && numChars > 0
+      ? {
+          amount: (Number(pricePerUnit.amount) * numChars).toFixed(2),
+          currencyCode: pricePerUnit.currencyCode,
+        }
+      : null
+
+  function handleChangeMedida(e: React.ChangeEvent<HTMLSelectElement>) {
+    setSelectedOptions((prev) => ({ ...prev, medida: e.target.value || undefined }))
+    setAdded(false)
   }
 
-  // const hasTrackedCustomize = useRef(false)
-  // useEffect(() => {
-  //   if (babyName && !hasTrackedCustomize.current) {
-  //     hasTrackedCustomize.current = true
-  //     trackEvent('CustomizeProduct', {
-  //       content_name: language === 'es' ? displayProduct?.name_es : displayProduct?.name_en,
-  //       content_ids: [displayProduct?.id],
-  //     })
-  //   }
-  // }, [babyName, displayProduct, language])
+  function handleChangeEstilo(e: React.ChangeEvent<HTMLSelectElement>) {
+    setSelectedOptions((prev) => ({ ...prev, estilo: e.target.value || undefined }))
+    setAdded(false)
+  }
 
-  // const handleWhatsAppOrder = () => {
-  //   const colorLabel = t(`color.${embroideryColor}`)
-  //   const productUrl = `${window.location.origin}/producto/${displayProduct?.slug}`
-  //   const productImage = images[0]?.imageUrl ? `${window.location.origin}${images[0].imageUrl}` : ''
+  function handleChangeBabyName(e: React.ChangeEvent<HTMLInputElement>) {
+    setBabyName(e.target.value)
+    setCustoms({ name: e.target.value })
+    setAdded(false);
+  }
 
-  //   const displayPrice = displayProduct?.price
+  function handleSelectColor(colorId: string) {
+    const color = colors.find((color) => color.id === colorId)
 
-  //   const messageLines = language === 'es'
-  //     ? [
-  //         `¡Hola! Me gustaría hacer un pedido:`,
-  //         ``,
-  //         `📦 *Producto:* ${displayProduct?.name_es}`,
-  //         `🔗 *Ver producto:* ${productUrl}`,
-  //         `🖼️ *Imagen:* ${productImage}`,
-  //       ]
-  //     : [
-  //         `Hello! I would like to place an order:`,
-  //         ``,
-  //         `📦 *Product:* ${displayProduct?.name_en}`,
-  //         `🔗 *View product:* ${productUrl}`,
-  //         `🖼️ *Image:* ${productImage}`,
-  //       ]
+    if (selectedColorStore?.id === colorId) {
+      removeCustom('color')
+    } else {
+      setSelectedColor((prev) => (prev?.id === colorId ? null : color ?? null))
+      setCustoms({ color: color ?? undefined })
+    }
+    setAdded(false)
+  }
 
-  //   messageLines.push('')
-  //   messageLines.push(language === 'es' ? `✨ *Personalización:*` : `✨ *Personalization:*`)
-  //   messageLines.push(language === 'es' ? `👶 Nombre del bebé: ${babyName || 'Por definir'}` : `👶 Baby's name: ${babyName || 'To be defined'}`)
-  //   messageLines.push(language === 'es' ? `🎨 Color del bordado: ${colorLabel}` : `🎨 Embroidery color: ${colorLabel}`)
-  //   messageLines.push(language === 'es' ? `✍️ Tipo de letra: Por definir vía WhatsApp` : `✍️ Font type: To be defined via WhatsApp`)
+  async function handleAddToCart() {
+    if (!selectedVariant && hasVariants) return
+    const variantId = (selectedVariant || variants[0])?.id
+    if (!variantId) return
 
-  //   messageLines.push(language === 'es'
-  //     ? `📝 Observaciones: ${observations || 'Ninguna'}`
-  //     : `📝 Observations: ${observations || 'None'}`
-  //   )
-  //   messageLines.push('')
-  //   messageLines.push(language === 'es' ? '¡Gracias!' : 'Thank you!')
+    let quantity = 1;
+    let customAttrs: Record<string, string> | undefined
 
-  //   trackWhatsAppClick(`Producto: ${language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}`, {
-  //     content_category: 'Product Order',
-  //     content_ids: [displayProduct?.id],
-  //     currency: 'COP',
-  //     value: displayPrice,
-  //   })
+    if (isCharacterPriced) {
+      const trimmedName = babyName.trim()
+      const chars = trimmedName.length
+      if (!chars) return
 
-  //   window.open(getWhatsAppUrl({
-  //     message: messageLines.join('\n'),
-  //     source: `Producto: ${language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}`, language
-  //   }), '_blank')
-  // }
+      quantity = chars;
+    }
+    customAttrs = { baby_name: trimmedName ? trimmedName : babyNameStore ?? '' }
 
-  const images = displayProduct?.images ?? []
+    if (selectedColor || selectedColorStore) {
+      const selectedColorName = selectedColor?.name ?? selectedColorStore?.name ?? ''
+      customAttrs = { ...customAttrs, selected_color: selectedColorName }
+    }
 
-  const productTitle = `${language === 'es' ? displayProduct?.name_es : displayProduct?.name_en} | Petit Design`
-  const productDescription = language === 'es' ? displayProduct?.longDescription_es : displayProduct?.longDescription_en
-  const productCanonical = `https://petitdesign.com.co/producto/${displayProduct?.slug}`
+    if (selectedFontStore) {
+      customAttrs = { ...customAttrs, selected_font: selectedFontStore }
+    }
 
-  // TODO Revisar cómo vienen las imágenes desde Shopify para optimizar esta constante
-  const productImageUrl = images[0]?.imageUrl
-    ? images[0].imageUrl.startsWith('http') ? images[0].imageUrl : `https://petitdesign.com.co${images[0].imageUrl}`
-    : 'https://petitdesign.com.co/logo-full.png'
+    if (observations) {
+      customAttrs = { ...customAttrs, observations }
+    }
+
+    const attrsOrUndefined =
+      Object.keys(customAttrs ?? {}).length > 0 ? customAttrs : undefined
+
+    setAdding(true)
+    setAdded(false)
+    try {
+      await addToCart(variantId, quantity, attrsOrUndefined)
+      setAdded(true)
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setAdding(false)
+    }
+  }
+
+  const addDisabled =
+    adding ||
+    (!selectedVariant && hasVariants && Boolean(medidaOption || estiloOption))
+
+  if (!handle) return <p>Falta el handle del producto.</p>
+  if (loading) return <p>Cargando producto...</p>
+  if (error) return <p>Ocurrió un error al cargar el producto.</p>
+  if (!product) return <p>Producto no encontrado.</p>
 
   return (
     <>
@@ -169,7 +308,7 @@ export function ProductPage() {
 			<script type="application/ld+json">{JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "Product",
-				"name": language === 'es' ? displayProduct?.name_es : displayProduct?.name_en,
+				"name": language === 'es' ? product.title : nameEn,
 				"description": productDescription,
 				"image": productImageUrl,
 				"brand": {
@@ -178,7 +317,7 @@ export function ProductPage() {
 				},
 				"offers": {
 					"@type": "Offer",
-					"price": displayProduct?.price,
+					"price": baseMinPrice?.amount,
 					"priceCurrency": "COP",
 					"availability": "https://schema.org/InStock",
 					"url": productCanonical
@@ -194,60 +333,93 @@ export function ProductPage() {
             <ProductPreview
               images={images}
             />
-            <CustomInfo useFabrics={displayProduct?.useFabrics} />
+            <CustomInfo useFabrics={useFabrics} />
           </div>
 
           {/* Product Info */}
           <div className="space-y-6">
             <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-balance mb-2">
-              {language === 'es' ? displayProduct?.name_es : displayProduct?.name_en}
+              {language === 'es' ? product.title : product.nameEn?.value}
             </h1>
-            <p className="text-2xl font-semibold text-primary">
-              {displayProduct?.extraCustomization === 'pricePerLetter' && name.length > 0
-                ? `${formatPrice(displayProduct.price * name.length)} ${t('product.price')}: ${name}`
-                : displayProduct?.extraCustomization === 'priceByOption'
-                  ? formatPrice(totalPrice)
-                  : formatPrice(displayProduct?.price)
-              }
-            </p>
 
-            {displayProduct?.extraCustomization === 'priceByOption' && (
-              <fieldset className='space-y-1'>
-                <label htmlFor="options" className='block'>
-                  {displayProduct.slug === 'muneco-de-apego'
-                    ? t('product.quantity')
-                    : t('product.size')
-                  }
-                  </label>
-                <select id='options' className='w-70' onChange={(e) => setTotalPrice(parseInt(e.target.value))}>
-                  {displayProduct.options?.map(({ name, value}) => (
-                    <option key={value} value={value}>{name}</option>
-                  ))}
-                </select>
-              </fieldset>
+            {/* Precio total calculado */}
+            {isCharacterPriced && pricePerUnit && (
+              <p className="product-page__price">
+                  Precio por carácter: {formatPrice(parseInt(String(pricePerUnit.amount ?? 0), 10))}
+              </p>
             )}
 
-            {displayProduct?.additionalOptions && (
-              <fieldset>
-                <label htmlFor="additionalOptions" className='block mb-1'>
-                  Escoge el estilo del bumper
-                  </label>
-                <select id='additionalOptions' className='w-70'>
-                  {displayProduct.additionalOptions?.map(({ name, value}) => (
-                    <option key={value} value={value}>{name}</option>
-                  ))}
-                </select>
-              </fieldset>
+            {isCharacterPriced && totalPrice && (
+              <p className="flex items-center gap-2">
+                <span>Precio total:</span>
+                <span className="text-2xl font-semibold text-primary">{formatPrice(parseInt(String(totalPrice?.amount ?? 0), 10))}</span>
+              </p>
             )}
 
-            <p className="text-muted-foreground leading-relaxed">
-              {language === 'es' ? displayProduct?.shortDescription_es : displayProduct?.shortDescription_en}
-            </p>
+            {!isCharacterPriced && pricePerUnit && (
+              <p className="text-2xl font-semibold text-primary">
+                {formatPrice(parseInt(String(pricePerUnit.amount ?? 0), 10))}
+              </p>
+            )}
+
+            {/* Selectores de variantes */}
+            {hasVariants && (
+              <div className="product-page__variants">
+                {medidaOption && (
+                  <fieldset className="space-y-1">
+                    <label htmlFor="medida" className='block'>
+                      Medida
+                    </label>
+                      <select
+                        id="medida"
+                        className='w-70'
+                        value={selectedOptions.medida ?? ''}
+                        onChange={handleChangeMedida}
+                      >
+                        <option value="">Selecciona una medida</option>
+                        {medidaOption.values.map((v: string) => (
+                          <option key={v} value={v}>
+                            {v}
+                          </option>
+                        ))}
+                      </select>
+                  </fieldset>
+                )}
+
+                {estiloOption && (
+                  <fieldset className='space-y-1 mt-4'>
+                    <label htmlFor='estilo' className='block'>
+                      Estilo
+                    </label>
+                      <select
+                        id='estilo'
+                        className='w-70'
+                        value={selectedOptions.estilo ?? ''}
+                        onChange={handleChangeEstilo}
+                      >
+                        <option value="">Selecciona un estilo</option>
+                        {estiloOption.values.map((v: string) => (
+                          <option key={v} value={v}>
+                            {v}
+                          </option>
+                        ))}
+                      </select>
+                  </fieldset>
+                )}
+              </div>
+            )}
+
+            {/* Short description */}
+            {product.shortDescriptionEs && (
+              <p className="text-muted-foreground leading-relaxed">
+                {language === 'es' ? product?.shortDescriptionEs?.value : product?.shortDescriptionEn?.value}
+              </p>
+            )}
 
             {/* Long description - expandable */}
-            {displayProduct?.longDescription_es && (
+            {product?.description && (
               <ProductLongDescription
-                description={language === 'es' ? displayProduct?.longDescription_es : displayProduct?.longDescription_en}
+                description={language === 'es' ? product.descriptionHtml : longDescriptionEn}
               />
             )}
 
@@ -255,7 +427,7 @@ export function ProductPage() {
             <div className="flex flex-wrap gap-4 py-4 border-y border-border">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock className="h-4 w-4 text-mint" />
-                <span>{t('product.productionTime')}: {displayProduct?.productionDays} {t('product.days')}</span>
+                <span>{t('product.productionTime')}: {productionDays} {t('product.days')}</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Shield className="h-4 w-4 text-mint" />
@@ -280,10 +452,11 @@ export function ProductPage() {
                   {t('product.babyName')}
                 </label>
                 <input
+                  type="text"
                   id="babyName"
                   placeholder={t('product.babyNamePlaceholder')}
-                  value={name}
-                  onChange={(event) => handlePriceLetters(event)}
+                  value={(babyName || babyNameStore) ?? ''}
+                  onChange={handleChangeBabyName}
                   className={inputClasses}
                   maxLength={15}
                 />
@@ -292,16 +465,20 @@ export function ProductPage() {
               {/* Font selection */}
               <FontSelector />
 
-              <ProductEmbroideryColor
-                embroideryColors={embroideryColors}
-                colorFilters={displayProduct?.colorFilter}
-              />
+              {/* Color selection */}
+              {product.color &&(
+                <Colors
+                  colors={colors}
+                  handleSelectColor={handleSelectColor}
+                />)
+              }
 
               <p className='text-sm mb-3'>
                 {t('product.namePreview')}
               </p>
 
-							{displayProduct?.useFabrics && <FabricSelector /> }
+              {/* Fabrics selection */}
+							{useFabrics && (<FabricSelector girlFabrics={girlFabrics} boyFabrics={boyFabrics} />) }
 
               <div className="space-y-2">
                 <label htmlFor="observations" className='block'>
@@ -323,12 +500,16 @@ export function ProductPage() {
               {t('product.trustMessage')}
             </p>
 
-            {/* Order Button */}
             <Button
+              onClick={handleAddToCart}
+              disabled={addDisabled}
               className="h-11 rounded-md px-8 w-full bg-primary text-primary-foreground text-xl font-bold py-6"
-              // onClick={handleWhatsAppOrder}
             >
-              {t('product.buy')}
+              {adding
+                ? 'Agregando...'
+                : added
+                ? 'Agregado al carrito'
+                : 'Agregar al carrito'}
             </Button>
           </div>
         </div>

@@ -9,8 +9,8 @@ interface ProductCardProps {
 
 export function ProductCard({ product, language }: ProductCardProps) {
 	const { t } = useLanguage()
-  const image = product.media?.edges[0]?.node.image;
-  const minPrice = product.priceRange?.minVariantPrice;
+  const image = product.media?.edges[0]?.node.image
+  const minPrice = product.priceRange?.minVariantPrice
 
 
 	const formatPrice = (price: number) => {

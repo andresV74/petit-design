@@ -15,24 +15,40 @@ export interface Product {
 }
 
 export interface ProductImage {
-  id: string
-  imageUrl: string
-  altText_es: string | null
-  altText_en: string | null
-  isPrimary: boolean
+  node: {
+    id: string
+    url: string
+    altText: string
+  }
 }
 
 export interface ProductNew {
   id: string
   title: string
+  description: string
+  descriptionHtml: string
   handle: string
+  featuredImage?: {
+    url: string
+    altText?: string | null
+  }
   media?: {
     edges: {
       node: {
         image: {
+          id: string
           url: string
           altText: string
         }
+      }
+    }[]
+  }
+  images?: {
+    edges: {
+      node: {
+        id: string
+        url: string
+        altText: string
       }
     }[]
   }
@@ -40,6 +56,7 @@ export interface ProductNew {
     edges: {
       node: {
         id: string
+        handle: string
         title: string
         description:string
         image: {
@@ -49,14 +66,101 @@ export interface ProductNew {
       }
     }[]
   }
-  nameEn?: {
+  options: {
+    id: string
+    name: string
+    values: string[]
+  }[]
+  variants: {
+    edges: {
+      node: {
+        id: string
+        title: string
+        selectedOptions: {
+          name: string
+          value: string
+        }[]
+        price: {
+          amount: string
+          currencyCode: string
+        }
+      }
+    }[]
+  }
+  productionDays?: {
     value: string
   } | null
-  longDescription?: {
+  useFabrics?: {
+    value: string
+  }
+  longDescriptionEn?: {
     value: string
   } | null
   isFeatured?: {
     value: string
+  } | null
+  nameEn?: {
+    value: string
+  } | null
+  shortDescriptionEs?: {
+    value: string
+  } | null
+  shortDescriptionEn?: {
+    value: string
+  } | null
+  isCharacterPriced?: {
+    value: string
+  } | null
+  color?: {
+    references: {
+      nodes: {
+        __typename: string
+        id: string
+        type: string
+        fields: {
+          key: string
+          value: string
+        }[]
+      }[]
+    }
+  } | null
+  girlFabrics?: {
+    references: {
+      nodes: {
+        __typename: string
+        id: string
+        type: string
+        fields: {
+          key: string
+          value: string
+          reference: {
+            __typename: string
+            image: {
+              url: string
+            }
+          }
+        }[]
+      }[]
+    }
+  } | null
+  boyFabrics?: {
+    references: {
+      nodes: {
+        __typename: string
+        id: string
+        type: string
+        fields: {
+          key: string
+          value: string
+          reference: {
+            __typename: string
+            image: {
+              url: string
+            }
+          }
+        }[]
+      }[]
+    }
   } | null
   priceRange?: {
     minVariantPrice: {

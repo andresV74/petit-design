@@ -41,7 +41,7 @@ export function CatalogPage({ first = 40 }: ImportsListProps) {
         {/* Header */}
             {category ? (
               products
-                ?.filter((product) => product.collections.edges.map((collection) => collection.node.title.toLocaleLowerCase().replace(/\s+/g, '-'))[0] === category)
+                ?.filter((product) => product.collections.edges.map((collection) => collection.node.handle)[0] === category)
                 .slice(0,1)
                 .map((card) => (
                   <div key={card.id} className="text-center mb-8">
@@ -76,13 +76,13 @@ export function CatalogPage({ first = 40 }: ImportsListProps) {
             >
               {t.allButtonText}
             </Link>
-            {collections?.map(({ id, title }) => {
+            {collections?.map(({ id, title, handle }) => {
               const slug = title.toLowerCase().replace(/\s+/g, '-')
 
               return (
               <Link
                 key={id}
-                to={`/collections/${slug}`}
+                to={`/collections/${handle}`}
                 className={
                   `px-4 py-2 rounded-full text-sm font-medium transition-colors
                   ${category === slug
@@ -114,7 +114,7 @@ export function CatalogPage({ first = 40 }: ImportsListProps) {
             {
               category ? (
                 products
-                  .filter((product) => product.collections.edges.map((collection) => collection.node.title.toLocaleLowerCase().replace(/\s+/g, '-'))[0] === category)
+                  .filter((product) => product.collections.edges.map((collection) => collection.node.handle)[0] === category)
                   .map((card) => (
                   <ProductCard key={card.id} product={card} language={language} />
                 ))

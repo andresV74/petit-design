@@ -1,5 +1,6 @@
 import { ZoomIn } from 'lucide-react'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
+import { useLanguage } from '@/lib/i18n.tsx'
 import type { Fabric } from './FabricSelector.tsx'
 import type { MouseEvent } from 'react'
 
@@ -10,6 +11,7 @@ interface FabricButtonProps {
 }
 
 export function FabricButton({fabric, index, handleFabricZoom}: FabricButtonProps) {
+	const { language } = useLanguage()
 	const selectedFabric = useFabricsStore((state) => state.fabric)
 
 	return (
@@ -24,8 +26,8 @@ export function FabricButton({fabric, index, handleFabricZoom}: FabricButtonProp
 			}
 		>
 			<img
-				src={fabric.image}
-				alt={fabric.name_es}
+				src={fabric.imageUrl}
+				alt={language === 'es' ? fabric.name_es : fabric.name_en}
 				className="w-full h-full object-cover"
 				loading="lazy"
 			/>

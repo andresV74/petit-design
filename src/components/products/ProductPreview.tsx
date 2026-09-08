@@ -1,15 +1,13 @@
 import { useState} from 'react'
-import { useLanguage } from '@/lib/i18n.tsx'
 import type { ProductImage } from '@/types/generalTypes.ts'
 
 interface ProductPreviewProps {
-  images: ProductImage[]
+  images: ProductImage[] | undefined
 }
 
 export function ProductPreview({
   images
 }: ProductPreviewProps) {
-  const { language } = useLanguage()
   const [selectedImage, setSelectedImage] = useState(0)
 
   return (
@@ -17,21 +15,17 @@ export function ProductPreview({
       {/* Main Image */}
       <figure className="relative aspect-square overflow-hidden rounded-2xl bg-muted">
         <img
-          src={images?.[selectedImage]?.imageUrl}
-          alt={language === 'es'
-            ? images?.[selectedImage]?.altText_es ?? ''
-            : images?.[selectedImage]?.altText_en ?? ''
-          }
+          src={images?.[selectedImage]?.node?.url || ''}
+          alt={images?.[selectedImage]?.node?.altText || ''}
           className="h-full w-full object-cover"
         />
       </figure>
-
       {/* Thumbnails */}
-      {images?.length > 1 && (
+      {images && images?.length > 1 && (
         <div className="flex gap-2 overflow-x-auto max-w-[calc(100vw-32px)] md:max-w-none pb-3">
           {images.map((image, index) => (
             <button
-              key={image.id}
+              key={image.node.url}
               onClick={() => setSelectedImage(index)}
               className={
                 `shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors cursor-pointer
@@ -40,11 +34,8 @@ export function ProductPreview({
               }
             >
               <img
-                src={image.imageUrl}
-                alt={language === 'es'
-                  ? image.altText_es ?? ''
-                  : image.altText_en ?? ''
-                }
+                src={image.node.url}
+                alt={image.node.altText}
                 className="h-full w-full object-cover"
               />
             </button>

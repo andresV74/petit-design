@@ -1,25 +1,74 @@
 import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useFabrics } from '@/hooks/useFabrics'
 import { Sparkles, Baby, MessageCircle, ZoomIn } from 'lucide-react'
 import { Dialog, type DialogRef } from '@/components/ui/dialog.tsx'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import { useLanguage } from '@/lib/i18n.tsx'
 import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 import { Badge } from '@/components/ui/badge.tsx'
+import { GIRL_FABRICS_LIST_QUERY } from '@/api/queries/girlFabrics.ts'
+import { BOY_FABRICS_LIST_QUERY } from '@/api/queries/boyFabrics.ts'
 import type { Fabric } from '@/components/products/FabricSelector.tsx'
+import type { ImportsListProps } from '@/types/generalTypes.ts'
 
-import boyFabrics from '@/data/boyFabrics.json'
-import girlFabrics from '@/data/girlFabrics.json'
-
-export function PersonalizeSection() {
+export function PersonalizeSection({ first = 8 }: ImportsListProps) {
   const { t, language } = useLanguage()
   const navigate = useNavigate()
+  const { fabrics: girlFabricsFull, loading: girlLoading, error: girlError } = useFabrics(first, GIRL_FABRICS_LIST_QUERY)
+  const { fabrics: boyFabricsFull, loading: boyLoading, error: boyError } = useFabrics(first, BOY_FABRICS_LIST_QUERY)
   const [hoveredGender, setHoveredGender] = useState<'boy' | 'girl' | null>(null)
   const [selectedGender, setSelectedGender] = useState<'boy' | 'girl' | null>(null)
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
   const dialogRef = useRef<DialogRef | null>(null)
   const selectedFabric = useFabricsStore((state) => state.fabric)
 	const setFabric = useFabricsStore((state) => state.setFabric)
+  const girlFabrics = girlFabricsFull
+    ?.map((fabric) => {
+      const fields = fabric.fields ?? []
+
+      const gender = fields.find((f) => f.key === 'gender')
+      const nameEs = fields.find((f) => f.key === 'name_es')
+      const nameEn = fields.find((f) => f.key === 'name_en')
+      const imageField = fields.find((f => f.key === 'image'))
+
+      const imageRef = imageField?.reference
+      const imageUrl =
+        imageRef?.__typename === 'MediaImage'
+          ? imageRef.image.url
+          : undefined
+
+      return {
+        id: fabric.id,
+        gender: gender?.value,
+        name_es: nameEs?.value,
+        name_en: nameEn?.value,
+        imageUrl: imageUrl,
+      }
+    })
+  const boyFabrics = boyFabricsFull
+    ?.map((fabric) => {
+      const fields = fabric.fields ?? []
+
+      const gender = fields.find((f) => f.key === 'gender')
+      const nameEs = fields.find((f) => f.key === 'name_es')
+      const nameEn = fields.find((f) => f.key === 'name_en')
+      const imageField = fields.find((f => f.key === 'image'))
+
+      const imageRef = imageField?.reference
+      const imageUrl =
+        imageRef?.__typename === 'MediaImage'
+          ? imageRef.image.url
+          : undefined
+
+      return {
+        id: fabric.id,
+        gender: gender?.value,
+        name_es: nameEs?.value,
+        name_en: nameEn?.value,
+        imageUrl: imageUrl,
+      }
+    })
 
   const [zoomIndex, setZoomIndex] = useState(0)
 
@@ -65,11 +114,14 @@ export function PersonalizeSection() {
     dialogRef.current?.close()
   }
 
-
   const currentFabrics: Fabric[] = (selectedGender === 'boy'
     ? boyFabrics
     : selectedGender === 'girl'
       ? girlFabrics : []) as unknown as Fabric[]
+
+  if (girlLoading && boyLoading) return <p>Cargando telas para niñas...</p>;
+  if (girlError && boyError) return <p>Error al cargar telas.</p>;
+  if (!girlFabricsFull || girlFabricsFull.length === 0 || !boyFabricsFull || boyFabricsFull.length === 0) return <p>No hay telas configuradas.</p>
 
   return (
     <section className="py-16 md:py-24 bg-linear-to-b from-background">
@@ -144,7 +196,7 @@ export function PersonalizeSection() {
             </h3>
 
             <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-							{currentFabrics.slice(0, 8).map((fabric, index) => (
+							{currentFabrics.map((fabric, index) => (
                 <button
                   key={fabric.id}
                   onClick={(e) => handleFabricZoom(fabric, index, e)}
@@ -158,7 +210,7 @@ export function PersonalizeSection() {
                         : 'border-pink-400/40'
                       : 'border-white'}`}>
                     <img
-                      src={fabric.image}
+                      src={fabric.imageUrl}
                       alt={language === 'es' ? fabric.name_es : fabric.name_en}
                       loading="lazy"
                       decoding="async"
