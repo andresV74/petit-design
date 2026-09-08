@@ -10,7 +10,7 @@
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: url('/public/fonts/Barbie.woff2');
+  src: url('/fonts/Barbie.woff2');
 }
 
 @font-face {
@@ -18,7 +18,7 @@
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: url('/public/fonts/Hello.woff2');
+  src: url('/fonts/Hello.woff2');
 }
 
 @font-face {
@@ -26,7 +26,7 @@
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: url('/public/fonts/Vogue.woff2');
+  src: url('/fonts/Vogue.woff2');
 }
 
 @theme {
