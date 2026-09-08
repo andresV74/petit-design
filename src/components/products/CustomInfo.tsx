@@ -34,7 +34,7 @@ export function CustomInfo({ useFabrics = true }: CustomInfoProps) {
 			)
 			: (
 				customs && (
-					<div className='fixed md:sticky top-20 md:top-25 left-0 md:left-[unset] z-30 backdrop-blur supports-backdrop-filter:bg-background/80 w-full p-4 md:p-0 text-sm md:text-base shadow-md md:shadow-none'>
+					<div className='fixed md:sticky top-20 md:top-25 left-0 md:left-[unset] z-20 backdrop-blur supports-backdrop-filter:bg-background/80 w-full p-4 md:p-0 text-sm md:text-base shadow-md md:shadow-none'>
 						<div
 							className='custom-container w-full bg-mint-light/40 border border-mint/50 rounded-xl px-4 py-3 text-mint-dark pointer-events-none'
 						>
