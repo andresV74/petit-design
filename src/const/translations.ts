@@ -308,6 +308,13 @@ export const translations: Translations = {
   'policies.moreCta': { es: 'Contactar por WhatsApp', en: 'Contact via WhatsApp' },
 
 
+  // Catalog
+  'catalog.title': { es: 'Catálogo', en: 'Catalog' },
+  'catalog.allButtonText': { es: 'Todos los Productos', en: 'All Products' },
+  'catalog.noProducts': { es: 'No hay productos disponibles en esta categoría todavía.', en: 'No products available in this category yet.' },
+  'catalog.allProducts': { es: 'Ver todos los productos', en: 'View all products' },
+
+
   // Products
   'products.singleFeatured': { es: 'Destacado', en: 'Featured' },
   'products.featured': { es: 'Productos Destacados', en: 'Featured Products' },

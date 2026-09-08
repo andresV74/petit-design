@@ -11,13 +11,28 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
-import { catalogContent } from '@/data/catalogContent.ts'
+
+const menuTitles = {
+  es: {
+    collections: [
+      { menuTitle: 'Accesorios' },
+      { menuTitle: 'Lencería de Cunas' },
+      { menuTitle: 'Kits' },
+    ]
+  },
+  en: {
+    collections: [
+      { menuTitle: 'Accessories' },
+      { menuTitle: 'Crib Linens' },
+      { menuTitle: 'Kits' },
+    ]
+  },
+}
 
 export function Header({ first }: ImportsListProps) {
   const [isOpen, setIsOpen] = useState(false)
   const { collections, loading, error } = useCollections(first)
   const { language, setLanguage, t } = useLanguage()
-  const tCatalog = catalogContent[language]
 
   const toggleLanguage = () => {
     setLanguage(language === 'es' ? 'en' : 'es')
@@ -64,7 +79,7 @@ export function Header({ first }: ImportsListProps) {
               to={`/collections/${handle}`}
               className='whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground'
             >
-              {tCatalog.categories[index].menuTitle}
+              {menuTitles[language].collections[index].menuTitle}
             </Link>
           ))}
 
@@ -135,13 +150,13 @@ export function Header({ first }: ImportsListProps) {
       >
         <nav className="flex flex-col gap-2 px-4 py-4">
           {/* Catalog Categories */}
-          {tCatalog.categories.map(({ title, menuTitle, slug }) => (
+          {collections?.map(({ id, handle }, index) => (
             <Link
-              key={slug}
-              to={`/collections/${slug}`}
+              key={id}
+              to={`/collections/${handle}`}
               className='py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-mint-dark'
             >
-              {menuTitle ? menuTitle : title}
+              {menuTitles[language].collections[index].menuTitle}
             </Link>
           ))}
 

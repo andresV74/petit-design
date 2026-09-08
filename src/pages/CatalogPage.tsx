@@ -4,17 +4,15 @@ import { useCollections } from '@/hooks/useCollections.ts'
 import { ProductCard } from '@/components/products/ProductCard.tsx'
 import { useLanguage } from '@/lib/i18n'
 import { Link } from 'react-router-dom'
-import { catalogContent } from '@/data/catalogContent.ts'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
 
 export function CatalogPage({ first = 40 }: ImportsListProps) {
   const { category } = useParams<{ category?: string }>()
   const { products, loading, error } = useProducts(first)
   const { collections, loading: collectionsLoading, error: collectionsError } = useCollections(first)
-  const { language } = useLanguage()
+  const { t, language } = useLanguage()
 
-  const t = catalogContent[language]
-  const headTitle = `${t.pageTitle} | Petit Design`
+  const headTitle = `${t('catalog.title')} | Petit Design`
 
   const canonicalUrl = category
       ? `https://petitdesign.com.co/catalogo/${category}`
@@ -56,7 +54,7 @@ export function CatalogPage({ first = 40 }: ImportsListProps) {
               ) : (
                 <div  className="text-center mb-8">
                   <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
-                    {t.pageTitle}
+                    {t('catalog.title')}
                   </h1>
                 </div>
               )
@@ -74,7 +72,7 @@ export function CatalogPage({ first = 40 }: ImportsListProps) {
                   : "bg-muted text-muted-foreground hover:bg-mint-light"}`
               }
             >
-              {t.allButtonText}
+              {t('catalog.allButtonText')}
             </Link>
             {collections?.map(({ id, title, handle }) => {
               const slug = title.toLowerCase().replace(/\s+/g, '-')
@@ -100,13 +98,13 @@ export function CatalogPage({ first = 40 }: ImportsListProps) {
         {!products || products.length === 0 && !collections || collections?.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">
-              {t.noProducts}
+              {t('catalog.noProducts')}
             </p>
             <Link
               to="/catalogo"
               className="inline-block mt-4 text-mint hover:text-mint-dark underline"
             >
-              {t.allProducts}
+              {t('catalog.allProducts')}
             </Link>
           </div>)
         : (
