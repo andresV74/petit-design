@@ -29,8 +29,8 @@ function App() {
             <Route path="/collections" element={<CatalogPage />} />
             <Route path="/collections/:category" element={<CatalogPage />} />
             <Route path='/producto/:handle' element={<ProductPage />} />
-            <Route path="/telas/nino" element={<FabricGallery gender="boy" />} />
-            <Route path="/telas/nina" element={<FabricGallery gender="girl" />} />
+            <Route path="/telas/nino" element={<FabricGallery first={60} gender="boy" />} />
+            <Route path="/telas/nina" element={<FabricGallery first={60} gender="girl" />} />
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>
         </Suspense>

@@ -16,7 +16,7 @@ interface FabricGalleryProps {
   gender: 'boy' | 'girl'
 }
 
-export function FabricGallery({ first = 60, gender }: FabricGalleryProps) {
+export function FabricGallery({ first, gender }: FabricGalleryProps) {
   const { t, language } = useLanguage()
   const { fabrics: girlFabricsFull, loading: girlLoading, error: girlError } = useFabrics(first, GIRL_FABRICS_LIST_QUERY)
   const { fabrics: boyFabricsFull, loading: boyLoading, error: boyError } = useFabrics(first, BOY_FABRICS_LIST_QUERY)
