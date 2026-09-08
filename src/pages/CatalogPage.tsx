@@ -74,23 +74,20 @@ export function CatalogPage({ first = 40 }: ImportsListProps) {
             >
               {t('catalog.allButtonText')}
             </Link>
-            {collections?.map(({ id, title, handle }) => {
-              const slug = title.toLowerCase().replace(/\s+/g, '-')
-
-              return (
+            {collections?.map(({ id, title, handle }) => (
               <Link
                 key={id}
                 to={`/collections/${handle}`}
                 className={
                   `px-4 py-2 rounded-full text-sm font-medium transition-colors
-                  ${category === slug
+                  ${category === handle
                     ? "bg-mint text-white"
                     : "bg-muted text-muted-foreground hover:bg-mint-light"}`
                 }
               >
                 {title}
               </Link>
-            )})}
+            ))}
           </div>
         </div>
 

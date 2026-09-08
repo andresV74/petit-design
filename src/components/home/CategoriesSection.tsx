@@ -24,13 +24,10 @@ export function CategoriesSection({ first = 2 }: ImportsListProps) {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto justify-items-center">
           {
-						collections?.map(({ id, title, image }) =>  {
-							const slug = title.toLowerCase().replace(/\s+/g, '-')
-
-							return (
+						collections?.map(({ id, title, image, handle }) => (
 							<div key={id} className="flex flex-col">
 								<Link
-									to={`/collections/${slug}`}
+									to={`/collections/${handle}`}
 									className="group w-full relative aspect-4/3 overflow-hidden rounded-2xl text-left transition-all hover:shadow-lg z-20 cursor-pointer"
 								>
 									<img
@@ -48,7 +45,7 @@ export function CategoriesSection({ first = 2 }: ImportsListProps) {
 									</div>
 								</Link>
 							</div>
-            )})
+            ))
 					}
         </div>
       </div>
