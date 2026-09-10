@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { useProduct } from '@/hooks/useProduct.ts'
-import { addToCart } from '@/api/cart.ts'
 import { Heart, Clock, Shield, Sparkles } from 'lucide-react'
 import { ProductLongDescription } from '@/components/products/ProductLongDescription.tsx'
 import { ProductPreview } from '@/components/products/ProductPreview.tsx'
@@ -12,11 +11,12 @@ import { FabricSelector } from '@/components/products/FabricSelector.tsx'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs.tsx'
 import { Button } from '@/components/ui/button.tsx'
 import { useLanguage } from '@/lib/i18n.tsx'
-import { trackEvent } from '@/hooks/useMetaPixel.ts'
+import { trackEvent, trackWhatsAppClick } from '@/hooks/useMetaPixel.ts'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import { useProductCustomsStore } from '@/store/productCustomsStore'
 import { inputClasses } from '@/components/ContactForm.tsx'
 import { jsonToHtml } from '@/components/utils/jsonToHtml.ts'
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
 type SelectedOptions = {
   medida?: string
@@ -30,7 +30,7 @@ export function ProductPage() {
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
   const [babyName, setBabyName] = useState('')
-  const [adding, setAdding] = useState(false)
+  const [adding] = useState(false)
   const [added, setAdded] = useState(false)
 
   const featuredImage = product?.featuredImage
@@ -134,6 +134,7 @@ export function ProductPage() {
 
     setCustoms({ fabric: newFabric})
   })
+  const selectedFabric = useFabricsStore((state) => state.fabric)
 
   useEffect(() => {
     if (product && !hasTrackedView.current) {
@@ -235,54 +236,64 @@ export function ProductPage() {
     setAdded(false)
   }
 
-  async function handleAddToCart() {
-    if (!selectedVariant && hasVariants) return
-    const variantId = (selectedVariant || variants[0])?.id
-    if (!variantId) return
-
-    let quantity = 1;
-    let customAttrs: Record<string, string> | undefined
-
-    if (isCharacterPriced) {
-      const trimmedName = babyName.trim()
-      const chars = trimmedName.length
-      if (!chars) return
-
-      quantity = chars;
-    }
-    customAttrs = { baby_name: trimmedName ? trimmedName : babyNameStore ?? '' }
-
-    if (selectedColor || selectedColorStore) {
-      const selectedColorName = selectedColor?.name ?? selectedColorStore?.name ?? ''
-      customAttrs = { ...customAttrs, selected_color: selectedColorName }
-    }
-
-    if (selectedFontStore) {
-      customAttrs = { ...customAttrs, selected_font: selectedFontStore }
-    }
-
-    if (observations) {
-      customAttrs = { ...customAttrs, observations }
-    }
-
-    const attrsOrUndefined =
-      Object.keys(customAttrs ?? {}).length > 0 ? customAttrs : undefined
-
-    setAdding(true)
-    setAdded(false)
-    try {
-      await addToCart(variantId, quantity, attrsOrUndefined)
-      setAdded(true)
-    } catch (err) {
-      console.error(err)
-    } finally {
-      setAdding(false)
-    }
-  }
-
   const addDisabled =
     adding ||
     (!selectedVariant && hasVariants && Boolean(medidaOption || estiloOption))
+
+  const handleWhatsAppOrder = () => {
+    const colorLabel = t(`color.${selectedColor?.name}`) || '';
+    const fabricName = selectedFabric?.name_es || '';
+    const productUrl = `${window.location.origin}/producto/${handle}`;
+    const price = parseInt(String(product?.priceRange?.minVariantPrice.amount))
+    const variantPrice = parseInt(String(selectedVariant?.price.amount))
+
+    const messageLines = language === 'es'
+      ? [
+          `¡Hola! Me gustaría hacer un pedido:`,
+          ``,
+          `📦 *Producto:* ${product?.title}`,
+          `🔗 *Ver producto:* ${productUrl}`,
+        ]
+      : [
+          `Hello! I would like to place an order:`,
+          ``,
+          `📦 *Product:* ${product?.nameEn}`,
+          `🔗 *View product:* ${productUrl}`,
+        ];
+
+    if (selectedVariant?.title !== 'Default Title') {
+      messageLines.push('');
+      messageLines.push(language === 'es' ? `🛒 *Variante:* ${selectedVariant?.title}` : `🛒 *Variant:* ${selectedVariant?.title}`);
+      messageLines.push('');
+      messageLines.push(language === 'es' ? `💰 *Precio:* ${formatPrice(variantPrice)}` : `💰 *Price:* ${formatPrice(variantPrice)}`);
+    } else {
+      messageLines.push(language === 'es' ? `💰 *Precio:* ${formatPrice(price)}` : `💰 *Price:* ${formatPrice(price)}`);
+    }
+
+    messageLines.push('');
+    messageLines.push(language === 'es' ? `✨ *Personalización:*` : `✨ *Personalization:*`);
+    messageLines.push(language === 'es' ? `👶 Nombre del bebé: ${babyName || 'Por definir'}` : `👶 Baby's name: ${babyName || 'To be defined'}`);
+    messageLines.push(language === 'es' ? `🎨 Color del bordado: ${colorLabel}` : `🎨 Embroidery color: ${colorLabel}`);
+    messageLines.push(language === 'es' ? `✍️ Tipo de letra: ${selectedFontStore}` : `✍️ Font type: ${selectedFontStore}`);
+    messageLines.push(language === 'es' ? `Tela: ${fabricName}` : `Fabric: ${fabricName}`);
+
+    messageLines.push(language === 'es'
+      ? `📝 Observaciones: ${observations || 'Ninguna'}`
+      : `📝 Observations: ${observations || 'None'}`
+    );
+    messageLines.push('');
+    messageLines.push(language === 'es' ? '¡Gracias!' : 'Thank you!');
+
+    trackWhatsAppClick(`Producto: ${language === 'es' ? product?.title : product?.nameEn}`, {
+      content_category: 'Product Order',
+      content_ids: [product?.id],
+      currency: 'COP',
+      value: product?.priceRange?.minVariantPrice.amount,
+    });
+
+    window.open(getWhatsAppUrl({ message: messageLines.join('\n'), source: `Producto: ${language === 'es' ? product?.title : product?.nameEn}`, language }), '_blank');
+  };
+
 
   if (!handle) return <p>Falta el handle del producto.</p>
   if (loading) return <p>Cargando producto...</p>
@@ -501,7 +512,7 @@ export function ProductPage() {
             </p>
 
             <Button
-              onClick={handleAddToCart}
+              onClick={handleWhatsAppOrder}
               disabled={addDisabled}
               className="h-11 rounded-md px-8 w-full bg-primary text-primary-foreground text-xl font-bold py-6"
             >
