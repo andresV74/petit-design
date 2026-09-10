@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { useProduct } from '@/hooks/useProduct.ts'
-import { addToCart } from '@/api/cart.ts'
 import { Heart, Clock, Shield, Sparkles } from 'lucide-react'
 import { ProductLongDescription } from '@/components/products/ProductLongDescription.tsx'
 import { ProductPreview } from '@/components/products/ProductPreview.tsx'
@@ -31,7 +30,7 @@ export function ProductPage() {
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
   const [babyName, setBabyName] = useState('')
-  const [adding, setAdding] = useState(false)
+  const [adding] = useState(false)
   const [added, setAdded] = useState(false)
 
   const featuredImage = product?.featuredImage
@@ -235,51 +234,6 @@ export function ProductPage() {
       setCustoms({ color: color ?? undefined })
     }
     setAdded(false)
-  }
-
-  async function handleAddToCart() {
-    if (!selectedVariant && hasVariants) return
-    const variantId = (selectedVariant || variants[0])?.id
-    if (!variantId) return
-
-    let quantity = 1;
-    let customAttrs: Record<string, string> | undefined
-
-    if (isCharacterPriced) {
-      const trimmedName = babyName.trim()
-      const chars = trimmedName.length
-      if (!chars) return
-
-      quantity = chars;
-    }
-    customAttrs = { baby_name: trimmedName ? trimmedName : babyNameStore ?? '' }
-
-    if (selectedColor || selectedColorStore) {
-      const selectedColorName = selectedColor?.name ?? selectedColorStore?.name ?? ''
-      customAttrs = { ...customAttrs, selected_color: selectedColorName }
-    }
-
-    if (selectedFontStore) {
-      customAttrs = { ...customAttrs, selected_font: selectedFontStore }
-    }
-
-    if (observations) {
-      customAttrs = { ...customAttrs, observations }
-    }
-
-    const attrsOrUndefined =
-      Object.keys(customAttrs ?? {}).length > 0 ? customAttrs : undefined
-
-    setAdding(true)
-    setAdded(false)
-    try {
-      await addToCart(variantId, quantity, attrsOrUndefined)
-      setAdded(true)
-    } catch (err) {
-      console.error(err)
-    } finally {
-      setAdding(false)
-    }
   }
 
   const addDisabled =
