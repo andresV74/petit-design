@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '573218813416';
+const WHATSAPP_NUMBER = '573105453701';
 
 const DEFAULT_MESSAGE_ES = '¡Hola! Me interesa conocer más sobre los productos en la página web!';
 const DEFAULT_MESSAGE_EN = "Hi! I'm interested in learning more about the products on the website!";
