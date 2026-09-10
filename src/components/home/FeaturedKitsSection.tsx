@@ -38,13 +38,13 @@ export function FeaturedKitsSection({ first = 3 }: ImportsListProps) {
         {!products || products.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">
-              {t('catalogContent.noProducts')}
+              {t('catalog.noProducts')}
             </p>
             <Link
               to="/catalogo"
               className="inline-block mt-4 text-mint hover:text-mint-dark underline"
             >
-              {t('catalogContent.allProducts')}
+              {t('catalog.allProducts')}
             </Link>
           </div>)
         : (
