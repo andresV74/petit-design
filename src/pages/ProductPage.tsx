@@ -517,10 +517,10 @@ export function ProductPage() {
               className="h-11 rounded-md px-8 w-full bg-primary text-primary-foreground text-xl font-bold py-6"
             >
               {adding
-                ? 'Agregando...'
+                ? 'Enviado pedido...'
                 : added
-                ? 'Agregado al carrito'
-                : 'Agregar al carrito'}
+                ? 'Pedido enviado por WhatsApp'
+                : 'Enviar pedido por Whatsapp'}
             </Button>
           </div>
         </div>
