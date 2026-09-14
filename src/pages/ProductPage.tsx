@@ -16,7 +16,7 @@ import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import { useProductCustomsStore } from '@/store/productCustomsStore'
 import { inputClasses } from '@/components/ContactForm.tsx'
 import { jsonToHtml } from '@/components/utils/jsonToHtml.ts'
-import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { formatPrice } from '@/components/utils/formatPrice.ts'
 
 type SelectedOptions = {
   medida?: string
@@ -125,6 +125,7 @@ export function ProductPage() {
 	const babyNameStore = useProductCustomsStore((state) => state.customs?.name)
 	const selectedColorStore = useProductCustomsStore((state) => state.customs?.color)
   const selectedFontStore = useProductCustomsStore((state) => state.customs?.font)
+  const selectedFabricStore = useProductCustomsStore((state) => state.customs?.fabric)
   const observations = useProductCustomsStore((state) => state.customs?.observations)
   const setCustoms = useProductCustomsStore((state) => state.setCustom)
 	const removeCustom = useProductCustomsStore((state) => state.removeCustom)
@@ -149,16 +150,6 @@ export function ProductPage() {
       })
     }
   }, [language, category, baseMinPrice?.amount, product])
-
-  const formatPrice = (price?: number) => {
-    if (price == null) return ''
-    return new Intl.NumberFormat('es-CO', {
-      style: 'currency',
-      currency: 'COP',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(price)
-  }
 
   const variants = (product?.variants?.edges ?? []).map(edge => edge.node)
   const hasVariants = variants.length > 1
@@ -234,6 +225,55 @@ export function ProductPage() {
       setCustoms({ color: color ?? undefined })
     }
     setAdded(false)
+  }
+
+  async function handleAddToCart() {
+    if (!selectedVariant && hasVariants) return
+    const variantId = (selectedVariant || variants[0])?.id
+    if (!variantId) return
+
+    let quantity = 1;
+    let customAttrs: Record<string, string> | undefined
+
+    if (isCharacterPriced) {
+      const trimmedName = babyName.trim()
+      const chars = trimmedName.length
+      if (!chars) return
+
+      quantity = chars;
+    }
+    customAttrs = { baby_name: trimmedName ? trimmedName : babyNameStore ?? '' }
+
+    if (selectedColor || selectedColorStore) {
+      const selectedColorName = selectedColor?.name ?? selectedColorStore?.name ?? ''
+      customAttrs = { ...customAttrs, selected_color: selectedColorName }
+    }
+
+    if (selectedFontStore) {
+      customAttrs = { ...customAttrs, selected_font: selectedFontStore }
+    }
+
+    if (selectedFabricStore) {
+      customAttrs = { ...customAttrs, selected_fabric: selectedFabricStore.name_es ?? '' }
+    }
+
+    if (observations) {
+      customAttrs = { ...customAttrs, observations }
+    }
+
+    const attrsOrUndefined =
+      Object.keys(customAttrs ?? {}).length > 0 ? customAttrs : undefined
+
+    setAdding(true)
+    setAdded(false)
+    try {
+      await addToCart(variantId, quantity, attrsOrUndefined)
+      setAdded(true)
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setAdding(false)
+    }
   }
 
   const addDisabled =

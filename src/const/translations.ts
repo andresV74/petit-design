@@ -360,6 +360,16 @@ export const translations: Translations = {
     en: 'This is an illustration; the final product may vary.'
   },
 
+  // Cart Page
+  'cart.title': { es: 'Tu Carrito', en: 'Your Cart'},
+  'cart.variation': { es: 'Variación:', en: 'Variation:'},
+  'cart.babyName': { es: 'Nombre del bebé:', en: 'Baby\'s name:' },
+  'cart.color': { es: 'Color:', en: 'Color:' },
+  'cart.font': { es: 'Fuente:', en: 'Font:' },
+  'cart.fabric': { es: 'Tela:', en: 'Fabric:' },
+  'cart.observations': { es: 'Observaciones:', en: 'Observations:' },
+  'cart.checkout': { es: 'Proceder al pago:', en: 'Go to checkout:' },
+
   // Fabric Gallery
   'fabricGallery.boysTitle': { es: 'Catálogo de Telas - Niño', en: 'Fabric Catalog - Boy' },
   'fabricGallery.girlsTitle': { es: 'Catálogo de Telas - Niña', en: 'Fabric Catalog - Girl' },

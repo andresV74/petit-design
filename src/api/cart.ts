@@ -1,4 +1,5 @@
-import { shopifyClient } from './shopifyClient';
+import { shopifyClient } from './shopifyClient'
+import { useCartStore } from '@/store/cartStore'
 
 const CART_ID_KEY = 'shopify_cart_id';
 
@@ -48,29 +49,6 @@ const CART_LINES_ADD_WITH_ATTRIBUTES = `
   }
 `
 
-export async function getOrCreateCart(
-  line?: { merchandiseId: string; quantity: number; attributes?: { key: string; value: string }[] }
-) {
-  const cartId = localStorage.getItem(CART_ID_KEY)
-
-  if (!cartId) {
-    const lines = line ? [line] : undefined
-
-    const res = await shopifyClient.request(CART_CREATE_MUTATION, {
-      variables: { lines },
-    })
-
-    const cart = res.data.cartCreate.cart
-    if (cart?.id) {
-      localStorage.setItem(CART_ID_KEY, cart.id)
-      return cart
-    }
-    throw new Error('No se pudo crear el carrito')
-  }
-
-  return { id: cartId }
-}
-
 export async function addToCart(
   variantId: string,
   quantity: number,
@@ -82,20 +60,31 @@ export async function addToCart(
 
   const initialLine = { merchandiseId: variantId, quantity, attributes: attributesArray }
 
-  const existing = await getOrCreateCart(initialLine)
-  const cartId = existing.id
+  const existingId = localStorage.getItem(CART_ID_KEY)
+
+  let cartId = existingId
+  if (!cartId) {
+    const resCreate = await shopifyClient.request(CART_CREATE_MUTATION, {
+      variables: { lines: [initialLine] },
+    });
+    const createdCart = resCreate.data.cartCreate.cart
+    if (!createdCart?.id) throw new Error('No se pudo crear el carrito');
+    cartId = createdCart.id;
+    localStorage.setItem('shopify_cart_id', cartId!);
+    useCartStore.getState().setCartId(cartId!);
+    useCartStore.getState().setTotalQuantity(createdCart.totalQuantity || 0);
+    return createdCart;
+  }
 
   const res = await shopifyClient.request(CART_LINES_ADD_WITH_ATTRIBUTES, {
-    variables: {
-      cartId,
-      lines: [initialLine],
-    },
-  })
+    variables: { cartId, lines: [initialLine] },
+  });
 
-  const cart = res.data.cartLinesAdd?.cart || null
-
+  const cart = res.data.cartLinesAdd?.cart || null;
   if (cart?.id) {
-    localStorage.setItem(CART_ID_KEY, cart.id)
+    localStorage.setItem('shopify_cart_id', cart.id);
+    useCartStore.getState().setCartId(cart.id);
+    useCartStore.getState().setTotalQuantity(cart.totalQuantity || 0);
   }
 
   return cart

@@ -13,6 +13,7 @@ const PoliciesPage = lazy(() => import('./pages/PoliciesPage.tsx').then(m => ({ 
 const CatalogPage = lazy(() => import('./pages/CatalogPage.tsx').then(m => ({ default: m.CatalogPage })))
 const ProductPage = lazy(() => import('./pages/ProductPage.tsx').then(m => ({ default: m.ProductPage })))
 const FabricGallery = lazy(() => import('./pages/FabricGallery.tsx').then(m => ({ default: m.FabricGallery })))
+const CartPage = lazy(() => import('./pages/CartPage.tsx').then(m => ({ default: m.CartPage })))
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path='/producto/:handle' element={<ProductPage />} />
             <Route path="/telas/nino" element={<FabricGallery first={60} gender="boy" />} />
             <Route path="/telas/nina" element={<FabricGallery first={60} gender="girl" />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>
         </Suspense>

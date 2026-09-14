@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCollections } from '@/hooks/useCollections.ts'
-import { Menu, X, Globe, ChevronDown } from 'lucide-react'
+import { Menu, X, Globe, ChevronDown, ShoppingBag } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/lib/i18n.tsx'
+import { useCartStore } from '@/store/cartStore.tsx'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,6 +34,7 @@ export function Header({ first }: ImportsListProps) {
   const [isOpen, setIsOpen] = useState(false)
   const { collections, loading, error } = useCollections(first)
   const { language, setLanguage, t } = useLanguage()
+  const totalQuantity = useCartStore((s) => s.totalQuantity)
 
   const toggleLanguage = () => {
     setLanguage(language === 'es' ? 'en' : 'es')
@@ -119,7 +121,18 @@ export function Header({ first }: ImportsListProps) {
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center lg:gap-4">
+          {/* Shoping Bag */}
+          <Link
+            to="/cart"
+            className="hidden sm:flex items-center gap-1.5 text-muted-foreground hover:text-mint-dark h-9 rounded-md px-3"
+          >
+            <ShoppingBag className="h-4 w-4" />
+            <span className="uppercase text-xs font-medium">
+              {totalQuantity && totalQuantity > 0 ? ` ${totalQuantity}` : 0}
+            </span>
+          </Link>
+
           {/* Language Toggle */}
           <Button
             onClick={toggleLanguage}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/lib/i18n.tsx'
+import { formatPrice } from '@/components/utils/formatPrice.ts'
 import type { ProductNew } from '@/types/generalTypes.ts'
 
 interface ProductCardProps {
@@ -11,16 +12,6 @@ export function ProductCard({ product, language }: ProductCardProps) {
 	const { t } = useLanguage()
   const image = product.media?.edges[0]?.node.image
   const minPrice = product.priceRange?.minVariantPrice
-
-
-	const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('es-CO', {
-      style: 'currency',
-      currency: 'COP',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(price)
-  }
 
 	return (
 		<article className='animate-fade-in' >
@@ -44,7 +35,7 @@ export function ProductCard({ product, language }: ProductCardProps) {
 					{language === 'es' ? product.title : product.nameEn?.value}
 				</h3>
 				<p className="text-muted-foreground">
-					{t('products.from')} {formatPrice(parseFloat(minPrice?.amount || '0'))}
+					{t('products.from')} {formatPrice(parseInt(minPrice?.amount || '0'))}
 				</p>
 			</Link>
 		</article>
