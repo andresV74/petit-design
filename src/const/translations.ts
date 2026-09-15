@@ -359,6 +359,9 @@ export const translations: Translations = {
     es: 'Esto es una representación gráfica, el producto final puede variar',
     en: 'This is an illustration; the final product may vary.'
   },
+  'product.cta1': { es: 'Agregar al carrito', en: 'Add to cart'},
+  'product.cta2': { es: 'Agregando...', en: 'Adding...'},
+  'product.cta3': { es: 'Agregado al carrito', en: 'Added to cart'},
 
   // Cart Page
   'cart.title': { es: 'Tu Carrito', en: 'Your Cart'},
