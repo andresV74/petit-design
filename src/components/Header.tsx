@@ -122,10 +122,10 @@ export function Header({ first }: ImportsListProps) {
 
         {/* Actions */}
         <div className="flex items-center lg:gap-4">
-          {/* Shoping Bag */}
+          {/* Shopping Bag */}
           <Link
             to="/cart"
-            className="hidden sm:flex items-center gap-1.5 text-muted-foreground hover:text-mint-dark h-9 rounded-md px-3"
+            className="flex items-center gap-1.5 text-muted-foreground hover:text-mint-dark h-9 rounded-md px-3"
           >
             <ShoppingBag className="h-4 w-4" />
             <span className="uppercase text-xs font-medium">

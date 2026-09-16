@@ -48,9 +48,9 @@ export const CartPage: React.FC = () => {
           const observations = attrs.find((a) => a.key === 'observations')?.value
 
           return (
-            <li key={line.id} className='flex gap-8 rounded-2xl bg-gray-light/50 border border-border overflow-hidden'>
+            <li key={line.id} className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[240px_1fr_auto] gap-x-8 rounded-2xl bg-gray-light/50 border border-border overflow-hidden'>
               {image && (
-                <figure className='max-w-60 aspect-square rounded-l-2xl bg-muted border-r border-border shrink-0'>
+                <figure className='sm:max-w-60 lg:aspect-square rounded-l-2xl bg-muted border-r border-border shrink-0'>
                   <img
                     src={image.url}
                     className='size-full object-cover'
@@ -59,7 +59,7 @@ export const CartPage: React.FC = () => {
                 </figure>
               )}
 
-              <div className='space-y-4 grow py-6'>
+              <div className='space-y-4 grow px-6 sm:px-0 py-6'>
                 {product && (
                   <h2 className='text-2xl md:text-3xl lg:text-3xl font-semibold text-balance'>
                     <Link to={`/producto/${product.handle}`}>{product.title}</Link>
@@ -105,7 +105,7 @@ export const CartPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className='shrink-0 content-end py-6 px-8 bg-mint-light/10 border-l border-border text-center'>
+              <div className='col-span-full md:col-auto content-end py-6 px-8 bg-mint-light/20 border-t md:border-t-0 md:border-l border-border text-center'>
                 <p className='text-[26px] font-semibold text-primary'>
                   {formatPrice(parseInt(price ?? 0, 10) * line.quantity)}
                 </p>
