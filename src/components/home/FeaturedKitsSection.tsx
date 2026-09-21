@@ -8,7 +8,7 @@ import { useLanguage } from '@/lib/i18n'
 import { Badge } from '@/components/ui/badge.tsx'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
 
-export function FeaturedKitsSection({ first = 3 }: ImportsListProps) {
+export function FeaturedKitsSection({ first = 40 }: ImportsListProps) {
   const { t, language } = useLanguage()
   const { products, loading, error } = useProducts(first)
   const { collections, loading: colLoading, error: colErrror } = useCollections(first)
@@ -50,7 +50,7 @@ export function FeaturedKitsSection({ first = 3 }: ImportsListProps) {
         : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
             {
-              products?.filter((product) => product.collections.edges.some((edge) => edge.node.id === kitsId))
+              products?.filter((product) => product.collections.edges.some((edge) => edge.node.id === kitsId)).slice(0, 3)
                 .map((card) => (
                 <ProductCard key={card.id} product={card} language={language} />
               ))
