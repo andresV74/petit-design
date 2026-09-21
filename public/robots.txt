@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://petitdesign.com.co/sitemap.xml
+Sitemap: https://petitdesign.co/sitemap.xml

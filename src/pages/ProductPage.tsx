@@ -116,7 +116,7 @@ export function ProductPage() {
   const productDescription = language === 'es'
     ? shortDescriptionEs ?? product?.title
     : shortDescriptionEn ?? product?.nameEn?.value
-  const productCanonical = `https://petitdesign.com.co/producto/${handle}`
+  const productCanonical = `https://petitdesign.co/producto/${handle}`
   const productImageUrl = featuredImage
     ? featuredImage.url
     : images?.[0].node.url

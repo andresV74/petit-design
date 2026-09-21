@@ -81,7 +81,7 @@ export function FabricGallery({ first, gender }: FabricGalleryProps) {
 	const title = gender === 'boy' ? (t('fabricGallery.boysTitle')) : (t('fabricGallery.girlsTitle'))
   const subtitle = t('fabricGallery.subtitle')
   const fabricTitle = gender === 'boy' ? t('fabricGallery.boysTitle2') : t('fabricGallery.girlsTitle2')
-  const fabricCanonical = `https://petitdesign.com.co/telas/${gender === 'boy' ? 'nino' : 'nina'}`
+  const fabricCanonical = `https://petitdesign.co/telas/${gender === 'boy' ? 'nino' : 'nina'}`
 
 	/**
 	 * Opens the Dialog modal with the chosen fabric from the fabric grid

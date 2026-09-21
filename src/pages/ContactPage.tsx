@@ -13,11 +13,11 @@ export function ContactPage() {
     <>
 			<title>{headTitle}</title>
 			<meta name="description" content={`${t('contact.description')} Petit Design - Manizales, Colombia.`} />
-			<link rel="canonical" href="https://petitdesign.com.co/contacto" />
+			<link rel="canonical" href="https://petitdesign.co/contacto" />
 
 			<meta property="og:title" content={`${t('contact.title')} | Petit Design`} />
 			<meta property="og:description" content={t('contact.description')} />
-			<meta property="og:url" content="https://petitdesign.com.co/contacto" />
+			<meta property="og:url" content="https://petitdesign.co/contacto" />
 
 			<meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:description" content={`${t('contact.description')} Petit Design - Manizales, Colombia.`} />
@@ -26,7 +26,7 @@ export function ContactPage() {
 				"@context": "https://schema.org",
 				"@type": "ContactPage",
 				"name": "Petit Design - Contacto",
-				"url": "https://petitdesign.com.co/contacto",
+				"url": "https://petitdesign.co/contacto",
 				"mainEntity": {
 					"@type": "Organization",
 					"name": "Petit Design",

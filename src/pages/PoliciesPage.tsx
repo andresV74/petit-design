@@ -29,11 +29,11 @@ export function PoliciesPage() {
     <>
 			<title>Políticas y Normas de Envío | Petit Design</title>
 			<meta name="description" content="Conoce nuestras políticas de compra, envío, producción y post-venta. Todo lo que necesitas saber antes de realizar tu pedido en Petit Design." />
-			<link rel="canonical" href="https://petitdesign.com.co/politicas" />
+			<link rel="canonical" href="https://petitdesign.co/politicas" />
 
 			<meta property="og:title" content="Políticas y Normas de Envío | Petit Design" />
 			<meta property="og:description" content="Conoce nuestras políticas de compra, envío, producción y post-venta. Todo lo que necesitas saber antes de realizar tu pedido en Petit Design." />
-			<meta property="og:url" content="https://petitdesign.com.co/politicas" />
+			<meta property="og:url" content="https://petitdesign.co/politicas" />
 
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:title" content="Políticas y Normas de Envío | Petit Design" />

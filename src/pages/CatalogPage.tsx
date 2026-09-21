@@ -15,8 +15,8 @@ export function CatalogPage({ first = 40 }: ImportsListProps) {
   const headTitle = `${t('catalog.title')} | Petit Design`
 
   const canonicalUrl = category
-      ? `https://petitdesign.com.co/catalogo/${category}`
-      : 'https://petitdesign.com.co/catalogo'
+      ? `https://petitdesign.co/catalogo/${category}`
+      : 'https://petitdesign.co/catalogo'
 
   if (collectionsLoading && loading) return <p>Cargando productos y colecciones...</p>;
   if (collectionsError && error) return <p>Ocurrió un error al cargar productos o colecciones.</p>;

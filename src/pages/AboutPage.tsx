@@ -53,11 +53,11 @@ export function AboutPage() {
     <>
       <title>Nuestra Historia | Petit Design</title>
       <meta name="description" content="Conoce la historia de Petit Design. Desde 2014 creamos lencería personalizada para bebés con amor, calidad y diseño exclusivo desde Manizales, Colombia." />
-      <link rel="canonical" href="https://petitdesign.com.co/nosotros" />
+      <link rel="canonical" href="https://petitdesign.co/nosotros" />
 
       <meta property="og:title" content="Nuestra Historia | Petit Design" />
       <meta property="og:description" content="Conoce la historia de Petit Design. Desde 2014 creamos lencería personalizada para bebés con amor, calidad y diseño exclusivo desde Manizales, Colombia." />
-      <meta property="og:url" content="https://petitdesign.com.co/nosotros" />
+      <meta property="og:url" content="https://petitdesign.co/nosotros" />
 
       <meta name="twitter:title" content="Nuestra Historia | Petit Design" />
       <meta name="twitter:description" content="Conoce la historia de Petit Design. Desde 2014 creamos lencería personalizada para bebés con amor, calidad y diseño exclusivo desde Manizales, Colombia." />
