@@ -28,6 +28,7 @@ export function ProductPage() {
   const { handle } = useParams<{ handle: string }>()
   const { product, loading, error } = useProduct(handle)
   const { t, language } = useLanguage()
+  console.log(product)
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
   const [babyName, setBabyName] = useState('')
@@ -56,8 +57,8 @@ export function ProductPage() {
 
       return {
         id: meta.id,
-        name: fields.find((f) => f.key === 'value')?.value,
-        hex: fields.find((f) => f.key === 'color')?.value,
+        name: fields.find((f) => f.key === 'name')?.value,
+        hex: fields.find((f) => f.key === 'hex')?.value,
         border: fields.find((f) => f.key === 'border')?.value
       }
     })
