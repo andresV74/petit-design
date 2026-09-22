@@ -28,7 +28,6 @@ export function ProductPage() {
   const { handle } = useParams<{ handle: string }>()
   const { product, loading, error } = useProduct(handle)
   const { t, language } = useLanguage()
-  console.log(product)
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
   const [babyName, setBabyName] = useState('')
