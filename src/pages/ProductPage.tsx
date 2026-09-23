@@ -56,8 +56,8 @@ export function ProductPage() {
 
       return {
         id: meta.id,
-        name: fields.find((f) => f.key === 'name')?.value,
-        hex: fields.find((f) => f.key === 'hex')?.value,
+        name: fields.find((f) => f.key === 'value')?.value,
+        hex: fields.find((f) => f.key === 'color')?.value,
         border: fields.find((f) => f.key === 'border')?.value
       }
     })
