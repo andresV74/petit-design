@@ -28,13 +28,13 @@ export const translations: Translations = {
     en: 'Crib linens and personalized accessories for babies and children'
   },
   'hero.subtitle': {
-    es: 'Cada producto es único y personalizado con el nombre de tu bebé. Diseños exclusivos 100% colombianos',
-    en: 'Each product is unique and personalized with your baby\'s name. Exclusive, 100% Colombian designs'
+    es: 'Recibe asesoría para personalizar tu producto',
+    en: 'Get advice on how to customize your product'
   },
   'hero.badgeTitle': { es: 'Todos nuestros productos son personalizables', en: 'All our products are customizable' },
   'hero.badgeSubtitle': { es: 'Bordamos el nombre de tu bebé con amor', en: 'We embroider your baby\'s name with love' },
   'hero.cta': { es: 'Descubre toda la colección', en: 'Discover the entire collection' },
-  'hero.whatsAppCta': { es: 'Consultar por WhatsApp', en: 'Ask on WhatsApp' },
+  'hero.whatsAppCta': { es: 'Abre WhatsApp', en: 'Open WhatsApp' },
 
   // Homepage featured kits
   'kits.badge': { es: 'Lo más vendido', en: 'Best Sellers' },

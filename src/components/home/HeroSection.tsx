@@ -49,28 +49,16 @@ export function HeroSection() {
             </h1>
 
             {/* Personalization Badge */}
-            <div className="flex items-center gap-3 p-4 bg-mint-light/50 rounded-xl border border-mint/30 max-w-md">
+            <div className="flex items-center gap-3 p-4 bg-mint-light/50 rounded-xl border border-mint/30 max-w-100">
               <div className="h-10 w-10 rounded-full bg-mint flex items-center justify-center shrink-0">
                 <span className="text-white font-display text-lg">✨</span>
               </div>
-              <p className="text-sm text-foreground">
+              <p className="text-sm text-foreground text-balance">
                 {t('hero.subtitle')}
               </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <Button
                 asChild
-                className="bg-mint hover:bg-mint-dark text-white hover:text-white h-11 rounded-md px-8"
-              >
-                <Link to="/collections" className="gap-2">
-                  {t('hero.cta')}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                className="border border-mint text-mint-dark h-11 rounded-md px-8 bg-background hover:bg-mint-light/50"
+                className="border border-mint text-mint-dark h-8 rounded-md px-3 bg-background hover:bg-mint-light/50"
               >
                 <a
                   href={getWhatsAppUrl({ source: 'Inicio', language })}
@@ -84,6 +72,16 @@ export function HeroSection() {
                 </a>
               </Button>
             </div>
+
+            <Button
+              asChild
+              className="bg-mint hover:bg-mint-dark text-white hover:text-white h-11 rounded-md mt-4 px-8 w-fit"
+            >
+              <Link to="/collections" className="gap-2">
+                {t('hero.cta')}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
