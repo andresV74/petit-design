@@ -61,7 +61,7 @@ export function HeroSection() {
                 className="border border-mint text-mint-dark h-8 rounded-md px-3 bg-background hover:bg-mint-light/50"
               >
                 <a
-                  href={getWhatsAppUrl({ source: 'Inicio', language })}
+                  href={getWhatsAppUrl({ language })}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick('Hero CTA', { content_category: 'Homepage' })}
