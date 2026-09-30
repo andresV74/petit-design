@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 import type { Fabric } from '@/components/products/FabricSelector.tsx'
 import type { SingleColorProps } from '@/components/products/Colors'
 
@@ -8,13 +9,6 @@ interface Customizables {
 	font?: string
 	fabric?: Fabric | null
 	observations?: string
-	cribSize?: 'Cuna Estándar' | 'Cama Cuna' | 'Cama Monteros'
-	bumpers?:
-		'Clásico bordado — delicado y elegante' |
-		'Cabecero bordado — detalle focal en la cabeza' |
-		'Estampado clásico — más fresco y decorativo' |
-		'Con apliques — mayor volumen y textura' |
-		'Premium con boleros y alforzas — acabado más elaborado'
 }
 
 interface CustomsState {
@@ -23,21 +17,27 @@ interface CustomsState {
 	removeCustom: (property: keyof Customizables) => void
 }
 
-export const useProductCustomsStore = create<CustomsState>((set) => ({
-	customs: null,
+export const useProductCustomsStore = create<CustomsState>()(
+	persist(
+		(set) => ({
+			customs: null,
 
-	setCustom: (newCustom: Customizables) =>
-		set((state) => ({
-				customs: state.customs ? { ...state.customs, ...newCustom } : newCustom,
-			})
-		),
+			setCustom: (newCustom: Customizables) =>
+				set((state) => ({
+					customs: state.customs ? { ...state.customs, ...newCustom } : newCustom,
+				})),
 
-	removeCustom: (property: keyof Customizables) =>
-		set((state) => {
-			if (!state.customs) return { customs: null }
+			removeCustom: (property: keyof Customizables) =>
+				set((state) => {
+					if (!state.customs) return { customs: null }
 
-			const { [property]: _removed, ...remainingCustoms } = state.customs
-			void _removed
-			return { customs: remainingCustoms }
-		})
-}))
+					const { [property]: _removed, ...remainingCustoms } = state.customs
+					void _removed
+					return { customs: remainingCustoms }
+				}),
+		}),
+		{
+			name: 'customs-storage',
+		}
+	)
+)
