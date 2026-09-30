@@ -250,7 +250,6 @@ export function ProductPage() {
 
     const attrsOrUndefined =
       Object.keys(customAttrs ?? {}).length > 0 ? customAttrs : undefined
-      console.log(attrsOrUndefined)
 
     setAdding(true)
     setAdded(false)
