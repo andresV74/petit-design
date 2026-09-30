@@ -20,8 +20,7 @@ import { jsonToHtml } from '@/components/utils/jsonToHtml.ts'
 import { formatPrice } from '@/components/utils/formatPrice.ts'
 
 type SelectedOptions = {
-  medida?: string
-  estilo?: string
+  [key: string]: string | undefined
 }
 
 export function ProductPage() {
@@ -153,38 +152,31 @@ export function ProductPage() {
 
   const variants = (product?.variants?.edges ?? []).map(edge => edge.node)
   const hasVariants = variants.length > 1
-  const medidaOption = product?.options?.find(option => option.name.toLowerCase() === 'medida')
-  const estiloOption = product?.options?.find(option => option.name.toLowerCase() === 'estilo')
 
   const selectedVariant = useMemo(() => {
     if (!hasVariants) return variants[0] || null
 
     return (
-      variants.find((v) => {
-        const opts = v.selectedOptions || []
+      variants.find((variant) => {
+        const variantOpts = variant.selectedOptions || []
+        const options = product?.options ?? []
 
-        const medidaMatch =
-          !medidaOption || !selectedOptions.medida
-          ? true
-          : opts.some(
-              (o) =>
-                o.name.toLowerCase() === 'medida' &&
-                o.value === selectedOptions.medida
-            )
+        return options.every((option) => {
+          const optionNameKey = option.name.toLowerCase()
+          const selectedValue = selectedOptions[optionNameKey as keyof SelectedOptions]
 
-        const estiloMatch =
-          !estiloOption || !selectedOptions.estilo
-          ? true
-          : opts.some(
-              (o) =>
-                o.name.toLowerCase() === 'estilo' &&
-                o.value === selectedOptions.estilo
-            )
+          if (!selectedValue) return true
 
-        return medidaMatch && estiloMatch
+          return variantOpts.some(
+            (o) =>
+              o.name.toLocaleLowerCase() === optionNameKey &&
+              o.value === selectedValue
+          )
+        })
       }) || null
-    );
-  }, [hasVariants, variants, medidaOption, estiloOption, selectedOptions])
+    )
+  }, [hasVariants, variants, product?.options, selectedOptions])
+
 
   const variantPrice = selectedVariant?.price || null
   const pricePerUnit = variantPrice || baseMinPrice
@@ -199,13 +191,8 @@ export function ProductPage() {
         }
       : null
 
-  function handleChangeMedida(e: React.ChangeEvent<HTMLSelectElement>) {
-    setSelectedOptions((prev) => ({ ...prev, medida: e.target.value || undefined }))
-    setAdded(false)
-  }
-
-  function handleChangeEstilo(e: React.ChangeEvent<HTMLSelectElement>) {
-    setSelectedOptions((prev) => ({ ...prev, estilo: e.target.value || undefined }))
+  function handleChangeVariant(variant: string, e: React.ChangeEvent<HTMLSelectElement>) {
+    setSelectedOptions((prev) => ({ ...prev, [variant]: e.target.value || undefined }))
     setAdded(false)
   }
 
@@ -263,6 +250,7 @@ export function ProductPage() {
 
     const attrsOrUndefined =
       Object.keys(customAttrs ?? {}).length > 0 ? customAttrs : undefined
+      console.log(attrsOrUndefined)
 
     setAdding(true)
     setAdded(false)
@@ -278,7 +266,7 @@ export function ProductPage() {
 
   const addDisabled =
     adding ||
-    (!selectedVariant && hasVariants && Boolean(medidaOption || estiloOption))
+    (!selectedVariant && hasVariants)
 
   if (!handle) return <p>Falta el handle del producto.</p>
   if (loading) return <p>Cargando producto...</p>
@@ -361,47 +349,26 @@ export function ProductPage() {
             {/* Selectores de variantes */}
             {hasVariants && (
               <div className="product-page__variants">
-                {medidaOption && (
-                  <fieldset className="space-y-1">
-                    <label htmlFor="medida" className='block'>
-                      Medida
+                {product.options.map((option) => (
+                  <fieldset key={option.id} className='space-y-1 mt-4'>
+                    <label htmlFor={option.name} className='block'>
+                      {option.name}
                     </label>
                       <select
-                        id="medida"
+                        id={option.name}
                         className='w-70'
-                        value={selectedOptions.medida ?? ''}
-                        onChange={handleChangeMedida}
-                      >
-                        <option value="">Selecciona una medida</option>
-                        {medidaOption.values.map((v: string) => (
-                          <option key={v} value={v}>
-                            {v}
-                          </option>
-                        ))}
-                      </select>
-                  </fieldset>
-                )}
-
-                {estiloOption && (
-                  <fieldset className='space-y-1 mt-4'>
-                    <label htmlFor='estilo' className='block'>
-                      Estilo
-                    </label>
-                      <select
-                        id='estilo'
-                        className='w-70'
-                        value={selectedOptions.estilo ?? ''}
-                        onChange={handleChangeEstilo}
+                        value={selectedOptions[option.name.toLowerCase()] ?? ''}
+                        onChange={(e) => handleChangeVariant(option.name.toLowerCase(), e)}
                       >
                         <option value="">Selecciona un estilo</option>
-                        {estiloOption.values.map((v: string) => (
+                        {option.values.map((v: string) => (
                           <option key={v} value={v}>
                             {v}
                           </option>
                         ))}
                       </select>
                   </fieldset>
-                )}
+                ))}
               </div>
             )}
 
