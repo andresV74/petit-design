@@ -371,7 +371,7 @@ export const translations: Translations = {
   'cart.font': { es: 'Fuente:', en: 'Font:' },
   'cart.fabric': { es: 'Tela:', en: 'Fabric:' },
   'cart.observations': { es: 'Observaciones:', en: 'Observations:' },
-  'cart.checkout': { es: 'Proceder al pago:', en: 'Go to checkout:' },
+  'cart.checkout': { es: 'Proceder al pago', en: 'Go to checkout' },
 
   // Fabric Gallery
   'fabricGallery.boysTitle': { es: 'Catálogo de Telas - Niño', en: 'Fabric Catalog - Boy' },
