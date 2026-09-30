@@ -28,7 +28,7 @@ export function Colors({ colors, handleSelectColor }: ColorsProps) {
 							key={color.name}
 							onClick={() => handleSelectColor(color.id)}
 							className={
-								`w-12 h-12 rounded-full transition-all relative cursor-pointer
+								`w-12 h-12 rounded-full transition-all relative cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
 								${color.border ? 'border-2 border-border' : ''}
 								${isSelected
 									? "ring-2 ring-primary ring-offset-2 scale-110"

@@ -19,7 +19,7 @@ export function FabricButton({fabric, index, handleFabricZoom}: FabricButtonProp
 			key={fabric.id}
 			onClick={(e) => handleFabricZoom(fabric, index, e)}
 			className={
-				`group relative aspect-square rounded-xl overflow-hidden border-2 cursor-pointer transition-all
+				`group relative aspect-square rounded-xl overflow-hidden border-2 cursor-pointer transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
 				${selectedFabric?.id === fabric.id
 					? "border-primary ring-2 ring-primary/30 scale-105"
 					: "border-border hover:border-primary/50 hover:scale-105"}`

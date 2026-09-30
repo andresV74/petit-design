@@ -1,17 +1,18 @@
 import { useProductCustomsStore } from '@/store/productCustomsStore'
 import { useLanguage } from '@/lib/i18n.tsx'
+import { inputClasses } from '@/components/ContactForm.tsx'
 
-	const buttons = [
-		{
-			name: 'Barbie',
-		},
-		{
-			name: 'Hello',
-		},
-		{
-			name: 'Vogue',
-		},
-	]
+const buttons = [
+	{
+		name: 'Barbie',
+	},
+	{
+		name: 'Hello',
+	},
+	{
+		name: 'Vogue',
+	},
+]
 
 export function FontSelector() {
   const selectedFont = useProductCustomsStore((state) => state.customs?.font)
@@ -30,7 +31,7 @@ export function FontSelector() {
 			<select
 				name="fontSelector"
 				id="fontSelector"
-				className='w-full'
+				className={inputClasses}
 				value={selectedFont}
 				onChange={(event) => handleFont(event.target.value)}
 			>

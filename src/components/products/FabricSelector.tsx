@@ -86,7 +86,7 @@ export function FabricSelector({
 				<button
 					onClick={() => setSelectedGender(selectedGender === 'boy' ? null : 'boy')}
 					className={
-						`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 transition-all cursor-pointer
+						`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
 						${selectedGender === 'boy'
 							? 'border-blue-400 bg-blue-50 text-blue-700'
 							: 'border-border hover:border-blue-300 hover:bg-blue-50/50'}`
@@ -100,7 +100,7 @@ export function FabricSelector({
 				<button
 					onClick={() => setSelectedGender(selectedGender === 'girl' ? null : 'girl')}
 					className={
-						`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 transition-all cursor-pointer
+						`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
 						${selectedGender === 'girl'
 							? 'border-pink-400 bg-pink-50 text-pink-700'
 							: 'border-border hover:border-pink-300 hover:bg-pink-50/50'}`
@@ -128,7 +128,7 @@ export function FabricSelector({
 						href={getWhatsAppUrl({ message: '¡Hola! Me gustaría ver más diseños de telas', source: 'Producto - Telas' })}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
+						className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 					>
 						<MessageCircle className="h-4 w-4 text-mint" />
 						{t('product.moreOptions')}

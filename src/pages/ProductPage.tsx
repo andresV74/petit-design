@@ -307,7 +307,7 @@ export function ProductPage() {
 				}
 			})}</script>
 
-      <div className="container px-4 py-8 md:py-12">
+      <div className="container px-4 py-8">
         {/* Breadcrumb */}
         <Breadcrumbs category={category} isProduct={true} />
 
