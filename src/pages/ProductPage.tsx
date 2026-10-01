@@ -2,7 +2,7 @@ import { useEffect, useState, useRef, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { useProduct } from '@/hooks/useProduct.ts'
 import { addToCart } from '@/api/cart.ts'
-import { Heart, Clock, Shield, Sparkles } from 'lucide-react'
+import { Heart, Clock, Shield, Sparkles, ShoppingBag, Send } from 'lucide-react'
 import { ProductLongDescription } from '@/components/products/ProductLongDescription.tsx'
 import { ProductPreview } from '@/components/products/ProductPreview.tsx'
 import { CustomInfo } from '@/components/products/CustomInfo.tsx'
@@ -12,12 +12,14 @@ import { FabricSelector } from '@/components/products/FabricSelector.tsx'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs.tsx'
 import { Button } from '@/components/ui/button.tsx'
 import { useLanguage } from '@/lib/i18n.tsx'
-import { trackEvent } from '@/hooks/useMetaPixel.ts'
+import { trackEvent, trackWhatsAppClick } from '@/hooks/useMetaPixel.ts'
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import { useProductCustomsStore } from '@/store/productCustomsStore'
 import { inputClasses } from '@/components/ContactForm.tsx'
 import { jsonToHtml } from '@/components/utils/jsonToHtml.ts'
 import { formatPrice } from '@/components/utils/formatPrice.ts'
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow } from '@radix-ui/react-tooltip'
 
 type SelectedOptions = {
   [key: string]: string | undefined
@@ -267,6 +269,59 @@ export function ProductPage() {
     adding ||
     (!selectedVariant && hasVariants)
 
+  const handleWhatsAppOrder = () => {
+    const colorLabel = t(`color.${selectedColorStore?.name}`) || ''
+    const fabricName = language === 'es' ? selectedFabricStore?.name_es || '' : selectedFabricStore?.name_en || ''
+    const productUrl = `${window.location.origin}/producto/${handle}`
+    const price = parseInt(String(product?.priceRange?.minVariantPrice.amount))
+    const variantPrice = parseInt(String(selectedVariant?.price.amount))
+
+    const messageLines = language === 'es'
+      ? [
+          `¡Hola! Me gustaría hacer un pedido:`,
+          ``,
+          `📦 *Producto:* ${product?.title}`,
+          `🔗 *Ver producto:* ${productUrl}`,
+        ]
+      : [
+          `Hello! I would like to place an order:`,
+          ``,
+          `📦 *Product:* ${product?.nameEn}`,
+          `🔗 *View product:* ${productUrl}`,
+        ];
+
+    if (selectedVariant?.title !== 'Default Title') {
+      messageLines.push('');
+      messageLines.push(language === 'es' ? `🛒 *Variante:* ${selectedVariant?.title}` : `🛒 *Variant:* ${selectedVariant?.title}`);
+      messageLines.push(language === 'es' ? `💰 *Precio:* ${formatPrice(variantPrice)}` : `💰 *Price:* ${formatPrice(variantPrice)}`);
+    } else {
+      messageLines.push(language === 'es' ? `💰 *Precio:* ${formatPrice(price)}` : `💰 *Price:* ${formatPrice(price)}`);
+    }
+
+    messageLines.push('');
+    messageLines.push(language === 'es' ? `✨ *Personalización:*` : `✨ *Personalization:*`);
+    messageLines.push(language === 'es' ? `👶 Nombre del bebé: ${babyNameStore || 'Por definir'}` : `👶 Baby's name: ${babyName || 'To be defined'}`);
+    messageLines.push(language === 'es' ? `🎨 Color del bordado: ${colorLabel}` : `🎨 Embroidery color: ${colorLabel}`);
+    messageLines.push(language === 'es' ? `✍️ Tipo de letra: ${selectedFontStore}` : `✍️ Font type: ${selectedFontStore}`);
+    messageLines.push(language === 'es' ? `🧵 Tela: ${fabricName}` : `Fabric: ${fabricName}`);
+
+    messageLines.push(language === 'es'
+      ? `📝 Observaciones: ${observations || 'Ninguna'}`
+      : `📝 Observations: ${observations || 'None'}`
+    );
+    messageLines.push('');
+    messageLines.push(language === 'es' ? '¡Gracias!' : 'Thank you!');
+
+    trackWhatsAppClick(`Producto: ${language === 'es' ? product?.title : product?.nameEn}`, {
+      content_category: 'Product Order',
+      content_ids: [product?.id],
+      currency: 'COP',
+      value: product?.priceRange?.minVariantPrice.amount,
+    });
+
+    window.open(getWhatsAppUrl({ message: messageLines.join('\n'), source: `Producto: ${language === 'es' ? product?.title : product?.nameEn}`, language }), '_blank');
+  };
+
   if (!handle) return <p>Falta el handle del producto.</p>
   if (loading) return <p>Cargando producto...</p>
   if (error) return <p>Ocurrió un error al cargar el producto.</p>
@@ -462,17 +517,54 @@ export function ProductPage() {
               {t('product.trustMessage')}
             </p>
 
-            <Button
-              onClick={handleAddToCart}
-              disabled={addDisabled}
-              className="h-11 rounded-md px-8 w-full bg-primary text-primary-foreground text-xl font-bold py-6"
-            >
-              {adding
-                ? t('product.cta2')
-                : added
-                ? t('product.cta3')
-                : t('product.cta1')}
-            </Button>
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    onClick={handleAddToCart}
+                    disabled={addDisabled}
+                    className="h-11 rounded-md px-8 w-full bg-primary text-primary-foreground text-xl font-bold py-6 gap-2"
+                  >
+                    <ShoppingBag />
+                    {adding
+                      ? t('product.cta2')
+                      : added
+                      ? t('product.cta3')
+                      : t('product.cta1')}
+                  </Button>
+                </TooltipTrigger>
+                <TooltipPortal>
+                  <TooltipContent className="max-w-60 bg-mint-light py-1 px-3 text-accent-foreground text-xs rounded-sm text-balance text-center" sideOffset={-2}>
+                    {t('product.tooltip1')}
+                    <TooltipArrow className="fill-mint-light" />
+                  </TooltipContent>
+                </TooltipPortal>
+              </Tooltip>
+            </TooltipProvider>
+
+            <p className='text-center'>
+              {t('product.o')}
+            </p>
+
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    onClick={handleWhatsAppOrder}
+                    className="h-11 rounded-md px-8 w-full bg-primary text-primary-foreground text-xl font-bold py-6 gap-2"
+                  >
+                    <Send /> {t('product.cta4')}
+                  </Button>
+                </TooltipTrigger>
+                <TooltipPortal>
+                  <TooltipContent className="max-w-45 bg-mint-light py-1 px-3 text-accent-foreground text-xs rounded-sm text-balance text-center" sideOffset={-2}>
+                    {t('product.tooltip2')}
+                    <TooltipArrow className="fill-mint-light" />
+                  </TooltipContent>
+                </TooltipPortal>
+              </Tooltip>
+            </TooltipProvider>
+
           </div>
         </div>
       </div>

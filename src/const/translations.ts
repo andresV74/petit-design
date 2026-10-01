@@ -362,6 +362,17 @@ export const translations: Translations = {
   'product.cta1': { es: 'Agregar al carrito', en: 'Add to cart'},
   'product.cta2': { es: 'Agregando...', en: 'Adding...'},
   'product.cta3': { es: 'Agregado al carrito', en: 'Added to cart'},
+  'product.cta4': { es: 'Haz tu pedido por WhatsApp', en: 'Place your order via WhatsApp'},
+  'product.o': { es: 'o', en: 'or'},
+  'product.tooltip1': {
+    es: 'Haz clic aquí para agregar el producto al carrito y continuar con la compra',
+    en: 'Click here to add the product to your cart and continue shopping'
+  },
+  'product.tooltip2': {
+    es: 'Haz clic aquí para continuar tu compra por WhatsApp',
+    en: 'Click here to continue your purchase on WhatsApp'
+  },
+
 
   // Cart Page
   'cart.title': { es: 'Tu Carrito', en: 'Your Cart'},
