@@ -3,7 +3,7 @@ import { shopifyClient } from '../api/shopifyClient.ts'
 import { PRODUCTS_LIST_QUERY } from '../api/queries/products.ts'
 import type { ProductNew } from '@/types/generalTypes.ts'
 
-export function useProducts(first = 40) {
+export function useProducts(first = 80) {
   const [data, setData] = useState<ProductNew[] | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<unknown>(null)

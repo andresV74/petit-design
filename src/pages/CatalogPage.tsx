@@ -6,7 +6,7 @@ import { useLanguage } from '@/lib/i18n'
 import { Link } from 'react-router-dom'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
 
-export function CatalogPage({ first = 40 }: ImportsListProps) {
+export function CatalogPage({ first = 80 }: ImportsListProps) {
   const { category } = useParams<{ category?: string }>()
   const { products, loading, error } = useProducts(first)
   const { collections, loading: collectionsLoading, error: collectionsError } = useCollections(first)
