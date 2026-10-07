@@ -313,6 +313,8 @@ export const translations: Translations = {
   'catalog.allButtonText': { es: 'Todos los Productos', en: 'All Products' },
   'catalog.noProducts': { es: 'No hay productos disponibles en esta categoría todavía.', en: 'No products available in this category yet.' },
   'catalog.allProducts': { es: 'Ver todos los productos', en: 'View all products' },
+  'catalog.loading': { es: 'Cargando productos y colecciones...', en: 'Loading products and collections...' },
+  'catalog.error': { es: 'Ocurrió un error al cargar productos o colecciones.', en: 'An error occurred while loading products or collections.' },
 
 
   // Products
@@ -372,6 +374,7 @@ export const translations: Translations = {
     es: 'Haz clic aquí para continuar tu compra por WhatsApp',
     en: 'Click here to continue your purchase on WhatsApp'
   },
+  'product.error': { es: 'Ocurrió un error al cargar el producto.', en: 'An error occurred while loading the product.' },
 
 
   // Cart Page
@@ -383,6 +386,9 @@ export const translations: Translations = {
   'cart.fabric': { es: 'Tela:', en: 'Fabric:' },
   'cart.observations': { es: 'Observaciones:', en: 'Observations:' },
   'cart.checkout': { es: 'Proceder al pago', en: 'Go to checkout' },
+  'cart.empty': { es: 'Tu carrito está vacío', en: 'Your cart is empty' },
+  'cart.continueShopping': { es: 'Volver a la tienda', en: 'Back to Store' },
+  'cart.error': { es: 'Ocurrió un error al cargar el carrito.', en: 'An error occurred while loading the cart.' },
 
   // Fabric Gallery
   'fabricGallery.boysTitle': { es: 'Catálogo de Telas - Niño', en: 'Fabric Catalog - Boy' },
@@ -400,6 +406,7 @@ export const translations: Translations = {
   },
   'fabricGallery.seeMore': { es: 'Ver más',  en: 'See more' },
   'fabricGallery.moreFabrics': { es: 'Próximamente nuevas telas disponibles',  en: 'New fabrics coming soon' },
+  'fabricGallery.error': { es: 'Error al cargar telas.',  en: 'Error loading fabrics.' },
 
   // Colors
   'color.blanco': { es: 'Blanco', en: 'White' },

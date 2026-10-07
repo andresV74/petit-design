@@ -20,6 +20,8 @@ import { inputClasses } from '@/components/ContactForm.tsx'
 import { jsonToHtml } from '@/components/utils/jsonToHtml.ts'
 import { formatPrice } from '@/components/utils/formatPrice.ts'
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow } from '@radix-ui/react-tooltip'
+import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
+import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
 
 type SelectedOptions = {
   [key: string]: string | undefined
@@ -323,8 +325,8 @@ export function ProductPage() {
   };
 
   if (!handle) return <p>Falta el handle del producto.</p>
-  if (loading) return <p>Cargando producto...</p>
-  if (error) return <p>Ocurrió un error al cargar el producto.</p>
+  if (loading) return <LoadingIndicator type="line-simple" size="lg" label={t('catalog.loading')} />
+  if (error) return <ErrorMessage message={t('product.error')} />
   if (!product) return <p>Producto no encontrado.</p>
 
   return (

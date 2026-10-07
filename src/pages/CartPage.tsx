@@ -4,20 +4,24 @@ import { useCart } from '../hooks/useCart'
 import { useLanguage } from '@/lib/i18n.tsx'
 import { formatPrice } from '@/components/utils/formatPrice.ts'
 import { Minus, PlusIcon, Trash2Icon, BabyIcon, PaletteIcon, TypeOutline, Shell, Notebook  } from 'lucide-react'
+import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
+import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
 
 export const CartPage: React.FC = () => {
   const { cart, loading, error, changeQuantity, removeLine } = useCart()
   const { t } = useLanguage()
 
-  if (loading) return <p>Cargando carrito...</p>;
-  if (error) return <p>Error al cargar el carrito.</p>;
+  if (loading) return <LoadingIndicator type="line-simple" size="lg" label={t('catalog.loading')} />
+  if (error) return <ErrorMessage message={t('cart.error')} />
   if (!cart || cart.totalQuantity === 0) {
     return (
-      <main>
-        <h1>Carrito</h1>
-        <p>Tu carrito está vacío.</p>
-        <Link to="/">Volver a la tienda</Link>
-      </main>
+      <section className="container min-height px-4 py-12 md:py-16 text-center">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-8">{t('cart.title')}</h1>
+        <p>{t('cart.empty')}</p>
+        <Link to="/collections" className="mt-4 inline-block bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md">
+          {t('cart.continueShopping')}
+        </Link>
+      </section>
     );
   }
 

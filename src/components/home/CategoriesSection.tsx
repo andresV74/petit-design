@@ -1,14 +1,16 @@
 import { useCollections } from '@/hooks/useCollections.ts'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '@/lib/i18n'
+import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
+import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
 
 export function CategoriesSection({ first = 2 }: ImportsListProps) {
   const { t } = useLanguage()
 	const { collections, loading, error } = useCollections(first)
 
-  if (loading) return <p>Cargando productos...</p>;
-  if (error) return <p>Ocurrió un error al cargar productos.</p>;
+  if (loading) return <LoadingIndicator type="line-simple" size="lg" label={t('catalog.loading')} />
+  if (error) return <ErrorMessage message={t('catalog.error')} />;
 
   return (
     <section className="py-16 md:py-24 bg-gray-light/50">

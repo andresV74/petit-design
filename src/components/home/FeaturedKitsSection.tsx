@@ -6,6 +6,8 @@ import { ProductCard } from '@/components/products/ProductCard.tsx'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/lib/i18n'
 import { Badge } from '@/components/ui/badge.tsx'
+import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
+import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
 
 export function FeaturedKitsSection({ first = 80 }: ImportsListProps) {
@@ -14,8 +16,8 @@ export function FeaturedKitsSection({ first = 80 }: ImportsListProps) {
   const { collections, loading: colLoading, error: colErrror } = useCollections(first)
   const kitsId = collections?.find((collection) => collection.title === 'Kits')?.id
 
-  if (loading && colLoading) return <p>Cargando productos...</p>;
-  if (error && colErrror) return <p>Ocurrió un error al cargar productos.</p>;
+  if (loading && colLoading) return <LoadingIndicator type="line-simple" size="lg" label={t('catalog.loading')} />
+  if (error && colErrror) return <ErrorMessage message={t('catalog.error')} />
 
   return (
     <section className="py-16 md:py-24 bg-linear-to-b from-mint-light/30 relative overflow-hidden">

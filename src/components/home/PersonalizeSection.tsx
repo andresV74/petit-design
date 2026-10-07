@@ -9,6 +9,8 @@ import { getWhatsAppUrl } from '@/lib/whatsapp.ts'
 import { Badge } from '@/components/ui/badge.tsx'
 import { GIRL_FABRICS_LIST_QUERY } from '@/api/queries/girlFabrics.ts'
 import { BOY_FABRICS_LIST_QUERY } from '@/api/queries/boyFabrics.ts'
+import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
+import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
 import type { Fabric } from '@/components/products/FabricSelector.tsx'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
 
@@ -119,9 +121,9 @@ export function PersonalizeSection({ first = 8 }: ImportsListProps) {
     : selectedGender === 'girl'
       ? girlFabrics : []) as unknown as Fabric[]
 
-  if (girlLoading && boyLoading) return <p>Cargando telas para niñas...</p>;
-  if (girlError && boyError) return <p>Error al cargar telas.</p>;
-  if (!girlFabricsFull || girlFabricsFull.length === 0 || !boyFabricsFull || boyFabricsFull.length === 0) return <p>No hay telas configuradas.</p>
+  if (girlLoading && boyLoading) return <LoadingIndicator type="line-simple" size="lg" label={t('catalog.loading')} />
+  if (girlError && boyError) return <ErrorMessage message={t('fabricGallery.error')} />
+  if (!girlFabricsFull || girlFabricsFull.length === 0 || !boyFabricsFull || boyFabricsFull.length === 0) return <ErrorMessage message={t('fabricGallery.moreFabrics')} />
 
   return (
     <section className="py-16 md:py-24 bg-linear-to-b from-background">

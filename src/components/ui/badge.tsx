@@ -1,8 +1,8 @@
 import { type HTMLAttributes } from "react";
 
 export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
-	className?: string;
-	props?: HTMLAttributes<HTMLDivElement>;
+	className?: string
+	props?: HTMLAttributes<HTMLDivElement>
 }
 
 function Badge({ className, ...props }: BadgeProps) {
@@ -14,4 +14,4 @@ function Badge({ className, ...props }: BadgeProps) {
 	)
 }
 
-export { Badge };
+export { Badge }

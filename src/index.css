@@ -169,6 +169,10 @@
     -1px -1px 0px #ffffff,
     1px 1px 0px #3333336d;
   }
+
+  .min-height {
+    min-height: calc(100vh - 581px);
+  }
 }
 
 @layer utilities {

@@ -5,6 +5,8 @@ import { ProductCard } from '@/components/products/ProductCard.tsx'
 import { useLanguage } from '@/lib/i18n'
 import { Link } from 'react-router-dom'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
+import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
+import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
 
 export function CatalogPage({ first = 80 }: ImportsListProps) {
   const { category } = useParams<{ category?: string }>()
@@ -18,8 +20,8 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
       ? `https://petitdesign.co/catalogo/${category}`
       : 'https://petitdesign.co/catalogo'
 
-  if (collectionsLoading && loading) return <p>Cargando productos y colecciones...</p>;
-  if (collectionsError && error) return <p>Ocurrió un error al cargar productos o colecciones.</p>;
+  if (collectionsLoading && loading) return <LoadingIndicator type="line-simple" size="lg" label={t('catalog.loading')} />
+  if (collectionsError && error) return <ErrorMessage message={t('catalog.error')} />
 
   return (
     <>
@@ -37,28 +39,28 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
 
       <div className="container px-4 py-12 md:py-16">
         {/* Header */}
-            {category ? (
-              products
-                ?.filter((product) => product.collections.edges.map((collection) => collection.node.handle)[0] === category)
-                .slice(0,1)
-                .map((card) => (
-                  <div key={card.id} className="text-center mb-8">
-                    <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
-                      {card.collections.edges[0].node.title}
-                    </h1>
-                    <p className="text-muted-foreground max-w-2xl mx-auto">
-                      {card.collections.edges[0].node.description}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <div  className="text-center mb-8">
-                  <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
-                    {t('catalog.title')}
-                  </h1>
-                </div>
-              )
-            }
+        {category ? (
+          products
+            ?.filter((product) => product.collections.edges.map((collection) => collection.node.handle)[0] === category)
+            .slice(0,1)
+            .map((card) => (
+              <div key={card.id} className="text-center mb-8">
+                <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+                  {card.collections.edges[0].node.title}
+                </h1>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  {card.collections.edges[0].node.description}
+                </p>
+              </div>
+            ))
+          ) : (
+            <div  className="text-center mb-8">
+              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+                {t('catalog.title')}
+              </h1>
+            </div>
+          )
+        }
 
         {/* Filters Section */}
         <div className="mb-8 space-y-4">
