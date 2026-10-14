@@ -544,29 +544,32 @@ export function ProductPage() {
               </Tooltip>
             </TooltipProvider>
 
-            <p className='text-center'>
-              {t('product.o')}
-            </p>
+            {product.whatsAppButton?.value && (
+              <>
+                <p className='text-center'>
+                  {t('product.o')}
+                </p>
 
-            <TooltipProvider delayDuration={0}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    onClick={handleWhatsAppOrder}
-                    className="h-11 rounded-md px-8 w-full bg-primary text-primary-foreground text-xl font-bold py-6 gap-2"
-                  >
-                    <Send /> {t('product.cta4')}
-                  </Button>
-                </TooltipTrigger>
-                <TooltipPortal>
-                  <TooltipContent className="max-w-45 bg-mint-light py-1 px-3 text-accent-foreground text-xs rounded-sm text-balance text-center" sideOffset={-2}>
-                    {t('product.tooltip2')}
-                    <TooltipArrow className="fill-mint-light" />
-                  </TooltipContent>
-                </TooltipPortal>
-              </Tooltip>
-            </TooltipProvider>
-
+                <TooltipProvider delayDuration={0}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        onClick={handleWhatsAppOrder}
+                        className="h-11 rounded-md px-8 w-full bg-primary text-primary-foreground text-xl font-bold py-6 gap-2"
+                      >
+                        <Send /> {t('product.cta4')}
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipPortal>
+                      <TooltipContent className="max-w-45 bg-mint-light py-1 px-3 text-accent-foreground text-xs rounded-sm text-balance text-center" sideOffset={-2}>
+                        {t('product.tooltip2')}
+                        <TooltipArrow className="fill-mint-light" />
+                      </TooltipContent>
+                    </TooltipPortal>
+                  </Tooltip>
+                </TooltipProvider>
+              </>
+            )}
           </div>
         </div>
       </div>

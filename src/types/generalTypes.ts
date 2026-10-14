@@ -93,6 +93,9 @@ export interface ProductNew {
   useFabrics?: {
     value: string
   }
+  whatsAppButton?: {
+    value: string
+  }
   longDescriptionEn?: {
     value: string
   } | null

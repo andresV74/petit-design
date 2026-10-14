@@ -159,6 +159,9 @@ export const PRODUCT_PAGE_QUERY = `
           }
         }
       }
+      whatsAppButton: metafield(namespace: "custom", key: "whatsApp_button") {
+        value
+      }
     }
   }
 `
