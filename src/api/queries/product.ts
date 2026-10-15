@@ -59,7 +59,7 @@ export const PRODUCT_PAGE_QUERY = `
         }
       }
 
-      collections(first: 1) {
+      collections(first: 5) {
         edges {
           node {
             id

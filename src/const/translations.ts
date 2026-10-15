@@ -311,7 +311,7 @@ export const translations: Translations = {
   // Catalog
   'catalog.title': { es: 'Catálogo', en: 'Catalog' },
   'catalog.allButtonText': { es: 'Todos los Productos', en: 'All Products' },
-  'catalog.noProducts': { es: 'No hay productos disponibles en esta categoría todavía.', en: 'No products available in this category yet.' },
+  'catalog.noProducts': { es: 'Aún no hay productos disponibles en esta categoría.', en: 'No products available in this category yet.' },
   'catalog.allProducts': { es: 'Ver todos los productos', en: 'View all products' },
   'catalog.loading': { es: 'Cargando productos y colecciones...', en: 'Loading products and collections...' },
   'catalog.error': { es: 'Ocurrió un error al cargar productos o colecciones.', en: 'An error occurred while loading products or collections.' },

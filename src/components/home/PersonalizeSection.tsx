@@ -197,7 +197,7 @@ export function PersonalizeSection({ first = 8 }: ImportsListProps) {
                 : `${selectedGender === 'boy' ? 'Boy' : 'Girl'}'s Fabrics`}
             </h3>
 
-            <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+            <div className="flex-balance justify-center gap-4 max-w-4xl mx-auto">
 							{currentFabrics.map((fabric, index) => (
                 <button
                   key={fabric.id}

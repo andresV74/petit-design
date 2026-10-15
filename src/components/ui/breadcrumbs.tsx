@@ -19,7 +19,7 @@ export function Breadcrumbs({ category, isProduct }: BreadcrumbsProps) {
 
 	return (
 		<>
-			<div className={`flex flex-wrap items-center gap-x-2 text-muted-foreground text-xs ${isProduct ? extraProductClasses : extraCatalogClasses}`}>
+			<div className={`flex-balance items-center gap-x-2 text-muted-foreground text-xs ${isProduct ? extraProductClasses : extraCatalogClasses}`}>
 				<Link to="/collections" className="hover:text-mint underline hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm">
 					{t('catalog.title')}
 				</Link>

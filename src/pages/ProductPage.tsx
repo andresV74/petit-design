@@ -443,7 +443,7 @@ export function ProductPage() {
             )}
 
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-4 py-4 border-y border-border">
+            <div className="flex-balance gap-4 py-4 border-y border-border">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock className="h-4 w-4 text-mint" />
                 <span>{t('product.productionTime')}: {productionDays} {t('product.days')}</span>

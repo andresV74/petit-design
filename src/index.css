@@ -173,6 +173,11 @@
   .min-height {
     min-height: calc(100vh - 581px);
   }
+
+  .flex-balance {
+    display: flex;
+    flex-wrap: balance;
+  }
 }
 
 @layer utilities {

@@ -13,6 +13,7 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
   const { products, loading, error } = useProducts(first)
   const { collections, loading: collectionsLoading, error: collectionsError } = useCollections(first)
   const { t, language } = useLanguage()
+  const categoryProducts = products?.filter(({ collections }) => collections.edges.some(({ node }) => node.handle === category))
 
   const headTitle = `${t('catalog.title')} | Petit Design`
 
@@ -40,19 +41,23 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
       <div className="container px-4 py-12 md:py-16">
         {/* Header */}
         {category ? (
-          products
-            ?.filter((product) => product.collections.edges.map((collection) => collection.node.handle)[0] === category)
-            .slice(0,1)
-            .map((card) => (
-              <div key={card.id} className="text-center mb-8">
-                <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
-                  {card.collections.edges[0].node.title}
-                </h1>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  {card.collections.edges[0].node.description}
-                </p>
-              </div>
-            ))
+          categoryProducts?.slice(0,1)
+            .map((card) => {
+              const matchedCollection = card.collections.edges.find(
+                (collection) => collection.node.handle === category
+              )
+
+              return (
+                <div key={card.id} className="text-center mb-8">
+                  <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+                    {matchedCollection?.node.title}
+                  </h1>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    {matchedCollection?.node.description}
+                  </p>
+                </div>
+              )
+            })
           ) : (
             <div  className="text-center mb-8">
               <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
@@ -64,7 +69,7 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
 
         {/* Filters Section */}
         <div className="mb-8 space-y-4">
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex-balance justify-center gap-2">
             <Link
               to="/collections"
               className={
@@ -94,13 +99,13 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
         </div>
 
         {/* Products Grid */}
-        {!products || products.length === 0 && !collections || collections?.length === 0 ? (
+        {categoryProducts?.length === 0 && category ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">
               {t('catalog.noProducts')}
             </p>
             <Link
-              to="/catalogo"
+              to="/collections"
               className="inline-block mt-4 text-mint hover:text-mint-dark underline"
             >
               {t('catalog.allProducts')}
@@ -110,13 +115,12 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {
               category ? (
-                products
-                  .filter((product) => product.collections.edges.map((collection) => collection.node.handle)[0] === category)
-                  .map((card) => (
+                categoryProducts
+                  ?.map((card) => (
                   <ProductCard key={card.id} product={card} language={language} />
                 ))
               ) : (
-                products.map((card) => (
+                products?.map((card) => (
                   <ProductCard key={card.id} product={card} language={language} />
                 ))
               )

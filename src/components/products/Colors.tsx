@@ -19,7 +19,7 @@ export function Colors({ colors, handleSelectColor }: ColorsProps) {
 	return (
 		<div className="space-y-3">
 			<label>{t('product.embroideryColor')}</label>
-			<div className="flex flex-wrap gap-3 mt-3">
+			<div className="flex-balance gap-3 mt-3">
 				{colors.map((color) => {
 					const isSelected = selectedColor?.name === color.name
 

@@ -11,6 +11,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
+import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
 
 const menuTitles = {
@@ -46,8 +48,8 @@ export function Header({ first }: ImportsListProps) {
     { href: '/contacto', label: t('nav.contact') },
   ]
 
-  if (loading) return <p>Cargando productos y colecciones...</p>;
-  if (error) return <p>Ocurrió un error al cargar productos o colecciones.</p>;
+  if (loading) return <LoadingIndicator type="line-simple" size="lg" label={t('catalog.loading')} />
+  if (error) return <ErrorMessage message={t('product.error')} />
 
 
   return (
