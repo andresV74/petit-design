@@ -13,7 +13,7 @@ type Collection = {
   }
 }
 
-export function useCollections(first = 3) {
+export function useCollections(first = 5) {
   const [data, setData] = useState<Collection[] | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<unknown>(null)
@@ -42,7 +42,7 @@ export function useCollections(first = 3) {
     fetchCollections()
     return () => {
       cancelled = true
-    };
+    }
   }, [first])
 
   return { collections: data, loading, error }

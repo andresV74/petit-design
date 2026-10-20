@@ -32,7 +32,7 @@ export function useProducts(first = 80) {
     fetchProducts()
     return () => {
       cancelled = true
-    };
+    }
   }, [first])
 
   return { products: data, loading, error }

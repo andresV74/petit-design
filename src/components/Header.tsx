@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useCollections } from '@/hooks/useCollections.ts'
+import { useCollectionsMenu } from '@/hooks/useCollectionsMenu.ts'
 import { Menu, X, Globe, ChevronDown, ShoppingBag } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/lib/i18n.tsx'
@@ -13,28 +13,10 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
 import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
-import type { ImportsListProps } from '@/types/generalTypes.ts'
 
-const menuTitles = {
-  es: {
-    collections: [
-      { menuTitle: 'Accesorios' },
-      { menuTitle: 'Lencería de Cunas' },
-      { menuTitle: 'Kits' },
-    ]
-  },
-  en: {
-    collections: [
-      { menuTitle: 'Accessories' },
-      { menuTitle: 'Crib Linens' },
-      { menuTitle: 'Kits' },
-    ]
-  },
-}
-
-export function Header({ first }: ImportsListProps) {
+export function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const { collections, loading, error } = useCollections(first)
+  const { menu, loading, error } = useCollectionsMenu()
   const { language, setLanguage, t } = useLanguage()
   const totalQuantity = useCartStore((s) => s.totalQuantity)
 
@@ -77,14 +59,45 @@ export function Header({ first }: ImportsListProps) {
           </Link>
 
           {/* Catalog Categories */}
-          {collections?.map(({ id, handle }, index) => (
+          {/* {collections?.map(({ id, title }) => (
             <Link
               key={id}
               to={`/collections/${handle}`}
               className='whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground'
             >
-              {menuTitles[language].collections[index].menuTitle}
+              {title}
             </Link>
+          ))} */}
+          {menu?.map((item) => (
+            item.items.length === 0 ? (
+              <Link
+                key={item.id}
+                to={`/collections/${item.resource?.handle}`}
+                className="whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground"
+              >
+                {item.title}
+              </Link>
+            ) : (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    className="text-sm font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2 py-2"
+                  >
+                    {item.title}
+                    <ChevronDown className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="w-48 bg-background">
+                  {item.items.map((subitem) => (
+                      <DropdownMenuItem asChild>
+                        <Link to={`/collections/${subitem.resource?.handle}`} className="w-full cursor-pointer">
+                          {subitem.title}
+                        </Link>
+                      </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )
           ))}
 
           {/* Fabric Catalogs Dropdown */}
@@ -165,15 +178,15 @@ export function Header({ first }: ImportsListProps) {
       >
         <nav className="flex flex-col gap-2 px-4 py-4">
           {/* Catalog Categories */}
-          {collections?.map(({ id, handle }, index) => (
+          {/* {collections?.map(({ id, handle, title }) => (
             <Link
               key={id}
               to={`/collections/${handle}`}
               className='py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-mint-dark'
             >
-              {menuTitles[language].collections[index].menuTitle}
+              {title}
             </Link>
-          ))}
+          ))} */}
 
           {/* Mobile Fabrics Section */}
           <div className="flex flex-col gap-1">
