@@ -59,15 +59,6 @@ export function Header() {
           </Link>
 
           {/* Catalog Categories */}
-          {/* {collections?.map(({ id, title }) => (
-            <Link
-              key={id}
-              to={`/collections/${handle}`}
-              className='whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground'
-            >
-              {title}
-            </Link>
-          ))} */}
           {menu?.map((item) => (
             item.items.length === 0 ? (
               <Link
@@ -78,7 +69,7 @@ export function Header() {
                 {item.title}
               </Link>
             ) : (
-              <DropdownMenu>
+              <DropdownMenu key={item.id}>
                 <DropdownMenuTrigger asChild>
                   <Button
                     className="text-sm font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2 py-2"
@@ -89,7 +80,7 @@ export function Header() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="center" className="w-48 bg-background">
                   {item.items.map((subitem) => (
-                      <DropdownMenuItem asChild>
+                      <DropdownMenuItem asChild key={subitem.id}>
                         <Link to={`/collections/${subitem.resource?.handle}`} className="w-full cursor-pointer">
                           {subitem.title}
                         </Link>
@@ -178,33 +169,43 @@ export function Header() {
       >
         <nav className="flex flex-col gap-2 px-4 py-4">
           {/* Catalog Categories */}
-          {/* {collections?.map(({ id, handle, title }) => (
-            <Link
-              key={id}
-              to={`/collections/${handle}`}
-              className='py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-mint-dark'
-            >
-              {title}
-            </Link>
-          ))} */}
+          {menu?.map((item) => (
+            item.items.length === 0 ? (
+              <Link
+                key={item.id}
+                to={`/collections/${item.resource?.handle}`}
+                className="whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer py-2 text-muted-foreground"
+              >
+                {item.title}
+              </Link>
+            ) : (
+              item.items.map((subitem) => (
+                <Link
+                  to={`/collections/${subitem.resource?.handle}`}
+                  className="whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer py-2 text-muted-foreground"
+                  key={subitem.id}
+                >
+                  {subitem.title}
+                </Link>
+              ))
+            )
+          ))}
 
           {/* Mobile Fabrics Section */}
-          <div className="flex flex-col gap-1">
-            <Link
-              to="/telas/nino"
-              onClick={() => setIsOpen(false)}
-              className="py-1.5 text-sm text-muted-foreground hover:text-mint-dark"
-            >
-              {t('header.boysFabricsCatalog')}
-            </Link>
-            <Link
-              to="/telas/nina"
-              onClick={() => setIsOpen(false)}
-              className="py-1.5 text-sm text-muted-foreground hover:text-mint-dark"
-            >
-              {t('header.girlsFabricsCatalog')}
-            </Link>
-          </div>
+          <Link
+            to="/telas/nino"
+            onClick={() => setIsOpen(false)}
+            className="py-1.5 text-sm text-muted-foreground hover:text-mint-dark"
+          >
+            {t('header.boysFabricsCatalog')}
+          </Link>
+          <Link
+            to="/telas/nina"
+            onClick={() => setIsOpen(false)}
+            className="py-1.5 text-sm text-muted-foreground hover:text-mint-dark"
+          >
+            {t('header.girlsFabricsCatalog')}
+          </Link>
 
           {/* Mobile Categories with Expandable Subcategories */}
           {navLinks.map((link) => (
