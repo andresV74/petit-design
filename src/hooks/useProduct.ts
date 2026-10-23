@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { getProductByHandle } from '../api/getProductByHandle'
-import type { ProductNew } from '@/types/generalTypes.ts'
+import type { Product } from '@/types/generalTypes.ts'
 
 export function useProduct(handle: string | undefined) {
-  const [product, setProduct] = useState<ProductNew | null>(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<unknown>(null);
 

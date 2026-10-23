@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/lib/i18n.tsx'
 import { formatPrice } from '@/components/utils/formatPrice.ts'
-import type { ProductNew } from '@/types/generalTypes.ts'
+import type { Product } from '@/types/generalTypes.ts'
 
 interface ProductCardProps {
-	product: ProductNew
+	product: Product
 	language: 'es' | 'en'
 }
 

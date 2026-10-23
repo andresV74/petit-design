@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { shopifyClient } from '../api/shopifyClient.ts'
 import { PRODUCTS_LIST_QUERY } from '../api/queries/products.ts'
-import type { ProductNew } from '@/types/generalTypes.ts'
+import type { Product } from '@/types/generalTypes.ts'
 
 export function useProducts(first = 80) {
-  const [data, setData] = useState<ProductNew[] | null>(null)
+  const [data, setData] = useState<Product[] | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<unknown>(null)
 
@@ -20,7 +20,7 @@ export function useProducts(first = 80) {
 
         if (!cancelled) {
           const edges = response?.data?.products?.edges ?? []
-          setData(edges.map((e: { node: ProductNew }) => e.node))
+          setData(edges.map((e: { node: Product }) => e.node))
         }
       } catch (err) {
         if (!cancelled) setError(err)

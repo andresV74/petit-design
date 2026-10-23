@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { shopifyClient } from '../api/shopifyClient.ts'
 import { SEARCH_PRODUCTS } from '../api/queries/searchProducts'
-import type { ProductNew } from '@/types/generalTypes.ts'
+import type { Product } from '@/types/generalTypes.ts'
 
 type searchTermType = string | null | undefined
 
 export function useProductSearch(searchTerm: searchTermType) {
-  const [products, setProducts] = useState<ProductNew[] | null>([])
+  const [products, setProducts] = useState<Product[] | null>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<unknown | null>(null)
 
