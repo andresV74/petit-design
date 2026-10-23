@@ -390,6 +390,12 @@ export const translations: Translations = {
   'cart.continueShopping': { es: 'Volver a la tienda', en: 'Back to Store' },
   'cart.error': { es: 'Ocurrió un error al cargar el carrito.', en: 'An error occurred while loading the cart.' },
 
+  // Search Page
+  'search.title': { es: 'Resultados de búsqueda para', en: 'Search Results for' },
+  'search.noResults': { es: 'No se encontraron resultados para tu búsqueda.', en: 'No results found for your search.' },
+  'search.tryAgain': { es: 'Intenta con otra palabra clave o revisa la ortografía.', en: 'Try another keyword or check the spelling.' },
+  'search.viewAll': { es: 'Ver todos los productos', en: 'View all products' },
+
   // Fabric Gallery
   'fabricGallery.boysTitle': { es: 'Catálogo de Telas - Niño', en: 'Fabric Catalog - Boy' },
   'fabricGallery.girlsTitle': { es: 'Catálogo de Telas - Niña', en: 'Fabric Catalog - Girl' },

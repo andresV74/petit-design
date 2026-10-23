@@ -14,6 +14,7 @@ const CatalogPage = lazy(() => import('./pages/CatalogPage.tsx').then(m => ({ de
 const ProductPage = lazy(() => import('./pages/ProductPage.tsx').then(m => ({ default: m.ProductPage })))
 const FabricGallery = lazy(() => import('./pages/FabricGallery.tsx').then(m => ({ default: m.FabricGallery })))
 const CartPage = lazy(() => import('./pages/CartPage.tsx').then(m => ({ default: m.CartPage })))
+const SearchPage = lazy(() => import('./pages/SearchPage.tsx').then(m => ({ default: m.SearchPage })))
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/collections" element={<CatalogPage />} />
             <Route path="/collections/:category" element={<CatalogPage />} />
             <Route path='/producto/:handle' element={<ProductPage />} />
+            <Route path='/search/:handle' element={<SearchPage />} />
             <Route path="/telas/nino" element={<FabricGallery first={60} gender="boy" />} />
             <Route path="/telas/nina" element={<FabricGallery first={60} gender="girl" />} />
             <Route path="/cart" element={<CartPage />} />

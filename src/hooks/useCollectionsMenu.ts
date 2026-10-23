@@ -39,7 +39,7 @@ export function useCollectionsMenu(handle = "storefront-menu") {
 
       try {
         const response = await shopifyClient.request(COLLECTIONS_MENU_QUERY, {
-            variables: { handle },
+          variables: { handle },
         })
 
         if(!cancelled) {
@@ -53,11 +53,11 @@ export function useCollectionsMenu(handle = "storefront-menu") {
       }
     }
 
-    loadMenu();
+    loadMenu()
     return () => {
       cancelled = true
     }
-  }, [handle]);
+  }, [handle])
 
   return {
     menu,

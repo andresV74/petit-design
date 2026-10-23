@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCollectionsMenu } from '@/hooks/useCollectionsMenu.ts'
-import { Menu, X, Globe, ChevronDown, ShoppingBag } from 'lucide-react'
+import { Menu, X, Globe, ChevronDown, ShoppingBag, SearchIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/lib/i18n.tsx'
 import { useCartStore } from '@/store/cartStore.tsx'
@@ -13,16 +13,26 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
 import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
+import { inputClasses } from '@/components/ContactForm.tsx'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
   const { menu, loading, error } = useCollectionsMenu()
   const { language, setLanguage, t } = useLanguage()
   const totalQuantity = useCartStore((s) => s.totalQuantity)
+  const [searchVisible, setSearchVisible] = useState(false)
+  const navigate = useNavigate()
 
   const toggleLanguage = () => {
     setLanguage(language === 'es' ? 'en' : 'es')
   }
+
+  useEffect(() => {
+    if (searchVisible && inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [searchVisible])
 
   const navLinks = [
     { href: '/nosotros', label: t('nav.about') },
@@ -33,12 +43,26 @@ export function Header() {
   if (loading) return <LoadingIndicator type="line-simple" size="lg" label={t('catalog.loading')} />
   if (error) return <ErrorMessage message={t('product.error')} />
 
+  const handleSearchVisibility = () => {
+    setSearchVisible(!searchVisible)
+  }
+
+  const handleSearchNavigation = (event: React.SubmitEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const searchTerm = formData.get('search') as string
+
+    if (searchTerm && searchTerm.trim()) {
+      navigate(`/search/${encodeURIComponent(searchTerm.trim())}`)
+      handleSearchVisibility()
+    }
+  }
 
   return (
     <header className="sticky top-0 z-30 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80">
-      <div className="container flex h-20 items-center justify-between">
+      <div className="container flex w-full h-20 items-center justify-between">
         {/* Logo + Brand Name */}
-        <Link to="/">
+        <Link to="/" className="shrink-0">
           <img
             src="/logo-header.png"
             alt="Petit Design"
@@ -127,11 +151,19 @@ export function Header() {
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center lg:gap-4">
+        <div className="flex items-center gap-2 lg:gap-4">
+          {/* Search icon */}
+          <Button
+            className="flex items-center gap-1.5 text-muted-foreground hover:text-mint-dark hover:bg-transparent size-9 rounded-md"
+            onClick={handleSearchVisibility}
+          >
+            <SearchIcon className="h-4 w-4" />
+          </Button>
+
           {/* Shopping Bag */}
           <Link
             to="/cart"
-            className="flex items-center gap-1.5 text-muted-foreground hover:text-mint-dark h-9 rounded-md px-3"
+            className="flex items-center gap-1.5 text-muted-foreground hover:text-mint-dark size-9 rounded-md"
           >
             <ShoppingBag className="h-4 w-4" />
             <span className="uppercase text-xs font-medium">
@@ -142,7 +174,7 @@ export function Header() {
           {/* Language Toggle */}
           <Button
             onClick={toggleLanguage}
-            className="hidden sm:flex items-center gap-1.5 text-muted-foreground hover:text-mint-dark h-9 rounded-md px-3"
+            className="hidden sm:flex items-center gap-1.5 text-muted-foreground hover:text-mint-dark hover:bg-transparent size-9 rounded-md"
           >
             <Globe className="h-4 w-4" />
             <span className="uppercase text-xs font-medium">
@@ -218,16 +250,30 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-
-          <Button
-            onClick={toggleLanguage}
-            className="justify-start text-muted-foreground hover:text-mint-dark h-9 rounded-md"
-          >
-            <Globe className="h-4 w-4 mr-2" />
-            <span>{language === 'es' ? 'English' : 'Español'}</span>
-          </Button>
         </nav>
       </div>
+
+      <form
+        onSubmit={handleSearchNavigation}
+        className="container flex gap-2 items-center justify-center transition-all duration-300 ease-in-out overflow-hidden h-0"
+        style={{ height: searchVisible ? '3rem' : '0' }}
+        role="search"
+      >
+        <input
+          id="search"
+          name="search"
+          type="text"
+          placeholder="Buscar productos"
+          className={`${inputClasses} h-8 w-xl rounded-md p-2`}
+          ref={inputRef}
+        />
+        <Button
+          type="submit"
+          className="bg-primary text-white size-8 shrink-0"
+        >
+          <SearchIcon className="h-4 w-4" />
+        </Button>
+      </form>
     </header>
   );
 }
