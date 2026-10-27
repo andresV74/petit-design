@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../hooks/useCart'
 import { useLanguage } from '@/lib/i18n.tsx'
@@ -7,9 +7,11 @@ import { Minus, PlusIcon, Trash2Icon, BabyIcon, PaletteIcon, TypeOutline, Shell,
 import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
 import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
 
-export const CartPage: React.FC = () => {
+export function CartPage() {
   const { cart, loading, error, changeQuantity, removeLine } = useCart()
   const { t } = useLanguage()
+  const [acceptedTerms, setAcceptedTerms] = useState(false)
+  const [showTermsError, setShowTermsError] = useState(false)
 
   if (loading) return <LoadingIndicator type="line-simple" size="lg" label={t('catalog.loading')} />
   if (error) return <ErrorMessage message={t('cart.error')} />
@@ -114,7 +116,7 @@ export const CartPage: React.FC = () => {
                   {formatPrice(parseInt(price ?? 0, 10) * line.quantity)}
                 </p>
 
-                <div className='flex justify-between my-5 border border-border rounded-3xl overflow-hidden'>
+                <div className='flex justify-between my-5 border border-border rounded-3xl overflow-hidden bg-background/50'>
                   <button
                     type="button"
                     disabled={line.quantity === 1}
@@ -150,7 +152,7 @@ export const CartPage: React.FC = () => {
         })}
       </ul>
 
-      <section className='space-y-4 mt-10 text-right'>
+      <section className=' space-y-4 mt-10 mx-auto md:pe-2 text-center'>
         {/* <p>
           Subtotal: {cart.cost.subtotalAmount.amount}
         </p> */}
@@ -158,10 +160,53 @@ export const CartPage: React.FC = () => {
           Total: {formatPrice(parseInt(cart.cost.totalAmount.amount))}
         </p>
 
+        <div className='flex flex-col items-center gap-1'>
+          <div className='flex items-center justify-end gap-2 text-left'>
+            <input
+              id="accept-terms"
+              type="checkbox"
+              required
+              checked={acceptedTerms}
+              onChange={(e) => {
+                setAcceptedTerms(e.target.checked)
+                if (e.target.checked) setShowTermsError(false)
+              }}
+              aria-invalid={showTermsError}
+              aria-describedby={showTermsError ? 'accept-terms-error' : undefined}
+              className={`size-4 shrink-0 cursor-pointer accent-mint-dark borde4r border-border ${showTermsError ? 'outline-2 outline-destructive outline-offset-2' : ''}`}
+            />
+            <label htmlFor="accept-terms" className='text-xs text-muted-foreground cursor-pointer'>
+              {t('cart.termsAcceptPrefix')}
+              <Link to="/terminos-y-condiciones" target="_blank" rel="noopener noreferrer" className='underline hover:no-underline'>
+                {t('cart.termsLinkTerms')}
+              </Link>
+              {t('cart.termsLinkAnd')}
+              <Link to="/politica-de-tratamiento-de-datos-personales" target="_blank" rel="noopener noreferrer" className='underline hover:no-underline'>
+                {t('cart.termsLinkPrivacy')}
+              </Link>
+            </label>
+          </div>
+
+          {showTermsError && (
+            <p id="accept-terms-error" role="alert" className='text-xs text-destructive'>
+              {t('cart.termsRequired')}
+            </p>
+          )}
+        </div>
+
         {cart.checkoutUrl && (
           <a
             href={cart.checkoutUrl}
-            className='inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent cursor-pointer h-11 rounded-md px-10 w-fit bg-primary text-primary-foreground text-xl font-bold py-6'
+            aria-disabled={!acceptedTerms}
+            title={!acceptedTerms ? t('cart.termsRequired') : undefined}
+            onClick={(e) => {
+              if (!acceptedTerms) {
+                e.preventDefault()
+                setShowTermsError(true)
+                document.getElementById('accept-terms')?.focus()
+              }
+            }}
+            className={`inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-accent h-11 rounded-md px-10 w-fit bg-primary text-primary-foreground text-xl font-bold py-6 ${acceptedTerms ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
           >
             {t('cart.checkout')}
           </a>

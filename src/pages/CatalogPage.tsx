@@ -52,7 +52,7 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
                   <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
                     {matchedCollection?.node.title}
                   </h1>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                  <p className="text-muted-foreground max-w-2xl mx-auto text-balance">
                     {matchedCollection?.node.description}
                   </p>
                 </div>

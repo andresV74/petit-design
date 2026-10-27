@@ -318,6 +318,14 @@ export const translations: Translations = {
   'cart.empty': { es: 'Tu carrito está vacío', en: 'Your cart is empty' },
   'cart.continueShopping': { es: 'Volver a la tienda', en: 'Back to Store' },
   'cart.error': { es: 'Ocurrió un error al cargar el carrito.', en: 'An error occurred while loading the cart.' },
+  'cart.termsAcceptPrefix': { es: 'He leído y acepto los ', en: 'I have read and accept the ' },
+  'cart.termsLinkTerms': { es: 'Términos y Condiciones', en: 'Terms and Conditions' },
+  'cart.termsLinkAnd': { es: ' y la ', en: ' and the ' },
+  'cart.termsLinkPrivacy': { es: 'Política de Tratamiento de Datos Personales', en: 'Personal Data Processing Policy' },
+  'cart.termsRequired': {
+    es: 'Debes aceptar los Términos y Condiciones y la Política de Tratamiento de Datos Personales para continuar.',
+    en: 'You must accept the Terms and Conditions and the Personal Data Processing Policy to continue.'
+  },
 
   // Search Page
   'search.title': { es: 'Resultados de búsqueda para', en: 'Search Results for' },
