@@ -10,9 +10,9 @@ export const translations: Translations = {
   'nav.home': { es: 'Inicio', en: 'Home' },
   'nav.catalog': { es: 'Catálogo', en: 'Catalog' },
   'nav.about': { es: 'Nosotros', en: 'About Us' },
+  'nav.policies': { es: 'Políticas', en: 'Policies' },
   'nav.contact': { es: 'Contacto', en: 'Contact' },
   'nav.categories': { es: 'Categorías', en: 'Categories' },
-  'nav.policies': { es: 'Politicas', en: 'Policies' },
   'nav.boysCatalog': { es: 'Catálogo Niño', en: "Boy's Catalog" },
   'nav.girlsCatalog': { es: 'Catálogo Niña', en: "Girl's Catalog" },
 
@@ -32,7 +32,7 @@ export const translations: Translations = {
     en: 'Get advice on how to customize your product'
   },
   'hero.badgeTitle': { es: 'Todos nuestros productos son personalizables', en: 'All our products are customizable' },
-  'hero.badgeSubtitle': { es: 'Bordamos el nombre de tu bebé con amor', en: 'We embroider your baby\'s name with love' },
+  'hero.badgeSubtitle': { es: 'Bordamos el nombre de tu bebé con amor', en: `We embroider your baby's name with love` },
   'hero.cta': { es: 'Descubre toda la colección', en: 'Discover the entire collection' },
   'hero.whatsAppCta': { es: 'Abre WhatsApp', en: 'Open WhatsApp' },
 
@@ -41,7 +41,7 @@ export const translations: Translations = {
   'kits.title': { es: 'Kits Personalizados', en: 'Personalized Kits' },
   'kits.description': {
     es: 'Sets completos diseñados para el nacimiento de tu bebé. Todo lo que necesitas en un solo paquete, con la posibilidad de personalizarlo con el nombre de tu pequeño.',
-    en: 'Complete sets designed for your baby\'s birth. Everything you need in one package, with the possibility of personalizing it with your little one\'s name.'
+    en: `Complete sets designed for your baby's birth. Everything you need in one package, with the possibility of personalizing it with your little one's name.`
   },
   'kits.cta': { es: 'Ver todos los Kits', en: 'View all Kits' },
 
@@ -58,7 +58,7 @@ export const translations: Translations = {
   'personalization.title': { es: 'Personaliza tu Producto', en: 'Personalize Your Product' },
   'personalization.description': {
     es: 'Comienza eligiendo el género del bebé para ver nuestras telas exclusivas',
-    en: 'Start by choosing the baby\'s gender to see our exclusive fabrics'
+    en: `Start by choosing the baby's gender to see our exclusive fabrics`
   },
   'personalization.buttonCta': { es: 'Ver telas disponibles', en: 'See fabrics below' },
   'personalization.buttonCtaSelected': { es: 'Ver telas abajo', en: 'See fabrics below' },
@@ -76,7 +76,7 @@ export const translations: Translations = {
   'benefits.personalization': { es: 'Personalización con nombre', en: 'Personalization with name' },
   'benefits.personalization.desc': {
     es: 'Cada pieza lleva el nombre de tu bebé bordado con amor',
-    en: 'Each piece carries your baby\'s name embroidered with love'
+    en: `Each piece carries your baby's name embroidered with love`
   },
   'benefits.handmade': { es: 'Hecho en Colombia', en: 'Made in Colombia' },
   'benefits.handmade.desc': {
@@ -225,81 +225,11 @@ export const translations: Translations = {
     en: 'Everything you need to know before placing your order'
   },
   'policies.faqs': { es: 'Preguntas Frecuentes', en: 'Frequently Asked Questions' },
-  'policies.question.1': { es: '¿Qué es Petit Design?', en: 'What is Petit Design?' },
-  'policies.answer.1': {
-    es: 'Petit Design es una marca colombiana con más de 11 años de experiencia dedicada a la creación de lencería y accesorios para bebé. Todos nuestros productos son hechos en Colombia, en nuestro taller propio en Manizales, con telas 100% algodón y procesos artesanales de confección y personalización. Acompañamos a las mamás desde el nacimiento del bebé y en cada etapa de su crecimiento, cuidando cada detalle.',
-    en: 'Petit Design is a Colombian brand with over 11 years of experience dedicated to creating baby linens and accessories. All our products are made in Colombia, in our own workshop in Manizales, with 100% cotton fabrics and artisanal manufacturing and customization processes. We accompany mothers from the baby\'s birth and through each stage of growth, taking care of every detail.'
-  },
-  'policies.question.2': { es: '¿Qué tipo de productos venden?', en: 'What type of products do you sell?' },
-  'policies.answer.2': {
-    es: 'Ofrecemos lencería para cuna y cama cuna, nidos, cobijas, cojines, bolsitas organizadoras, botiquines, neceseres y otros accesorios para bebé. También contamos con kits y sets especiales que agrupan varios productos y ofrecen un mejor valor, ideales para regalos o para armar la habitación del bebé.',
-    en: 'We offer crib and toddler bed linens, nests, blankets, cushions, organizer bags, first aid kits, toiletry bags and other baby accessories. We also have special kits and sets that group various products and offer better value, ideal for gifts or setting up the baby\'s room.'
-  },
-  'policies.question.3': { es: '¿Los productos son personalizados?', en: 'Are the products personalized?' },
-  'policies.answer.3': {
-    es: 'Sí. La mayoría de nuestros productos son personalizados con el nombre del bebé. Dependiendo del producto, puedes elegir la tela, el color del sesgo, el color del bordado, moños u otros acabados. Esto hace que cada pedido sea único y pensado especialmente para tu bebé.',
-    en: 'Yes. Most of our products are personalized with the baby\'s name. Depending on the product, you can choose the fabric, cant color, embroidery color, bows or other finishes. This makes each order unique and specially designed for your baby.'
-  },
-  'policies.question.4': { es: '¿Cómo funciona el proceso de compra?', en: 'How does the purchasing process work?' },
-  'policies.answer.4': {
-    es: 'Nuestro proceso es 100% acompañado. Inicia normalmente por WhatsApp, donde te asesoramos paso a paso: elección del producto, selección de telas, definición de personalización, confirmación del pedido, pagos, producción y despacho. Siempre estamos disponibles para resolver tus dudas durante el proceso.',
-    en: 'Our process is 100% accompanied. It normally starts via WhatsApp, where we advise you step by step: product selection, fabric selection, personalization definition, order confirmation, payments, production and shipping. We are always available to answer your questions during the process.'
-  },
-  'policies.question.5': { es: '¿Cuánto tiempo tarda la producción?', en: 'How long does production take?' },
-  'policies.answer.5': {
-    es: 'Nuestro tiempo estimado de producción es de 3 a 4 semanas. Este tiempo comienza a contar desde el día en que recibimos el pago del anticipo. Al ser productos personalizados y hechos a la medida, cada pedido requiere un proceso cuidadoso de confección.',
-    en: 'Our estimated production time is 3 to 4 weeks. This time starts counting from the day we receive the deposit payment. Being personalized and custom-made products, each order requires a careful manufacturing process.'
-  },
-  'policies.question.6': { es: '¿Cómo funcionan los pagos?', en: 'How do payments work?' },
-  'policies.answer.6': {
-    es: 'Para iniciar la producción solicitamos un anticipo del 50% del valor del pedido. El 50% restante debe estar cancelado antes del despacho del producto. Esto nos permite asegurar materiales, telas y tiempos de producción.',
-    en: 'To start production we request a 50% deposit of the order value. The remaining 50% must be paid before the product is shipped. This allows us to secure materials, fabrics and production times.'
-  },
-  'policies.question.7': { es: '¿El envío está incluido?', en: 'Is shipping included?' },
-  'policies.answer.7': {
-    es: 'No. El valor del envío no está incluido en el precio de los productos y se paga por separado.',
-    en: 'No. The shipping cost is not included in the product price and is paid separately.'
-  },
-  'policies.question.8': { es: '¿Cómo se paga el envío?', en: 'How is shipping paid?' },
-  'policies.answer.8': {
-    es: 'El envío se realiza principalmente por Servientrega y puede pagarse contra entrega o de forma anticipada. Si eliges pago anticipado, este se realiza únicamente a la cuenta Nequi de Servientrega.',
-    en: 'Shipping is mainly done through Servientrega and can be paid on delivery or in advance. If you choose advance payment, this is made only to Servientrega\'s Nequi account.'
-  },
-  'policies.question.9': { es: '¿Qué pasa si mi pedido llega con algún inconveniente?', en: 'What happens if my order arrives with an issue?' },
-  'policies.answer.9': {
-    es: 'Si tu pedido llega incompleto o con algún detalle de calidad, revisamos el caso y, si es responsabilidad nuestra, reponemos o corregimos el producto. Nuestro objetivo es que recibas exactamente lo que confirmamos contigo.',
-    en: 'If your order arrives incomplete or with a quality issue, we review the case and, if it\'s our responsibility, we replace or correct the product. Our goal is for you to receive exactly what we confirmed with you.'
-  },
   'policies.policiesTitle': { es: 'Políticas de Petit Design', en: 'Petit Design Policies' },
-  'policies.policy.1.title': { es: 'Producción', en: 'Production' },
-  'policies.policy.1.content': {
-    es: 'Todos nuestros productos se elaboran bajo pedido y de forma personalizada. No iniciamos producción sin el pago del anticipo del 50%. El tiempo estimado de producción es de 3 a 4 semanas.',
-    en: 'All our products are made to order and personalized. We do not start production without the 50% deposit payment. The estimated production time is 3 to 4 weeks.'
-  },
-  'policies.policy.2.title': { es: 'Confirmación del pedido', en: 'Order Confirmation' },
-  'policies.policy.2.content': {
-    es: 'Antes de iniciar producción, enviamos una confirmación detallada del pedido. Es responsabilidad del cliente revisar cuidadosamente telas, colores, nombre y tipografía.',
-    en: 'Before starting production, we send a detailed order confirmation. It is the customer\'s responsibility to carefully review fabrics, colors, name and typography.'
-  },
-  'policies.policy.3.title': { es: 'Cambios y correcciones', en: 'Changes and Corrections' },
-  'policies.policy.3.content': {
-    es: 'Si el error es responsabilidad de Petit Design, asumimos el reproceso y el envío. Si el pedido fue confirmado correctamente y luego el cliente solicita cambios, los costos asociados deberán ser asumidos por el cliente.',
-    en: 'If the error is Petit Design\'s responsibility, we assume reprocessing and shipping. If the order was correctly confirmed and then the customer requests changes, the associated costs must be assumed by the customer.'
-  },
-  'policies.policy.4.title': { es: 'Envíos', en: 'Shipping' },
-  'policies.policy.4.content': {
-    es: 'Los envíos se realizan principalmente por Servientrega. No despachamos pedidos que no estén cancelados al 100%.',
-    en: 'Shipments are made mainly through Servientrega. We do not ship orders that are not 100% paid.'
-  },
-  'policies.policy.5.title': { es: 'Post-venta', en: 'After-sales' },
-  'policies.policy.5.content': {
-    es: 'Atendemos cada caso de forma empática y responsable, buscando siempre una solución clara y justa para el cliente.',
-    en: 'We handle each case empathetically and responsibly, always seeking a clear and fair solution for the customer.'
-  },
   'policies.moreTitle': { es: '¿Tienes más preguntas?', en: 'Have more questions?' },
   'policies.moreDescription': {
     es: 'Estamos aquí para ayudarte. Contáctanos por WhatsApp y te asesoramos en todo el proceso.',
-    en: 'We\'re here to help. Contact us on WhatsApp and we\'ll guide you through the entire process.'
+    en: `We're here to help. Contact us on WhatsApp and we'll guide you through the entire process.`
   },
   'policies.moreCtaMessage': {
     es: '¡Hola! Tengo una pregunta sobre las políticas de Petit Design',
@@ -325,7 +255,7 @@ export const translations: Translations = {
 
   // Product page
   'product.personalize': { es: 'Personaliza tu producto', en: 'Personalize your product' },
-  'product.babyName': { es: 'Nombre del bebé', en: 'Baby\'s name' },
+  'product.babyName': { es: 'Nombre del bebé', en: `Baby's name` },
   'product.babyNamePlaceholder': { es: 'Escribe el nombre aquí', en: 'Write the name here' },
   'product.embroideryColor': { es: 'Color de sesgo y bordado', en: 'Embroidery and cant color' },
   'product.fontType': { es: 'Tipo de letra', en: 'Font type' },
@@ -376,11 +306,10 @@ export const translations: Translations = {
   },
   'product.error': { es: 'Ocurrió un error al cargar el producto.', en: 'An error occurred while loading the product.' },
 
-
   // Cart Page
   'cart.title': { es: 'Tu Carrito', en: 'Your Cart'},
   'cart.variation': { es: 'Variación:', en: 'Variation:'},
-  'cart.babyName': { es: 'Nombre del bebé:', en: 'Baby\'s name:' },
+  'cart.babyName': { es: 'Nombre del bebé:', en: `Baby's name:` },
   'cart.color': { es: 'Color:', en: 'Color:' },
   'cart.font': { es: 'Fuente:', en: 'Font:' },
   'cart.fabric': { es: 'Tela:', en: 'Fabric:' },
@@ -395,6 +324,227 @@ export const translations: Translations = {
   'search.noResults': { es: 'No se encontraron resultados para tu búsqueda.', en: 'No results found for your search.' },
   'search.tryAgain': { es: 'Intenta con otra palabra clave o revisa la ortografía.', en: 'Try another keyword or check the spelling.' },
   'search.viewAll': { es: 'Ver todos los productos', en: 'View all products' },
+
+  // Terms Page
+  'terms.title': { es: 'Términos y Condiciones de Uso y Compra', en: 'Terms and Conditions of Use and Purchase' },
+  'terms.termsTitle': { es: 'Términos y Condiciones', en: 'Terms and Conditions' },
+  'terms.termsContent': {
+    es: `Última actualización: 23 de octubre de 2026.
+
+        El presente documento regula los términos y condiciones bajo los cuales los usuarios acceden y realizan compras en el sitio web petitdesign.co, propiedad de PETIT DESIGN 2014 SAS, identificado con NIT 901917160-5, con domicilio en la ciudad de Manizales, Caldas.`,
+    en: `Last updated: October 23, 2026.
+
+        This document sets forth the terms and conditions under which users access and make purchases on the petitdesign.co website, owned by PETIT DESIGN 2014 SAS, with NIT No. 901917160-5, located in the city of Manizales, Caldas.`
+  },
+  'terms.termsList1': {
+    es: `Aceptación de los Términos
+        Al acceder, navegar y/o realizar una compra en este sitio web, el usuario declara haber leído, entendido y aceptado sin reservas los presentes Términos y Condiciones, así como nuestra Política de Tratamiento de Datos Personales.`,
+    en: `Acceptance of the Terms
+        By accessing, browsing, and/or making a purchase on this website, the user declares that he or she has read, understood, and accepted these Terms and Conditions, as well as our Personal Data Processing Policy, without reservation.` },
+  'terms.termsList2': {
+    es: `Capacidad Legal
+        Los servicios y productos ofrecidos en este sitio web están destinados exclusivamente a personas con capacidad legal para contratar según la legislación colombiana vigente. Los actos que realicen los menores de edad en este sitio serán responsabilidad de sus padres, tutores o encargados.`,
+    en: `Legal Capacity
+        The services and products offered on this website are intended exclusively for individuals who have the legal capacity to enter into contracts under current Colombian law. Any actions taken by minors on this site are the responsibility of their parents, guardians, or legal custodians.`
+  },
+  'terms.termsList3': {
+    es: `Precios y Precios Correctos
+        Todos los precios de los productos exhibidos en la tienda virtual están expresados en pesos colombianos (COP) e incluyen los impuestos aplicables (como el IVA), salvo que expresamente se indique lo contrario. Los costos de envío serán informados al usuario de manera previa a la finalización y pago de la orden. Nos reservamos el derecho de modificar los precios en cualquier momento sin previo aviso, garantizando el precio informado al momento de confirmar la compra.`,
+    en: `Prices and Fair Prices
+        All prices for products displayed in the online store are listed in Colombian pesos (COP) and include applicable taxes (such as VAT), unless otherwise specified. Shipping costs will be provided to the user prior to order completion and payment. We reserve the right to change prices at any time without prior notice, while guaranteeing the price quoted at the time of purchase confirmation.`
+  },
+  'terms.termsList4': {
+    es: `Medios de Pago y Financiación
+        Los pagos podrán realizarse a través de las pasarelas de pago y medios habilitados en el sitio (tarjetas de crédito/débito, transferencias bancarias, y soluciones de financiamiento/crédito inmediato como Addi, entre otros). El procesamiento de pagos estará sujeto a las validaciones de seguridad de cada proveedor.`,
+    en: `Payment Methods and Financing
+        Payments may be made through the payment gateways and methods available on the site (credit/debit cards, bank transfers, and financing/instant credit solutions such as Addi, among others). Payment processing will be subject to each provider's security validations.`,
+  },
+  'terms.termsList5': {
+    es: `Despacho y Entrega de Productos
+        Los productos comprados serán entregados en la dirección especificada por el usuario dentro del territorio colombiano, a través de empresas de transporte aliadas. Los tiempos de entrega estimados se informarán en el proceso de compra y comenzarán a contar a partir de la confirmación del pago.`,
+    en: `Order Processing and Product Delivery
+        Purchased products will be delivered to the address specified by the user within Colombia via our partner shipping companies. Estimated delivery times will be provided during the checkout process and will begin upon confirmation of payment.`
+  },
+  'terms.termsList6a': {
+    es: `Notificaciones y Autoridad de Control
+        Para cualquier consulta, reclamo o solicitud relacionada con las compras en nuestro sitio, el usuario puede comunicarse al correo electrónico `,
+    en: `Notifications and Supervisory Authority
+        For any questions, complaints, or requests related to purchases on our site, users can contact us by email at`
+  },
+  'terms.termsList6b': {
+    es: ` o a la línea de atención `,
+    en: ` or through our customer service line `
+  },
+  'terms.termsFinalStatement': {
+    es: `En cumplimiento de las normas colombianas de comercio electrónico, informamos que la autoridad de protección al consumidor en Colombia es la Superintendencia de Industria y Comercio (SIC) (`,
+    en: `In compliance with Colombian e-commerce regulations, we inform you that the consumer protection authority in Colombia is the Superintendence of Industry and Commerce (SIC) (`
+  },
+
+  // Personal Data Page
+  'personalData.title': { es: 'Política de tratamiento de datos personales', en: 'Personal Data Policy and Treatment' },
+  'personalData.intro': {
+    es: `Última actualización: 23 de octubre de 2026
+
+        En cumplimiento de la Ley Estatutaria 1581 de 2012 y el Decreto 1377 de 2013, PETIT DESIGN 2014 S.A.S, identificada con NIT 901917160-5, domiciliada en Manizales, Caldas, en calidad de Responsable del Tratamiento de Datos Personales, adopta la siguiente política para el manejo de la información recolectada de sus clientes y usuarios.`,
+    en: `Last updated: October 23, 2026
+
+        In compliance with Statutory Law 1581 of 2012 and Decree 1377 of 2013, PETIT DESIGN 2014 S.A.S, identified by Tax ID Number 901917160-5, with its principal place of business in Manizales, Caldas, in its capacity as the Data Controller, adopts the following policy for the handling of information collected from its customers and users.`
+  },
+  'personalData.list1': {
+    es: `Finalidad del Tratamiento de Datos
+        Los datos personales recolectados a través de formularios web, registros de usuario o procesos de compra serán utilizados para las siguientes finalidades:`,
+    en: `Purpose of Data Processing
+        Personal data collected through web forms, user registrations, or purchase processes will be used for the following purposes:`
+  },
+  'personalData.list1Purpose1': {
+    es: 'Procesar, despachar y confirmar las órdenes de compra realizadas en la tienda virtual.',
+    en: 'Process, ship, and confirm purchase orders placed on the virtual store.'
+  },
+  'personalData.list1Purpose2': {
+    es: 'Emitir facturas de venta y gestionar cobros o reembolsos.',
+    en: 'Issue sales invoices and manage collections or refunds.'
+  },
+  'personalData.list1Purpose3': {
+    es: 'Prestar servicio al cliente, responder Peticiones, Quejas y Reclamos (PQR).',
+    en: 'Provide customer service; respond to requests, complaints, and claims.'
+  },
+  'personalData.list1Purpose4': {
+    es: 'Enviar notificaciones sobre el estado de los envíos o transacciones.',
+    en: 'Send notifications about the status of shipments or transactions.'
+  },
+  'personalData.list1Purpose5': {
+    es: 'Previa autorización del titular, enviar información comercial, promociones y novedades del catálogo de productos.',
+    en: `With the subscriber's prior consent, send marketing information, promotions, and updates on the product catalog.`
+  },
+  'personalData.list1Purpose6': {
+    es: 'Cumplir con obligaciones legales, contables y tributarias.',
+    en: 'Comply with legal, accounting, and tax obligations.'
+  },
+  'personalData.list2': {
+    es: `Derechos de los Titulares
+        De conformidad con el Artículo 8 de la Ley 1581 de 2012, el titular de los datos personales tiene derecho a:`,
+    en: `Rights of Data Subjects
+        In accordance with Article 8 of Law 1581 of 2012, the data subject has the right to:`
+  },
+  'personalData.list2right1': {
+    es: 'Conocer, actualizar y rectificar sus datos personales frente al Responsable.',
+    en: 'Process, ship, and confirm purchase orders placed on the virtual store.'
+  },
+  'personalData.list2right2': {
+    es: 'Solicitar prueba de la autorización otorgada.',
+    en: 'Request proof of the authorization granted.'
+  },
+  'personalData.list2right3': {
+    es: 'Ser informado, previa solicitud, sobre el uso que se le ha dado a sus datos.',
+    en: 'To be informed, upon request, of how your data has been used.'
+  },
+  'personalData.list2right4': {
+    es: 'Presentar ante la Superintendencia de Industria y Comercio (SIC) quejas por infracciones a la ley.',
+    en: 'File complaints with the Superintendency of Industry and Commerce (SIC) regarding violations of the law.'
+  },
+  'personalData.list2right5': {
+    es: 'Revocar la autorización y/o solicitar la supresión del dato cuando no se respeten los principios, derechos y garantías constitucionales y legales.',
+    en: 'To revoke authorization and/or request the deletion of data when constitutional and legal principles, rights, and safeguards are not respected.'
+  },
+  'personalData.list3a': {
+    es: `Procedimiento para Ejercer los Derechos (Consultas y Reclamos)
+        El titular podrá ejercer sus derechos enviando una solicitud formal al correo electrónico `,
+    en: `Procedure for Exercising Rights (Inquiries and Complaints)
+        The data subject may exercise their rights by sending a formal request to the email address`
+  },
+  'personalData.list3b': {
+    es: ` o mediante comunicación escrita dirigida a CR 26 #69-17, Manizales, Caldas. La solicitud debe incluir:`,
+    en: ` or by written notice sent to CR 26 #69-17, Manizales, Caldas. The request must include:`
+  },
+  'personalData.list2complaint1': {
+    es: 'Nombre completo y documento de identidad del titular.',
+    en: 'Full name and identification number of the account holder.',
+  },
+  'personalData.list2complaint2': {
+    es: 'Descripción clara de la solicitud (actualización, supresión, consulta, revocatoria de autorización).',
+    en: 'Clear description of the request (update, deletion, inquiry, revocation of authorization).',
+  },
+  'personalData.list2complaint3': {
+    es: 'Dirección física o electrónica de contacto para notificaciones.',
+    en: 'Physical or email address for notifications.',
+  },
+  'personalData.outro': {
+    es: 'Las consultas serán atendidas en un término máximo de diez (10) días hábiles y los reclamos en un término máximo de quince (15) días hábiles, contados a partir de la fecha de recepción.',
+    en: 'Inquiries will be addressed within a maximum of ten (10) business days, and complaints within a maximum of fifteen (15) business days, counted from the date of receipt.',
+  },
+
+  // Returns Page
+  'returns.title': { es: 'Política de cambios, devoluciones y derecho de retracto', en: 'Exchange, Return, and Right of Withdrawal Policy' },
+  'returns.intro': {
+    es: `Última actualización: 23 de octubre de 2026
+
+        En Petit Design garantizamos la calidad de nuestros productos y el respeto estricto a los derechos de los consumidores consagrados en la Ley 1480 de 2011 (Estatuto del Consumidor).`,
+    en: `Last updated: October 23, 2026
+
+        At Petit Design, we guarantee the quality of our products and strict compliance with the consumer rights enshrined in Law 1480 of 2011 (Consumer Protection Act).`
+  },
+  'returns.list1': {
+    es: `Derecho de Retracto (Ley 1480 de 2011, Art. 47)
+        El cliente tiene derecho a retractarse de la compra realizada en nuestra tienda virtual dentro de los cinco (5) días hábiles siguientes a la entrega del producto.`,
+    en: `Right of Withdrawal (Law 1480 of 2011, Art. 47)
+        The customer has the right to cancel a purchase made in our online store within five (5) business days of the product's delivery.`,
+  },
+  'returns.list1item1': {
+    es: 'Condiciones para ejercer el retracto:',
+    en: 'Conditions for exercising the right of first refusal:',
+  },
+  'returns.list1item1appendix1': {
+    es: 'El producto no debe presentar muestras de uso, desgaste, lavado o daño.',
+    en: 'The product must not show any signs of use, wear, washing, or damage.',
+  },
+  'returns.list1item1appendix2': {
+    es: 'Debe conservar los empaques originales, etiquetas, accesorios y manuales completos.',
+    en: 'You must keep the original packaging, labels, accessories, and complete manuals.',
+  },
+  'returns.list1item1appendix3': {
+    es: 'Los costos de transporte para la devolución del producto hacia nuestras instalaciones deberán ser asumidos por el comprador, conforme lo establece la ley.',
+    en: 'The shipping costs for returning the product to our facilities must be paid by the buyer, as required by law.',
+  },
+  'returns.list1item1appendix4': {
+    es: 'Excepciones legales: No aplica el derecho de retracto en bienes confeccionados a la medida o personalizados, bienes de uso personal o de uso íntimo, ni bienes perecederos o que por su naturaleza no puedan ser devueltos.',
+    en: 'Legal Exceptions: The right of withdrawal does not apply to custom-made or personalized goods, goods intended for personal or intimate use, or perishable goods or goods that, by their nature, cannot be returned.',
+  },
+  'returns.list1item2': {
+    es: `Proceso de reembolso:
+        Una vez recibido el producto en bodega y verificado su estado, Petit Design devolverá la totalidad del dinero pagado por el producto en un plazo máximo de treinta (30) días calendario contados desde el momento en que se ejerció el derecho.`,
+    en: `Refund Process:
+        Once the product has been received at the warehouse and its condition verified, Petit Design will refund the full amount paid for the product within a maximum of thirty (30) calendar days from the date the right was exercised.`,
+  },
+  'returns.list2': {
+    es: `Cambios de Producto (Garantía o Preferencia)`,
+    en: `Product Exchanges (Warranty or Preference)`,
+  },
+  'returns.list2item1': {
+    es: `Cambios por preferencia (talla, color o modelo): El cliente podrá solicitar el cambio dentro de los 15 días calendario posteriores a la entrega. El producto debe estar completamente nuevo y sin uso. Los costos de envío asociados al cambio por preferencia corren por cuenta del cliente.`,
+    en: `Exchanges Based on Preference (size, color, or style): The customer may request an exchange within 15 calendar days of delivery. The product must be brand new and unused. Shipping costs associated with exchanges based on preference are the customer's responsibility.`,
+  },
+  'returns.list2item2': {
+    es: `Garantía por Defectos de Fábrica: Todos nuestros productos cuentan con una garantía legal de 90 días calendario contados a partir de la fecha de entrega. Si el producto presenta fallas de calidad, idoneidad o seguridad, el cliente podrá solicitar la reparación, el cambio por uno nuevo o la devolución de su dinero. En caso de garantía confirmada, los costos de transporte de recogida y reenvío serán asumidos en su totalidad por Petit Design.`,
+    en: `Garantía por Defectos de Fábrica: Todos nuestros productos cuentan con una garantía legal de 90 días calendario contados a partir de la fecha de entrega. Si el producto presenta fallas de calidad, idoneidad o seguridad, el cliente podrá solicitar la reparación, el cambio por uno nuevo o la devolución de su dinero. En caso de garantía confirmada, los costos de transporte de recogida y reenvío serán asumidos en su totalidad por Petit Design.`,
+  },
+  'returns.list3': {
+    es: `Canales de Atención para Devoluciones y Retractos
+    Para iniciar un proceso de cambio, devolución o efectividad de la garantía, comunícate con nosotros:`,
+    en: `Customer Service Channels for Returns and Cancellations
+    To initiate a return, exchange, or warranty claim, please contact us:`,
+  },
+  'returns.list3item1': {
+    es: `Correo de soporte: `,
+    en: `Support email: `,
+  },
+  'returns.list3item2': {
+    es: `Línea de WhatsApp / Atención:`,
+    en: `WhatsApp Hotline / Customer Service:`,
+  },
+  'returns.list3item3': {
+    es: `Horario de atención: Lunes a Viernes de 8:00 a.m. a 5:00 p.m.`,
+    en: `Hours of operation: Monday through Friday, 8:00 a.m. to 5:00 p.m.`,
+  },
 
   // Fabric Gallery
   'fabricGallery.boysTitle': { es: 'Catálogo de Telas - Niño', en: 'Fabric Catalog - Boy' },
@@ -429,15 +579,21 @@ export const translations: Translations = {
   'font.cursiva': { es: 'Cursiva (Delicada)', en: 'Cursive (Delicate)' },
 
   // Footer
-  'footer.tagline': { es: 'Creando momentos especiales para los primeros días de tu bebé', en: 'Creating special moments for your baby\'s first days' },
+  'footer.tagline': { es: 'Creando momentos especiales para los primeros días de tu bebé', en: `Creating special moments for your baby's first days` },
   'footer.quickLinks': { es: 'Enlaces rápidos', en: 'Quick Links' },
   'footer.contact': { es: 'Contacto', en: 'Contact' },
+  'footer.returns': { es: 'Devoluciones', en: 'Returns' },
   'footer.followUs': { es: 'Síguenos', en: 'Follow Us' },
-  'footer.rights': { es: 'Todos los derechos reservados', en: 'All rights reserved' },
+  'footer.rights': { es: 'PETIT DESIGN 2014 S.A.S - NIT 901917160-5 Todos los derechos reservados', en: 'PETIT DESIGN 2014 S.A.S - NIT 901917160-5 All rights reserved' },
   'footer.made': { es: 'Hecho con', en: 'Made with' },
   'footer.from': { es: 'desde', en: 'from' },
-  'footer.catalogTitle': { es: 'Catálogo PDF', en: 'Catalog PDF' },
+  'footer.catalogTitle': { es: 'Catálogo PDF', en: 'PDF Catalog' },
   'footer.catalogDescription': { es: 'Descarga nuestro catálogo PDF con todas las opciones disponibles', en: 'Download our PDF catalog with all available options' },
+  'footer.legalTermsTitle': { es: 'Términos Legales', en: 'Legal Terms' },
+  'footer.legalTerms1': { es: 'Términos y Condiciones', en: 'Terms and Conditions' },
+  'footer.legalTerms2': { es: 'Tratamiento de Datos', en: 'Data Processing' },
+  'footer.legalTerms3': { es: 'Cambios y Devoluciones', en: 'Exchanges and Returns' },
+  'footer.legalTerms4': { es: 'Superintendencia de Industria y Comercio (SIC)', en: 'Superintendency of Industry and Commerce (SIC)' },
 
   // General
   'general.loading': { es: 'Cargando...', en: 'Loading...' },

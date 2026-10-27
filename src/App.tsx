@@ -15,6 +15,9 @@ const ProductPage = lazy(() => import('./pages/ProductPage.tsx').then(m => ({ de
 const FabricGallery = lazy(() => import('./pages/FabricGallery.tsx').then(m => ({ default: m.FabricGallery })))
 const CartPage = lazy(() => import('./pages/CartPage.tsx').then(m => ({ default: m.CartPage })))
 const SearchPage = lazy(() => import('./pages/SearchPage.tsx').then(m => ({ default: m.SearchPage })))
+const TermsPage = lazy(() => import('./pages/TermsPage.tsx').then(m => ({ default: m.TermsPage })))
+const PersonalDataPage = lazy(() => import('./pages/PersonalDataPage.tsx').then(m => ({ default: m.PersonalDataPage })))
+const ReturnsPage = lazy(() => import('./pages/ReturnsPage.tsx').then(m => ({ default: m.ReturnsPage })))
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
             <Route path="/telas/nino" element={<FabricGallery first={60} gender="boy" />} />
             <Route path="/telas/nina" element={<FabricGallery first={60} gender="girl" />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/terminos-y-condiciones" element={<TermsPage />} />
+            <Route path="/politica-de-tratamiento-de-datos-personales" element={<PersonalDataPage />} />
+            <Route path="/politica-de-cambios-y-garantias" element={<ReturnsPage />} />
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>
         </Suspense>

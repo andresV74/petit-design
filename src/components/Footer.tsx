@@ -37,6 +37,29 @@ const PinterestIcon = ({ className }: { className?: string}) => (
 export function Footer() {
   const { t } = useLanguage();
 
+  const legalLinks = [
+    {
+      sic: false,
+      link: '/terminos-y-condiciones',
+      title: t('footer.legalTerms1'),
+    },
+    {
+      sic: false,
+      link: '/politica-de-tratamiento-de-datos-personales',
+      title: t('footer.legalTerms2'),
+    },
+    {
+      sic: false,
+      link: '/politica-de-cambios-y-garantias',
+      title: t('footer.legalTerms3'),
+    },
+    {
+      sic: true,
+      link: 'https://www.sic.gov.co/',
+      title: t('footer.legalTerms4'),
+    },
+  ]
+
   const quickLinks = [
     {
       link: '/',
@@ -51,21 +74,17 @@ export function Footer() {
       title: t('nav.about'),
     },
     {
-      link: '/politicas',
-      title: t('nav.policies'),
-    },
-    {
       link: '/contacto',
       title: t('nav.contact'),
     },
   ]
 
   return (
-    <footer className="border-t border-border bg-gray-light/50">
-      <div className="container px-4 py-12 md:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+    <footer className="border-t border-border bg-gray-light/50 text-sm">
+      <div className="container px-4 py-12">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div>
             <Link to="/" className="block mb-2">
               <img
                 src="/logo-header.png"
@@ -75,10 +94,10 @@ export function Footer() {
                 className="h-25 w-25 object-contain"
               />
             </Link>
-            <p className="text-muted-foreground max-w-md">
+            <p className="text-muted-foreground max-w-md text-balance">
               {t('footer.tagline')}
             </p>
-            <ul className="flex items-center gap-4 mt-6">
+            <ul className="flex flex-wrap items-center gap-2 mt-6">
               <a
                 href="https://www.instagram.com/petit.design?igsh=a3Q3bTFnNjgzN2Nw&utm_source=qr"
                 target="_blank"
@@ -128,6 +147,35 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Legal Links */}
+          <div>
+            <h4 className="font-display text-lg font-semibold mb-4">
+              {t('footer.legalTermsTitle')}
+            </h4>
+            <ul className="space-y-2">
+              {legalLinks.map(({ sic, link, title }) => (
+                sic ? (
+                  <li key={link}>
+                    <a
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-mint-dark transition-colors"
+                    >
+                      {title}
+                    </a>
+                  </li>
+                ) : (
+                  <li key={link}>
+                    <Link to={link} className="text-muted-foreground hover:text-mint-dark transition-colors">
+                      {title}
+                    </Link>
+                  </li>
+                )
+              ))}
+            </ul>
+          </div>
+
           {/* Quick Links */}
           <div>
             <h4 className="font-display text-lg font-semibold mb-4">
@@ -150,7 +198,9 @@ export function Footer() {
               {t('footer.contact')}
             </h4>
             <ul className="space-y-2 text-muted-foreground">
+              <li>{contactInfo.location}</li>
               <li>
+                {t('footer.contact')}:{' '}
                 <a
                   href={getWhatsAppUrl({ source: 'Pie de página' })}
                   target="_blank"
@@ -161,6 +211,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                {t('footer.returns')}:{' '}
                 <a
                   href={getWhatsAppUrl({ source: 'Pie de página', whatsAppNumber: '573105453701' })}
                   target="_blank"
@@ -178,7 +229,6 @@ export function Footer() {
                   {contactInfo.email}
                 </a>
               </li>
-              <li>{contactInfo.location} 🇨🇴</li>
             </ul>
             <h4 className="font-display text-lg font-semibold mt-6 mb-4">
               {t('footer.catalogTitle')}
@@ -195,12 +245,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <p className="text-muted-foreground">
             © {new Date().getFullYear()} Petit Design. {t('footer.rights')}.
           </p>
           <div className="flex items-center gap-4">
-            <p className="text-sm text-muted-foreground flex items-center gap-1">
+            <p className="text-muted-foreground flex items-center gap-1">
               {t('footer.made')} <Heart className="h-4 w-4 text-mint fill-mint stroke-mint" /> {t('footer.from')} Manizales, Colombia 🇨🇴
             </p>
           </div>
