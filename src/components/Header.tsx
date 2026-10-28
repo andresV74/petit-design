@@ -96,7 +96,7 @@ export function Header() {
               <DropdownMenu key={item.id}>
                 <DropdownMenuTrigger asChild>
                   <Button
-                    className="text-sm font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2 py-2"
+                    className="text-sm font-medium text-muted-foreground hover:text-primary-foreground gap-1 px-2 py-2"
                   >
                     {item.title}
                     <ChevronDown className="h-4 w-4" />
@@ -119,7 +119,7 @@ export function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                className="text-sm font-medium text-muted-foreground hover:text-mint-dark gap-1 px-2 py-2"
+                className="text-sm font-medium text-muted-foreground hover:text-primary-foreground gap-1 px-2 py-2"
               >
                 {t('header.fabrics')}
                 <ChevronDown className="h-4 w-4" />
