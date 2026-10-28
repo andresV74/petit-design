@@ -45,6 +45,9 @@ export const PRODUCT_PAGE_QUERY = `
           node {
             id
             title
+            image {
+              url
+            }
             availableForSale
             quantityAvailable
             price {

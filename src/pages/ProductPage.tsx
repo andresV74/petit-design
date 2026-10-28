@@ -181,6 +181,19 @@ export function ProductPage() {
     )
   }, [hasVariants, variants, product?.options, selectedOptions])
 
+  const allOptionsSelected =
+    (product?.options ?? []).length > 0 &&
+    (product?.options ?? []).every((option) =>
+      Boolean(selectedOptions[option.name.toLowerCase()])
+    )
+
+  const variantImageUrl = useMemo(() => {
+    if (!hasVariants || !allOptionsSelected) return undefined
+    const url = selectedVariant?.image?.url
+    if (!url || url === featuredImage?.url) return undefined
+    return url
+  }, [hasVariants, allOptionsSelected, selectedVariant, featuredImage])
+
 
   const variantPrice = selectedVariant?.price || null
   const pricePerUnit = variantPrice || baseMinPrice
@@ -371,7 +384,10 @@ export function ProductPage() {
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           <div className="space-y-4 relative">
             <ProductPreview
+              key={selectedVariant?.id ?? 'default'}
               images={images}
+              variantImageUrl={variantImageUrl}
+              variantImageAlt={language === 'es' ? product?.title : product?.nameEn?.value}
             />
             <CustomInfo useFabrics={useFabrics} />
           </div>

@@ -60,6 +60,9 @@ export interface Product {
       node: {
         id: string
         title: string
+        image?: {
+          url: string
+        } | null
         selectedOptions: {
           name: string
           value: string
