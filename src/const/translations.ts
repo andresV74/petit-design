@@ -337,10 +337,10 @@ export const translations: Translations = {
   'terms.title': { es: 'Términos y Condiciones de Uso y Compra', en: 'Terms and Conditions of Use and Purchase' },
   'terms.termsTitle': { es: 'Términos y Condiciones', en: 'Terms and Conditions' },
   'terms.termsContent': {
-    es: `Última actualización: 23 de octubre de 2026.
+    es: `Última actualización: 1 de octubre de 2026.
 
         El presente documento regula los términos y condiciones bajo los cuales los usuarios acceden y realizan compras en el sitio web petitdesign.co, propiedad de PETIT DESIGN 2014 SAS, identificado con NIT 901917160-5, con domicilio en la ciudad de Manizales, Caldas.`,
-    en: `Last updated: October 23, 2026.
+    en: `Last updated: October 1, 2026.
 
         This document sets forth the terms and conditions under which users access and make purchases on the petitdesign.co website, owned by PETIT DESIGN 2014 SAS, with NIT No. 901917160-5, located in the city of Manizales, Caldas.`
   },
@@ -391,10 +391,10 @@ export const translations: Translations = {
   // Personal Data Page
   'personalData.title': { es: 'Política de tratamiento de datos personales', en: 'Personal Data Policy and Treatment' },
   'personalData.intro': {
-    es: `Última actualización: 23 de octubre de 2026
+    es: `Última actualización: 1 de octubre de 2026
 
         En cumplimiento de la Ley Estatutaria 1581 de 2012 y el Decreto 1377 de 2013, PETIT DESIGN 2014 S.A.S, identificada con NIT 901917160-5, domiciliada en Manizales, Caldas, en calidad de Responsable del Tratamiento de Datos Personales, adopta la siguiente política para el manejo de la información recolectada de sus clientes y usuarios.`,
-    en: `Last updated: October 23, 2026
+    en: `Last updated: October 1, 2026
 
         In compliance with Statutory Law 1581 of 2012 and Decree 1377 of 2013, PETIT DESIGN 2014 S.A.S, identified by Tax ID Number 901917160-5, with its principal place of business in Manizales, Caldas, in its capacity as the Data Controller, adopts the following policy for the handling of information collected from its customers and users.`
   },
@@ -484,10 +484,10 @@ export const translations: Translations = {
   // Returns Page
   'returns.title': { es: 'Política de cambios, devoluciones y derecho de retracto', en: 'Exchange, Return, and Right of Withdrawal Policy' },
   'returns.intro': {
-    es: `Última actualización: 23 de octubre de 2026
+    es: `Última actualización: 1 de octubre de 2026
 
         En Petit Design garantizamos la calidad de nuestros productos y el respeto estricto a los derechos de los consumidores consagrados en la Ley 1480 de 2011 (Estatuto del Consumidor).`,
-    en: `Last updated: October 23, 2026
+    en: `Last updated: October 1, 2026
 
         At Petit Design, we guarantee the quality of our products and strict compliance with the consumer rights enshrined in Law 1480 of 2011 (Consumer Protection Act).`
   },
