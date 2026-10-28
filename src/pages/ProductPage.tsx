@@ -416,7 +416,7 @@ export function ProductPage() {
                         value={selectedOptions[option.name.toLowerCase()] ?? ''}
                         onChange={(e) => handleChangeVariant(option.name.toLowerCase(), e)}
                       >
-                        <option value="">Selecciona un estilo</option>
+                        <option value="">Selecciona {option.name}</option>
                         {option.values.map((v: string) => (
                           <option key={v} value={v}>
                             {v}
