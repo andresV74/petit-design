@@ -28,7 +28,6 @@ export function useProductSearch(searchTerm: searchTermType) {
 				const query = words
 					.map((word) => `${word}*`)
 					.join(" ")
-					console.log(query)
 
 				const response = await shopifyClient.request(SEARCH_PRODUCTS, {
 					variables: { query, first: 20 },

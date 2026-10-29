@@ -8,7 +8,7 @@ import { ProductPreview } from '@/components/products/ProductPreview.tsx'
 import { CustomInfo } from '@/components/products/CustomInfo.tsx'
 import { FontSelector } from '@/components/products/FontSelector.tsx'
 import { Colors } from '@/components/products/Colors.tsx'
-import { FabricSelector } from '@/components/products/FabricSelector.tsx'
+import { FabricSelector, type Fabric } from '@/components/products/FabricSelector.tsx'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs.tsx'
 import { Button } from '@/components/ui/button.tsx'
 import { useLanguage } from '@/lib/i18n.tsx'
@@ -50,6 +50,7 @@ export function ProductPage() {
   const shortDescriptionEs = product?.shortDescriptionEs?.value
   const shortDescriptionEn = product?.shortDescriptionEn?.value
   const isCharacterPriced = product?.isCharacterPriced?.value === 'true'
+  const fabricsQuantity = parseInt(product?.fabricsQuantity?.value ?? '0', 10)
   const [selectedColor, setSelectedColor] = useState(null as { id: string; name?: string; hex?: string; border?: string } | null)
   const colorNodes = product?.color?.references?.nodes ?? []
   const colors = colorNodes
@@ -129,16 +130,44 @@ export function ProductPage() {
 	const babyNameStore = useProductCustomsStore((state) => state.customs?.name)
 	const selectedColorStore = useProductCustomsStore((state) => state.customs?.color)
   const selectedFontStore = useProductCustomsStore((state) => state.customs?.font)
-  const selectedFabricStore = useProductCustomsStore((state) => state.customs?.fabric)
+  const selectedFabricsStore = useProductCustomsStore((state) => state.customs?.fabrics) ?? []
   const observations = useProductCustomsStore((state) => state.customs?.observations)
   const setCustoms = useProductCustomsStore((state) => state.setCustom)
 	const removeCustom = useProductCustomsStore((state) => state.removeCustom)
 
-  useFabricsStore.subscribe((state) => {
-    const newFabric = state.fabric
+  useEffect(() => {
+    const syncFabrics = (fabrics: Fabric[]) => {
+      if (fabrics.length > 0) {
+        setCustoms({ fabrics })
+        return
+      }
 
-    setCustoms({ fabric: newFabric})
-  })
+      if (useProductCustomsStore.getState().customs?.fabrics) {
+        removeCustom('fabrics')
+      }
+    }
+
+    let current = useFabricsStore.getState().fabrics
+    syncFabrics(current)
+
+    return useFabricsStore.subscribe((state) => {
+      if (state.fabrics === current) return
+
+      current = state.fabrics
+      syncFabrics(state.fabrics)
+    })
+  }, [setCustoms, removeCustom])
+
+  const maxFabrics = Math.max(1, fabricsQuantity || 1)
+
+  // A product that only allows one fabric must not inherit a previous multi-fabric selection
+  useEffect(() => {
+    if (!product) return
+
+    if (Math.max(1, parseInt(product.fabricsQuantity?.value ?? '0', 10)) <= 1) {
+      useFabricsStore.getState().clearFabric()
+    }
+  }, [product])
 
   useEffect(() => {
     if (product && !hasTrackedView.current) {
@@ -257,8 +286,15 @@ export function ProductPage() {
       customAttrs = { ...customAttrs, selected_font: selectedFontStore }
     }
 
-    if (selectedFabricStore) {
-      customAttrs = { ...customAttrs, selected_fabric: selectedFabricStore.name_es ?? '' }
+    if (selectedFabricsStore.length > 0) {
+      const fabricNames = selectedFabricsStore
+        .map((fabric) => fabric.name_es ?? '')
+        .filter(Boolean)
+        .join(' / ')
+
+      if (fabricNames) {
+        customAttrs = { ...customAttrs, selected_fabric: fabricNames }
+      }
     }
 
     if (observations) {
@@ -286,7 +322,10 @@ export function ProductPage() {
 
   const handleWhatsAppOrder = () => {
     const colorLabel = t(`color.${selectedColorStore?.name}`) || ''
-    const fabricName = language === 'es' ? selectedFabricStore?.name_es || '' : selectedFabricStore?.name_en || ''
+    const fabricName = selectedFabricsStore
+      .map((fabric) => language === 'es' ? fabric.name_es : fabric.name_en)
+      .filter(Boolean)
+      .join(', ')
     const productUrl = `${window.location.origin}/producto/${handle}`
     const price = parseInt(String(product?.priceRange?.minVariantPrice.amount))
     const variantPrice = parseInt(String(selectedVariant?.price.amount))
@@ -513,7 +552,7 @@ export function ProductPage() {
               </p>
 
               {/* Fabrics selection */}
-							{useFabrics && (<FabricSelector girlFabrics={girlFabrics} boyFabrics={boyFabrics} />) }
+							{useFabrics && (<FabricSelector girlFabrics={girlFabrics} boyFabrics={boyFabrics} maxFabrics={maxFabrics} />) }
 
               <div className="space-y-2">
                 <label htmlFor="observations" className='block'>

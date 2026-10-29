@@ -7,7 +7,7 @@ interface Customizables {
 	name?: string
 	color?: SingleColorProps
 	font?: string
-	fabric?: Fabric | null
+	fabrics?: Fabric[]
 	observations?: string
 }
 

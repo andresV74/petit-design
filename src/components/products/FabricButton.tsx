@@ -12,7 +12,8 @@ interface FabricButtonProps {
 
 export function FabricButton({fabric, index, handleFabricZoom}: FabricButtonProps) {
 	const { language } = useLanguage()
-	const selectedFabric = useFabricsStore((state) => state.fabric)
+	const selectedFabrics = useFabricsStore((state) => state.fabrics)
+	const isSelected = selectedFabrics.some((selected) => selected.id === fabric.id)
 
 	return (
 		<button
@@ -20,7 +21,7 @@ export function FabricButton({fabric, index, handleFabricZoom}: FabricButtonProp
 			onClick={(e) => handleFabricZoom(fabric, index, e)}
 			className={
 				`group relative aspect-square rounded-xl overflow-hidden border-2 cursor-pointer transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
-				${selectedFabric?.id === fabric.id
+				${isSelected
 					? "border-primary ring-2 ring-primary/30 scale-105"
 					: "border-border hover:border-primary/50 hover:scale-105"}`
 			}
@@ -38,7 +39,7 @@ export function FabricButton({fabric, index, handleFabricZoom}: FabricButtonProp
 				<ZoomIn className="h-5 w-5 text-white" />
 			</div>
 			{/* Selection indicator */}
-			{selectedFabric?.id === fabric.id && (
+			{isSelected && (
 				<div className="absolute top-1 right-1 w-5 h-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs">
 					✓
 				</div>

@@ -17,6 +17,7 @@ export interface DialogProps {
 	zoomIndex: number
 	setZoomIndex: (index: number) => void
 	setZoomFabric: (fabric: Fabric | null) => void
+	maxFabrics?: number
 }
 
 export const Dialog = forwardRef<DialogRef, DialogProps>(
@@ -27,11 +28,16 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 		zoomIndex,
 		setZoomIndex,
 		setZoomFabric,
+		maxFabrics = 1,
 	}, ref) => {
 	const { t, language } = useLanguage()
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
-	const selectedFabric = useFabricsStore((state) => state.fabric)
-	const clearFabric = useFabricsStore((state) => state.clearFabric)
+	const selectedFabrics = useFabricsStore((state) => state.fabrics)
+	const removeFabric = useFabricsStore((state) => state.removeFabric)
+
+	const isSelected = !!zoomFabric && selectedFabrics.some((fabric) => fabric.id === zoomFabric.id)
+	// In single-fabric mode selecting another fabric replaces the current one
+	const limitReached = maxFabrics > 1 && selectedFabrics.length >= maxFabrics
 
 	useImperativeHandle(ref, () => ({
 		open: () => dialogRef.current?.showModal(),
@@ -56,7 +62,9 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 	}
 
 	const handleClearSelection = () => {
-		clearFabric()
+		if (!zoomFabric) return
+
+		removeFabric(zoomFabric.id)
 		dialogRef.current?.close()
 	}
 
@@ -113,7 +121,7 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 					</div>
 
 					{/* Action button */}
-					{selectedFabric?.id !== zoomFabric.id && (
+					{!isSelected && !limitReached && (
 						<Button
 							className="w-full gap-2 h-11 rounded-md px-8 bg-primary text-primary-foreground"
 							onClick={handleSelectFromZoom}
@@ -122,8 +130,22 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 						</Button>
 					)}
 
+					{!isSelected && limitReached && (
+						<>
+							<Button
+								disabled
+								className="w-full gap-2 h-11 rounded-md px-8 bg-primary text-primary-foreground"
+							>
+								{t('general.select')}
+							</Button>
+							<p className="text-xs text-muted-foreground text-center mt-2">
+								{t('product.fabricsLimit').replace('{max}', String(maxFabrics))}
+							</p>
+						</>
+					)}
+
 					{/* Clears fabric button */}
-					{selectedFabric?.id === zoomFabric.id && (
+					{isSelected && (
 						<Button
 							className="w-full gap-2 h-11 rounded-md px-8 bg-destructive hover:bg-destructive-hover text-destructive-foreground"
 							onClick={handleClearSelection}

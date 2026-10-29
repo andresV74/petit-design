@@ -165,6 +165,9 @@ export const PRODUCT_PAGE_QUERY = `
       whatsAppButton: metafield(namespace: "custom", key: "whatsApp_button") {
         value
       }
+      fabricsQuantity: metafield(namespace: "custom", key: "fabrics_quantity") {
+        value
+      }
     }
   }
 `

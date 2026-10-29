@@ -83,6 +83,9 @@ export interface Product {
   whatsAppButton?: {
     value: string
   }
+  fabricsQuantity?: {
+    value: string
+  }
   longDescriptionEn?: {
     value: string
   } | null

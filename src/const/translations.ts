@@ -278,6 +278,12 @@ export const translations: Translations = {
   'product.fullDescription': { es: 'Descripción completa', en: 'Full description' },
   'product.name': { es: 'Nombre para bordar:', en: 'Name to be embroidered::' },
   'product.fabricSelected': { es: 'Tela seleccionada:', en: 'Selected fabric:' },
+  'product.fabricsSelected': { es: 'Telas seleccionadas', en: 'Selected fabrics' },
+  'product.removeFabric': { es: 'Quitar tela', en: 'Remove fabric' },
+  'product.fabricsLimit': {
+    es: 'Puedes seleccionar hasta {max} telas',
+    en: 'You can select up to {max} fabrics'
+  },
   'product.fontTitle': { es: 'Tipo de letra', en: 'Font' },
   'product.fontCta': { es: 'Escoge tipo de letra para el nombre', en: 'Choose a font for the name' },
   'product.namePreview': {

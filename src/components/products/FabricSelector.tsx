@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { Baby, MessageCircle } from 'lucide-react'
+import { Baby, MessageCircle, X } from 'lucide-react'
 import { FabricButton } from './FabricButton.tsx'
 import { Dialog, type DialogRef } from '@/components/ui/dialog.tsx'
 import { useLanguage } from '@/lib/i18n.tsx'
@@ -18,20 +18,26 @@ interface FabricSelectorProps {
 	initialGender?: 'boy' | 'girl' | null,
 	girlFabrics: Fabric[],
 	boyFabrics: Fabric[],
+	maxFabrics?: number,
 }
 
 export function FabricSelector({
 	initialGender = null,
 	girlFabrics = [],
 	boyFabrics = [],
+	maxFabrics = 1,
 }: FabricSelectorProps) {
 	const { t, language } = useLanguage()
 	const [selectedGender, setSelectedGender] = useState<'boy' | 'girl' | null>(initialGender)
 	const [zoomFabric, setZoomFabric] = useState<Fabric | null>(null)
 	const [zoomIndex, setZoomIndex] = useState(0)
 	const dialogRef = useRef<DialogRef | null>(null)
-	const selectedFabric = useFabricsStore((state) => state.fabric)
+	const selectedFabrics = useFabricsStore((state) => state.fabrics)
 	const setFabric = useFabricsStore((state) => state.setFabric)
+	const toggleFabric = useFabricsStore((state) => state.toggleFabric)
+	const removeFabric = useFabricsStore((state) => state.removeFabric)
+
+	const isMultiFabric = maxFabrics > 1
 
 	const currentFabrics: Fabric[] = (selectedGender === 'boy'
 		? boyFabrics
@@ -60,26 +66,62 @@ export function FabricSelector({
   const handleSelectedFabric = () => {
     if (!zoomFabric) return
 
-    setFabric(zoomFabric)
+    if (isMultiFabric) {
+      toggleFabric(zoomFabric, maxFabrics)
+    } else {
+      setFabric(zoomFabric)
+    }
+
     dialogRef.current?.close()
   }
 
-	// Find selected fabric name
-	const selectedFabricObj = [...boyFabrics, ...girlFabrics].find(fabric => fabric.id === selectedFabric?.id)
+	const fabricName = (fabric: Fabric) => (language === 'es' ? fabric.name_es : fabric.name_en)
 
 	return (
 		<div className="space-y-4">
 			{/* Label */}
-			<div className="flex items-center justify-between">
+			<div className="flex items-center justify-between gap-2">
 				<span className="text-sm font-medium flex items-center gap-2">
 					🧵 {t('product.select')}
 				</span>
-				{selectedFabricObj && (
-					<span className="text-xs text-primary font-medium bg-primary/10 px-2 py-1 rounded-full">
-						{language === 'es' ? selectedFabricObj.name_es : selectedFabricObj.name_en}
+				{isMultiFabric && (
+					<span className="text-xs text-muted-foreground">
+						{selectedFabrics.length} / {maxFabrics}
 					</span>
 				)}
 			</div>
+
+			{/* Selected fabrics */}
+			{selectedFabrics.length > 0 && (
+				<div className="space-y-1.5">
+					{isMultiFabric && (
+						<p className="text-xs text-muted-foreground">{t('product.fabricsSelected')}</p>
+					)}
+					<div className="flex flex-wrap gap-1.5">
+						{selectedFabrics.map((fabric) => (
+							<span
+								key={fabric.id}
+								className="inline-flex items-center gap-1 text-xs text-primary font-medium bg-primary/10 px-2 py-1 rounded-full"
+							>
+								{fabricName(fabric)}
+								<button
+									type="button"
+									onClick={() => removeFabric(fabric.id)}
+									aria-label={`${t('product.removeFabric')}: ${fabricName(fabric)}`}
+									className="cursor-pointer hover:text-destructive transition-colors"
+								>
+									<X className="h-3 w-3" />
+								</button>
+							</span>
+						))}
+					</div>
+					{isMultiFabric && selectedFabrics.length === maxFabrics && (
+						<p className="text-xs text-muted-foreground">
+							{t('product.fabricsLimit').replace('{max}', String(maxFabrics))}
+						</p>
+					)}
+				</div>
+			)}
 
 			{/* Gender Toggle */}
 			<div className="flex gap-2">
@@ -104,6 +146,7 @@ export function FabricSelector({
 						${selectedGender === 'girl'
 							? 'border-pink-400 bg-pink-50 text-pink-700'
 							: 'border-border hover:border-pink-300 hover:bg-pink-50/50'}`
+
 					}
 				>
 					<Baby className={`h-5 w-5 ${selectedGender === 'girl' ? "text-pink-500" : "text-muted-foreground"}`} />
@@ -151,6 +194,7 @@ export function FabricSelector({
 				zoomIndex={zoomIndex}
 				setZoomIndex={setZoomIndex}
 				setZoomFabric={setZoomFabric}
+				maxFabrics={maxFabrics}
 			/>
 		</div>
 	)

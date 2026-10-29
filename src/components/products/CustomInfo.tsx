@@ -9,7 +9,12 @@ interface CustomInfoProps {
 export function CustomInfo({ useFabrics = true }: CustomInfoProps) {
 	const { t, language } = useLanguage()
 	const customs = useProductCustomsStore((state) => state.customs)
-	const fabric = useFabricsStore((state) => state.fabric)
+	const fabrics = useFabricsStore((state) => state.fabrics)
+	const fabric = fabrics[0] ?? null
+	const fabricNames = fabrics
+		.map((item) => (language === 'es' ? item.name_es : item.name_en))
+		.filter(Boolean)
+		.join(', ')
 
 	return (
 		!!fabric && !customs && useFabrics
@@ -20,14 +25,16 @@ export function CustomInfo({ useFabrics = true }: CustomInfoProps) {
 					>
 							<p>{t('product.fabricSelected')}
 								<span className='font-bold ps-1'>
-									{language === 'es' ? fabric.name_es : fabric.name_en}
+									{fabricNames}
 								</span>
-								<span className='italic text-sm ps-1.5'>
-									({language === 'es'
-										? fabric.gender === 'boy' ? 'niño' : 'niña'
-										: fabric.gender
-									})
-								</span>
+								{fabrics.length === 1 && (
+									<span className='italic text-sm ps-1.5'>
+										({language === 'es'
+											? fabric?.gender === 'boy' ? 'niño' : 'niña'
+											: fabric?.gender
+										})
+									</span>
+								)}
 							</p>
 					</div>
 				</div>
@@ -50,14 +57,16 @@ export function CustomInfo({ useFabrics = true }: CustomInfoProps) {
 							{!!fabric && useFabrics && (
 								<p>{t('product.fabricSelected')}
 									<span className='font-bold ps-1'>
-										{language === 'es' ? fabric.name_es : fabric.name_en}
+										{fabricNames}
 									</span>
-									<span className='italic text-sm ps-1.5'>
-										({language === 'es'
-											? fabric.gender === 'boy' ? 'niño' : 'niña'
-											: fabric.gender
-										})
-									</span>
+									{fabrics.length === 1 && (
+										<span className='italic text-sm ps-1.5'>
+											({language === 'es'
+												? fabric.gender === 'boy' ? 'niño' : 'niña'
+												: fabric.gender
+											})
+										</span>
+									)}
 								</p>
 							)}
 							{customs.observations && (
