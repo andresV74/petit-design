@@ -1,7 +1,6 @@
 import { HeroSection } from '@/components/home/HeroSection.tsx'
 import { FeaturedKitsSection } from '@/components/home/FeaturedKitsSection.tsx'
-import { CategoriesSection } from '@/components/home/CategoriesSection.tsx'
-import { PersonalizeSection } from '@/components/home/PersonalizeSection.tsx'
+import { FavoritesSection } from '@/components/home/FavoritesSection.tsx'
 import { WhyChooseUsSection } from '@/components/home/WhyChooseUsSection.tsx'
 import { TestimonialsSection } from '@/components/home/TestimonialsSection.tsx'
 
@@ -45,8 +44,7 @@ export function HomePage() {
 
       <HeroSection />
       <FeaturedKitsSection />
-      <CategoriesSection />
-      <PersonalizeSection />
+      <FavoritesSection />
       <WhyChooseUsSection />
       <TestimonialsSection />
     </>

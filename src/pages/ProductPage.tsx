@@ -45,7 +45,8 @@ export function ProductPage() {
   const productionDays = product?.productionDays?.value
   const useFabrics = product?.useFabrics?.value === 'true'
   const longDescriptionEn = jsonToHtml(JSON.parse(product?.longDescriptionEn?.value || '[]'))
-  // const isFeatured = product?.isFeatured?.value === 'true'
+  const isFeatured = product?.isFeatured?.value === 'true'
+  console.log(isFeatured)
   const nameEn = product?.nameEn?.value
   const shortDescriptionEs = product?.shortDescriptionEs?.value
   const shortDescriptionEn = product?.shortDescriptionEn?.value
@@ -427,6 +428,7 @@ export function ProductPage() {
               images={images}
               variantImageUrl={variantImageUrl}
               variantImageAlt={language === 'es' ? product?.title : product?.nameEn?.value}
+              isFeatured={isFeatured}
             />
             <CustomInfo useFabrics={useFabrics} />
           </div>

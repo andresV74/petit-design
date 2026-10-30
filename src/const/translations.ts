@@ -37,13 +37,16 @@ export const translations: Translations = {
   'hero.whatsAppCta': { es: 'Abre WhatsApp', en: 'Open WhatsApp' },
 
   // Homepage featured kits
-  'kits.badge': { es: 'Lo más vendido', en: 'Best Sellers' },
   'kits.title': { es: 'Kits Personalizados', en: 'Personalized Kits' },
   'kits.description': {
     es: 'Sets completos diseñados para el nacimiento de tu bebé. Todo lo que necesitas en un solo paquete, con la posibilidad de personalizarlo con el nombre de tu pequeño.',
     en: `Complete sets designed for your baby's birth. Everything you need in one package, with the possibility of personalizing it with your little one's name.`
   },
   'kits.cta': { es: 'Ver todos los Kits', en: 'View all Kits' },
+
+  // Favorites
+  'favorites.title': { es: 'Nuestros Favoritos', en: 'Our Favorites' },
+  'favorites.badge': { es: 'Los más vendido', en: 'Best Sellers' },
 
   // Homepage categories
   'categories.title': { es: 'Nuestras Categorías', en: 'Our Categories' },

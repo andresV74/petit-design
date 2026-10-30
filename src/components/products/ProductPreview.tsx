@@ -1,19 +1,23 @@
 import { useState } from 'react'
+import { useLanguage } from '@/lib/i18n.tsx'
 import type { ProductImage } from '@/types/generalTypes.ts'
 
 interface ProductPreviewProps {
   images: ProductImage[] | undefined
   variantImageUrl?: string
   variantImageAlt?: string
+  isFeatured: boolean
 }
 
 export function ProductPreview({
   images,
   variantImageUrl,
   variantImageAlt,
+  isFeatured
 }: ProductPreviewProps) {
   const [selectedImage, setSelectedImage] = useState(0)
   const [dismissedVariantImageUrl, setDismissedVariantImageUrl] = useState<string | null>(null)
+	const { t } = useLanguage()
 
   const showingVariantImage =
     Boolean(variantImageUrl) && dismissedVariantImageUrl !== variantImageUrl
@@ -31,6 +35,12 @@ export function ProductPreview({
     <>
       {/* Main Image */}
       <figure className="relative aspect-square overflow-hidden rounded-2xl bg-muted mb-2">
+        {
+          isFeatured && (
+					<div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-accent text-foreground text-xs">
+						{t('products.singleFeatured')}
+					</div>)
+        }
         <img
           src={mainImageUrl}
           alt={mainImageAlt}

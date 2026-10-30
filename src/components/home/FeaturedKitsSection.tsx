@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Star } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useProducts } from '@/hooks/useProducts.ts'
 import { useCollections } from '@/hooks/useCollections.ts'
 import { ProductCard } from '@/components/products/ProductCard.tsx'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/lib/i18n'
-import { Badge } from '@/components/ui/badge.tsx'
 import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
 import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
 import type { ImportsListProps } from '@/types/generalTypes.ts'
@@ -24,10 +23,6 @@ export function FeaturedKitsSection({ first = 80 }: ImportsListProps) {
       <div className="container px-4 relative">
         {/* Header */}
         <div className="text-center mb-12">
-          <Badge className="mb-4 gap-2 px-4 py-2 bg-mint/20 text-mint-dark border-mint/30">
-            <Star className="h-4 w-4 fill-current" />
-            {t('kits.badge')}
-          </Badge>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
             {t('kits.title')}
           </h2>
@@ -63,7 +58,7 @@ export function FeaturedKitsSection({ first = 80 }: ImportsListProps) {
         {/* CTA */}
         <div className="text-center">
           <Button asChild className="h-11 rounded-md gap-2 px-8 bg-primary text-primary-foreground">
-            <Link to="/catalogo/kits">
+            <Link to="/collections/kits">
               {t('kits.cta')}
               <ArrowRight className="h-4 w-4" />
             </Link>

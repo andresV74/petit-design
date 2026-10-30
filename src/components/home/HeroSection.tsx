@@ -29,7 +29,7 @@ export function HeroSection() {
         <div
           className="absolute inset-0"
           style={{
-            backdropFilter: 'blur(8px)',
+            backdropFilter: 'blur(3px)',
             WebkitBackdropFilter: 'blur(8px)',
             maskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 60%)',
             WebkitMaskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 60%)'
