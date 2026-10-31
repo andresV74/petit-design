@@ -47,6 +47,9 @@ export const translations: Translations = {
   // Favorites
   'favorites.title': { es: 'Nuestros Favoritos', en: 'Our Favorites' },
   'favorites.badge': { es: 'Los más vendido', en: 'Best Sellers' },
+  'favorites.prev': { es: 'Ver favoritos anteriores', en: 'View previous favorites' },
+  'favorites.next': { es: 'Ver más favoritos', en: 'View more favorites' },
+  'favorites.goTo': { es: 'Ir a la página {page}', en: 'Go to page {page}' },
 
   // Homepage categories
   'categories.title': { es: 'Nuestras Categorías', en: 'Our Categories' },

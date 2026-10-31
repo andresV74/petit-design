@@ -14,7 +14,7 @@ export function ProductCard({ product, language }: ProductCardProps) {
   const minPrice = product.priceRange?.minVariantPrice
 
 	return (
-		<article className='animate-fade-in' >
+		<article className='animate-fade-in'>
 			<Link to={`/producto/${product.handle}`}
 				className="group block relative"
 			>
