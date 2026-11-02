@@ -20,14 +20,14 @@ export function HeroSection() {
         />
         {/* Gradient overlay: blurred on left, clear on right */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 hidden md:block"
           style={{
             background: 'linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 25%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.1) 75%, transparent 100%)'
           }}
         />
         {/* Additional blur effect on left side */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 hidden md:block"
           style={{
             backdropFilter: 'blur(3px)',
             WebkitBackdropFilter: 'blur(8px)',
