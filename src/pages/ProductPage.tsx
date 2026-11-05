@@ -46,7 +46,6 @@ export function ProductPage() {
   const useFabrics = product?.useFabrics?.value === 'true'
   const longDescriptionEn = jsonToHtml(JSON.parse(product?.longDescriptionEn?.value || '[]'))
   const isFeatured = product?.isFeatured?.value === 'true'
-  console.log(isFeatured)
   const nameEn = product?.nameEn?.value
   const shortDescriptionEs = product?.shortDescriptionEs?.value
   const shortDescriptionEn = product?.shortDescriptionEn?.value

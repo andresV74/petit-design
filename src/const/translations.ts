@@ -271,7 +271,7 @@ export const translations: Translations = {
   'product.days': { es: 'días', en: 'days' },
   'product.trustMessage': { es: 'Este producto se elabora especialmente para tu bebé con el mayor cariño y cuidado.', en: 'This product is made especially for your baby with the greatest care and love.' },
   'product.buy': { es: 'Comprar ahora', en: 'Buy now' },
-  'product.select': { es: 'Selecciona una tela', en: 'Select a fabric' },
+  'product.select': { es: 'Selecciona tela', en: 'Select fabric' },
   'product.boy': { es: 'Niño', en: 'Boy' },
   'product.girl': { es: 'Niña', en: 'Girl' },
   'product.moreOptions': {

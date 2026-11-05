@@ -82,7 +82,7 @@ export function FabricSelector({
 			{/* Label */}
 			<div className="flex items-center justify-between gap-2">
 				<span className="text-sm font-medium flex items-center gap-2">
-					🧵 {t('product.select')}
+					🧵 {t('product.select')}{isMultiFabric ? 's' : ''}
 				</span>
 				{isMultiFabric && (
 					<span className="text-xs text-muted-foreground">
