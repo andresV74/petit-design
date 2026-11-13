@@ -1,5 +1,6 @@
 import { useProductCustomsStore } from '@/store/productCustomsStore'
 import { useLanguage } from '@/lib/i18n.tsx'
+import { normalizeColorName } from '@/components/utils/normalizeColorName.ts'
 
 export interface SingleColorProps {
 	id: string
@@ -14,6 +15,8 @@ interface ColorsProps {
 
 export function Colors({ colors, handleSelectColor }: ColorsProps) {
 	const selectedColor = useProductCustomsStore((state) => state.customs?.color)
+	const selectedColorKey = normalizeColorName(selectedColor?.name)
+
 	const { t } = useLanguage()
 
 	return (
@@ -35,7 +38,7 @@ export function Colors({ colors, handleSelectColor }: ColorsProps) {
 									: "hover:scale-105"}`
 							}
 							style={{ backgroundColor: color.hex }}
-							title={t(`color.${color.name}`)}
+							title={t(`color.${selectedColorKey}`)}
 						>
 							{isSelected && (
 								<span className="absolute inset-0 flex items-center justify-center">
@@ -50,7 +53,7 @@ export function Colors({ colors, handleSelectColor }: ColorsProps) {
 				})}
 			</div>
 			<p className="text-sm text-muted-foreground font-medium">
-				{selectedColor && t(`color.${selectedColor.name}`)}
+				{selectedColor && t(`color.${selectedColorKey}`)}
 			</p>
 		</div>
 	)

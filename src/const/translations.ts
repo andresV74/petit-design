@@ -591,6 +591,11 @@ export const translations: Translations = {
   'color.verde_salvia': { es: 'Verde salvia', en: 'Sage green' },
   'color.azul_cielo': { es: 'Azul cielo', en: 'Sky blue' },
   'color.gris_perla': { es: 'Gris perla', en: 'Pearl gray' },
+  'color.violeta': { es: 'Violeta', en: 'violet' },
+  'color.lavanda': { es: 'Lavanda', en: 'Lavender' },
+  'color.aguamarina': { es: 'Aguamarina', en: 'Aquamarine' },
+  'color.taupe': { es: 'Taupe', en: 'Taupe' },
+  'color.amarillo_calido': { es: 'Amarillo cálido', en: 'Warm yellow' },
 
   // Fonts
   'font.script': { es: 'Script (Elegante)', en: 'Script (Elegant)' },

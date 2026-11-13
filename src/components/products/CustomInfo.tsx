@@ -1,6 +1,7 @@
 import { useLanguage } from '@/lib/i18n.tsx'
 import { useFabricsStore } from '@/store/fabricsStore.tsx'
 import { useProductCustomsStore } from '@/store/productCustomsStore.tsx'
+import { normalizeColorName } from '@/components/utils/normalizeColorName.ts'
 
 interface CustomInfoProps {
 	useFabrics?: boolean
@@ -52,7 +53,7 @@ export function CustomInfo({ useFabrics = true }: CustomInfoProps) {
 								<p>{t('product.fontTitle')}: <span className='font-bold'>{customs.font}</span></p>
 							)}
 							{customs.color && (
-								<p>Color: <span className='font-bold'>{t(`color.${customs.color.name}`)}</span></p>
+								<p>Color: <span className='font-bold'>{t(`color.${normalizeColorName(customs.color.name)}`)}</span></p>
 							)}
 							{!!fabric && useFabrics && (
 								<p>{t('product.fabricSelected')}
