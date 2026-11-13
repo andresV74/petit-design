@@ -19,6 +19,7 @@ import { useProductCustomsStore } from '@/store/productCustomsStore'
 import { inputClasses } from '@/components/ContactForm.tsx'
 import { jsonToHtml } from '@/components/utils/jsonToHtml.ts'
 import { formatPrice } from '@/components/utils/formatPrice.ts'
+import { normalizeColorName } from '@/components/utils/normalizeColorName.ts'
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow } from '@radix-ui/react-tooltip'
 import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
 import { ErrorMessage } from '@/components/ui/errorMessage.tsx'
@@ -51,7 +52,6 @@ export function ProductPage() {
   const shortDescriptionEn = product?.shortDescriptionEn?.value
   const isCharacterPriced = product?.isCharacterPriced?.value === 'true'
   const fabricsQuantity = parseInt(product?.fabricsQuantity?.value ?? '0', 10)
-  const [selectedColor, setSelectedColor] = useState(null as { id: string; name?: string; hex?: string; border?: string } | null)
   const colorNodes = product?.color?.references?.nodes ?? []
   const colors = colorNodes
     .filter((node) => node.__typename === 'Metaobject')
@@ -169,6 +169,22 @@ export function ProductPage() {
     }
   }, [product])
 
+  // Drop a stored color that does not belong to the current product palette (or when it has none)
+  useEffect(() => {
+    if (!product) return
+
+    const storedColor = useProductCustomsStore.getState().customs?.color
+    if (!storedColor) return
+
+    const productColors = (product.color?.references?.nodes ?? []).filter(
+      (node) => node.__typename === 'Metaobject'
+    )
+
+    if (!productColors.some((color) => color.id === storedColor.id)) {
+      removeCustom('color')
+    }
+  }, [product, removeCustom])
+
   useEffect(() => {
     if (product && !hasTrackedView.current) {
       hasTrackedView.current = true
@@ -253,9 +269,8 @@ export function ProductPage() {
 
     if (selectedColorStore?.id === colorId) {
       removeCustom('color')
-    } else {
-      setSelectedColor((prev) => (prev?.id === colorId ? null : color ?? null))
-      setCustoms({ color: color ?? undefined })
+    } else if (color) {
+      setCustoms({ color })
     }
     setAdded(false)
   }
@@ -277,9 +292,8 @@ export function ProductPage() {
     }
     customAttrs = { baby_name: trimmedName ? trimmedName : babyNameStore ?? '' }
 
-    if (selectedColor || selectedColorStore) {
-      const selectedColorName = selectedColor?.name ?? selectedColorStore?.name ?? ''
-      customAttrs = { ...customAttrs, selected_color: selectedColorName }
+    if (selectedColorStore) {
+      customAttrs = { ...customAttrs, selected_color: selectedColorStore.name ?? '' }
     }
 
     if (selectedFontStore) {
@@ -321,7 +335,7 @@ export function ProductPage() {
     (!selectedVariant && hasVariants)
 
   const handleWhatsAppOrder = () => {
-    const colorLabel = t(`color.${selectedColorStore?.name}`) || ''
+    const colorLabel = t(`color.${normalizeColorName(selectedColorStore?.name)}`) || ''
     const fabricName = selectedFabricsStore
       .map((fabric) => language === 'es' ? fabric.name_es : fabric.name_en)
       .filter(Boolean)
