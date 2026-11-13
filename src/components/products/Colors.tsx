@@ -38,7 +38,7 @@ export function Colors({ colors, handleSelectColor }: ColorsProps) {
 									: "hover:scale-105"}`
 							}
 							style={{ backgroundColor: color.hex }}
-							title={t(`color.${selectedColorKey}`)}
+							title={t(`color.${normalizeColorName(color.name)}`) || color.name}
 						>
 							{isSelected && (
 								<span className="absolute inset-0 flex items-center justify-center">
