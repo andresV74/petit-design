@@ -283,7 +283,7 @@ export const translations: Translations = {
   },
   'product.fullDescription': { es: 'Descripción completa', en: 'Full description' },
   'product.name': { es: 'Nombre para bordar:', en: 'Name to be embroidered::' },
-  'product.fabricSelected': { es: 'Tela seleccionada:', en: 'Selected fabric:' },
+  'product.fabricSelected': { es: 'Tela', en: 'Fabric' },
   'product.fabricsSelected': { es: 'Telas seleccionadas', en: 'Selected fabrics' },
   'product.removeFabric': { es: 'Quitar tela', en: 'Remove fabric' },
   'product.fabricsLimit': {

@@ -160,14 +160,40 @@ export function ProductPage() {
 
   const maxFabrics = Math.max(1, fabricsQuantity || 1)
 
-  // A product that only allows one fabric must not inherit a previous multi-fabric selection
+  // Drop stored fabrics that are not offered by the current product (or when it does not use fabrics)
   useEffect(() => {
     if (!product) return
 
-    if (Math.max(1, parseInt(product.fabricsQuantity?.value ?? '0', 10)) <= 1) {
-      useFabricsStore.getState().clearFabric()
+    const { fabrics: storedFabrics, clearFabric, removeFabric } = useFabricsStore.getState()
+    if (storedFabrics.length === 0) return
+
+    const usesFabrics = product.useFabrics?.value === 'true'
+    const maxAllowed = Math.max(1, parseInt(product.fabricsQuantity?.value ?? '0', 10))
+    const productFabricIds = new Set(
+      [...(product.girlFabrics?.references?.nodes ?? []), ...(product.boyFabrics?.references?.nodes ?? [])]
+        .filter((node) => node.__typename === 'Metaobject')
+        .map((node) => node.id)
+    )
+
+    // A product without fabrics, must not inherit a previous selection
+    if (!usesFabrics || productFabricIds.size === 0) {
+      clearFabric()
+      return
     }
-  }, [product])
+
+    if (storedFabrics.length > maxAllowed) {
+      const fabricsToRemove = storedFabrics.slice(maxAllowed)
+      fabricsToRemove.forEach((fabric) => {
+        removeFabric(fabric.id)
+      })
+    }
+
+    storedFabrics.forEach((fabric) => {
+      if (!productFabricIds.has(fabric.id)) {
+        removeFabric(fabric.id)
+      }
+    })
+  }, [product, fabricsQuantity])
 
   // Drop a stored color that does not belong to the current product palette (or when it has none)
   useEffect(() => {

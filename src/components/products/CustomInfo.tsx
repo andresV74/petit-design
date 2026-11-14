@@ -56,7 +56,8 @@ export function CustomInfo({ useFabrics = true }: CustomInfoProps) {
 								<p>Color: <span className='font-bold'>{t(`color.${normalizeColorName(customs.color.name)}`)}</span></p>
 							)}
 							{!!fabric && useFabrics && (
-								<p>{t('product.fabricSelected')}
+								<p>
+									{t('product.fabricSelected')}{fabrics.length > 1 ? 's' : ''}:
 									<span className='font-bold ps-1'>
 										{fabricNames}
 									</span>
