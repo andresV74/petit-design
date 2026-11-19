@@ -474,7 +474,7 @@ export function ProductPage() {
         {/* Breadcrumb */}
         <Breadcrumbs category={category} isProduct={true} />
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="md:grid md:grid-cols-2 gap-8 lg:gap-12">
           <div className="space-y-4 relative">
             <ProductPreview
               key={selectedVariant?.id ?? 'default'}
@@ -574,7 +574,7 @@ export function ProductPage() {
             )}
 
             {/* Trust badges */}
-            <div className="flex-balance gap-4 py-4 border-y border-border">
+            <div className="flex flex-wrap flex-balance gap-4 py-4 border-y border-border">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock className="h-4 w-4 text-mint" />
                 <span>{t('product.productionTime')}: {productionDays} {t('product.days')}</span>

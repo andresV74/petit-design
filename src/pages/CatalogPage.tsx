@@ -69,7 +69,7 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
 
         {/* Filters Section */}
         <div className="mb-8 space-y-4">
-          <div className="flex-balance justify-center gap-2">
+          <div className=" flex flex-wrap flex-balance justify-center gap-2">
             <Link
               to="/collections"
               className={
