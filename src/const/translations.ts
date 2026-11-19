@@ -317,6 +317,8 @@ export const translations: Translations = {
     en: 'Click here to continue your purchase on WhatsApp'
   },
   'product.error': { es: 'Ocurrió un error al cargar el producto.', en: 'An error occurred while loading the product.' },
+  'product.byCharacter': { es: 'Precio por carácter: ', en: 'Price per character: ' },
+  'product.totalPrice': { es: 'Precio total: ', en: 'Total price: ' },
 
   // Cart Page
   'cart.title': { es: 'Tu Carrito', en: 'Your Cart'},

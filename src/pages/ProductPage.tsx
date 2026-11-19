@@ -35,6 +35,7 @@ export function ProductPage() {
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
   const [babyName, setBabyName] = useState('')
+  const [productQuantity, setProductQuantity] = useState(1)
   const [adding, setAdding] = useState(false)
   const [added, setAdded] = useState(false)
 
@@ -268,6 +269,9 @@ export function ProductPage() {
 
   const variantPrice = selectedVariant?.price || null
   const pricePerUnit = variantPrice || baseMinPrice
+  const productPrice = pricePerUnit
+    ? parseInt(String(pricePerUnit.amount ?? 0), 10) * productQuantity
+    : 0
 
   const trimmedName = babyName.trim()
   const numChars = isCharacterPriced ? trimmedName.length : 0
@@ -281,6 +285,14 @@ export function ProductPage() {
 
   function handleChangeVariant(variant: string, e: React.ChangeEvent<HTMLSelectElement>) {
     setSelectedOptions((prev) => ({ ...prev, [variant]: e.target.value || undefined }))
+    setAdded(false)
+  }
+
+  function handleQuantityChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const parsed = parseInt(e.target.value, 10)
+    const nextQuantity = Number.isNaN(parsed) ? 1 : Math.min(5, Math.max(1, parsed))
+
+    setProductQuantity(nextQuantity)
     setAdded(false)
   }
 
@@ -306,7 +318,7 @@ export function ProductPage() {
     const variantId = (selectedVariant || variants[0])?.id
     if (!variantId) return
 
-    let quantity = 1;
+    let quantity
     let customAttrs: Record<string, string> | undefined
 
     if (isCharacterPriced) {
@@ -314,7 +326,9 @@ export function ProductPage() {
       const chars = trimmedName.length
       if (!chars) return
 
-      quantity = chars;
+      quantity = chars
+    } else {
+      quantity = productQuantity
     }
     customAttrs = { baby_name: trimmedName ? trimmedName : babyNameStore ?? '' }
 
@@ -478,23 +492,44 @@ export function ProductPage() {
               {language === 'es' ? product.title : product.nameEn?.value}
             </h1>
 
+            {/* Quantity selector */}
+            {!isCharacterPriced && (
+              <div className="flex items-center gap-4">
+                <label htmlFor="quantity" className="block">
+                  {t('product.quantity')}
+                </label>
+                <input
+                  type="number"
+                  id="quantity"
+                  min="1"
+                  max="5"
+                  value={productQuantity}
+                  onChange={handleQuantityChange}
+                  className=" w-15 rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                />
+              </div>
+            )}
+
             {/* Precio total calculado */}
             {isCharacterPriced && pricePerUnit && (
               <p className="product-page__price">
-                  Precio por carácter: {formatPrice(parseInt(String(pricePerUnit.amount ?? 0), 10))}
+                  {t('product.byCharacter')}{formatPrice(parseInt(String(pricePerUnit.amount ?? 0), 10))}
               </p>
             )}
 
             {isCharacterPriced && totalPrice && (
               <p className="flex items-center gap-2">
-                <span>Precio total:</span>
+                <span>{t('product.totalPrice')}:</span>
                 <span className="text-2xl font-semibold text-primary">{formatPrice(parseInt(String(totalPrice?.amount ?? 0), 10))}</span>
               </p>
             )}
 
             {!isCharacterPriced && pricePerUnit && (
               <p className="text-2xl font-semibold text-primary">
-                {formatPrice(parseInt(String(pricePerUnit.amount ?? 0), 10))}
+                {productPrice
+                  ? formatPrice(productPrice)
+                  : formatPrice(parseInt(String(pricePerUnit.amount ?? 0), 10))
+                }
               </p>
             )}
 
