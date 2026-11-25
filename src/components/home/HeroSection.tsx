@@ -1,23 +1,70 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/lib/i18n';
-import { trackWhatsAppClick } from '@/hooks/useMetaPixel';
-import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, MessageCircle } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { useHomeBanner } from '@/hooks/useHomeBanner.ts'
+import { LoadingIndicator } from '@/components/ui/loadingIndicator.tsx'
+import { useLanguage } from '@/lib/i18n'
+import { trackWhatsAppClick } from '@/hooks/useMetaPixel'
+import { getWhatsAppUrl } from '@/lib/whatsapp'
+
+const SLIDE_INTERVAL_MS = 5000
 
 export function HeroSection() {
-  const { t, language } = useLanguage();
+  const { t, language } = useLanguage()
+  const { imagesData, loading, error } = useHomeBanner()
+
+  const images = imagesData ?? []
+  const [activeIndex, setActiveIndex] = useState(0)
+  const isCarousel = images.length > 1
+
+  useEffect(() => {
+    if (!isCarousel) return
+
+    const intervalId = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }, SLIDE_INTERVAL_MS)
+
+    return () => clearInterval(intervalId)
+  }, [isCarousel, images.length])
+
+  const currentIndex = isCarousel ? activeIndex % images.length : 0
 
   return (
-    <section className="relative overflow-hidden bg-background min-h-[70vh]">
+    <section className="relative flex md:aspect-video min-h-[70vh] md:min-h-0 items-center overflow-hidden bg-background">
       {/* Background Image with gradient blur effect */}
       <div className="absolute inset-0">
-        <img
+        {error ? (
+          <img
           src="/hero-banner.webp"
-          alt="Petit Design - Productos personalizados para bebé"
-          decoding="sync"
-          className="h-full w-full object-cover object-center"
-        />
+          alt="Petit Design - Productos personalizados para bebé" />)
+        : loading ? (
+          <LoadingIndicator type="line-simple" size="lg" label={t('catalog.loading')} />)
+        : images.length === 0 ? (
+          <img
+            src="/hero-banner.webp"
+            alt="Petit Design - Productos personalizados para bebé" />)
+        : isCarousel ? (
+          images.map((image, index) => (
+            <img
+              key={image.id}
+              src={image.imagen.reference.image.url}
+              alt={image.titulo.value || 'Petit Design'}
+              decoding={index === currentIndex ? 'sync' : 'async'}
+              aria-hidden={index !== currentIndex}
+              className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out ${
+                index === currentIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          ))
+        ) : (
+          <img
+            src={images[0].imagen.reference.image.url}
+            alt={images[0].titulo.value || 'Petit Design'}
+            decoding="sync"
+            className="h-full w-full object-cover object-center"
+          />
+        )}
         {/* Gradient overlay: blurred on left, clear on right */}
         <div
           className="absolute inset-0 hidden md:block"
@@ -37,7 +84,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="container relative px-4 py-16 md:py-24">
+      <div className="container relative px-4">
         <div className="max-w-xl">
           {/* Text Content */}
           <div className="flex flex-col gap-6 animate-fade-in">
