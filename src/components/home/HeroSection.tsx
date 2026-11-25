@@ -69,16 +69,16 @@ export function HeroSection() {
         <div
           className="absolute inset-0 hidden md:block"
           style={{
-            background: 'linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 25%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.1) 75%, transparent 100%)'
+            background: 'linear-gradient(to right, rgba(255, 255, 255, 0.6) 25%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 100%)'
           }}
         />
         {/* Additional blur effect on left side */}
         <div
           className="absolute inset-0 hidden md:block"
           style={{
-            backdropFilter: 'blur(3px)',
-            WebkitBackdropFilter: 'blur(8px)',
-            maskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 60%)',
+            backdropFilter: 'blur(2px)',
+            WebkitBackdropFilter: 'blur(2px)',
+            maskImage: 'linear-gradient(to right, black 30%, transparent 60%)',
             WebkitMaskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 60%)'
           }}
         />
