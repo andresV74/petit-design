@@ -72,16 +72,6 @@ export function HeroSection() {
             background: 'linear-gradient(to right, rgba(255, 255, 255, 0.6) 25%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 100%)'
           }}
         />
-        {/* Additional blur effect on left side */}
-        <div
-          className="absolute inset-0 hidden md:block"
-          style={{
-            backdropFilter: 'blur(2px)',
-            WebkitBackdropFilter: 'blur(2px)',
-            maskImage: 'linear-gradient(to right, black 30%, transparent 60%)',
-            WebkitMaskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 60%)'
-          }}
-        />
       </div>
 
       <div className="container relative px-4">
