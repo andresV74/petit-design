@@ -112,7 +112,7 @@ export const Dialog = forwardRef<DialogRef, DialogProps>(
 
 					{/* Fabric info */}
 					<div className="text-center mb-4">
-						<h3 className="font-display text-xl font-semibold">
+						<h3 className="text-xl font-semibold">
 							{language === 'es' ? zoomFabric.name_es : zoomFabric.name_en}
 						</h3>
 						<p className="text-sm text-muted-foreground mt-1">

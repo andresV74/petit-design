@@ -49,7 +49,7 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
 
               return (
                 <div key={card.id} className="text-center mb-8">
-                  <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
                     {matchedCollection?.node.title}
                   </h1>
                   <p className="text-muted-foreground max-w-2xl mx-auto text-balance">
@@ -60,7 +60,7 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
             })
           ) : (
             <div  className="text-center mb-8">
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
                 {t('catalog.title')}
               </h1>
             </div>
@@ -73,7 +73,7 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
             <Link
               to="/collections"
               className={
-                `px-4 py-2 rounded-full text-sm font-medium transition-colors
+                `px-4 py-2 rounded-full text-sm transition-colors
                 ${!category
                   ? "bg-mint text-white"
                   : "bg-muted text-muted-foreground hover:bg-mint-light"}`
@@ -86,7 +86,7 @@ export function CatalogPage({ first = 80 }: ImportsListProps) {
                 key={id}
                 to={`/collections/${handle}`}
                 className={
-                  `px-4 py-2 rounded-full text-sm font-medium transition-colors
+                  `px-4 py-2 rounded-full text-sm transition-colors
                   ${category === handle
                     ? "bg-mint text-white"
                     : "bg-muted text-muted-foreground hover:bg-mint-light"}`

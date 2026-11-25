@@ -32,7 +32,7 @@ export function CartPage() {
   return (
     <section className="container px-4 py-12 md:py-16">
       <header className="text-center mb-8">
-        <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
           {t('cart.title')}
         </h1>
       </header>
@@ -112,7 +112,7 @@ export function CartPage() {
               </div>
 
               <div className='col-span-full md:col-auto content-end py-6 px-8 bg-mint-light/20 border-t md:border-t-0 md:border-l border-border text-center'>
-                <p className='text-[26px] font-semibold text-primary'>
+                <p className='text-[26px] font-bold text-primary'>
                   {formatPrice(parseInt(price ?? 0, 10) * line.quantity)}
                 </p>
 
@@ -120,7 +120,7 @@ export function CartPage() {
                   <button
                     type="button"
                     disabled={line.quantity === 1}
-                    className='size-10 flex items-center justify-center cursor-pointer disabled:text-gray-medium disabled:cursor-default  hover:bg-mint-dark hover:text-muted transition-all'
+                    className='size-10 flex items-center justify-center cursor-pointer disabled:text-gray-medium disabled:cursor-default hover:bg-mint-dark hover:text-muted transition-all'
                     onClick={() => changeQuantity(line.id, Math.max(1, line.quantity - 1))}
                   >
                     <Minus />
@@ -156,7 +156,7 @@ export function CartPage() {
         {/* <p>
           Subtotal: {cart.cost.subtotalAmount.amount}
         </p> */}
-        <p className='text-2xl font-bold text-mint-dark'>
+        <p className='text-2xl text-mint-dark'>
           Total: {formatPrice(parseInt(cart.cost.totalAmount.amount))}
         </p>
 

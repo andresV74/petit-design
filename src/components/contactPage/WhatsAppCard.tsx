@@ -18,7 +18,7 @@ export function WhatsAppCard() {
 				<div className="p-2 rounded-full bg-[#25D366]/20">
 					<MessageCircle className="h-5 w-5 text-[#25D366]" />
 				</div>
-				<h3 className="font-display text-lg font-semibold">{t('whatsApp.title')}</h3>
+				<h3 className="text-lg font-semibold">{t('whatsApp.title')}</h3>
 			</div>
 			<p className="text-sm text-muted-foreground mb-4">{t('whatsApp.description')}</p>
 			<Button

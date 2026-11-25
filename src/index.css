@@ -189,14 +189,6 @@
     font-family: 'Lato', sans-serif;
   }
 
-  .font-script {
-    font-family: 'Dancing Script', cursive;
-  }
-
-  .font-heading {
-    font-family: 'Montserrat', sans-serif;
-  }
-
   .custom-container:not(:has(> p)) {
     display: none;
   }

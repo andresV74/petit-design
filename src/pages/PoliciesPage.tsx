@@ -55,7 +55,7 @@ export function PoliciesPage() {
       {/* Hero */}
       <section className="relative py-12 md:py-16 bg-linear-to-b from-cream to-background overflow-hidden">
         <div className="container px-4">
-          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-center animate-fade-in">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-center animate-fade-in">
             {t('policies.title')}
           </h1>
           <p className="text-lg text-muted-foreground text-center animate-fade-in" style={{ animationDelay: '0.1s' }}>
@@ -67,7 +67,7 @@ export function PoliciesPage() {
       {/* FAQs */}
       <section className="py-12 md:py-16">
         <div className="container px-4">
-          <h2 className="font-display text-2xl md:text-3xl font-semibold mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">
             {t('policies.faqs')}
           </h2>
 
@@ -79,7 +79,7 @@ export function PoliciesPage() {
                   value={`faq-${index}`}
                   className="bg-card rounded-xl border border-border/50 px-6 shadow-sm"
                 >
-                  <AccordionTrigger className="text-left font-medium hover:no-underline py-4 cursor-pointer">
+                  <AccordionTrigger className="text-left hover:no-underline py-4 cursor-pointer">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground pb-4">
@@ -95,7 +95,7 @@ export function PoliciesPage() {
       {/* Policies */}
       <section className="py-12 md:py-16 bg-beige/30">
         <div className="container px-4">
-          <h2 className="font-display text-2xl md:text-3xl font-semibold mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">
             {t('policies.policiesTitle')}
           </h2>
 
@@ -106,7 +106,7 @@ export function PoliciesPage() {
                 className="p-6 bg-card rounded-xl border border-border/50 shadow-sm animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <h3 className="font-display text-lg font-semibold mb-2 text-foreground">
+                <h3 className="text-lg font-semibold mb-2 text-foreground">
                   {policy.title}
                 </h3>
                 <p className="text-muted-foreground">
@@ -122,7 +122,7 @@ export function PoliciesPage() {
       <section className="py-12 md:py-16">
         <div className="container px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold mb-4">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
               {t('policies.moreTitle')}
             </h2>
             <p className="text-muted-foreground mb-6">

@@ -26,7 +26,7 @@ export function WhyChooseUsSection() {
   return (
     <section className="py-16 md:py-24 bg-linear-to-b from-background">
       <div className="container px-4">
-        <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-center mb-12">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-center mb-12">
           {t('benefits.title')}
         </h2>
 
@@ -43,7 +43,7 @@ export function WhyChooseUsSection() {
                   <benefit.icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-semibold mb-1">
+                  <h3 className="text-lg font-semibold mb-1">
                     {benefit.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">

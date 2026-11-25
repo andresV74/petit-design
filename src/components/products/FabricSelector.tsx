@@ -81,7 +81,7 @@ export function FabricSelector({
 		<div className="space-y-4">
 			{/* Label */}
 			<div className="flex items-center justify-between gap-2">
-				<span className="text-sm font-medium flex items-center gap-2">
+				<span className="text-sm flex items-center gap-2">
 					🧵 {t('product.select')}{isMultiFabric ? 's' : ''}
 				</span>
 				{isMultiFabric && (
@@ -101,7 +101,7 @@ export function FabricSelector({
 						{selectedFabrics.map((fabric) => (
 							<span
 								key={fabric.id}
-								className="inline-flex items-center gap-1 text-xs text-primary font-medium bg-primary/10 px-2 py-1 rounded-full"
+								className="inline-flex items-center gap-1 text-xs text-primary bg-primary/10 px-2 py-1 rounded-full"
 							>
 								{fabricName(fabric)}
 								<button
@@ -136,7 +136,7 @@ export function FabricSelector({
 					}
 				>
 					<Baby className={`h-5 w-5 ${selectedGender === 'boy' ? "text-blue-500" : "text-muted-foreground"}`} />
-					<span className="font-medium">{t('product.boy')}</span>
+					<span>{t('product.boy')}</span>
 					<span className="text-xs text-muted-foreground">({boyFabrics.length})</span>
 				</button>
 				<button
@@ -150,7 +150,7 @@ export function FabricSelector({
 					}
 				>
 					<Baby className={`h-5 w-5 ${selectedGender === 'girl' ? "text-pink-500" : "text-muted-foreground"}`} />
-					<span className="font-medium">{t('product.girl')}</span>
+					<span>{t('product.girl')}</span>
 					<span className="text-xs text-muted-foreground">({girlFabrics.length})</span>
 				</button>
 			</div>

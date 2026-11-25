@@ -8,7 +8,7 @@ export function InfoCard() {
 
   return (
 		<div className="p-6 bg-card rounded-2xl border border-border/50 shadow-sm">
-			<h3 className="font-display text-lg font-semibold mb-4">{t('infoCard.title')}</h3>
+			<h3 className="text-lg font-semibold mb-4">{t('infoCard.title')}</h3>
 			<div className="space-y-4">
 				<a
 					href="tel:+573328813416"

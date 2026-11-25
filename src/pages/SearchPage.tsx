@@ -36,7 +36,7 @@ export function SearchPage() {
 
       <div className="container px-4 py-12 md:py-16">
         {/* Header */}
-        <h1 className="font-display text-center text-3xl md:text-4xl lg:text-5xl font-semibold mb-15">
+        <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-semibold mb-15">
           {t('search.title')} "{handle}"
         </h1>
 

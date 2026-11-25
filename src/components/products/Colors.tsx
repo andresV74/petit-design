@@ -52,7 +52,7 @@ export function Colors({ colors, handleSelectColor }: ColorsProps) {
 					)
 				})}
 			</div>
-			<p className="text-sm text-muted-foreground font-medium">
+			<p className="text-sm text-muted-foreground">
 				{selectedColor && t(`color.${selectedColorKey}`)}
 			</p>
 		</div>

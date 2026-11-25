@@ -16,7 +16,7 @@ export function CategoriesSection({ first = 2 }: ImportsListProps) {
     <section className="py-16 md:py-24 bg-gray-light/50">
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
             {t('categories.title')}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -41,7 +41,7 @@ export function CategoriesSection({ first = 2 }: ImportsListProps) {
 									/>
 									<div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/0 to-transparent" />
 									<div className="absolute inset-0 flex flex-col items-center justify-end p-6">
-										<h3 className="flex items-center font-display text-xl font-semibold text-white text-center text-balance min-h-14 mb-2">
+										<h3 className="flex items-center text-xl font-semibold text-white text-center text-balance min-h-14 mb-2">
 											{title}
 										</h3>
 									</div>

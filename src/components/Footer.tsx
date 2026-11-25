@@ -149,7 +149,7 @@ export function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h4 className="font-display text-lg font-semibold mb-4">
+            <h4 className="text-lg font-semibold mb-4">
               {t('footer.legalTermsTitle')}
             </h4>
             <ul className="space-y-2">
@@ -178,7 +178,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display text-lg font-semibold mb-4">
+            <h4 className="text-lg font-semibold mb-4">
               {t('footer.quickLinks')}
             </h4>
             <ul className="space-y-2">
@@ -194,7 +194,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display text-lg font-semibold mb-4">
+            <h4 className="text-lg font-semibold mb-4">
               {t('footer.contact')}
             </h4>
             <ul className="space-y-2 text-muted-foreground">
@@ -230,7 +230,7 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            <h4 className="font-display text-lg font-semibold mt-6 mb-4">
+            <h4 className="text-lg font-semibold mt-6 mb-4">
               {t('footer.catalogTitle')}
             </h4>
             <p className="text-muted-foreground">

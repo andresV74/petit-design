@@ -121,7 +121,7 @@ export function ContactForm() {
             <Mail className="h-5 w-5 text-primary" />
           )}
         </div>
-        <h3 className="leading-none tracking-tight text-xl md:text-2xl font-bold">
+        <h3 className="leading-none tracking-tight text-xl md:text-2xl">
           {t.title}
         </h3>
         <div className="text-muted-foreground text-sm mt-1 col-start-2">

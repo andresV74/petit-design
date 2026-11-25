@@ -3,22 +3,22 @@
 const styles = {
 	sm: {
 		root: "gap-4",
-		label: "text-sm font-medium",
+		label: "text-sm",
 		spinner: "size-8",
 	},
 	md: {
 		root: "gap-4",
-		label: "text-sm font-medium",
+		label: "text-sm",
 		spinner: "size-12",
 	},
 	lg: {
 		root: "gap-4",
-		label: "text-lg font-medium",
+		label: "text-lg",
 		spinner: "size-14",
 	},
 	xl: {
 		root: "gap-5",
-		label: "text-lg font-medium",
+		label: "text-lg",
 		spinner: "size-16",
 },
 }

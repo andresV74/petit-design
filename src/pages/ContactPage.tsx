@@ -43,7 +43,7 @@ export function ContactPage() {
       <section className="relative py-16 md:py-24 bg-linear-to-b from-cream to-background overflow-hidden">
         <div className="container px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 animate-fade-in">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 animate-fade-in">
               {t('contact.title')}
             </h1>
             <p className="text-lg text-muted-foreground animate-fade-in text-balance" style={{ animationDelay: '0.1s' }}>

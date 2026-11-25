@@ -137,12 +137,12 @@ export function FabricGallery({ first, gender }: FabricGalleryProps) {
       <div className="container px-4 py-8 md:py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl  mb-4">
             {title}
           </h1>
           {selectedFabric && (
-            <h2 className='text-xl mb-5 font-bold text-mint-dark'>
-              {`Tela seleccionada: ${fabricName()}`}
+            <h2 className='text-xl mb-5 text-mint-dark'>
+              {t('fabricGallery.selectedFabric')}{fabricName()}
             </h2>
           )}
           {!selectedFabric &&
@@ -162,7 +162,7 @@ export function FabricGallery({ first, gender }: FabricGalleryProps) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick('Catálogo de Telas', { content_category: 'Fabrics' })}
-              className="text-sm font-medium text-mint-dark hover:text-mint underline shrink-0"
+              className="text-sm text-mint-dark hover:text-mint underline shrink-0"
             >
               {t('fabricGallery.seeMore')}
             </Link>
@@ -196,7 +196,7 @@ export function FabricGallery({ first, gender }: FabricGalleryProps) {
                 </div>
 
                 {/* Name below image */}
-                <h3 className="mt-3 text-center font-medium text-foreground text-balance group-hover:text-primary transition-colors">
+                <h3 className="mt-3 text-center text-foreground text-balance group-hover:text-primary transition-colors">
                   {language === 'es' ? fabric.name_es : fabric.name_en}
                 </h3>
               </button>

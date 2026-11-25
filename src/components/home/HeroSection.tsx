@@ -79,17 +79,17 @@ export function HeroSection() {
         <div className="max-w-xl">
           {/* Text Content */}
           <div className="flex flex-col gap-6 animate-fade-in">
-            <span className="text-mint-dark font-medium text-sm uppercase tracking-wider">
+            <span className="text-mint-dark text-sm uppercase tracking-wider">
               {t('hero.beforeTitle')}
             </span>
-            <h1 className="font-display text-2xl sm:text-3xl/9 md:text-4xl/11 font-semibold leading-tight text-foreground">
+            <h1 className="text-2xl sm:text-3xl/9 md:text-4xl/11 font-semibold leading-tight text-foreground">
               {t('hero.title')}
             </h1>
 
             {/* Personalization Badge */}
             <div className="flex items-center gap-3 p-4 bg-mint-light/50 rounded-xl border border-mint/30 max-w-100">
               <div className="h-10 w-10 rounded-full bg-mint flex items-center justify-center shrink-0">
-                <span className="text-white font-display text-lg">✨</span>
+                <span className="text-lg">✨</span>
               </div>
               <p className="text-sm text-foreground text-balance">
                 {t('hero.subtitle')}

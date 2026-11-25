@@ -77,7 +77,7 @@ export function FavoritesSection({ first = 80 }: ImportsListProps) {
             <Star className="h-4 w-4 fill-current" />
             {t('favorites.badge')}
           </Badge>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
             {t('favorites.title')}
           </h2>
         </div>

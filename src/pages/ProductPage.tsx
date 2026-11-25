@@ -488,7 +488,7 @@ export function ProductPage() {
 
           {/* Product Info */}
           <div className="space-y-6">
-            <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-balance mb-2">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-balance mb-2">
               {language === 'es' ? product.title : product.nameEn?.value}
             </h1>
 
@@ -513,19 +513,19 @@ export function ProductPage() {
             {/* Precio total calculado */}
             {isCharacterPriced && pricePerUnit && (
               <p className="product-page__price">
-                  {t('product.byCharacter')}{formatPrice(parseInt(String(pricePerUnit.amount ?? 0), 10))}
+                {t('product.byCharacter')}{formatPrice(parseInt(String(pricePerUnit.amount ?? 0), 10))}
               </p>
             )}
 
             {isCharacterPriced && totalPrice && (
               <p className="flex items-center gap-2">
                 <span>{t('product.totalPrice')}:</span>
-                <span className="text-2xl font-semibold text-primary">{formatPrice(parseInt(String(totalPrice?.amount ?? 0), 10))}</span>
+                <span className="text-2xl font-bold text-primary">{formatPrice(parseInt(String(totalPrice?.amount ?? 0), 10))}</span>
               </p>
             )}
 
             {!isCharacterPriced && pricePerUnit && (
-              <p className="text-2xl font-semibold text-primary">
+              <p className="text-2xl font-bold text-primary">
                 {productPrice
                   ? formatPrice(productPrice)
                   : formatPrice(parseInt(String(pricePerUnit.amount ?? 0), 10))
@@ -591,7 +591,7 @@ export function ProductPage() {
 
             {/* Personalization Form */}
             <div className="space-y-6 p-6 rounded-2xl bg-gray-light/50 border border-border">
-              <h3 className="font-display text-lg font-semibold flex items-center gap-2">
+              <h3 className="text-lg font-semibold flex items-center gap-2">
                 <Sparkles className="h-5 w-5 text-mint" />
                 {t('product.personalize')}
               </h3>

@@ -68,11 +68,11 @@ export function AboutPage() {
           <div className="max-w-3xl mx-auto text-center">
             <Badge className="gap-2 px-4 py-2 bg-mint/10 rounded-full mb-4 border-0">
               <Calendar className="h-4 w-4 text-mint-dark" />
-              <span className="text-sm font-medium text-mint-dark">
+              <span className="text-sm text-mint-dark">
                 {t('about.badge')}
               </span>
             </Badge>
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 animate-fade-in">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 animate-fade-in">
               {t('about.title')}
             </h1>
             <p className="text-xl text-muted-foreground animate-fade-in" style={{ animationDelay: '0.1s' }}>
@@ -110,7 +110,7 @@ export function AboutPage() {
       <section className="py-16 md:py-24 bg-mint-light/30">
         <div className="container px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold mb-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-center">
               {t('about.purposeTitle')}
             </h2>
             <p className="text-lg text-center text-muted-foreground mb-10 text-balance">
@@ -148,7 +148,7 @@ export function AboutPage() {
       <section className="py-16 md:py-24 bg-beige/30">
         <div className="container px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold mb-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center">
               {t('about.descriptionTitle')}
             </h2>
             <p className="text-muted-foreground leading-relaxed whitespace-pre-line mb-12">
@@ -157,7 +157,7 @@ export function AboutPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="p-6 bg-card rounded-2xl border border-border/50 shadow-sm">
-                <h3 className="font-display text-xl font-semibold mb-3 text-mint-dark">
+                <h3 className="text-xl font-semibold mb-3 text-mint-dark">
                   {t('about.missionTitle')}
                 </h3>
                 <p className="text-muted-foreground">
@@ -165,7 +165,7 @@ export function AboutPage() {
                 </p>
               </div>
               <div className="p-6 bg-card rounded-2xl border border-border/50 shadow-sm">
-                <h3 className="font-display text-xl font-semibold mb-3 text-mint-dark">
+                <h3 className="text-xl font-semibold mb-3 text-mint-dark">
                   {t('about.visionTitle')}
                 </h3>
                 <p className="text-muted-foreground">
@@ -190,7 +190,7 @@ export function AboutPage() {
                 <div className="p-4 rounded-full bg-primary/10 text-primary mb-4">
                   <value.icon className="h-6 w-6" />
                 </div>
-                <h3 className="font-display text-lg font-semibold mb-2">
+                <h3 className="text-lg font-semibold mb-2">
                   {value.title}
                 </h3>
                 <p className="text-sm text-muted-foreground text-balance">
@@ -219,7 +219,7 @@ export function AboutPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick('Nuestra Historia CTA', { content_category: 'About' })}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white font-medium hover:bg-[#20BD5A] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white hover:bg-[#20BD5A] transition-colors"
             >
               {t('about.cta')}
             </a>

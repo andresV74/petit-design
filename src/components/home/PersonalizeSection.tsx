@@ -131,11 +131,11 @@ export function PersonalizeSection({ first = 8 }: ImportsListProps) {
         <div className="text-center mb-12">
           <Badge className="gap-2 px-4 py-2 mb-4 bg-primary/10 text-primary border-transparent">
             <Sparkles className="h-4 w-4 " />
-            <span className="text-sm font-medium">
+            <span className="text-sm">
               {t('personalization.badge')}
             </span>
           </Badge>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
             {t('personalization.title')}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -166,7 +166,7 @@ export function PersonalizeSection({ first = 8 }: ImportsListProps) {
                 <Baby className={`h-16 w-16 mx-auto ${option.textColor}`} />
               </div>
 
-              <h3 className={`font-display text-2xl font-semibold mb-2 ${option.textColor}`}>
+              <h3 className={`text-2xl font-semibold mb-2 ${option.textColor}`}>
                 {language === 'es' ? option.label_es : option.label_en}
               </h3>
 
@@ -191,7 +191,7 @@ export function PersonalizeSection({ first = 8 }: ImportsListProps) {
         {/* Fabric swatches preview */}
         {selectedGender && currentFabrics.length > 0 && (
           <div className="mt-12 animate-fade-in-from-bottom">
-            <h3 className="text-center font-display text-xl font-semibold mb-6">
+            <h3 className="text-center text-xl font-semibold mb-6">
               {language === 'es'
                 ? `Telas para ${selectedGender === 'boy' ? 'Niño' : 'Niña'}`
                 : `${selectedGender === 'boy' ? 'Boy' : 'Girl'}'s Fabrics`}
@@ -226,7 +226,7 @@ export function PersonalizeSection({ first = 8 }: ImportsListProps) {
                   </div>
                   {/* Fabric name tooltip */}
                   <div className="absolute -bottom-9 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                    <span className={`text-xs font-medium px-2 py-1 rounded text-white
+                    <span className={`text-xs px-2 py-1 rounded text-white
 											${selectedGender === 'boy' ? 'bg-blue-400' : 'bg-pink-400'}`}>
                       {language === 'es' ? fabric.name_es : fabric.name_en}
                     </span>
@@ -239,7 +239,7 @@ export function PersonalizeSection({ first = 8 }: ImportsListProps) {
             <div className="text-center mt-8">
               <button
                 onClick={() => navigate(selectedGender === 'boy' ? '/telas/nino' : '/telas/nina')}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium cursor-pointer hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full cursor-pointer hover:bg-primary/90 transition-colors"
               >
                 {t('personalization.viewAll')}
               </button>

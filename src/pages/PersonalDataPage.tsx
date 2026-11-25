@@ -18,7 +18,7 @@ export function PersonalDataPage() {
       <meta name="twitter:description" content="Conoce la historia de Petit Design. Desde 2014 creamos lencería personalizada para bebés con amor, calidad y diseño exclusivo desde Manizales, Colombia." />
 
       <section className="container px-4 py-16 md:py-24 bg-linear-to-b from-cream to-background overflow-hidden">
-        <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-center font-semibold mb-4 md:mb-12 text-balance">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl text-center font-semibold mb-4 md:mb-12 text-balance">
           {t('personalData.title')}
         </h1>
         <p className="text-lg text-muted-foreground leading-relaxed whitespace-pre-line">

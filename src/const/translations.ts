@@ -574,6 +574,7 @@ export const translations: Translations = {
   'fabricGallery.boysTitle2': { es: 'Catálogo de Telas - Niño - Petit Design', en: 'Fabric Catalog - Boy - Petit Design' },
   'fabricGallery.girlsTitle2': { es: 'Catálogo de Telas - Niña - Petit Design', en: 'Fabric Catalog - Girl - Petit Design' },
   'fabricGallery.subtitle': { es: 'Haz clic en una tela para seleccionarla',  en: 'Click on a fabric to select it' },
+  'fabricGallery.selectedFabric': { es: 'Tela seleccionada: ',  en: 'Selected fabric: ' },
   'fabricGallery.disclaimer': {
     es: '¡Tenemos muchos más diseños disponibles! Consulta por WhatsApp para ver más opciones.',
     en: 'We have many more designs available! Ask on WhatsApp to see more options.'

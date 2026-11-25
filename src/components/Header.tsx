@@ -77,7 +77,7 @@ export function Header() {
           <Link
             key={'/'}
             to={'/'}
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground"
           >
             {t('nav.home')}
           </Link>
@@ -88,7 +88,7 @@ export function Header() {
               <Link
                 key={item.id}
                 to={`/collections/${item.resource?.handle}`}
-                className="whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground"
+                className="whitespace-nowrap rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground"
               >
                 {item.title}
               </Link>
@@ -96,7 +96,7 @@ export function Header() {
               <DropdownMenu key={item.id}>
                 <DropdownMenuTrigger asChild>
                   <Button
-                    className="text-sm font-medium text-muted-foreground hover:text-primary-foreground gap-1 px-2 py-2"
+                    className="text-sm text-muted-foreground hover:text-primary-foreground gap-1 px-2 py-2"
                   >
                     {item.title}
                     <ChevronDown className="h-4 w-4" />
@@ -119,7 +119,7 @@ export function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                className="text-sm font-medium text-muted-foreground hover:text-primary-foreground gap-1 px-2 py-2"
+                className="text-sm text-muted-foreground hover:text-primary-foreground gap-1 px-2 py-2"
               >
                 {t('header.fabrics')}
                 <ChevronDown className="h-4 w-4" />
@@ -143,7 +143,7 @@ export function Header() {
             <Link
               key={link.href}
               to={link.href}
-              className="whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground"
+              className="whitespace-nowrap rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer p-2 me-1 text-muted-foreground hover:text-primary-foreground"
             >
               {link.label}
             </Link>
@@ -166,7 +166,7 @@ export function Header() {
             className="flex items-center gap-1.5 text-muted-foreground hover:text-mint-dark size-9 rounded-md"
           >
             <ShoppingBag className="h-4 w-4" />
-            <span className="uppercase text-xs font-medium">
+            <span className="uppercase text-xs">
               {totalQuantity && totalQuantity > 0 ? ` ${totalQuantity}` : 0}
             </span>
           </Link>
@@ -177,7 +177,7 @@ export function Header() {
             className="hidden sm:flex items-center gap-1.5 text-muted-foreground hover:text-mint-dark hover:bg-transparent size-9 rounded-md"
           >
             <Globe className="h-4 w-4" />
-            <span className="uppercase text-xs font-medium">
+            <span className="uppercase text-xs">
               {language === 'es' ? 'EN' : 'ES'}
             </span>
           </Button>
@@ -206,7 +206,7 @@ export function Header() {
               <Link
                 key={item.id}
                 to={`/collections/${item.resource?.handle}`}
-                className="whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer py-2 text-muted-foreground"
+                className="whitespace-nowrap rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer py-2 text-muted-foreground"
               >
                 {item.title}
               </Link>
@@ -214,7 +214,7 @@ export function Header() {
               item.items.map((subitem) => (
                 <Link
                   to={`/collections/${subitem.resource?.handle}`}
-                  className="whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer py-2 text-muted-foreground"
+                  className="whitespace-nowrap rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent cursor-pointer py-2 text-muted-foreground"
                   key={subitem.id}
                 >
                   {subitem.title}
@@ -245,7 +245,7 @@ export function Header() {
               key={link.href}
               to={link.href}
               onClick={() => setIsOpen(false)}
-              className="py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-mint-dark"
+              className="py-2 text-sm text-muted-foreground transition-colors hover:text-mint-dark"
             >
               {link.label}
             </Link>
