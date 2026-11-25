@@ -67,7 +67,7 @@ export function HeroSection() {
         )}
         {/* Gradient overlay: blurred on left, clear on right */}
         <div
-          className="absolute inset-0 hidden md:block"
+          className="absolute inset-0"
           style={{
             background: 'linear-gradient(to right, rgba(255, 255, 255, 0.6) 25%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 100%)'
           }}
