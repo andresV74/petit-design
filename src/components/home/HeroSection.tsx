@@ -49,7 +49,7 @@ export function HeroSection() {
             <img
               key={image.id}
               src={image.imagen.reference.image.url}
-              alt={image.titulo.value || 'Petit Design'}
+              role="presentation"
               decoding={index === currentIndex ? 'sync' : 'async'}
               aria-hidden={index !== currentIndex}
               className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out ${
@@ -60,7 +60,8 @@ export function HeroSection() {
         ) : (
           <img
             src={images[0].imagen.reference.image.url}
-            alt={images[0].titulo.value || 'Petit Design'}
+            role="presentation"
+            aria-hidden="true"
             decoding="sync"
             className="h-full w-full object-cover object-center"
           />
