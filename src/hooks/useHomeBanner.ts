@@ -12,9 +12,6 @@ interface HomeBanner {
       }
     }
   }
-  titulo: {
-    value: string
-  }
 }
 
 export function useHomeBanner(first = 10) {
