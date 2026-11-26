@@ -22,11 +22,9 @@ export function useProductSearch(searchTerm: searchTermType) {
 			setError(null)
 			setLoading(true)
 
-			if (words.join("").length < 2) return
-
 			try {
 				const query = words
-					.map((word) => `${word}*`)
+					.map((word) => `(title:${word}* OR tag:${word}*)`)
 					.join(" ")
 
 				const response = await shopifyClient.request(SEARCH_PRODUCTS, {

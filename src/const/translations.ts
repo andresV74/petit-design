@@ -342,7 +342,7 @@ export const translations: Translations = {
   },
 
   // Search Page
-  'search.title': { es: 'Resultados de búsqueda para', en: 'Search Results for' },
+  'search.title': { es: 'resultados de búsqueda para', en: 'search Results for' },
   'search.noResults': { es: 'No se encontraron resultados para tu búsqueda.', en: 'No results found for your search.' },
   'search.tryAgain': { es: 'Intenta con otra palabra clave o revisa la ortografía.', en: 'Try another keyword or check the spelling.' },
   'search.viewAll': { es: 'Ver todos los productos', en: 'View all products' },
