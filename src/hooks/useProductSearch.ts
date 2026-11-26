@@ -13,8 +13,8 @@ export function useProductSearch(searchTerm: searchTermType) {
   useEffect(() => {
 		let cancelled = false
     const words = searchTerm
-			?.normalize('NFD')
-			.replace(/[\u0300-\u036f]/g, '')
+			?.normalize('NFC')
+			.toLocaleLowerCase('es')
 			.match(/[\p{L}\p{N}]+/gu) ?? []
 
 		async function loadProducts() {
@@ -25,8 +25,7 @@ export function useProductSearch(searchTerm: searchTermType) {
 			try {
 				const query = words
 					.map((word) => `(title:${word}* OR tag:${word}*)`)
-					.join(" ")
-
+					.join(" AND ")
 				const response = await shopifyClient.request(SEARCH_PRODUCTS, {
 					variables: { query, first: 20 },
 				})
